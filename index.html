@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>嚴浩然 YIM HO YIN | 學術專頁</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Roboto', 'Noto Sans TC', '微軟正黑體', sans-serif;
+        line-height: 1.7;
+        color: #333;
+        background-color: #f5f5f7;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    :root {
+        --primary-text: #1d1d1f;
+        --secondary-text: #6e6e73;
+        --accent-color: #007aff;
+        --background-color: #f5f5f7;
+        --card-background: #ffffff;
+        --border-color: #e8e8ed;
+        --shadow-light: 0 1px 3px rgba(0,0,0,0.08);
+        --border-radius-card: 16px;
+    }
+
+    /* ===== 上方選單 ===== */
+    .navbar {
+        background: rgba(255,255,255,0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 18px 40px;
+        border-bottom: 1px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 28px;
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color: var(--primary-text);
+        font-weight: 600;
+        font-size: 0.95em;
+        letter-spacing: 0.02em;
+        transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+        color: var(--accent-color);
+    }
+
+    .navbar a.active {
+        color: var(--accent-color);
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 60px 25px;
+    }
+
+    .main-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    .left-column {
+        flex: 1;
+        min-width: 280px;
+        max-width: 320px;
+    }
+
+    .right-column {
+        flex: 2;
+        min-width: 300px;
+    }
+
+    .content-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .content-col-5 {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .content-col-7 {
+        flex: 1.5;
+        min-width: 250px;
+    }
+
+    #profile {
+        text-align: center;
+        padding: 30px;
+        background: var(--card-background);
+        border-radius: var(--border-radius-card);
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-light);
+        position: sticky;
+        top: 95px;
+        will-change: transform;
+    }
+
+    #profile .avatar {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 20px;
+        border: 4px solid var(--card-background);
+        box-shadow: 0 0 0 4px var(--accent-color);
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+    }
+
+    #profile .avatar.is-loaded {
+        opacity: 1;
+    }
+
+    #profile h2 {
+        font-size: 1.8em;
+        font-weight: 700;
+        color: var(--primary-text);
+        margin: 0;
+    }
+
+    #profile h3 {
+        font-size: 1.0em;
+        font-weight: 300;
+        color: var(--secondary-text);
+        margin: 5px 0 15px;
+        line-height: 1.5;
+    }
+
+    .affiliation {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-top: 5px;
+    }
+
+    .affiliation img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .affiliation span {
+        font-weight: 500;
+    }
+
+    .contact-links {
+        list-style-type: none;
+        padding: 0;
+        margin: 25px 0 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .contact-links a {
+        color: var(--secondary-text);
+        font-size: 1.8em;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .contact-links a:hover {
+        color: var(--accent-color);
+        transform: scale(1.1);
+    }
+
+    .content-card {
+        background: var(--card-background);
+        border-radius: var(--border-radius-card);
+        padding: 40px;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-light);
+        margin-bottom: 30px;
+    }
+
+    .content-card h1 {
+        font-size: 2.5em;
+        font-weight: 700;
+        margin-bottom: 25px;
+        color: var(--primary-text);
+        border-bottom: 3px solid var(--accent-color);
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+
+    .content-card .article-style p {
+        font-size: 1.1em;
+        line-height: 1.8;
+        margin-bottom: 1.2em;
+        font-weight: 300;
+    }
+
+    .content-card .article-style p.english-bio {
+        font-size: 1.0em;
+        color: var(--secondary-text);
+        font-weight: 400;
+    }
+
+    .section-subheading {
+        font-size: 1.4em;
+        font-weight: 600;
+        color: var(--primary-text);
+        margin-bottom: 20px;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 8px;
+    }
+
+    .ul-edu, .ul-interests {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .ul-interests li {
+        margin-bottom: 10px;
+        padding-left: 25px;
+        position: relative;
+        font-size: 1.1em;
+        font-weight: 500;
+        color: var(--primary-text);
+    }
+
+    .ul-interests li::before {
+        content: '✓';
+        color: var(--accent-color);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+    }
+
+    .ul-edu li {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .ul-edu .fa-li {
+        font-size: 1.5em;
+        color: var(--accent-color);
+        margin-right: 15px;
+        line-height: 1.5;
+    }
+
+    .ul-edu .description .course {
+        font-weight: 600;
+        font-size: 1.1em;
+        margin-bottom: 3px;
+    }
+
+    .ul-edu .description .institution {
+        font-size: 1.0em;
+        color: var(--secondary-text);
+    }
+
+    .ul-edu .description .details {
+        font-size: 0.9em;
+        color: #888;
+        font-style: italic;
+    }
+
+    .footer { 
+        text-align: center; 
+        padding: 40px 15px 20px; 
+        font-size: 0.85em;
+        color: var(--secondary-text); 
+        border-top: 1px solid var(--border-color);
+    }
+
+    [data-animation="fade-up"] {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        transition-delay: var(--delay, 0s);
+    }
+
+    [data-animation="fade-up"].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    [data-animation="split"] {
+        display: block;
+        overflow: hidden;
+    }
+
+    [data-animation="split"] .char {
+        display: inline-block;
+        transform: translateY(110%);
+        transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition-delay: var(--delay, 0s);
+    }
+
+    .is-visible [data-animation="split"] .char {
+        transform: translateY(0);
+    }
+
+    @media (max-width: 991px) {
+        .main-row {
+            flex-direction: column;
+        }
+
+        .left-column {
+            max-width: 100%;
+            position: static;
+        }
+
+        #profile {
+            position: static;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .navbar {
+            justify-content: flex-start;
+            padding: 14px 20px;
+            gap: 16px;
+        }
+
+        .navbar a {
+            font-size: 0.9em;
+        }
+
+        .container {
+            padding: 35px 18px;
+        }
+
+        .content-card {
+            padding: 28px;
+        }
+
+        .content-card h1 {
+            font-size: 2em;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<nav class="navbar" data-animation="fade-up">
+    <a href="index.html" class="active">HOME</a>
+    <a href="certificates.html">證照／證書／獎項</a>
+    <a href="translations.html">譯著／哲學普及作品</a>
+    <a href="journal-papers.html">期刊論文</a>
+    <a href="conference-papers.html">研討會論文</a>
+</nav>
+
+<div class="container">
+    <div class="main-row">
+
+        <div class="left-column" data-animation="parallax">
+            <div id="profile" data-animation="fade-up">
+                <img src="https://t1.pixhost.to/thumbs/9729/655600221_15.jpg" alt="嚴浩然個人照片" class="avatar" data-component="lazyload">
+
+                <div class="portrait-title">
+                    <h2 data-animation="split">嚴浩然 YIM HO YIN</h2>
+                    <h3 data-animation="split" data-delay="0.1">博士候選人</h3>
+
+                    <div class="affiliation" data-animation="fade-up" data-delay="0.2">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsFUDokSodxPfoZe3sN2hp0GQvaD2qZ6ujaA&s" alt="國立成功大學校徽">
+                        <span>國立成功大學 中國文學系</span>
+                    </div>
+                </div>
+
+                <ul class="contact-links" data-animation="fade-up" data-delay="0.3">
+                    <li><a href="mailto:K18111026@gs.ncku.edu.tw" aria-label="Email" title="Email">📧</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right-column">
+
+            <div class="content-card">
+                <h1 data-animation="split">個人簡介</h1>
+
+                <div class="article-style">
+                    <p data-animation="fade-up" data-delay="0.1">
+                        嚴浩然，國立成功大學中國文學系博士候選人，研究方向以中國思想、戰國諸子哲學、出土文獻思想研究為主。近年關注先秦儒家思想、《荀子》政治倫理、楚簡天人思想、德目概念與早期中國思想中的語義結構，並兼及魏晉思想、禮學與中國哲學之當代詮釋。
+                    </p>
+
+                    <p data-animation="fade-up" data-delay="0.2">
+                        目前博士論文以先秦楚簡天人思想為中心，嘗試由身心、知察、天人關係等問題切入，考察出土文獻與傳世文獻之間的思想關聯。另有《荀子》德目概念、早期儒家行為倫理、春秋史書義理與戰國政治思想等相關研究。
+                    </p>
+
+                    <p class="english-bio" data-animation="fade-up" data-delay="0.3">
+                        YIM HO YIN is a Ph.D. Candidate in the Department of Chinese Literature at National Cheng Kung University. His research focuses on Early Chinese thought, Xunzi studies, Confucian ethics, excavated manuscripts, and Chinese intellectual history. His current doctoral project examines the relationship between Heaven and human agency in early Chinese manuscripts, with particular attention to the concepts of body, mind, knowledge, and moral cultivation.
+                    </p>
+                </div>
+
+                <div class="content-row">
+
+                    <div class="content-col-5">
+                        <div class="section-subheading" data-animation="split" data-delay="0.1">研究專長</div>
+
+                        <ul class="ul-interests">
+                            <li data-animation="fade-up" data-delay="0.2">先秦儒家思想</li>
+                            <li data-animation="fade-up" data-delay="0.3">荀子研究</li>
+                            <li data-animation="fade-up" data-delay="0.4">出土文獻</li>
+                            <li data-animation="fade-up" data-delay="0.5">楚簡思想</li>
+                            <li data-animation="fade-up" data-delay="0.6">中國政治哲學</li>
+                            <li data-animation="fade-up" data-delay="0.7">魏晉思想</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-col-7">
+                        <div class="section-subheading" data-animation="split" data-delay="0.2">教育背景</div>
+
+                        <ul class="ul-edu">
+                            <li data-animation="fade-up" data-delay="0.3">
+                                <span class="fa-li">🎓</span>
+                                <div class="description">
+                                    <p class="course">博士 | PhD Candidate（2022/09－迄今）</p>
+                                    <p class="institution">國立成功大學 文學院 中國文學系</p>
+                                </div>
+                            </li>
+
+                            <li data-animation="fade-up" data-delay="0.4">
+                                <span class="fa-li">🎓</span>
+                                <div class="description">
+                                    <p class="course">碩士 | MA（2020/09－2022/06）</p>
+                                    <p class="institution">國立成功大學 文學院 中國文學系</p>
+                                    <p class="details">應用哲學學程</p>
+                                </div>
+                            </li>
+
+                            <li data-animation="fade-up" data-delay="0.5">
+                                <span class="fa-li">🎓</span>
+                                <div class="description">
+                                    <p class="course">學士 | BA（2016/09－2020/06）</p>
+                                    <p class="institution">臺北市立大學 人文藝術學院 中國語文學系</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="section-subheading" data-animation="split" data-delay="0.1">教學經歷</div>
+
+                <ul class="ul-edu">
+                    <li data-animation="fade-up" data-delay="0.2" style="display:flex;align-items:center;justify-content:space-between;">
+                        <div style="display:flex;align-items:flex-start;">
+                            <span class="fa-li">👨‍🏫</span>
+                            <div class="description">
+                                <p class="course">兼任講師（2021/02－2023/07）</p>
+                                <p class="institution">樹人醫護管理專科學校 通識教育中心</p>
+                            </div>
+                        </div>
+
+                        <img src="https://upload.wikimedia.org/wikipedia/zh/1/12/%E6%A8%B9%E4%BA%BA%E9%86%AB%E8%AD%B7%E7%AE%A1%E7%90%86%E5%B0%88%E7%A7%91%E5%AD%B8%E6%A0%A1%E6%A0%A1%E5%BE%BD.png"
+                             alt="樹人醫護管理專科學校校徽"
+                             style="width:50px;height:auto;margin-left:20px;border-radius:6px;flex-shrink:0;">
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="footer" data-animation="fade-up" data-delay="0.5">
+    <p style="padding-top: 40px; border-top: 1px solid var(--border-color);">
+        &copy; <span id="year"></span> YIM HO YIN. All Rights Reserved.
+    </p>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function lazyLoadImages() {
+        const images = document.querySelectorAll('img[data-component="lazyload"]');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('is-loaded');
+                    observer.unobserve(img);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        images.forEach(img => {
+            observer.observe(img);
+        });
+    }
+
+    function splitTextAnimations() {
+        const splitTargets = document.querySelectorAll('[data-animation="split"]');
+
+        splitTargets.forEach(target => {
+            let text = target.innerText;
+            target.innerHTML = '';
+
+            let chars = text.split('');
+
+            chars.forEach((char, index) => {
+                const span = document.createElement('span');
+                span.className = 'char';
+                span.innerHTML = (char === ' ') ? '&nbsp;' : char;
+
+                let charDelay = parseFloat(target.dataset.delay || 0);
+                span.style.transitionDelay = `${charDelay + index * 0.03}s`;
+
+                target.appendChild(span);
+            });
+        });
+    }
+
+    function scrollTriggerAnimations() {
+        const animatedElements = document.querySelectorAll('[data-animation="fade-up"], [data-animation="split"]');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const delay = parseFloat(el.dataset.delay || 0);
+
+                    el.style.transitionDelay = `${delay}s`;
+                    el.classList.add('is-visible');
+                    observer.unobserve(el);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+    }
+
+    function parallaxScroll() {
+        const target = document.querySelector('[data-animation="parallax"]');
+        if (!target) return;
+
+        if (window.innerWidth <= 991) return;
+
+        window.addEventListener('scroll', () => {
+            const speed = 0.3;
+            const scrollY = window.pageYOffset;
+            target.style.transform = `translateY(${scrollY * speed}px)`;
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        lazyLoadImages();
+        splitTextAnimations();
+        scrollTriggerAnimations();
+        parallaxScroll();
+    });
+</script>
+
+</body>
+</html>
