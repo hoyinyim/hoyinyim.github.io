@@ -116,7 +116,7 @@ a{
 
 .hero{
     display:grid;
-    grid-template-columns:320px 1fr;
+    grid-template-columns:370px 1fr;
     gap:42px;
     align-items:stretch;
 }
@@ -142,8 +142,8 @@ a{
 }
 
 .avatar{
-    width:185px;
-    height:185px;
+    width:230px;
+    height:230px;
     border-radius:50%;
     object-fit:cover;
     border:5px solid white;
@@ -251,14 +251,14 @@ a{
 
 .intro-card h2{
     font-family:'Noto Serif TC',serif;
-    font-size:2.85rem;
-    line-height:1.25;
+    font-size:2.65rem;
+    line-height:1.28;
     color:var(--blue-dark);
-    margin:0 0 22px;
+    margin:0 0 12px;
 }
 
 .intro-card .subtitle{
-    font-size:1.15rem;
+    font-size:1.1rem;
     color:var(--blue);
     font-weight:500;
     margin-bottom:26px;
@@ -362,17 +362,6 @@ a{
     font-size:.95rem;
 }
 
-.research-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.research-card{
-    padding:26px;
-    transition:.35s;
-}
-
 .current-card{
     padding:32px;
 }
@@ -391,7 +380,7 @@ a{
 }
 
 .current-list li{
-    padding:16px 0;
+    padding:14px 0;
     border-bottom:1px solid var(--border);
 }
 
@@ -410,10 +399,15 @@ a{
     margin-top:3px;
 }
 
-.info-grid{
+.research-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:24px;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.research-card{
+    padding:26px;
+    transition:.35s;
 }
 
 .info-card{
@@ -554,10 +548,6 @@ a{
     .research-grid{
         grid-template-columns:repeat(2,1fr);
     }
-
-    .info-grid{
-        grid-template-columns:1fr;
-    }
 }
 
 @media(max-width:620px){
@@ -566,7 +556,8 @@ a{
     }
 
     .intro-card,
-    .current-card{
+    .current-card,
+    .info-card{
         padding:30px;
     }
 
@@ -615,26 +606,24 @@ a{
     <section class="hero">
 
         <aside class="profile-card" data-animation="fade-up">
-            <img src="images/profile.png.JPG" alt="嚴浩然個人照片" class="avatar" data-component="lazyload">
+            <img src="images/Bprofile.png" alt="嚴浩然個人照片" class="avatar" data-component="lazyload">
 
             <h1 data-animation="split">嚴浩然</h1>
             <div class="roman">YIM HO YIN</div>
 
-            <div class="title">博士候選人｜中國思想專攻</div>
+            <div class="title">中國思想史、荀子哲學與出土文獻研究</div>
             <div class="affiliation">
-                國立成功大學<br>
-                中國文學系
+                History of Chinese Thought · Xunzi Philosophy · Excavated Texts
             </div>
 
             <div class="profile-links">
                 <a href="mailto:K18111026@gs.ncku.edu.tw">Email</a>
-                <a href="journal-papers.html">論文</a>
-                <a href="conference-papers.html">會議</a>
+                <a href="journal-papers.html">期刊論文</a>
             </div>
         </aside>
 
         <section class="intro-card" data-animation="fade-up">
-            <div class="kicker">Academic Website</div>
+            <div class="kicker">Academic Profile</div>
 
             <div class="institution" data-animation="fade-up">
                 <img src="images/ncku-logo.png" alt="國立成功大學校徽">
@@ -642,8 +631,8 @@ a{
             </div>
 
             <h2 data-animation="split">
-                中國思想史<br>
-                荀子哲學與出土文獻研究
+                中國思想史、荀子哲學<br>
+                與出土文獻研究
             </h2>
 
             <div class="subtitle">
@@ -659,29 +648,29 @@ a{
             </p>
 
             <p>
-                近年研究以儒家、道家及戰國諸子思想為主要範圍，關注德目概念、政治倫理、天人思想與出土文獻詮釋等議題。研究材料兼及傳世文獻與出土文獻，前者包括《論語》、《孟子》、《荀子》等經典，後者則涵蓋清華簡《畏天用身》、安大簡〈仲尼曰〉等重要材料，著重探討中國早期思想世界中的政治觀念、倫理秩序與修身理論。
+                近年研究以儒家、道家及戰國諸子思想為主要範圍，關注德目概念、政治倫理、天人思想與出土文獻詮釋等議題。研究材料兼及傳世文獻與出土文獻，前者包括《論語》、《孟子》、《荀子》等經典，後者則涵蓋清華簡《畏天用身》、安大簡〈仲尼曰〉等重要材料。
             </p>
 
             <div class="research-tags">
                 <span>先秦思想</span>
                 <span>荀子哲學</span>
+                <span>老子思想</span>
                 <span>出土文獻思想</span>
-                <span>中國早期倫理思想</span>
-                <span>中國政治思想</span>
+                <span>中國倫理與政治思想</span>
                 <span>古文字材料</span>
             </div>
 
             <div class="intro-actions">
                 <a class="btn primary" href="journal-papers.html">查看期刊論文</a>
                 <a class="btn" href="conference-papers.html">查看研討會論文</a>
-                <a class="btn" href="mailto:K18111026@gs.ncku.edu.tw">聯絡我</a>
+                <a class="btn" href="mailto:K18111026@gs.ncku.edu.tw">聯繫方式</a>
             </div>
         </section>
 
     </section>
 
     <section class="section">
-        <h2 class="section-title" data-animation="fade-up">學術分類</h2>
+        <h2 class="section-title" data-animation="fade-up">學術成果與榮譽</h2>
 
         <div class="quick-grid">
             <a class="quick-card" href="certificates.html" data-animation="fade-up">
@@ -711,26 +700,22 @@ a{
     </section>
 
     <section class="section">
-        <h2 class="section-title" data-animation="fade-up">Current Research</h2>
+        <h2 class="section-title" data-animation="fade-up">目前研究方向</h2>
 
         <div class="current-card" data-animation="fade-up">
-            <h3>目前研究計畫</h3>
+            <h3>Research in Progress</h3>
             <ul class="current-list">
                 <li>
-                    <strong>《中國早期「直」的觀念之思想本源與演變研究》</strong>
-                    <span>博士論文。結合傳世文獻、出土文獻與古文字材料，考察「直」的倫理、政治與修養意涵。</span>
+                    <strong>中國早期「直」的觀念研究</strong>
+                    <span>博士論文主題，聚焦早期中國思想中的倫理判斷、政治秩序與修養實踐。</span>
                 </li>
                 <li>
-                    <strong>清華簡《畏天用身》篇章結構與天人思想研究</strong>
-                    <span>關注身心、知察、天人關係與早期思想文本的論述結構。</span>
+                    <strong>出土文獻與早期思想詮釋</strong>
+                    <span>關注清華簡、安大簡等材料與傳世文獻之思想關聯。</span>
                 </li>
                 <li>
-                    <strong>《荀子》德目概念與政治倫理研究</strong>
-                    <span>考察仁、義、禮、群、恥、勇、直等德目在荀子思想中的語義與實踐功能。</span>
-                </li>
-                <li>
-                    <strong>中國早期倫理思想與政治秩序</strong>
-                    <span>由儒家、道家與戰國諸子材料切入，分析倫理判斷與政治秩序之關係。</span>
+                    <strong>荀子哲學與德目概念研究</strong>
+                    <span>考察荀子思想中的倫理語彙、政治秩序與實踐問題。</span>
                 </li>
             </ul>
         </div>
@@ -751,70 +736,66 @@ a{
             </div>
 
             <div class="research-card" data-animation="fade-up">
+                <h3>老子思想</h3>
+                <p>關注《老子》文本、版本異文、政治思想與道家思想的早期形成。</p>
+            </div>
+
+            <div class="research-card" data-animation="fade-up">
                 <h3>出土文獻思想</h3>
                 <p>處理清華簡、安大簡、郭店與上博簡等材料，考察其與傳世文獻之思想關聯。</p>
             </div>
 
             <div class="research-card" data-animation="fade-up">
-                <h3>中國倫理思想</h3>
-                <p>由德目、修身、行為規範與倫理判斷切入，分析早期中國倫理思想之形成。</p>
-            </div>
-
-            <div class="research-card" data-animation="fade-up">
-                <h3>中國政治思想</h3>
-                <p>由群、禮、義、恥、辱、直等概念切入，分析先秦政治秩序之生成。</p>
+                <h3>中國倫理與政治思想</h3>
+                <p>由德目、修身、行為規範、倫理判斷與政治秩序等問題切入。</p>
             </div>
 
             <div class="research-card" data-animation="fade-up">
                 <h3>魏晉思想</h3>
-                <p>兼論魏晉儒道交涉、禮學與人物品評中的倫理觀念。</p>
+                <p>兼論魏晉儒道交涉、人物品評與士人精神中的倫理觀念。</p>
             </div>
         </div>
     </section>
 
     <section class="section">
-        <h2 class="section-title" data-animation="fade-up">學經歷</h2>
+        <h2 class="section-title" data-animation="fade-up">學歷</h2>
 
-        <div class="info-grid">
-            <div class="info-card" data-animation="fade-up">
-                <h3>教育背景</h3>
+        <div class="info-card" data-animation="fade-up">
+            <h3>教育背景</h3>
 
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="year">2022－迄今</div>
-                        <h4>博士候選人｜PhD Candidate</h4>
-                        <p>國立成功大學 文學院 中國文學系｜中國思想專攻</p>
-                    </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="year">2022－迄今</div>
+                    <h4>博士候選人｜PhD Candidate</h4>
+                    <p>國立成功大學 文學院 中國文學系｜中國思想專攻</p>
+                </div>
 
-                    <div class="timeline-item">
-                        <div class="year">2020－2022</div>
-                        <h4>碩士｜MA</h4>
-                        <p>國立成功大學 文學院 中國文學系</p>
-                    </div>
+                <div class="timeline-item">
+                    <div class="year">2020－2022</div>
+                    <h4>碩士｜MA</h4>
+                    <p>國立成功大學 文學院 中國文學系</p>
+                </div>
 
-                    <div class="timeline-item">
-                        <div class="year">2016－2020</div>
-                        <h4>學士｜BA</h4>
-                        <p>臺北市立大學 人文藝術學院 中國語文學系</p>
-                    </div>
+                <div class="timeline-item">
+                    <div class="year">2016－2020</div>
+                    <h4>學士｜BA</h4>
+                    <p>臺北市立大學 人文藝術學院 中國語文學系</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="info-card" data-animation="fade-up">
-                <h3>教學與學術經驗</h3>
+    <section class="section">
+        <h2 class="section-title" data-animation="fade-up">教學與學術經驗</h2>
 
-                <ul class="list-clean">
-                    <li>
-                        兼任講師，樹人醫護管理專科學校通識教育中心（2021/02－2023/07）。
-                    </li>
-                    <li>
-                        參與國際漢學、英語學術發表、EMI 與跨文化研究相關工作。
-                    </li>
-                    <li>
-                        長期從事中英翻譯、學術寫作、哲學普及與研究資料整理。
-                    </li>
-                </ul>
-            </div>
+        <div class="info-card" data-animation="fade-up">
+            <h3>Teaching and Academic Experience</h3>
+
+            <ul class="list-clean">
+                <li>兼任講師，樹人醫護管理專科學校通識教育中心（2021/02－2023/07）。</li>
+                <li>參與國際漢學、英語學術發表、EMI 與跨文化研究相關工作。</li>
+                <li>長期從事中英翻譯、學術寫作、哲學普及與研究資料整理。</li>
+            </ul>
         </div>
     </section>
 
@@ -840,7 +821,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 function lazyLoadImages(){
     const images = document.querySelectorAll('img[data-component="lazyload"]');
-
     const observer = new IntersectionObserver((entries, observer)=>{
         entries.forEach(entry=>{
             if(entry.isIntersecting){
@@ -849,17 +829,14 @@ function lazyLoadImages(){
             }
         });
     },{threshold:0.1});
-
     images.forEach(img=>observer.observe(img));
 }
 
 function splitTextAnimations(){
     const splitTargets = document.querySelectorAll('[data-animation="split"]');
-
     splitTargets.forEach(target=>{
         let text = target.innerText;
         target.innerHTML = '';
-
         text.split('').forEach((char,index)=>{
             const span = document.createElement('span');
             span.className = 'char';
@@ -872,7 +849,6 @@ function splitTextAnimations(){
 
 function scrollTriggerAnimations(){
     const animatedElements = document.querySelectorAll('[data-animation="fade-up"], [data-animation="split"]');
-
     const observer = new IntersectionObserver((entries)=>{
         entries.forEach(entry=>{
             if(entry.isIntersecting){
@@ -884,7 +860,6 @@ function scrollTriggerAnimations(){
         threshold:0.12,
         rootMargin:'0px 0px -40px 0px'
     });
-
     animatedElements.forEach(el=>observer.observe(el));
 }
 
