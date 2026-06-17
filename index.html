@@ -590,11 +590,31 @@ a{
 <body>
 
 <header class="site-header">
-    <div class="header-inner">
-        <a class="brand" href="index.html">
-            <span class="zh">嚴浩然</span>
-            <span class="en">YIM HO YIN</span>
-        </a>
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+        <span class="zh">嚴浩然</span>
+        <span class="en">YIM HO YIN</span>
+        <span class="brand-degree">國立成功大學中國文學系博士候選人</span>
+        <span class="brand-degree-en">Ph.D. Candidate in Chinese Thought, Department of Chinese Literature, National Cheng Kung University</span>
+        .brand-degree{
+    margin-top:7px;
+    font-size:.82rem;
+    color:var(--blue-dark);
+    font-weight:600;
+    letter-spacing:.02em;
+}
+
+.brand-degree-en{
+    margin-top:2px;
+    font-size:.72rem;
+    color:var(--muted);
+    letter-spacing:.02em;
+    max-width:520px;
+    line-height:1.45;
+}
+        
+    </a>
+        
 
         <nav class="nav">
             <a href="index.html" class="active">HOME</a>
@@ -631,13 +651,6 @@ a{
                 <span>National Cheng Kung University｜Department of Chinese Literature</span>
             </div>
 
-            <h2 data-animation="split">
-                國立成功大學中國文學系博士候選人
-            </h2>
-
-            <div class="subtitle">
-               Ph.D. Candidate in Chinese Thought, Department of Chinese Literature, National Cheng Kung University
-            </div>
 
             <p>
                 嚴浩然，國立成功大學中國文學系博士候選人，中國思想專攻。研究領域為先秦思想、荀子哲學、出土文獻思想與中國早期倫理思想。
