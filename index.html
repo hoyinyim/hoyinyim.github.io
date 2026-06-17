@@ -226,7 +226,27 @@ a{
     letter-spacing:.12em;
     text-transform:uppercase;
     font-size:.86rem;
-    margin-bottom:18px;
+    margin-bottom:14px;
+}
+
+.institution{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:26px;
+}
+
+.institution img{
+    width:46px;
+    height:auto;
+    display:block;
+}
+
+.institution span{
+    color:var(--muted);
+    font-size:.95rem;
+    letter-spacing:.04em;
+    font-weight:500;
 }
 
 .intro-card h2{
@@ -554,6 +574,10 @@ a{
         font-size:2.05rem;
     }
 
+    .institution img{
+        width:40px;
+    }
+
     .quick-grid,
     .research-grid{
         grid-template-columns:1fr;
@@ -611,6 +635,11 @@ a{
 
         <section class="intro-card" data-animation="fade-up">
             <div class="kicker">Academic Website</div>
+
+            <div class="institution" data-animation="fade-up">
+                <img src="images/ncku-logo.png" alt="國立成功大學校徽">
+                <span>National Cheng Kung University｜Department of Chinese Literature</span>
+            </div>
 
             <h2 data-animation="split">
                 中國思想史<br>
