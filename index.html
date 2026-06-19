@@ -12,7 +12,7 @@
 <style>
 :root{
     --ink:#1d1d1f;
-    --muted:#6e6e73;
+    --muted:#5f5f66;
     --blue:#1f3a5f;
     --blue-dark:#13263f;
     --gold:#b08a3c;
@@ -21,7 +21,6 @@
     --border:#e4e0d8;
     --shadow:0 8px 28px rgba(0,0,0,0.08);
     --radius:18px;
-
     --font-zh-serif:'Source Han Serif TC','Noto Serif TC','思源宋體 TC','Noto Serif CJK TC','PMingLiU',serif;
     --font-zh-sans:'Noto Sans TC','微軟正黑體',sans-serif;
     --font-en:'Cormorant Garamond','Times New Roman',serif;
@@ -37,16 +36,12 @@ body{
         radial-gradient(circle at 88% 18%, rgba(31,58,95,.08), transparent 25%),
         var(--bg);
     color:var(--ink);
-    line-height:1.75;
+    line-height:1.85;
     overflow-x:hidden;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
-}
+a{color:inherit;text-decoration:none;}
 
-/* Page Transition */
 .page-transition{
     position:fixed;
     inset:0;
@@ -56,11 +51,8 @@ a{
     transition:transform .85s cubic-bezier(.76,0,.24,1);
 }
 
-.page-transition.is-hidden{
-    transform:translateY(-100%);
-}
+.page-transition.is-hidden{transform:translateY(-100%);}
 
-/* Progress Bar */
 .progressbar{
     position:fixed;
     top:0;
@@ -75,10 +67,8 @@ a{
     width:0%;
     height:100%;
     background:var(--gold);
-    box-shadow:0 0 8px rgba(176,138,60,.55);
 }
 
-/* Header */
 .site-header{
     position:sticky;
     top:0;
@@ -113,7 +103,7 @@ a{
 }
 
 .brand .en{
-   font-family:var(--font-en);
+    font-family:var(--font-en);
     font-size:1.05rem;
     font-weight:600;
     color:#3f3f46;
@@ -125,8 +115,7 @@ a{
     display:flex;
     flex-wrap:wrap;
     gap:22px;
-    font-family:var(--font-zh-sans);
-    font-size:.92rem;
+    font-size:.94rem;
     font-weight:700;
 }
 
@@ -147,9 +136,7 @@ a{
 }
 
 .nav a:hover::after,
-.nav a.active::after{
-    width:100%;
-}
+.nav a.active::after{width:100%;}
 
 .container{
     max-width:1160px;
@@ -184,7 +171,6 @@ a{
     align-self:start;
 }
 
-/* Image Reveal */
 .image-reveal{
     position:relative;
     overflow:hidden;
@@ -211,46 +197,41 @@ a{
     transition:transform 1s cubic-bezier(.76,0,.24,1);
 }
 
-.image-reveal.is-visible img{
-    transform:scale(1);
-}
-
-.image-reveal.is-visible::after{
-    transform:translateX(100%);
-}
+.image-reveal.is-visible img{transform:scale(1);}
+.image-reveal.is-visible::after{transform:translateX(100%);}
 
 .profile-card h1{
     font-family:var(--font-zh-serif);
     color:var(--blue-dark);
-    font-size:2.2rem;
+    font-size:2.25rem;
     margin:4px 0 2px;
     letter-spacing:.08em;
 }
 
 .profile-card .roman{
     font-family:var(--font-en);
-    color:var(--muted);
+    color:#4a4a50;
     letter-spacing:.1em;
-    font-size:1.05rem;
+    font-size:1.15rem;
+    font-weight:600;
     margin-bottom:14px;
 }
 
 .degree{
     margin-top:14px;
     color:var(--blue-dark);
-    font-size:.95rem;
+    font-size:1.02rem;
     font-weight:600;
-    line-height:1.7;
+    line-height:1.8;
 }
 
 .degree-en{
     margin-top:6px;
     margin-bottom:20px;
-    color:var(--muted);
+    color:#444;
     font-family:var(--font-en);
     font-size:1.15rem;
     font-weight:500;
-    color:#444;
     line-height:1.55;
 }
 
@@ -274,41 +255,62 @@ a{
 .kicker{
     color:var(--gold);
     font-family:var(--font-en);
-    font-weight:700;
-    letter-spacing:.16em;
+    font-size:1.2rem;
+    font-weight:600;
+    letter-spacing:.22em;
     text-transform:uppercase;
-    font-size:1.15rem;
-    font-weight:700;
-    letter-spacing:.18em;
-    margin-bottom:14px;
+    margin-bottom:0;
+}
+
+.kicker-zh{
+    margin-top:4px;
+    margin-bottom:28px;
+    font-family:var(--font-zh-serif);
+    font-size:1rem;
+    color:#6f6f76;
+    letter-spacing:.12em;
 }
 
 .institution{
     display:flex;
     align-items:center;
-    gap:14px;
-    margin-bottom:26px;
+    gap:18px;
+    margin-bottom:34px;
 }
 
 .institution img{
-    width:82px;
+    width:86px;
     height:auto;
     display:block;
 }
 
-.institution span{
-    color:var(--muted);
+.institution-text{
+    display:flex;
+    flex-direction:column;
+}
+
+.institution-en{
     font-family:var(--font-en);
-    font-size:1.15rem;
+    font-size:1.35rem;
     font-weight:500;
     color:#444;
+    line-height:1.25;
+}
+
+.institution-zh{
+    margin-top:6px;
+    font-family:var(--font-zh-serif);
+    font-size:1.05rem;
+    color:#6a6a70;
+    letter-spacing:.08em;
 }
 
 .intro-card p{
     font-family:var(--font-zh-sans);
-   font-size:1.12rem;
-    line-height:2;
-    margin:0 0 1.1em;
+    font-size:1.15rem;
+    line-height:2.05;
+    margin:0 0 1.15em;
+    max-width:42em;
 }
 
 .research-tags{
@@ -320,12 +322,12 @@ a{
 
 .research-tags span{
     display:inline-block;
-    padding:7px 12px;
+    padding:8px 13px;
     border-radius:999px;
     background:#f1eee7;
     color:var(--blue-dark);
     border:1px solid var(--border);
-    font-size:.9rem;
+    font-size:.98rem;
     font-weight:500;
     transition:.3s;
 }
@@ -360,23 +362,15 @@ a{
     color:white;
 }
 
-.btn:hover{
-    box-shadow:var(--shadow);
-}
+.btn:hover{box-shadow:var(--shadow);}
+.btn span{display:block;transition:transform .35s cubic-bezier(.22,1,.36,1);}
 
-.btn span{
-    display:block;
-    transition:transform .35s cubic-bezier(.22,1,.36,1);
-}
-
-.section{
-    margin-top:42px;
-}
+.section{margin-top:42px;}
 
 .section-title{
     font-family:var(--font-zh-serif);
     color:var(--blue-dark);
-    font-size:2.05rem;
+    font-size:2.15rem;
     margin:0 0 20px;
     letter-spacing:.04em;
 }
@@ -395,14 +389,12 @@ a{
 }
 
 .quick-card:hover,
-.research-card:hover{
-    box-shadow:var(--shadow);
-}
+.research-card:hover{box-shadow:var(--shadow);}
 
 .quick-card .num{
     font-family:var(--font-en);
     color:var(--gold);
-    font-size:2rem;
+    font-size:2.35rem;
     font-weight:700;
 }
 
@@ -412,6 +404,7 @@ a{
     margin:8px 0 8px;
     color:var(--blue-dark);
     letter-spacing:.03em;
+    font-size:1.25rem;
 }
 
 .quick-card p,
@@ -422,16 +415,7 @@ a{
     line-height:1.9;
 }
 
-.current-card{
-    padding:32px;
-}
-
-.current-card h3{
-    margin:0 0 14px;
-    color:var(--blue-dark);
-    font-family:var(--font-en);
-    font-size:1.7rem;
-}
+.current-card{padding:32px;}
 
 .current-list{
     list-style:none;
@@ -440,24 +424,24 @@ a{
 }
 
 .current-list li{
-    padding:14px 0;
+    padding:16px 0;
     border-bottom:1px solid var(--border);
 }
 
-.current-list li:last-child{
-    border-bottom:none;
-}
+.current-list li:last-child{border-bottom:none;}
 
 .current-list strong{
     color:var(--blue-dark);
     font-family:var(--font-zh-serif);
+    font-size:1.12rem;
     letter-spacing:.02em;
 }
 
 .current-list span{
     display:block;
     color:var(--muted);
-    font-size:.95rem;
+    font-size:1.03rem;
+    line-height:1.9;
     margin-top:3px;
 }
 
@@ -472,14 +456,12 @@ a{
     transition:.35s;
 }
 
-.info-card{
-    padding:32px;
-}
+.info-card{padding:32px;}
 
 .info-card h3{
     font-family:var(--font-zh-serif);
     color:var(--blue-dark);
-    font-size:1.45rem;
+    font-size:1.55rem;
     margin:0 0 18px;
     border-bottom:2px solid var(--border);
     padding-bottom:10px;
@@ -492,14 +474,14 @@ a{
 
 .timeline-item{
     position:relative;
-    margin-bottom:24px;
+    margin-bottom:26px;
 }
 
 .timeline-item::before{
     content:"";
     position:absolute;
     left:-31px;
-    top:7px;
+    top:9px;
     width:14px;
     height:14px;
     border-radius:50%;
@@ -510,18 +492,21 @@ a{
     font-family:var(--font-en);
     font-weight:700;
     color:var(--gold);
-    font-size:1.1rem;
+    font-size:1.42rem;
+    line-height:1.2;
 }
 
 .timeline-item h4{
     font-family:var(--font-zh-serif);
-    margin:3px 0;
+    margin:5px 0;
     color:var(--blue-dark);
+    font-size:1.15rem;
 }
 
 .timeline-item p{
     margin:0;
     color:var(--muted);
+    font-size:1.05rem;
 }
 
 .list-clean{
@@ -534,6 +519,8 @@ a{
     margin-bottom:14px;
     padding-left:22px;
     position:relative;
+    font-size:1.05rem;
+    line-height:1.9;
 }
 
 .list-clean li::before{
@@ -558,7 +545,7 @@ a{
     justify-content:space-between;
     gap:26px;
     flex-wrap:wrap;
-    font-size:.95rem;
+    font-size:1rem;
 }
 
 .footer a{
@@ -566,7 +553,6 @@ a{
     border-bottom:1px dotted rgba(255,255,255,.7);
 }
 
-/* Scroll Reveal */
 [data-animation="fade-up"],
 [data-reveal]{
     opacity:0;
@@ -596,62 +582,25 @@ a{
     transition:transform .8s cubic-bezier(.25,.46,.45,.94);
 }
 
-.is-visible[data-animation="split"] .char{
-    transform:translateY(0);
-}
+.is-visible[data-animation="split"] .char{transform:translateY(0);}
 
 @media(max-width:980px){
-    .header-inner{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .hero{
-        grid-template-columns:1fr;
-    }
-
-    .profile-card{
-        position:static;
-    }
-
-    .quick-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .research-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+    .header-inner{flex-direction:column;align-items:flex-start;}
+    .hero{grid-template-columns:1fr;}
+    .profile-card{position:static;}
+    .quick-grid{grid-template-columns:repeat(2,1fr);}
+    .research-grid{grid-template-columns:repeat(2,1fr);}
 }
 
 @media(max-width:620px){
-    .container{
-        padding:34px 18px;
-    }
-
-    .intro-card,
-    .current-card,
-    .info-card{
-        padding:30px;
-    }
-
-    .institution img{
-        width:70px;
-    }
-
-    .quick-grid,
-    .research-grid{
-        grid-template-columns:1fr;
-    }
-
-    .nav{
-        gap:14px;
-        font-size:.86rem;
-    }
-
-    .image-reveal{
-        width:100%;
-        max-width:260px;
-    }
+    .container{padding:34px 18px;}
+    .intro-card,.current-card,.info-card{padding:30px;}
+    .institution{align-items:flex-start;}
+    .institution img{width:72px;}
+    .institution-en{font-size:1.15rem;}
+    .quick-grid,.research-grid{grid-template-columns:1fr;}
+    .nav{gap:14px;font-size:.86rem;}
+    .image-reveal{width:100%;max-width:260px;}
 }
 </style>
 </head>
@@ -680,198 +629,192 @@ a{
 
 <main class="container">
 
-    <section class="hero">
+<section class="hero">
 
-        <aside class="profile-card" data-reveal>
-            <div class="image-reveal" data-reveal-image>
-                <img src="images/profile.png.JPG" alt="嚴浩然個人照片">
-            </div>
+<aside class="profile-card" data-reveal>
+    <div class="image-reveal" data-reveal-image>
+        <img src="images/profile.png.JPG" alt="嚴浩然個人照片">
+    </div>
 
-            <h1 data-animation="split">嚴浩然</h1>
-            <div class="roman">YIM HO YIN</div>
+    <h1 data-animation="split">嚴浩然</h1>
+    <div class="roman">YIM HO YIN</div>
 
-            <div class="degree">
-                國立成功大學中國文學系博士候選人
-            </div>
+    <div class="degree">國立成功大學中國文學系博士候選人</div>
 
-            <div class="degree-en">
-                Ph.D. Candidate in Chinese Thought,<br>
-                Department of Chinese Literature,<br>
-                National Cheng Kung University
-            </div>
-        </aside>
+    <div class="degree-en">
+        Ph.D. Candidate in Chinese Thought,<br>
+        Department of Chinese Literature,<br>
+        National Cheng Kung University
+    </div>
+</aside>
 
-        <section class="intro-card" data-reveal>
-            <div class="kicker">Academic Profile</div>
+<section class="intro-card" data-reveal>
+    <div class="kicker">Academic Profile</div>
+    <div class="kicker-zh">個人學術檔案</div>
 
-            <div class="institution" data-reveal>
-                <img src="images/Bprofile.png" alt="國立成功大學校徽">
-                <span>National Cheng Kung University｜Department of Chinese Literature</span>
-            </div>
-
-            <p>
-                嚴浩然，國立成功大學中國文學系博士候選人，中國思想專攻。研究領域為先秦思想、荀子哲學、出土文獻思想與中國早期倫理與政治思想。
-            </p>
-
-            <p>
-                博士論文題目為《中國早期「直」的觀念之思想本源與演變研究》，結合傳世文獻、出土文獻與古文字材料，考察「直」在中國早期思想中的形成脈絡及其於倫理判斷、政治秩序與修養實踐中的多重意涵。
-            </p>
-
-            <p>
-                近年研究以儒家、道家及戰國諸子思想為主要範圍，關注德目概念、政治倫理、天人思想與出土文獻詮釋等議題。研究材料兼及傳世文獻與出土文獻，前者包括《論語》、《孟子》、《荀子》等經典，後者則涵蓋清華簡〈畏天用身〉、安大簡〈仲尼曰〉等重要材料。
-            </p>
-
-            <div class="research-tags">
-                <span>先秦思想</span>
-                <span>荀子哲學</span>
-                <span>老子思想</span>
-                <span>出土文獻思想</span>
-                <span>中國倫理與政治思想</span>
-            </div>
-
-            <div class="intro-actions">
-                <a class="btn primary" href="journal-papers.html" data-magnetic><span>查看期刊論文</span></a>
-                <a class="btn" href="conference-papers.html" data-magnetic><span>查看研討會論文</span></a>
-                <a class="btn" href="mailto:K18111026@gs.ncku.edu.tw" data-magnetic><span>聯繫方式</span></a>
-            </div>
-        </section>
-
-    </section>
-
-    <section class="section">
-        <h2 class="section-title" data-reveal>學術成果與榮譽</h2>
-
-        <div class="quick-grid">
-            <a class="quick-card" href="certificates.html" data-tilt data-reveal>
-                <div class="num">01</div>
-                <h3>證照／證書／獎項</h3>
-                <p>收錄學術獎項、證書、補助、培訓與相關證明。</p>
-            </a>
-
-            <a class="quick-card" href="translations.html" data-tilt data-reveal>
-                <div class="num">02</div>
-                <h3>譯著／哲學普及作品</h3>
-                <p>收錄翻譯、哲學普及文章、公共寫作與相關作品。</p>
-            </a>
-
-            <a class="quick-card" href="journal-papers.html" data-tilt data-reveal>
-                <div class="num">03</div>
-                <h3>期刊論文</h3>
-                <p>收錄已刊、審查中與修訂中的期刊論文。</p>
-            </a>
-
-            <a class="quick-card" href="conference-papers.html" data-tilt data-reveal>
-                <div class="num">04</div>
-                <h3>研討會論文</h3>
-                <p>收錄國內外學術會議發表、摘要與相關簡報。</p>
-            </a>
+    <div class="institution" data-reveal>
+        <img src="images/Bprofile.png" alt="國立成功大學校徽">
+        <div class="institution-text">
+            <div class="institution-en">National Cheng Kung University｜Department of Chinese Literature</div>
+            <div class="institution-zh">國立成功大學中國文學系</div>
         </div>
-    </section>
+    </div>
 
-    <section class="section">
-        <h2 class="section-title" data-reveal>目前研究方向</h2> 
-        <div class="current-card" data-reveal>
-           
-            <ul class="current-list">
-                <li>
-                    <strong>中國早期「直」的觀念研究</strong>
-                    <span>博士論文主題，聚焦早期中國思想中的倫理判斷、政治秩序與修養實踐。</span>
-                </li>
-                <li>
-                    <strong>出土文獻與早期思想詮釋</strong>
-                    <span>關注清華簡、安大簡等材料與傳世文獻之思想關聯。</span>
-                </li>
-                <li>
-                    <strong>荀子哲學與德目概念研究</strong>
-                    <span>考察荀子思想中的倫理語彙、政治秩序與實踐問題。</span>
-                </li>
-            </ul>
+    <p>嚴浩然，國立成功大學中國文學系博士候選人，中國思想專攻。研究領域為先秦思想、荀子哲學、出土文獻思想與中國早期倫理與政治思想。</p>
+
+    <p>博士論文題目為《中國早期「直」的觀念之思想本源與演變研究》，結合傳世文獻、出土文獻與古文字材料，考察「直」在中國早期思想中的形成脈絡及其於倫理判斷、政治秩序與修養實踐中的多重意涵。</p>
+
+    <p>近年研究以儒家、道家及戰國諸子思想為主要範圍，關注德目概念、政治倫理、天人思想與出土文獻詮釋等議題。研究材料兼及傳世文獻與出土文獻，前者包括《論語》、《孟子》、《荀子》等經典，後者則涵蓋清華簡〈畏天用身〉、安大簡〈仲尼曰〉等重要材料。</p>
+
+    <div class="research-tags">
+        <span>先秦思想</span>
+        <span>荀子哲學</span>
+        <span>老子思想</span>
+        <span>出土文獻思想</span>
+        <span>中國倫理與政治思想</span>
+    </div>
+
+    <div class="intro-actions">
+        <a class="btn primary" href="journal-papers.html" data-magnetic><span>查看期刊論文</span></a>
+        <a class="btn" href="conference-papers.html" data-magnetic><span>查看研討會論文</span></a>
+        <a class="btn" href="mailto:K18111026@gs.ncku.edu.tw" data-magnetic><span>聯繫方式</span></a>
+    </div>
+</section>
+
+</section>
+
+<section class="section">
+    <h2 class="section-title" data-reveal>學術成果與榮譽</h2>
+
+    <div class="quick-grid">
+        <a class="quick-card" href="certificates.html" data-tilt data-reveal>
+            <div class="num">01</div>
+            <h3>證照／證書／獎項</h3>
+            <p>收錄學術獎項、證書、補助、培訓與相關證明。</p>
+        </a>
+
+        <a class="quick-card" href="translations.html" data-tilt data-reveal>
+            <div class="num">02</div>
+            <h3>譯著／哲學普及作品</h3>
+            <p>收錄翻譯、哲學普及文章、公共寫作與相關作品。</p>
+        </a>
+
+        <a class="quick-card" href="journal-papers.html" data-tilt data-reveal>
+            <div class="num">03</div>
+            <h3>期刊論文</h3>
+            <p>收錄已刊、審查中與修訂中的期刊論文。</p>
+        </a>
+
+        <a class="quick-card" href="conference-papers.html" data-tilt data-reveal>
+            <div class="num">04</div>
+            <h3>研討會論文</h3>
+            <p>收錄國內外學術會議發表、摘要與相關簡報。</p>
+        </a>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title" data-reveal>目前研究方向</h2>
+
+    <div class="current-card" data-reveal>
+        <ul class="current-list">
+            <li>
+                <strong>中國早期「直」的觀念研究</strong>
+                <span>博士論文主題，聚焦早期中國思想中的倫理判斷、政治秩序與修養實踐。</span>
+            </li>
+            <li>
+                <strong>出土文獻與早期思想詮釋</strong>
+                <span>關注清華簡、安大簡等材料與傳世文獻之思想關聯。</span>
+            </li>
+            <li>
+                <strong>荀子哲學與德目概念研究</strong>
+                <span>考察荀子思想中的倫理語彙、政治秩序與實踐問題。</span>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title" data-reveal>研究專長</h2>
+
+    <div class="research-grid">
+        <div class="research-card" data-reveal>
+            <h3>先秦思想</h3>
+            <p>以儒家、道家與戰國諸子為主要範圍，考察中國早期思想的概念生成與論述脈絡。</p>
         </div>
-    </section>
 
-    <section class="section">
-        <h2 class="section-title" data-reveal>研究專長</h2>
-
-        <div class="research-grid">
-            <div class="research-card" data-reveal>
-                <h3>先秦思想</h3>
-                <p>以儒家、道家與戰國諸子為主要範圍，考察中國早期思想的概念生成與論述脈絡。</p>
-            </div>
-
-            <div class="research-card" data-reveal>
-                <h3>荀子哲學</h3>
-                <p>關注德目概念、政治倫理、禮法關係、風俗教化與群體秩序。</p>
-            </div>
-
-            <div class="research-card" data-reveal>
-                <h3>老子思想</h3>
-                <p>關注《老子》文本、版本異文、政治思想與道家思想的早期形成。</p>
-            </div>
-
-            <div class="research-card" data-reveal>
-                <h3>出土文獻思想</h3>
-                <p>處理清華簡、安大簡、郭店與上博簡等材料，考察其與傳世文獻之思想關聯。</p>
-            </div>
-
-            <div class="research-card" data-reveal>
-                <h3>中國倫理與政治思想</h3>
-                <p>由德目、修身、行為規範、倫理判斷與政治秩序等問題切入。</p>
-            </div>
-
-            <div class="research-card" data-reveal>
-                <h3>魏晉思想</h3>
-                <p>兼論魏晉儒道交涉、人物品評與士人精神中的倫理觀念。</p>
-            </div>
+        <div class="research-card" data-reveal>
+            <h3>荀子哲學</h3>
+            <p>關注德目概念、政治倫理、禮法關係、風俗教化與群體秩序。</p>
         </div>
-    </section>
 
-    <section class="section">
-        <h2 class="section-title" data-reveal>學歷</h2>
+        <div class="research-card" data-reveal>
+            <h3>老子思想</h3>
+            <p>關注《老子》文本、版本異文、政治思想與道家思想的早期形成。</p>
+        </div>
 
-        <div class="info-card" data-reveal>
-            <h3>教育背景</h3>
+        <div class="research-card" data-reveal>
+            <h3>出土文獻思想</h3>
+            <p>處理清華簡、安大簡、郭店與上博簡等材料，考察其與傳世文獻之思想關聯。</p>
+        </div>
 
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="year">2022－迄今</div>
-                    <h4>博士候選人｜PhD Candidate</h4>
-                    <p>國立成功大學 文學院 中國文學系｜中國思想專攻</p>
-                </div>
+        <div class="research-card" data-reveal>
+            <h3>中國倫理與政治思想</h3>
+            <p>由德目、修身、行為規範、倫理判斷與政治秩序等問題切入。</p>
+        </div>
 
-                <div class="timeline-item">
-                    <div class="year">2020－2022</div>
-                    <h4>文學碩士｜M.A.</h4>
-                    <p>國立成功大學 文學院 中國文學系</p>
-                </div>
+        <div class="research-card" data-reveal>
+            <h3>魏晉思想</h3>
+            <p>兼論魏晉儒道交涉、人物品評與士人精神中的倫理觀念。</p>
+        </div>
+    </div>
+</section>
 
-                <div class="timeline-item">
-                    <div class="year">2020/09－2022/06</div>
-                    <h4>應用哲學學程｜Interdisciplinary Program in Applied Philosophy</h4>
-                    <p>國立成功大學跨領域學分學程</p>
-                </div>
+<section class="section">
+    <h2 class="section-title" data-reveal>學歷</h2>
 
-                <div class="timeline-item">
-                    <div class="year">2016－2020</div>
-                    <h4>文學學士｜B.A.</h4>
-                    <p>臺北市立大學 人文藝術學院 中國語文學系</p>
-                </div>
+    <div class="info-card" data-reveal>
+        <h3>教育背景</h3>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="year">2022－迄今</div>
+                <h4>博士候選人｜PhD Candidate</h4>
+                <p>國立成功大學 文學院 中國文學系｜中國思想專攻</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="year">2020－2022</div>
+                <h4>文學碩士｜M.A.</h4>
+                <p>國立成功大學 文學院 中國文學系</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="year">2020/09－2022/06</div>
+                <h4>應用哲學學程｜Interdisciplinary Program in Applied Philosophy</h4>
+                <p>國立成功大學跨領域學分學程</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="year">2016－2020</div>
+                <h4>文學學士｜B.A.</h4>
+                <p>臺北市立大學 人文藝術學院 中國語文學系</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section">
-        <h2 class="section-title" data-reveal>教學與學術經驗</h2>
+<section class="section">
+    <h2 class="section-title" data-reveal>教學與學術經驗</h2>
 
-        <div class="info-card" data-reveal>
-            <h3>Teaching and Academic Experience</h3>
-
-            <ul class="list-clean">
-                <li>兼任講師，樹人醫護管理專科學校通識教育中心（2021/02－2023/07）。</li>
-                <li>參與國際漢學、英語學術發表、EMI 與跨文化研究相關工作。</li>
-                <li>長期從事中英翻譯、學術寫作、哲學普及與研究資料整理。</li>
-            </ul>
-        </div>
-    </section>
+    <div class="info-card" data-reveal>
+        <ul class="list-clean">
+            <li>兼任講師，樹人醫護管理專科學校通識教育中心（2021/02－2023/07）。</li>
+            <li>參與國際漢學、英語學術發表、EMI 與跨文化研究相關工作。</li>
+            <li>長期從事中英翻譯、學術寫作、哲學普及與研究資料整理。</li>
+        </ul>
+    </div>
+</section>
 
 </main>
 
@@ -921,7 +864,7 @@ function splitTextAnimations(){
 }
 
 function scrollReveal(){
-    const elements = document.querySelectorAll('[data-reveal], [data-animation="fade-up"], [data-animation="split"], [data-reveal-image]');
+    const elements = document.querySelectorAll('[data-reveal], [data-animation="split"], [data-reveal-image]');
     const observer = new IntersectionObserver(entries=>{
         entries.forEach(entry=>{
             if(entry.isIntersecting){
@@ -945,16 +888,13 @@ function initTilt(){
     items.forEach(item=>{
         item.addEventListener("pointermove",event=>{
             if(window.innerWidth < 900) return;
-
             const rect = item.getBoundingClientRect();
             const x = event.clientX - rect.left;
             const y = event.clientY - rect.top;
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-
             const rotateX = ((y - centerY) / centerY) * -3;
             const rotateY = ((x - centerX) / centerX) * 3;
-
             item.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
         });
 
@@ -968,14 +908,11 @@ function initMagnetic(){
     const items = document.querySelectorAll("[data-magnetic]");
     items.forEach(item=>{
         const inner = item.querySelector("span");
-
         item.addEventListener("pointermove",event=>{
             if(window.innerWidth < 900) return;
-
             const rect = item.getBoundingClientRect();
             const x = event.clientX - rect.left - rect.width / 2;
             const y = event.clientY - rect.top - rect.height / 2;
-
             item.style.transform = `translate(${x * .12}px, ${y * .12}px)`;
             inner.style.transform = `translate(${x * .08}px, ${y * .08}px)`;
         });
