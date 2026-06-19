@@ -1,1 +1,879 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>嚴浩然 YIM HO YIN｜期刊論文</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --ink:#1d1d1f;
+    --muted:#6e6e73;
+    --blue:#1f3a5f;
+    --blue-dark:#13263f;
+    --gold:#b08a3c;
+    --bg:#f5f5f2;
+    --card:#ffffff;
+    --border:#e4e0d8;
+    --soft:#f1eee7;
+    --shadow:0 10px 30px rgba(0,0,0,0.08);
+    --radius:18px;
+}
+
+*{box-sizing:border-box;}
+
+body{
+    margin:0;
+    font-family:'Roboto','Noto Sans TC','微軟正黑體',sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.75;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.progressbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:rgba(176,138,60,.18);
+    z-index:2000;
+}
+
+.progressbar-inner{
+    height:100%;
+    width:0%;
+    background:var(--gold);
+    box-shadow:0 0 8px rgba(176,138,60,.55);
+}
+
+.site-header{
+    position:sticky;
+    top:0;
+    z-index:999;
+    background:rgba(255,255,255,0.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+}
+
+.header-inner{
+    max-width:1160px;
+    margin:0 auto;
+    padding:18px 26px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:24px;
+}
+
+.brand{
+    display:flex;
+    flex-direction:column;
+    line-height:1.25;
+}
+
+.brand .zh{
+    font-family:'Noto Serif TC',serif;
+    font-size:1.35rem;
+    font-weight:900;
+    color:var(--blue-dark);
+    letter-spacing:.08em;
+}
+
+.brand .en{
+    font-size:.78rem;
+    color:var(--muted);
+    letter-spacing:.13em;
+    text-transform:uppercase;
+}
+
+.nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+    font-size:.92rem;
+    font-weight:700;
+}
+
+.nav a{
+    position:relative;
+    padding:5px 0;
+}
+
+.nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:2px;
+    background:var(--gold);
+    transition:.3s;
+}
+
+.nav a:hover::after,
+.nav a.active::after{
+    width:100%;
+}
+
+.bg-characters{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    overflow:hidden;
+}
+
+.bg-characters span{
+    position:absolute;
+    font-family:'Noto Serif TC',serif;
+    color:rgba(31,58,95,.045);
+    font-size:7rem;
+    font-weight:900;
+    animation:floatChar 16s ease-in-out infinite;
+}
+
+.bg-characters span:nth-child(1){left:6%; top:22%; animation-delay:0s;}
+.bg-characters span:nth-child(2){right:8%; top:18%; animation-delay:3s;}
+.bg-characters span:nth-child(3){left:12%; bottom:14%; animation-delay:6s;}
+.bg-characters span:nth-child(4){right:14%; bottom:18%; animation-delay:9s;}
+
+@keyframes floatChar{
+    0%,100%{transform:translateY(0); opacity:.45;}
+    50%{transform:translateY(-28px); opacity:.8;}
+}
+
+.container{
+    max-width:1160px;
+    margin:0 auto;
+    padding:54px 26px 70px;
+    position:relative;
+    z-index:1;
+}
+
+.page-hero{
+    background:linear-gradient(135deg,#ffffff 0%,#ffffff 64%,#f0eadf 100%);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:46px;
+    box-shadow:0 2px 12px rgba(0,0,0,.04);
+    position:relative;
+    overflow:hidden;
+}
+
+.page-hero::after{
+    content:"";
+    position:absolute;
+    right:-80px;
+    top:-80px;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:rgba(176,138,60,.13);
+}
+
+.kicker{
+    color:var(--gold);
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    font-size:.86rem;
+    margin-bottom:14px;
+}
+
+.page-hero h1{
+    font-family:'Noto Serif TC',serif;
+    font-size:3rem;
+    line-height:1.25;
+    color:var(--blue-dark);
+    margin:0 0 12px;
+}
+
+.page-hero .subtitle{
+    color:var(--blue);
+    font-weight:500;
+    font-size:1.1rem;
+}
+
+.page-hero p{
+    max-width:780px;
+    color:var(--muted);
+    margin-top:20px;
+    margin-bottom:0;
+}
+
+.filter-bar{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:30px 0 28px;
+}
+
+.filter-btn{
+    border:1px solid var(--border);
+    background:white;
+    color:var(--blue-dark);
+    padding:9px 15px;
+    border-radius:999px;
+    cursor:pointer;
+    font-weight:700;
+    transition:.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+    background:var(--blue-dark);
+    color:white;
+    border-color:var(--blue-dark);
+}
+
+.publication-layout{
+    display:grid;
+    grid-template-columns:190px 1fr;
+    gap:30px;
+}
+
+.side-index{
+    position:sticky;
+    top:105px;
+    align-self:start;
+    background:rgba(255,255,255,.78);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:24px;
+}
+
+.side-index .label{
+    font-size:.78rem;
+    letter-spacing:.12em;
+    color:var(--gold);
+    font-weight:900;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.side-index a{
+    display:block;
+    color:var(--muted);
+    font-size:.95rem;
+    padding:8px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.side-index a:last-child{
+    border-bottom:none;
+}
+
+.side-index a:hover{
+    color:var(--blue-dark);
+}
+
+.publication-list{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.pub-card{
+    display:grid;
+    grid-template-columns:96px 1fr;
+    gap:24px;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:30px;
+    box-shadow:0 2px 12px rgba(0,0,0,.04);
+    transition:.35s;
+}
+
+.pub-card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.pub-year{
+    font-family:'Noto Serif TC',serif;
+    color:var(--gold);
+    font-size:1.9rem;
+    font-weight:900;
+    line-height:1;
+    border-right:3px solid var(--gold);
+    padding-right:16px;
+}
+
+.pub-main h2{
+    font-family:'Noto Serif TC',serif;
+    color:var(--blue-dark);
+    font-size:1.42rem;
+    line-height:1.55;
+    margin:0 0 10px;
+}
+
+.pub-main h2 a{
+    border-bottom:1px dotted var(--gold);
+}
+
+.pub-main h2 a:hover{
+    color:var(--blue);
+}
+
+.venue{
+    color:var(--blue);
+    font-weight:700;
+    margin:0 0 4px;
+}
+
+.meta{
+    color:var(--muted);
+    margin:0 0 13px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:12px 0 16px;
+}
+
+.tag{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:999px;
+    font-size:.78rem;
+    font-weight:700;
+    background:var(--soft);
+    color:var(--blue-dark);
+    border:1px solid var(--border);
+}
+
+.tag.core{
+    background:#f4e5e2;
+    color:#8d2f27;
+    border-color:#e7c2bb;
+}
+
+.tag.thci{
+    background:#e5edf5;
+    color:#1f3a5f;
+    border-color:#cdd9e7;
+}
+
+.tag.accepted{
+    background:#e2f0e4;
+    color:#28733a;
+    border-color:#bddfc4;
+}
+
+.tag.author{
+    background:#eeeef1;
+    color:#555;
+}
+
+.actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:14px;
+}
+
+.action-btn{
+    border:1px solid var(--border);
+    background:white;
+    color:var(--blue-dark);
+    padding:7px 12px;
+    border-radius:999px;
+    font-weight:700;
+    cursor:pointer;
+    font-size:.86rem;
+    transition:.3s;
+}
+
+.action-btn:hover{
+    background:var(--blue-dark);
+    color:white;
+    border-color:var(--blue-dark);
+}
+
+.quote-box{
+    display:none;
+    margin-top:18px;
+    padding:20px;
+    border-radius:14px;
+    background:#fbfaf7;
+    border:1px solid var(--border);
+}
+
+.quote-box.open{
+    display:block;
+}
+
+.quote-top{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:14px;
+}
+
+.quote-top strong{
+    color:var(--blue-dark);
+}
+
+.quote-top select{
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:7px 10px;
+    background:white;
+}
+
+.quote-content{
+    color:#333;
+    font-size:.95rem;
+    word-break:break-word;
+}
+
+.copy-btn{
+    margin-top:12px;
+    background:var(--blue-dark);
+    color:white;
+    border:none;
+    border-radius:999px;
+    padding:7px 13px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.footer{
+    margin-top:40px;
+    background:var(--blue-dark);
+    color:white;
+    padding:38px 26px;
+    position:relative;
+    z-index:1;
+}
+
+.footer-inner{
+    max-width:1160px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    gap:26px;
+    flex-wrap:wrap;
+    font-size:.95rem;
+}
+
+.footer a{
+    color:white;
+    border-bottom:1px dotted rgba(255,255,255,.7);
+}
+
+.scroll-animate{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .8s ease, transform .8s ease;
+}
+
+.scroll-animate.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:900px){
+    .publication-layout{
+        grid-template-columns:1fr;
+    }
+
+    .side-index{
+        position:static;
+    }
+
+    .pub-card{
+        grid-template-columns:1fr;
+    }
+
+    .pub-year{
+        border-right:none;
+        border-bottom:3px solid var(--gold);
+        padding-right:0;
+        padding-bottom:10px;
+    }
+}
+
+@media(max-width:620px){
+    .container{
+        padding:34px 18px 54px;
+    }
+
+    .page-hero{
+        padding:32px;
+    }
+
+    .page-hero h1{
+        font-size:2.25rem;
+    }
+
+    .pub-card{
+        padding:24px;
+    }
+
+    .nav{
+        gap:14px;
+        font-size:.86rem;
+    }
+
+    .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="progressbar"><div class="progressbar-inner" id="progressbar"></div></div>
+
+<div class="bg-characters">
+    <span>文</span>
+    <span>學</span>
+    <span>思</span>
+    <span>論</span>
+</div>
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="brand" href="index.html">
+            <span class="zh">嚴浩然</span>
+            <span class="en">YIM HO YIN</span>
+        </a>
+
+        <nav class="nav">
+            <a href="index.html">HOME</a>
+            <a href="certificates.html">證照／證書／獎項</a>
+            <a href="translations.html">譯著／哲學普及作品</a>
+            <a href="journal-papers.html" class="active">期刊論文</a>
+            <a href="conference-papers.html">研討會論文</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="page-hero scroll-animate">
+        <div class="kicker">Journal Articles</div>
+        <h1>期刊論文</h1>
+        <div class="subtitle">Peer-reviewed Articles, Forthcoming Papers, and Book Reviews</div>
+        <p>
+            本頁收錄已刊、待刊與相關期刊論文。格式依學術履歷呈現，並保留引用資訊，便於讀者查閱與引用。
+        </p>
+    </section>
+
+    <div class="filter-bar scroll-animate">
+        <button class="filter-btn active" data-filter="all">全部</button>
+        <button class="filter-btn" data-filter="forthcoming">待刊</button>
+        <button class="filter-btn" data-filter="2025">2025</button>
+        <button class="filter-btn" data-filter="2024">2024</button>
+        <button class="filter-btn" data-filter="2021">2021</button>
+        <button class="filter-btn" data-filter="thci">THCI／THCI Core</button>
+    </div>
+
+    <section class="publication-layout">
+
+        <aside class="side-index scroll-animate">
+            <div class="label">Archive</div>
+            <a href="#y2026">2026｜待刊</a>
+            <a href="#y2025">2025</a>
+            <a href="#y2024">2024</a>
+            <a href="#y2021">2021</a>
+        </aside>
+
+        <div class="publication-list" id="publicationList"></div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div>
+            <strong>嚴浩然 YIM HO YIN</strong><br>
+            國立成功大學中國文學系博士候選人｜中國思想專攻
+        </div>
+
+        <div>
+            Email:
+            <a href="mailto:K18111026@gs.ncku.edu.tw">K18111026@gs.ncku.edu.tw</a><br>
+            &copy; <span id="year"></span> YIM HO YIN. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const publications = [
+{
+    year:"2026",
+    group:"y2026",
+    filter:["forthcoming","thci"],
+    title:"〈《荀子》「直」義的倫理與政治思想探微〉",
+    venue:"《中國學術年刊》",
+    meta:"第48期（2026年秋季號），頁數待定。",
+    tags:["THCI Core 第二級","已通過（待刊）"],
+    tagTypes:["core","accepted"],
+    link:"",
+    cite:"嚴浩然，〈《荀子》「直」義的倫理與政治思想探微〉，《中國學術年刊》第48期（2026年秋季號）：待刊。"
+},
+{
+    year:"2026",
+    group:"y2026",
+    filter:["forthcoming","thci"],
+    title:"〈《群書治要》所見《管子》研究〉",
+    venue:"《東華漢學》",
+    meta:"第44期（2026年12月），頁數待定。",
+    tags:["THCI Core 第二級","已通過（待刊）"],
+    tagTypes:["core","accepted"],
+    link:"",
+    cite:"嚴浩然，〈《群書治要》所見《管子》研究〉，《東華漢學》第44期（2026年12月）：待刊。"
+},
+{
+      year:"2025",
+    group:"y2025",
+    filter:["2025","thci"],
+    title:"〈《清華簡拾叁・畏天用身》篇章結構探微〉",
+    venue:"《經學研究集刊》",
+    meta:"第39期（2025年11月），頁55-74。",
+    tags:["THCI"],
+    tagTypes:["thci"],
+    link:"https://toaj.stpi.niar.org.tw/index/journal/volume/article/4b1141f99b0133c5019b20756004130b",
+    cite:"嚴浩然，〈《清華簡拾叁・畏天用身》篇章結構探微〉，《經學研究集刊》第39期（2025年11月）：55-74。"
+},
+{
+    year:"2025",
+    group:"y2025",
+    filter:["2025","thci"],
+    title:"〈從能群到和一：《荀子》「群」義思想的結構與展開〉",
+    venue:"《中國學術年刊》",
+    meta:"第47期（2025年秋季號），頁99-126。",
+    tags:["THCI Core 第二級"],
+    tagTypes:["core"],
+    link:"https://www.ch.ntnu.edu.tw/SIS/show_paper_detail.php?issue_id=68&paper_id=640",
+    cite:"嚴浩然，〈從能群到和一：《荀子》「群」義思想的結構與展開〉，《中國學術年刊》第47期（2025年秋季號）：99-126。"
+},
+{
+    year:"2025",
+    group:"y2025",
+    filter:["2025"],
+    title:"〈安大簡〈仲尼曰〉所見《論語》異文研究〉",
+    venue:"《人文社會學報》",
+    meta:"第25期（2025年7月），頁105-132。",
+    tags:[],
+    tagTypes:[],
+    link:"https://www.airitilibrary.com/Article/Detail/P20160418002-N202509060003-00004",
+    cite:"嚴浩然，〈安大簡〈仲尼曰〉所見《論語》異文研究〉，《人文社會學報》第25期（2025年7月）：105-132。"
+},
+{
+    year:"2025",
+    group:"y2025",
+    filter:["2025"],
+    title:"〈《孟子》「踐形」觀念綜論〉",
+    venue:"《止善》",
+    meta:"第38期（2025年6月），頁55-74。",
+    tags:[],
+    tagTypes:[],
+    link:"https://ir.lib.cyut.edu.tw/handle/310901800/44561?locale=zh-TW",
+    cite:"嚴浩然，〈《孟子》「踐形」觀念綜論〉，《止善》第38期（2025年6月）：55-74。"
+},
+{
+    year:"2024",
+    group:"y2024",
+    filter:["2024","thci"],
+    title:"〈德位思維的啟發：儒家倫理身份的現代轉換探微〉",
+    venue:"《鵝湖學誌》",
+    meta:"第72期（2024年6月），頁84-98。",
+    tags:["THCI"],
+    tagTypes:["thci"],
+    link:"",
+    cite:"嚴浩然，〈德位思維的啟發：儒家倫理身份的現代轉換探微〉，《鵝湖學誌》第72期（2024年6月）：84-98。"
+},
+{
+    year:"2024",
+    group:"y2024",
+    filter:["2024"],
+    title:"〈書評：葉海煙，《跨領域的道家哲學》〉",
+    venue:"《哲學與文化》",
+    meta:"第51卷第1期（2024年1月），頁189-193。",
+    tags:["書評"],
+    tagTypes:[""],
+    link:"https://www.airitilibrary.com/Article/Detail/10158383-N202401240011-00014",
+    cite:"嚴浩然，〈書評：葉海煙，《跨領域的道家哲學》〉，《哲學與文化》第51卷第1期（2024年1月）：189-193。"
+},
+{
+    year:"2021",
+    group:"y2021",
+    filter:["2021"],
+    title:"〈論老子道在多元價值發展的條件思考〉",
+    venue:"《成大宗教與文化學報》",
+    meta:"第28期（2021年12月），頁1-23。",
+    tags:[],
+    tagTypes:[],
+    link:"",
+    cite:"嚴浩然，〈論老子道在多元價值發展的條件思考〉，《成大宗教與文化學報》第28期（2021年12月）：1-23。"
+},
+{
+    year:"2021",
+    group:"y2021",
+    filter:["2021"],
+    title:"〈晚清越南使節之中國見聞──（六）河北篇〉",
+    venue:"《國文天地》",
+    meta:"第37卷第5期（2021年10月），頁49-54。",
+    tags:["本人為第一作者，通訊作者"],
+    tagTypes:["author"],
+    link:"",
+    cite:"嚴浩然，〈晚清越南使節之中國見聞──（六）河北篇〉，《國文天地》第37卷第5期（2021年10月）：49-54。"
+}
+];
+
+function formatQuote(pub, style){
+    if(style === "apa"){
+        return pub.cite.replace("嚴浩然，", "嚴浩然。（" + pub.year + "）。").replace("〉，", "〉。");
+    }
+    if(style === "chicago"){
+        return pub.cite.replace("，〈", "。〈");
+    }
+    if(style === "bjclp"){
+        return pub.cite.replace("嚴浩然，", "嚴浩然︰");
+    }
+    if(style === "mla"){
+        return pub.cite.replace("：", "，頁");
+    }
+    return pub.cite;
+}
+
+function renderPublications(filter="all"){
+    const list = document.getElementById("publicationList");
+    list.innerHTML = "";
+
+    publications.forEach((pub, index)=>{
+        if(filter !== "all" && !pub.filter.includes(filter)) return;
+
+        const card = document.createElement("article");
+        card.className = "pub-card scroll-animate";
+        card.id = index === 0 || publications[index-1]?.group !== pub.group ? pub.group : "";
+
+        const tagHtml = pub.tags.map((tag, i)=>{
+            const type = pub.tagTypes[i] || "";
+            return `<span class="tag ${type}">${tag}</span>`;
+        }).join("");
+
+        const titleHtml = pub.link
+            ? `<a href="${pub.link}" target="_blank" rel="noopener noreferrer">${pub.title}</a>`
+            : pub.title;
+
+        card.innerHTML = `
+            <div class="pub-year">${pub.year}</div>
+            <div class="pub-main">
+                <h2>${titleHtml}</h2>
+                <p class="venue">${pub.venue}</p>
+                <p class="meta">${pub.meta}</p>
+                <div class="tags">${tagHtml}</div>
+                <div class="actions">
+                    ${pub.link ? `<a class="action-btn" href="${pub.link}" target="_blank" rel="noopener noreferrer">查看連結</a>` : ""}
+                    <button class="action-btn quote-toggle" type="button">引用格式</button>
+                </div>
+                <div class="quote-box">
+                    <div class="quote-top">
+                        <strong>引用書目</strong>
+                        <select class="quote-style">
+                            <option value="ihp">史語所集刊格式</option>
+                            <option value="apa">APA 7</option>
+                            <option value="chicago">Chicago 17</option>
+                            <option value="mla">MLA 9</option>
+                            <option value="bjclp">文哲研究集刊格式</option>
+                        </select>
+                    </div>
+                    <div class="quote-content">${formatQuote(pub,"ihp")}</div>
+                    <button class="copy-btn" type="button">複製</button>
+                </div>
+            </div>
+        `;
+
+        list.appendChild(card);
+    });
+
+    bindQuoteEvents();
+    observeScroll();
+}
+
+function bindQuoteEvents(){
+    document.querySelectorAll(".quote-toggle").forEach(btn=>{
+        btn.addEventListener("click",()=>{
+            const box = btn.closest(".pub-main").querySelector(".quote-box");
+            box.classList.toggle("open");
+        });
+    });
+
+    document.querySelectorAll(".quote-style").forEach(select=>{
+        select.addEventListener("change",()=>{
+            const card = select.closest(".pub-card");
+            const index = Array.from(document.querySelectorAll(".pub-card")).indexOf(card);
+            const title = card.querySelector("h2").innerText.trim();
+            const pub = publications.find(p => p.title === title);
+            card.querySelector(".quote-content").innerHTML = formatQuote(pub, select.value);
+        });
+    });
+
+    document.querySelectorAll(".copy-btn").forEach(btn=>{
+        btn.addEventListener("click",()=>{
+            const text = btn.closest(".quote-box").querySelector(".quote-content").innerText;
+            navigator.clipboard.writeText(text);
+            btn.innerText = "已複製";
+            setTimeout(()=>btn.innerText="複製",1200);
+        });
+    });
+}
+
+document.querySelectorAll(".filter-btn").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+        document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+        btn.classList.add("active");
+        renderPublications(btn.dataset.filter);
+    });
+});
+
+function observeScroll(){
+    const animated = document.querySelectorAll(".scroll-animate");
+    const observer = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    },{threshold:.12});
+    animated.forEach(el=>observer.observe(el));　
+}
+
+window.addEventListener("scroll",()=>{
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById("progressbar").style.width = percent + "%";
+});
+
+renderPublications();
+observeScroll();
+</script>
+
+</body>
+</html>
