@@ -382,22 +382,30 @@ a{color:inherit;text-decoration:none;}
     font-size:2rem;
     margin:0;
 }
+
+/* 幻燈卡片拖曳：外層只負責承載橫向位移，使用者直接按住文章卡即可左右移動 */
 .marquee-strip{
     width:100%;
-    overflow:hidden;
+    overflow-x:auto;
+    overflow-y:hidden;
+    user-select:none;
+    touch-action:pan-x;
+    scroll-behavior:smooth;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
     mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);
     -webkit-mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
+.marquee-strip::-webkit-scrollbar{display:none;}
+.marquee-strip.is-dragging{scroll-behavior:auto;}
 .marquee-track{
     display:flex;
     gap:22px;
     width:max-content;
-    animation:marquee 48s linear infinite;
-}
-.marquee-strip:hover .marquee-track{animation-play-state:paused;}
-@keyframes marquee{
-    from{transform:translateX(0);}
-    to{transform:translateX(-50%);}
+    min-width:max-content;
+    padding:0 36px 8px;
+    animation:none;
 }
 .public-card{
     flex:0 0 auto;
@@ -411,7 +419,17 @@ a{color:inherit;text-decoration:none;}
     flex-direction:column;
     justify-content:space-between;
     transition:.35s;
+    cursor:grab;
+    user-select:none;
+    touch-action:pan-y;
 }
+.public-card.is-dragging{
+    cursor:grabbing;
+}
+.public-card.is-dragging a{
+    pointer-events:none;
+}
+
 .public-card:hover{
     transform:translateY(-8px) scale(1.02);
     border-color:var(--gold);
@@ -888,11 +906,80 @@ function initPreview(){
     });
 }
 
+
+function initCardDrag(){
+    const strips = document.querySelectorAll(".marquee-strip");
+
+    strips.forEach(strip=>{
+        const cards = strip.querySelectorAll(".public-card");
+
+        cards.forEach(card=>{
+            let isDragging = false;
+            let startX = 0;
+            let startScrollLeft = 0;
+            let hasMoved = false;
+
+            card.addEventListener("pointerdown",event=>{
+                if(event.button !== undefined && event.button !== 0) return;
+
+                isDragging = true;
+                hasMoved = false;
+                startX = event.clientX;
+                startScrollLeft = strip.scrollLeft;
+
+                strip.classList.add("is-dragging");
+                card.classList.add("is-dragging");
+                card.setPointerCapture(event.pointerId);
+            });
+
+            card.addEventListener("pointermove",event=>{
+                if(!isDragging) return;
+
+                const dx = event.clientX - startX;
+                if(Math.abs(dx) > 5) hasMoved = true;
+
+                strip.scrollLeft = startScrollLeft - dx;
+            });
+
+            function stopDragging(event){
+                if(!isDragging) return;
+
+                isDragging = false;
+                strip.classList.remove("is-dragging");
+                card.classList.remove("is-dragging");
+
+                try{
+                    card.releasePointerCapture(event.pointerId);
+                }catch(error){}
+
+                if(hasMoved){
+                    card.dataset.dragged = "true";
+                    window.setTimeout(()=>{
+                        delete card.dataset.dragged;
+                    },90);
+                }
+            }
+
+            card.addEventListener("pointerup",stopDragging);
+            card.addEventListener("pointercancel",stopDragging);
+            card.addEventListener("pointerleave",stopDragging);
+
+            card.addEventListener("click",event=>{
+                if(card.dataset.dragged === "true"){
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+            },true);
+        });
+    });
+}
+
 document.addEventListener("DOMContentLoaded",()=>{
     scrollReveal();
     initMagnetic();
     initFilter();
     initPreview();
+    initCardDrag();
 });
 </script>
 
