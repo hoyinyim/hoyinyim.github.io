@@ -12,6 +12,8 @@
     "test": "node tests/content-integrity/check.mjs && node scripts/build.mjs && node scripts/check-site.mjs && node tests/visual-responsive/check.mjs"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "cheerio": "^1.2.0",
     "playwright-core": "^1.61.1"
   }
 }
