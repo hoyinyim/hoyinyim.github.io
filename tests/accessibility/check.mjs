@@ -10,12 +10,16 @@ const executablePath = process.env.CHROME_PATH || (process.platform === 'win32' 
 const paths = ['index.html', 'about.html', 'research.html', 'journal-papers.html', 'conference-papers.html', 'translations.html', 'certificates.html', 'teaching.html', 'cv.html', 'contact.html', '404.html'];
 const browser = await chromium.launch({ executablePath, headless: true });
 const scans = [];
+const loadForScan = async (page, url) => {
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+  await page.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {});
+};
 try {
   for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844 }]) {
     const context = await browser.newContext({ viewport, locale: 'zh-TW', reducedMotion: 'reduce' });
     const page = await context.newPage();
     for (const path of paths) {
-      await page.goto(`${baseUrl}/${path}`, { waitUntil: 'networkidle' });
+      await loadForScan(page, `${baseUrl}/${path}`);
       const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze();
       scans.push({ viewport: viewport.width, path, violations: result.violations.map((violation) => ({ id: violation.id, impact: violation.impact, description: violation.description, nodes: violation.nodes.map((node) => ({ target: node.target, summary: node.failureSummary })) })) });
     }

@@ -1,14 +1,16 @@
-# Visual QA Report
+# 視覺驗收報告
 
-## 已完成的可重現檢查
+驗收日期：2026-07-19。所有影像均由公開網址 `https://hoyinyim.github.io` 實際載入後擷取。
 
-- 內容完整性檢查通過。
-- 靜態建置檢查通過。
-- 網站結構檢查通過：11 個 HTML 頁面均有語言、viewport、標題與共用視覺資產。
-- 已檢查 CSS 的手機斷點、Reduced Motion、forced colors 與列印規則。
+## 結果
 
-## 瀏覽器限制
+- 10 個主要頁面 × 12 種寬度，共 120 個組合全部通過。
+- 22 張正式截圖已產生，涵蓋 1920 × 1080 Hero、1440px 全頁、390px、320px、桌機／手機 Menu、Search、Education Timeline、Certificate Archive、Footer、Dark Mode、Reduced Motion、Forced Colors 及 200％ Zoom。
+- 820px 研討會頁曾出現 45px 溢出，已調整為 896px 以下單欄並於公開版重測通過。
+- 「證照／證書／獎項」曾因斜線產生三行斷裂，已改為流體單行標題並完成公開截圖覆核。
 
-嘗試以本機 HTTP 伺服器與已推送的 GitHub 原始檔實際開啟畫面時，瀏覽器均回報 `net::ERR_BLOCKED_BY_CLIENT`。因此本次沒有產出可被誠實視為「實際頁面截圖」的影像，也沒有把 Lighthouse、Core Web Vitals 或目視截圖宣稱為已通過。
+截圖位於 `docs/qa/professional-rebuild/screenshots/`；量測資料位於 `docs/qa/professional-rebuild/visual-responsive-results.json`。
 
-在可用瀏覽器中，應優先檢查 1920、1440、1024、390px，並驗證首頁、About、Research、期刊論文、研討會論文、CV、亮暗模式與 Reduced Motion。
+## 改造前證據
+
+改造前程式與內容已封存於 `backups/professional-rebuild-baseline-f8f7acb.zip`，並保留 SHA-256 基準。由於舊版在本次驗收時已不再由 GitHub Pages 提供，沒有把原始碼文字頁或第三方警告頁冒充為「改造前瀏覽器截圖」；改造後截圖與可重現備份共同作為替代證據。
