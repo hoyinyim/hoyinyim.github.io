@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "serve": "node scripts/serve.mjs",
     "test:content": "node tests/content-integrity/check.mjs",
     "test:visual": "node tests/visual-responsive/check.mjs",
     "build": "node scripts/build.mjs",
