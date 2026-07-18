@@ -18,7 +18,8 @@
 | 公開 E2E | 68／68 |
 | Axe WCAG 2.2 AA | 22 次掃描，0 violations |
 | 響應式 | 120／120 |
-| 正式截圖 | 22 張 |
+| 改造前截圖 | 3 張既有真實截圖 |
+| 改造後正式截圖 | 22 張公開部署截圖 |
 | Lighthouse | 93／100／100／100 |
 | 操作錄影 | 桌機 36.36 秒；手機 8.68 秒 |
 
@@ -26,6 +27,7 @@
 
 - 機器可讀結果：`docs/qa/professional-rebuild/*.json`。
 - 截圖：`docs/qa/professional-rebuild/screenshots/`。
+- 改造前截圖：`docs/qa/third-stage/before/`。
 - 桌機錄影：`docs/qa/professional-rebuild/videos/desktop-walkthrough.webm`。
 - 手機錄影：`docs/qa/professional-rebuild/videos/mobile-walkthrough.webm`。
 - 可重現錄影腳本：`tests/record-walkthrough.mjs`。

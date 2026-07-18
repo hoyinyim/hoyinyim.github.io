@@ -11,6 +11,12 @@
 
 截圖位於 `docs/qa/professional-rebuild/screenshots/`；量測資料位於 `docs/qa/professional-rebuild/visual-responsive-results.json`。
 
-## 改造前證據
+## 改造前後證據
 
-改造前程式與內容已封存於 `backups/professional-rebuild-baseline-f8f7acb.zip`，並保留 SHA-256 基準。由於舊版在本次驗收時已不再由 GitHub Pages 提供，沒有把原始碼文字頁或第三方警告頁冒充為「改造前瀏覽器截圖」；改造後截圖與可重現備份共同作為替代證據。
+前一階段已保存三張真實「改造前」截圖：
+
+- `docs/qa/third-stage/before/home-1280.png`。
+- `docs/qa/third-stage/before/certificates-1280.png`。
+- `docs/qa/third-stage/before/menu-1280.png`。
+
+本次「改造後」對應證據位於 `docs/qa/professional-rebuild/screenshots/`，包括首頁、證照頁、桌機 Menu 與其餘主要頁面。改造前程式與內容另封存於 `backups/professional-rebuild-baseline-f8f7acb.zip`，並保留 SHA-256 基準。由於舊版在本次驗收時已不再由 GitHub Pages 提供，沒有重新擷取或偽造舊版畫面；證據使用先前保存的真實截圖與不可變備份。
