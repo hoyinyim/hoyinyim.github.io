@@ -1,4 +1,5 @@
 (() => {
+  document.documentElement.classList.add('js');
   const root = document.documentElement;
   const storedTheme = localStorage.getItem('site-theme');
   const preferredDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -106,4 +107,100 @@
     document.addEventListener('visibilitychange', () => { active = !document.hidden; if (active) requestAnimationFrame(draw); });
     requestAnimationFrame(draw);
   }
+})();
+
+(() => {
+  const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+  const header = document.querySelector('.site-header');
+
+  const loader = document.createElement('div');
+  loader.className = 'site-loader';
+  loader.setAttribute('aria-hidden', 'true');
+  loader.innerHTML = '<strong>嚴浩然</strong>';
+  document.body.append(loader);
+  requestAnimationFrame(() => requestAnimationFrame(() => loader.classList.add('is-done')));
+  window.setTimeout(() => loader.remove(), motionReduced ? 0 : 1500);
+
+  const progress = document.createElement('div');
+  progress.className = 'scroll-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  document.body.append(progress);
+  const updateScroll = () => {
+    const maximum = document.documentElement.scrollHeight - innerHeight;
+    progress.style.transform = `scaleX(${maximum > 0 ? scrollY / maximum : 0})`;
+    header?.classList.toggle('is-scrolled', scrollY > 48);
+  };
+  addEventListener('scroll', updateScroll, { passive: true });
+  updateScroll();
+
+  const routes = [
+    ['01', 'HOME', 'index.html'], ['02', '關於', 'about.html'], ['03', '研究', 'research.html'],
+    ['04', '期刊論文', 'journal-papers.html'], ['05', '研討會論文', 'conference-papers.html'],
+    ['06', '譯著／哲學普及作品', 'translations.html'], ['07', '證照／證書／獎項', 'certificates.html'],
+    ['08', '教學', 'teaching.html'], ['09', '履歷', 'cv.html'], ['10', '聯絡', 'contact.html']
+  ];
+  const navScene = document.createElement('div');
+  navScene.className = 'nav-scene';
+  navScene.setAttribute('aria-hidden', 'true');
+  navScene.innerHTML = `<button class="nav-close" type="button">CLOSE</button><ol>${routes.map(([index, label, href]) => `<li><a href="${href}"><small>${index}</small><span>${label}</span></a></li>`).join('')}</ol>`;
+  document.body.append(navScene);
+  const closeNav = () => { navScene.classList.remove('is-open'); navScene.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; };
+  const openNav = () => { navScene.classList.add('is-open'); navScene.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; navScene.querySelector('.nav-close').focus(); };
+  const menuButton = document.createElement('button');
+  menuButton.className = 'stage-menu-trigger'; menuButton.type = 'button'; menuButton.textContent = 'MENU'; menuButton.setAttribute('aria-label', '展開主要導覽');
+  document.body.append(menuButton);
+  const menuButtons = [menuButton, ...document.querySelectorAll('[data-menu-toggle]')];
+  menuButtons.forEach((button) => button.addEventListener('click', (event) => { event.preventDefault(); openNav(); }));
+  navScene.querySelector('.nav-close').addEventListener('click', closeNav);
+  addEventListener('keydown', (event) => { if (event.key === 'Escape') closeNav(); });
+
+  const backTop = document.createElement('button');
+  backTop.className = 'back-top'; backTop.type = 'button'; backTop.textContent = 'PAGE TOP ↑';
+  document.querySelector('.site-footer,.footer')?.append(backTop);
+  backTop.addEventListener('click', () => scrollTo({ top: 0, behavior: motionReduced ? 'auto' : 'smooth' }));
+
+  document.querySelectorAll('.chapter,.record,.data-row,.timeline-item,.field-item,.translation-feature,.pub-card,.work-card').forEach((element) => element.setAttribute('data-stage-reveal', ''));
+  if (!motionReduced) {
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+    }), { threshold: .08, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('[data-stage-reveal],.portrait-strip,.image-reveal').forEach((element) => observer.observe(element));
+  } else document.querySelectorAll('[data-stage-reveal],.portrait-strip,.image-reveal').forEach((element) => element.classList.add('is-visible'));
+
+  const wipe = document.createElement('div');
+  wipe.className = 'page-wipe'; wipe.setAttribute('aria-hidden', 'true'); document.body.append(wipe);
+  document.querySelectorAll('a[href]').forEach((link) => {
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('javascript:') || link.target === '_blank') return;
+    let destination;
+    try { destination = new URL(href, location.href); } catch { return; }
+    if (destination.origin !== location.origin) return;
+    link.addEventListener('click', (event) => {
+      if (motionReduced || event.metaKey || event.ctrlKey || event.shiftKey) return;
+      event.preventDefault(); closeNav(); wipe.classList.add('is-active');
+      window.setTimeout(() => { location.href = destination.href; }, 620);
+    });
+  });
+
+  if (!coarsePointer) {
+    const dot = document.createElement('span'); const ring = document.createElement('span');
+    dot.className = 'cursor-dot'; ring.className = 'cursor-ring';
+    document.body.append(dot, ring);
+    let pointerX = innerWidth / 2, pointerY = innerHeight / 2, ringX = pointerX, ringY = pointerY;
+    addEventListener('pointermove', (event) => { pointerX = event.clientX; pointerY = event.clientY; dot.style.transform = `translate(${pointerX}px,${pointerY}px)`; }, { passive: true });
+    const drawCursor = () => { ringX += (pointerX - ringX) * .16; ringY += (pointerY - ringY) * .16; ring.style.transform = `translate(${ringX}px,${ringY}px) translate(-50%,-50%)`; requestAnimationFrame(drawCursor); };
+    requestAnimationFrame(drawCursor);
+    document.querySelectorAll('a,button,.field-item,.record,.pub-card,.work-card').forEach((element) => {
+      element.addEventListener('pointerenter', () => { ring.classList.add('is-link'); ring.textContent = element.matches('a[target="_blank"]') ? '↗' : 'VIEW'; });
+      element.addEventListener('pointerleave', () => { ring.classList.remove('is-link'); ring.textContent = ''; });
+    });
+  }
+
+  const hero = document.querySelector('.field-hero');
+  if (hero && !motionReduced && !coarsePointer) hero.addEventListener('pointermove', (event) => {
+    const x = (event.clientX / innerWidth - .5) * 2;
+    const y = (event.clientY / innerHeight - .5) * 2;
+    hero.querySelector('canvas')?.style.setProperty('transform', `translate3d(${x * 5}px,${y * 4}px,0)`);
+  }, { passive: true });
 })();
