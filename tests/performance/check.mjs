@@ -12,7 +12,12 @@ let result;
 try {
   result = await lighthouse(`${baseUrl}/index.html`, { port: chrome.port, output: 'json', logLevel: 'error', onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'] });
 } finally {
-  await chrome.kill();
+  try {
+    await chrome.kill();
+  } catch (error) {
+    if (process.platform !== 'win32' || error?.code !== 'EPERM') throw error;
+    console.warn('Windows 暫存資料夾仍被 Chrome 鎖定；已完成瀏覽器程序終止，略過本次暫存清理。');
+  }
 }
 const lhr = result.lhr;
 const assetSize = async (path) => (await stat(resolve(root, path))).size;

@@ -24,3 +24,9 @@
 ## 自動核對
 
 執行 `pnpm test:content`：5 個原始來源檔逐位元一致，且受保護可見文字全部保留。未發現未授權內容差異。
+
+## 專業級重構階段補充
+
+本階段新增的 `src/data/` 穩定 ID、年份分組、路由欄位、搜尋索引、Canonical、Open Graph、JSON-LD、Sitemap、Favicon、ARIA 標籤及測試標記，均屬技術結構或介面資訊，不改變學術內容。證照頁在沒有可核實證書影像的情況下採「文字檔案」呈現，沒有製造或假冒證書圖像。
+
+最終自動核對為 158 項全部通過；詳細數量見 `docs/content-integrity-report.md`。

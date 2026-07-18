@@ -107,6 +107,13 @@ try {
   await motionPage.screenshot({ path: resolve(outDir, 'home-reduced-motion-1440.png') });
   await motionContext.close();
 
+  const contrastContext = await browser.newContext({ viewport: { width: 1440, height: 1000 }, forcedColors: 'active' });
+  const contrastPage = await contrastContext.newPage();
+  await contrastPage.goto(`${baseUrl}/index.html`, { waitUntil: 'networkidle' });
+  check(await contrastPage.evaluate(() => matchMedia('(forced-colors: active)').matches), 'Forced Colors 高對比模式未生效');
+  await contrastPage.screenshot({ path: resolve(outDir, 'home-forced-colors-1440.png') });
+  await contrastContext.close();
+
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto(`${baseUrl}/conference-papers.html`, { waitUntil: 'networkidle' });
   await page.evaluate(() => { document.documentElement.style.zoom = '200%'; });
@@ -123,4 +130,4 @@ if (errors.length) {
   console.error(`響應式／視覺測試失敗：${errors.length} 項。`);
   errors.slice(0, 30).forEach((error) => console.error(`- ${JSON.stringify(error)}`));
   process.exitCode = 1;
-} else console.log(`響應式／視覺測試通過：${measurements.length} 個頁面／尺寸組合，並產生 ${pages.length + 11} 張驗收截圖。`);
+} else console.log(`響應式／視覺測試通過：${measurements.length} 個頁面／尺寸組合，並產生 ${pages.length + 12} 張驗收截圖。`);
