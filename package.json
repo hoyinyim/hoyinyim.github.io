@@ -1,0 +1,12 @@
+{
+  "name": "hoyinyim-academic-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test:content": "node tests/content-integrity/check.mjs",
+    "build": "node scripts/build.mjs",
+    "test:site": "node scripts/check-site.mjs",
+    "test": "node tests/content-integrity/check.mjs && node scripts/build.mjs && node scripts/check-site.mjs"
+  }
+}
