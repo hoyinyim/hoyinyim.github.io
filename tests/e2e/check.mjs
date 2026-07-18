@@ -104,6 +104,7 @@ try {
   await page.goto(`${baseUrl}/contact.html`, { waitUntil: 'networkidle' });
   check(await page.locator('a[href="mailto:K18111026@gs.ncku.edu.tw"]').count() >= 1, 'Contact mailto 遺漏');
   await page.locator('.contact-scene [data-copy]').click();
+  await page.locator('[data-live-region]').filter({ hasText: '已複製' }).waitFor({ state: 'visible' });
   check((await page.locator('[data-live-region]').textContent()).includes('已複製'), 'Contact 複製成功未透過 aria-live 宣告');
 
   const mobileContext = await browser.newContext({ viewport: { width: 320, height: 640 }, reducedMotion: 'reduce' });

@@ -14,7 +14,7 @@ await mkdir(resolve(out, 'images'), { recursive: true });
 const localImages = new Set();
 for (const file of htmlFiles) {
   const html = await readFile(resolve(root, file), 'utf8');
-  for (const match of html.matchAll(/(?:src|content)="(images\/[^"]+)"/g)) localImages.add(match[1]);
+  for (const match of html.matchAll(/(?:src|content|href)="(images\/[^"]+)"/g)) localImages.add(match[1]);
 }
 for (const image of localImages) await cp(resolve(root, image), resolve(out, image));
 await writeFile(resolve(out, '.nojekyll'), '', 'utf8');

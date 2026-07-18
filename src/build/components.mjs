@@ -94,6 +94,7 @@ export function layout({ route, routes, profile, title, description, body, jsonL
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">
   <meta name="theme-color" content="#f2efe7">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/site.css" as="style">
   <link rel="stylesheet" href="assets/site.css">
   <script src="assets/site.js" defer></script>
