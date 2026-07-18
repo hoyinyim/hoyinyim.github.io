@@ -5,8 +5,12 @@
   "type": "module",
   "scripts": {
     "test:content": "node tests/content-integrity/check.mjs",
+    "test:visual": "node tests/visual-responsive/check.mjs",
     "build": "node scripts/build.mjs",
     "test:site": "node scripts/check-site.mjs",
-    "test": "node tests/content-integrity/check.mjs && node scripts/build.mjs && node scripts/check-site.mjs"
+    "test": "node tests/content-integrity/check.mjs && node scripts/build.mjs && node scripts/check-site.mjs && node tests/visual-responsive/check.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.61.1"
   }
 }
