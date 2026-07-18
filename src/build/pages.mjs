@@ -1,7 +1,7 @@
 import { escapeHtml, externalAttrs, groupBy, number, unique } from './html.mjs';
 import { pageHero } from './components.mjs';
 
-const sectionHeading = (kicker, title, note = '') => `<header class="section-heading"><p>${escapeHtml(kicker)}</p><h2>${escapeHtml(title)}</h2>${note ? `<span>${escapeHtml(note)}</span>` : ''}</header>`;
+const sectionHeading = (kicker, title, note = '', id = '') => `<header class="section-heading"><p>${escapeHtml(kicker)}</p><h2${id ? ` id="${escapeHtml(id)}"` : ''}>${escapeHtml(title)}</h2>${note ? `<span>${escapeHtml(note)}</span>` : ''}</header>`;
 
 const educationTimeline = (education, id = 'education-timeline') => `<div class="education-timeline" data-timeline id="${id}">
   <div class="timeline-tabs" role="tablist" aria-label="教育背景年份">
@@ -41,7 +41,7 @@ export function homePage(data) {
   </section>
   <section class="profile-diptych" id="profile" aria-labelledby="profile-title">
     <figure><img src="${profile.portrait}" width="523" height="648" decoding="async" alt="${escapeHtml(profile.portraitAlt)}"><figcaption>${escapeHtml(profile.institutionZh)}</figcaption></figure>
-    <div class="profile-copy">${sectionHeading('Academic Profile', '個人學術檔案')}<h2 id="profile-title" class="sr-only">個人學術檔案</h2>${profile.bio.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}<div class="profile-tags">${research.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join('')}</div></div>
+    <div class="profile-copy">${sectionHeading('Academic Profile', '個人學術檔案', '', 'profile-title')}${profile.bio.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}<div class="profile-tags">${research.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join('')}</div></div>
   </section>
   <section class="publication-portal" aria-labelledby="portal-title">
     ${sectionHeading('Selected Portals', '學術成果與榮譽', '04 ARCHIVES')}
@@ -49,8 +49,8 @@ export function homePage(data) {
   </section>
   ${researchCurrent(research.current)}
   ${researchIndex(research.expertise)}
-  <section class="education-section" aria-labelledby="education-title">${sectionHeading('Education', '教育背景', '2016—迄今')}<h2 id="education-title" class="sr-only">教育背景</h2>${educationTimeline(education, 'home-education')}</section>
-  <section class="experience-ledger" aria-labelledby="experience-title">${sectionHeading('Experience Ledger', '教學與學術經驗', `${number(experience.length)} RECORDS`)}<h2 id="experience-title" class="sr-only">教學與學術經驗</h2><ol>${experience.map((item, index) => `<li><span>${number(index + 1)}</span><p>${escapeHtml(item.text)}</p></li>`).join('')}</ol></section>`;
+  <section class="education-section" aria-labelledby="education-title">${sectionHeading('Education', '教育背景', '2016—迄今', 'education-title')}${educationTimeline(education, 'home-education')}</section>
+  <section class="experience-ledger" aria-labelledby="experience-title">${sectionHeading('Experience Ledger', '教學與學術經驗', `${number(experience.length)} RECORDS`, 'experience-title')}<ol>${experience.map((item, index) => `<li><span>${number(index + 1)}</span><p>${escapeHtml(item.text)}</p></li>`).join('')}</ol></section>`;
 }
 
 export function aboutPage({ profile, education }) {
@@ -82,8 +82,8 @@ export function journalPage({ publications, pageIntros }) {
 export function conferencePage({ conferences, pageIntros }) {
   const groups = groupBy(conferences.presentations, 'year');
   return `${pageHero({ eyebrow: 'Conference Papers · Presentations', title: '研討會論文', index: '05', lead: pageIntros.conference.lead })}
-  <section class="conference-published" aria-labelledby="published-title">${sectionHeading('Published Proceedings', '研討會論文集（已出版）', `${number(conferences.published.length)} PAPERS`)}<div class="published-diptych">${conferences.published.map((item, index) => `<article><span>${number(index + 1)}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.venue)}</p><p>${escapeHtml(item.meta)}</p><a href="${item.link}" ${externalAttrs}>電子全文 <span aria-hidden="true">↗</span></a></article>`).join('')}</div></section>
-  <section class="conference-ledger" aria-labelledby="presentations-title">${sectionHeading('Academic Presentations', '研討會發表', `${number(conferences.presentations.length)} RECORDS`)}<h2 id="presentations-title" class="sr-only">研討會發表</h2>${Object.entries(groups).map(([year, items]) => `<section class="conference-year"><h3>${escapeHtml(year)}</h3><ol>${items.map((item, index) => `<li><span>${number(index + 1)}</span><h4>${escapeHtml(item.title)}</h4><p>${escapeHtml(item.meta)}</p></li>`).join('')}</ol></section>`).join('')}</section>`;
+  <section class="conference-published" aria-labelledby="published-title">${sectionHeading('Published Proceedings', '研討會論文集（已出版）', `${number(conferences.published.length)} PAPERS`, 'published-title')}<div class="published-diptych">${conferences.published.map((item, index) => `<article><span>${number(index + 1)}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.venue)}</p><p>${escapeHtml(item.meta)}</p><a href="${item.link}" ${externalAttrs}>電子全文 <span aria-hidden="true">↗</span></a></article>`).join('')}</div></section>
+  <section class="conference-ledger" aria-labelledby="presentations-title">${sectionHeading('Academic Presentations', '研討會發表', `${number(conferences.presentations.length)} RECORDS`, 'presentations-title')}${Object.entries(groups).map(([year, items]) => `<section class="conference-year"><h3>${escapeHtml(year)}</h3><ol>${items.map((item, index) => `<li><span>${number(index + 1)}</span><h4>${escapeHtml(item.title)}</h4><p>${escapeHtml(item.meta)}</p></li>`).join('')}</ol></section>`).join('')}</section>`;
 }
 
 export function translationsPage({ translations, pageIntros }) {
@@ -91,18 +91,18 @@ export function translationsPage({ translations, pageIntros }) {
   return `${pageHero({ eyebrow: 'Translations · Public Philosophy', title: '譯著／哲學普及作品', index: '06', lead: pageIntros.translations.lead })}
   <p class="page-intro-note">${escapeHtml(pageIntros.translations.note)}</p>
   <section class="translation-feature" aria-labelledby="translation-title"><figure><img src="${translation.cover}" width="500" height="700" loading="lazy" decoding="async" alt="${escapeHtml(translation.coverAlt)}"></figure><div><p class="eyebrow">Book Translation</p><h2 id="translation-title">${escapeHtml(translation.title)}</h2><p class="original-title">${escapeHtml(translation.originalTitle)}</p><dl><div><dt>作者</dt><dd>${escapeHtml(translation.author)}</dd></div><div><dt>譯者</dt><dd>${escapeHtml(translation.translator)}</dd></div><div><dt>出版社</dt><dd>${escapeHtml(translation.publisher)}</dd></div><div><dt>出版日</dt><dd>${escapeHtml(translation.publicationDate)}</dd></div></dl><p>${escapeHtml(translation.description)}</p><a href="${translation.link}" ${externalAttrs}>前往五南圖書 <span aria-hidden="true">↗</span></a></div></section>
-  <section class="public-writing" aria-labelledby="public-writing-title">${sectionHeading('Public Writing Archive', '哲學普及作品', `${number(publicWriting.length)} WORKS`)}<h2 id="public-writing-title" class="sr-only">哲學普及作品</h2><div class="scroll-controls"><button type="button" data-scroll-archive="previous" aria-label="向前瀏覽作品">←</button><button type="button" data-scroll-archive="next" aria-label="向後瀏覽作品">→</button></div><ol data-horizontal-archive tabindex="0" aria-label="哲學普及作品橫向索引">${publicWriting.map((item, index) => `<li><article><span>${number(index + 1)}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p><footer><small>${escapeHtml(item.source)}</small><a href="${item.link}" ${externalAttrs}>閱讀 <span aria-hidden="true">↗</span></a></footer></article></li>`).join('')}</ol></section>`;
+  <section class="public-writing" aria-labelledby="public-writing-title">${sectionHeading('Public Writing Archive', '哲學普及作品', `${number(publicWriting.length)} WORKS`, 'public-writing-title')}<div class="scroll-controls"><button type="button" data-scroll-archive="previous" aria-label="向前瀏覽作品">←</button><button type="button" data-scroll-archive="next" aria-label="向後瀏覽作品">→</button></div><ol data-horizontal-archive tabindex="0" aria-label="哲學普及作品橫向索引">${publicWriting.map((item, index) => `<li><article><span>${number(index + 1)}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p><footer><small>${escapeHtml(item.source)}</small><a href="${item.link}" ${externalAttrs}>閱讀 <span aria-hidden="true">↗</span></a></footer></article></li>`).join('')}</ol></section>`;
 }
 
 export function certificatesPage({ credentials, pageIntros }) {
   return `${pageHero({ eyebrow: 'Credentials · Honors', title: '證照／證書／獎項', index: '07', lead: pageIntros.certificates.lead })}
   <p class="page-intro-note">${escapeHtml(pageIntros.certificates.note)}</p>
-  <section class="credential-archive" aria-labelledby="credentials-title">${sectionHeading('Academic Archive', '專業證照與證書', `${number(credentials.credentials.length)} RECORDS`)}<h2 id="credentials-title" class="sr-only">專業證照與證書</h2><ol>${credentials.credentials.map((item, index) => `<li><span>${number(index + 1)}</span><article><p>${escapeHtml(item.category)}</p><h3>${escapeHtml(item.title)}</h3><div>${escapeHtml(item.issuer)}</div></article><div class="credential-format">${item.image ? `<button type="button">檢視證書</button>` : '<span>文字檔案</span>'}</div></li>`).join('')}</ol></section>
-  <section class="award-archive" aria-labelledby="awards-title">${sectionHeading('Academic Honors', '學業與研究獎項', `${number(credentials.awards.length)} RECORDS`)}<h2 id="awards-title" class="sr-only">學業與研究獎項</h2><ol>${credentials.awards.map((item, index) => `<li><div><span>${escapeHtml(item.year)}</span><small>${number(index + 1)}</small></div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p></li>`).join('')}</ol><p class="archive-note">${escapeHtml(pageIntros.certificates.closing)}</p></section>`;
+  <section class="credential-archive" aria-labelledby="credentials-title">${sectionHeading('Academic Archive', '專業證照與證書', `${number(credentials.credentials.length)} RECORDS`, 'credentials-title')}<ol>${credentials.credentials.map((item, index) => `<li><span>${number(index + 1)}</span><article><p>${escapeHtml(item.category)}</p><h3>${escapeHtml(item.title)}</h3><div>${escapeHtml(item.issuer)}</div></article><div class="credential-format">${item.image ? `<button type="button">檢視證書</button>` : '<span>文字檔案</span>'}</div></li>`).join('')}</ol></section>
+  <section class="award-archive" aria-labelledby="awards-title">${sectionHeading('Academic Honors', '學業與研究獎項', `${number(credentials.awards.length)} RECORDS`, 'awards-title')}<ol>${credentials.awards.map((item, index) => `<li><div><span>${escapeHtml(item.year)}</span><small>${number(index + 1)}</small></div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p></li>`).join('')}</ol><p class="archive-note">${escapeHtml(pageIntros.certificates.closing)}</p></section>`;
 }
 
 export function teachingPage({ experience }) {
-  return `${pageHero({ eyebrow: 'Teaching · Academic Experience', title: '教學', index: '08' })}<section class="teaching-ledger" aria-labelledby="teaching-title">${sectionHeading('Course Ledger', '教學與學術經驗', `${number(experience.length)} RECORDS`)}<h2 id="teaching-title" class="sr-only">教學與學術經驗</h2><ol>${experience.map((item, index) => `<li><span>${number(index + 1)}</span><p>${escapeHtml(item.text)}</p></li>`).join('')}</ol><a class="related-link" href="certificates.html">查看證照／證書／獎項 <span aria-hidden="true">↗</span></a></section>`;
+  return `${pageHero({ eyebrow: 'Teaching · Academic Experience', title: '教學', index: '08' })}<section class="teaching-ledger" aria-labelledby="teaching-title">${sectionHeading('Course Ledger', '教學與學術經驗', `${number(experience.length)} RECORDS`, 'teaching-title')}<ol>${experience.map((item, index) => `<li><span>${number(index + 1)}</span><p>${escapeHtml(item.text)}</p></li>`).join('')}</ol><a class="related-link" href="certificates.html">查看證照／證書／獎項 <span aria-hidden="true">↗</span></a></section>`;
 }
 
 const cvList = (items, render) => `<ol class="cv-list">${items.map(render).join('')}</ol>`;

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="嚴浩然個人學術網站">
+  <rect width="64" height="64" rx="12" fill="#1f211f"/>
+  <circle cx="32" cy="32" r="21" fill="none" stroke="#d8d2c3" stroke-width="2"/>
+  <path d="M19 23h26M22 32h20M25 41h14" stroke="#f2efe7" stroke-width="4" stroke-linecap="round"/>
+</svg>
