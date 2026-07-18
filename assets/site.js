@@ -22,6 +22,15 @@
     });
   });
 
+  const createCommandDialog = () => {
+    if (document.querySelector('[data-command-dialog]')) return;
+    const dialogElement = document.createElement('dialog');
+    dialogElement.className = 'command-dialog';
+    dialogElement.dataset.commandDialog = '';
+    dialogElement.innerHTML = '<form class="command-form" method="dialog"><label for="site-search">全站搜尋</label><input id="site-search" type="search" autocomplete="off" placeholder="輸入關鍵字" data-command-input><button type="submit">關閉</button></form><ul class="command-list" data-command-list aria-live="polite"><li>輸入關鍵字以搜尋網站既有資料。</li></ul>';
+    document.body.append(dialogElement);
+  };
+  createCommandDialog();
   const dialog = document.querySelector('[data-command-dialog]');
   const commandInput = dialog?.querySelector('input');
   const openCommand = () => { if (dialog && !dialog.open) { dialog.showModal(); commandInput?.focus(); } };
@@ -29,11 +38,33 @@
   window.addEventListener('keydown', (event) => {
     if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); openCommand(); }
   });
-  commandInput?.addEventListener('input', () => {
+  const searchPages = ['index.html', 'about.html', 'research.html', 'journal-papers.html', 'conference-papers.html', 'translations.html', 'certificates.html', 'teaching.html', 'cv.html', 'contact.html'];
+  let searchablePages;
+  const getSearchablePages = async () => {
+    if (searchablePages) return searchablePages;
+    searchablePages = await Promise.all(searchPages.map(async (href) => {
+      try {
+        const response = await fetch(href, { cache: 'force-cache' });
+        const html = await response.text();
+        const documentView = new DOMParser().parseFromString(html, 'text/html');
+        documentView.querySelectorAll('script, style, noscript').forEach((node) => node.remove());
+        return { href, title: documentView.title, text: documentView.body.textContent.replace(/\\s+/g, ' ').trim() };
+      } catch { return null; }
+    }));
+    return searchablePages.filter(Boolean);
+  };
+  commandInput?.addEventListener('input', async () => {
     const query = commandInput.value.trim().toLocaleLowerCase();
-    dialog.querySelectorAll('[data-command-item]').forEach((item) => {
-      item.hidden = query && !item.textContent.toLocaleLowerCase().includes(query);
-    });
+    const list = dialog.querySelector('[data-command-list]');
+    if (!query) { list.innerHTML = '<li>輸入關鍵字以搜尋網站既有資料。</li>'; return; }
+    list.innerHTML = '<li>搜尋中…</li>';
+    const pages = await getSearchablePages();
+    const matches = pages.filter((page) => page.text.toLocaleLowerCase().includes(query)).slice(0, 12);
+    list.innerHTML = matches.length ? matches.map((page) => {
+      const at = page.text.toLocaleLowerCase().indexOf(query);
+      const excerpt = page.text.slice(Math.max(0, at - 44), at + query.length + 84);
+      return `<li><a data-command-item href="${page.href}"><span>${page.title}</span><small>${excerpt}</small></a></li>`;
+    }).join('') : '<li>沒有符合的既有資料。</li>';
   });
 
   const year = new Date().getFullYear();
