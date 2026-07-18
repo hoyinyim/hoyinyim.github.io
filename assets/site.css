@@ -102,7 +102,7 @@ main { min-width: 0; }
 .page-hero .eyebrow { grid-column: 1; }
 .page-hero h1 { grid-column: 2; margin: 0; max-width: 12ch; font-size: var(--step-3); }
 .page-lead { grid-column: 2; color: var(--ink-soft); }
-.page-hero-index { position: absolute; inset: 0 var(--gutter) auto auto; color: color-mix(in srgb, var(--ink) 8%, transparent); font: 700 clamp(9rem, 25vw, 24rem)/.75 var(--serif); pointer-events: none; }
+.page-hero-index { position: absolute; inset: 0 var(--gutter) auto auto; color: color-mix(in srgb, var(--ink) 52%, transparent); font: 700 clamp(6rem, 14vw, 14rem)/.78 var(--serif); pointer-events: none; }
 .site-footer { max-width: var(--container); margin: var(--space-xl) auto 0; padding: var(--space-l) var(--gutter) var(--space-m); display: grid; grid-template-columns: 1fr 2fr 1fr; gap: var(--space-m); border-top: 1px solid var(--line-strong); }
 .footer-identity { display: flex; flex-direction: column; }
 .footer-identity strong { font: 700 1.3rem var(--serif); }
@@ -283,6 +283,7 @@ dialog::backdrop { background: color-mix(in srgb, var(--ink) 22%, transparent); 
 .credential-archive article > p, .credential-format { color: var(--ink-soft); font-size: var(--small); }
 .credential-archive h3 { font-size: var(--step-1); }
 .credential-format { text-align: right; }
+.page-certificates .page-hero h1 { max-width: none; white-space: nowrap; font-size: clamp(2.4rem, 5.5vw, 5.75rem); letter-spacing: .02em; }
 .award-archive > ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .award-archive li { min-height: 22rem; display: flex; flex-direction: column; padding: 1rem; border-right: 1px solid var(--line); }
 .award-archive li:last-child { border-right: 0; }
@@ -338,7 +339,7 @@ dialog::backdrop { background: color-mix(in srgb, var(--ink) 22%, transparent); 
   .menu-trigger { min-height: 2.75rem; font-size: .9rem; }
   .page-hero { min-height: 20rem; grid-template-columns: 1fr; padding-block: var(--space-l) var(--space-m); }
   .page-hero .eyebrow, .page-hero h1, .page-lead { grid-column: 1; }
-  .page-hero-index { font-size: 10rem; }
+  .page-hero-index { font-size: 6.5rem; }
   .home-hero { min-height: calc(100svh - var(--header-h)); grid-template-columns: 1fr; padding-top: var(--space-l); }
   .home-hero h1 { font-size: clamp(4.4rem, 27vw, 7.5rem); }
   .home-material { position: absolute; inset: 0 0 0 44%; min-height: 0; opacity: .65; }

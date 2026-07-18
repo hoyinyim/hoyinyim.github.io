@@ -132,6 +132,7 @@
 .credential-archive article > p, .credential-format { color: var(--ink-soft); font-size: var(--small); }
 .credential-archive h3 { font-size: var(--step-1); }
 .credential-format { text-align: right; }
+.page-certificates .page-hero h1 { max-width: none; white-space: nowrap; font-size: clamp(2.4rem, 5.5vw, 5.75rem); letter-spacing: .02em; }
 .award-archive > ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .award-archive li { min-height: 22rem; display: flex; flex-direction: column; padding: 1rem; border-right: 1px solid var(--line); }
 .award-archive li:last-child { border-right: 0; }
