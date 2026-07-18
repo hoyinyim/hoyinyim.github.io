@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-07-18T18:54:12.362Z",
+  "checks": 158,
+  "passed": true,
+  "errors": [],
+  "counts": {
+    "publications": 10,
+    "conferencePublished": 2,
+    "conferencePresentations": 17,
+    "publicWriting": 11,
+    "credentials": 5,
+    "awards": 4
+  }
+}

@@ -1,881 +1,146 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" data-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>嚴浩然 YIM HO YIN｜期刊論文</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-<style>
-:root{
-    --ink:#1d1d1f;
-    --muted:#6e6e73;
-    --blue:#1f3a5f;
-    --blue-dark:#13263f;
-    --gold:#b08a3c;
-    --bg:#f5f5f2;
-    --card:#ffffff;
-    --border:#e4e0d8;
-    --soft:#f1eee7;
-    --shadow:0 10px 30px rgba(0,0,0,0.08);
-    --radius:18px;
-}
-
-*{box-sizing:border-box;}
-
-body{
-    margin:0;
-    font-family:'Roboto','Noto Sans TC','微軟正黑體',sans-serif;
-    background:var(--bg);
-    color:var(--ink);
-    line-height:1.75;
-    overflow-x:hidden;
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-.progressbar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:5px;
-    background:rgba(176,138,60,.18);
-    z-index:2000;
-}
-
-.progressbar-inner{
-    height:100%;
-    width:0%;
-    background:var(--gold);
-    box-shadow:0 0 8px rgba(176,138,60,.55);
-}
-
-.site-header{
-    position:sticky;
-    top:0;
-    z-index:999;
-    background:rgba(255,255,255,0.94);
-    backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--border);
-}
-
-.header-inner{
-    max-width:1160px;
-    margin:0 auto;
-    padding:18px 26px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:24px;
-}
-
-.brand{
-    display:flex;
-    flex-direction:column;
-    line-height:1.25;
-}
-
-.brand .zh{
-    font-family:'Noto Serif TC',serif;
-    font-size:1.35rem;
-    font-weight:900;
-    color:var(--blue-dark);
-    letter-spacing:.08em;
-}
-
-.brand .en{
-    font-size:.78rem;
-    color:var(--muted);
-    letter-spacing:.13em;
-    text-transform:uppercase;
-}
-
-.nav{
-    display:flex;
-    flex-wrap:wrap;
-    gap:22px;
-    font-size:.92rem;
-    font-weight:700;
-}
-
-.nav a{
-    position:relative;
-    padding:5px 0;
-}
-
-.nav a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:0;
-    width:0;
-    height:2px;
-    background:var(--gold);
-    transition:.3s;
-}
-
-.nav a:hover::after,
-.nav a.active::after{
-    width:100%;
-}
-
-.bg-characters{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:0;
-    overflow:hidden;
-}
-
-.bg-characters span{
-    position:absolute;
-    font-family:'Noto Serif TC',serif;
-    color:rgba(31,58,95,.045);
-    font-size:7rem;
-    font-weight:900;
-    animation:floatChar 16s ease-in-out infinite;
-}
-
-.bg-characters span:nth-child(1){left:6%; top:22%; animation-delay:0s;}
-.bg-characters span:nth-child(2){right:8%; top:18%; animation-delay:3s;}
-.bg-characters span:nth-child(3){left:12%; bottom:14%; animation-delay:6s;}
-.bg-characters span:nth-child(4){right:14%; bottom:18%; animation-delay:9s;}
-
-@keyframes floatChar{
-    0%,100%{transform:translateY(0); opacity:.45;}
-    50%{transform:translateY(-28px); opacity:.8;}
-}
-
-.container{
-    max-width:1160px;
-    margin:0 auto;
-    padding:54px 26px 70px;
-    position:relative;
-    z-index:1;
-}
-
-.page-hero{
-    background:linear-gradient(135deg,#ffffff 0%,#ffffff 64%,#f0eadf 100%);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding:46px;
-    box-shadow:0 2px 12px rgba(0,0,0,.04);
-    position:relative;
-    overflow:hidden;
-}
-
-.page-hero::after{
-    content:"";
-    position:absolute;
-    right:-80px;
-    top:-80px;
-    width:260px;
-    height:260px;
-    border-radius:50%;
-    background:rgba(176,138,60,.13);
-}
-
-.kicker{
-    color:var(--gold);
-    font-weight:800;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    font-size:.86rem;
-    margin-bottom:14px;
-}
-
-.page-hero h1{
-    font-family:'Noto Serif TC',serif;
-    font-size:3rem;
-    line-height:1.25;
-    color:var(--blue-dark);
-    margin:0 0 12px;
-}
-
-.page-hero .subtitle{
-    color:var(--blue);
-    font-weight:500;
-    font-size:1.1rem;
-}
-
-.page-hero p{
-    max-width:780px;
-    color:var(--muted);
-    margin-top:20px;
-    margin-bottom:0;
-}
-
-.filter-bar{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin:30px 0 28px;
-}
-
-.filter-btn{
-    border:1px solid var(--border);
-    background:white;
-    color:var(--blue-dark);
-    padding:9px 15px;
-    border-radius:999px;
-    cursor:pointer;
-    font-weight:700;
-    transition:.3s;
-}
-
-.filter-btn:hover,
-.filter-btn.active{
-    background:var(--blue-dark);
-    color:white;
-    border-color:var(--blue-dark);
-}
-
-.publication-layout{
-    display:grid;
-    grid-template-columns:190px 1fr;
-    gap:30px;
-}
-
-.side-index{
-    position:sticky;
-    top:105px;
-    align-self:start;
-    background:rgba(255,255,255,.78);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding:24px;
-}
-
-.side-index .label{
-    font-size:.78rem;
-    letter-spacing:.12em;
-    color:var(--gold);
-    font-weight:900;
-    text-transform:uppercase;
-    margin-bottom:12px;
-}
-
-.side-index a{
-    display:block;
-    color:var(--muted);
-    font-size:.95rem;
-    padding:8px 0;
-    border-bottom:1px solid var(--border);
-}
-
-.side-index a:last-child{
-    border-bottom:none;
-}
-
-.side-index a:hover{
-    color:var(--blue-dark);
-}
-
-.publication-list{
-    display:flex;
-    flex-direction:column;
-    gap:22px;
-}
-
-.pub-card{
-    display:grid;
-    grid-template-columns:96px 1fr;
-    gap:24px;
-    background:white;
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding:30px;
-    box-shadow:0 2px 12px rgba(0,0,0,.04);
-    transition:.35s;
-}
-
-.pub-card:hover{
-    transform:translateY(-5px);
-    box-shadow:var(--shadow);
-}
-
-.pub-year{
-    font-family:'Noto Serif TC',serif;
-    color:var(--gold);
-    font-size:1.9rem;
-    font-weight:900;
-    line-height:1;
-    border-right:3px solid var(--gold);
-    padding-right:16px;
-}
-
-.pub-main h2{
-    font-family:'Noto Serif TC',serif;
-    color:var(--blue-dark);
-    font-size:1.42rem;
-    line-height:1.55;
-    margin:0 0 10px;
-}
-
-.pub-main h2 a{
-    border-bottom:1px dotted var(--gold);
-}
-
-.pub-main h2 a:hover{
-    color:var(--blue);
-}
-
-.venue{
-    color:var(--blue);
-    font-weight:700;
-    margin:0 0 4px;
-}
-
-.meta{
-    color:var(--muted);
-    margin:0 0 13px;
-}
-
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin:12px 0 16px;
-}
-
-.tag{
-    display:inline-block;
-    padding:5px 10px;
-    border-radius:999px;
-    font-size:.78rem;
-    font-weight:700;
-    background:var(--soft);
-    color:var(--blue-dark);
-    border:1px solid var(--border);
-}
-
-.tag.core{
-    background:#f4e5e2;
-    color:#8d2f27;
-    border-color:#e7c2bb;
-}
-
-.tag.thci{
-    background:#e5edf5;
-    color:#1f3a5f;
-    border-color:#cdd9e7;
-}
-
-.tag.accepted{
-    background:#e2f0e4;
-    color:#28733a;
-    border-color:#bddfc4;
-}
-
-.tag.author{
-    background:#eeeef1;
-    color:#555;
-}
-
-.actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:14px;
-}
-
-.action-btn{
-    border:1px solid var(--border);
-    background:white;
-    color:var(--blue-dark);
-    padding:7px 12px;
-    border-radius:999px;
-    font-weight:700;
-    cursor:pointer;
-    font-size:.86rem;
-    transition:.3s;
-}
-
-.action-btn:hover{
-    background:var(--blue-dark);
-    color:white;
-    border-color:var(--blue-dark);
-}
-
-.quote-box{
-    display:none;
-    margin-top:18px;
-    padding:20px;
-    border-radius:14px;
-    background:#fbfaf7;
-    border:1px solid var(--border);
-}
-
-.quote-box.open{
-    display:block;
-}
-
-.quote-top{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-between;
-    gap:12px;
-    margin-bottom:14px;
-}
-
-.quote-top strong{
-    color:var(--blue-dark);
-}
-
-.quote-top select{
-    border:1px solid var(--border);
-    border-radius:8px;
-    padding:7px 10px;
-    background:white;
-}
-
-.quote-content{
-    color:#333;
-    font-size:.95rem;
-    word-break:break-word;
-}
-
-.copy-btn{
-    margin-top:12px;
-    background:var(--blue-dark);
-    color:white;
-    border:none;
-    border-radius:999px;
-    padding:7px 13px;
-    cursor:pointer;
-    font-weight:700;
-}
-
-.footer{
-    margin-top:40px;
-    background:var(--blue-dark);
-    color:white;
-    padding:38px 26px;
-    position:relative;
-    z-index:1;
-}
-
-.footer-inner{
-    max-width:1160px;
-    margin:0 auto;
-    display:flex;
-    justify-content:space-between;
-    gap:26px;
-    flex-wrap:wrap;
-    font-size:.95rem;
-}
-
-.footer a{
-    color:white;
-    border-bottom:1px dotted rgba(255,255,255,.7);
-}
-
-.scroll-animate{
-    opacity:0;
-    transform:translateY(24px);
-    transition:opacity .8s ease, transform .8s ease;
-}
-
-.scroll-animate.visible{
-    opacity:1;
-    transform:translateY(0);
-}
-
-@media(max-width:900px){
-    .publication-layout{
-        grid-template-columns:1fr;
-    }
-
-    .side-index{
-        position:static;
-    }
-
-    .pub-card{
-        grid-template-columns:1fr;
-    }
-
-    .pub-year{
-        border-right:none;
-        border-bottom:3px solid var(--gold);
-        padding-right:0;
-        padding-bottom:10px;
-    }
-}
-
-@media(max-width:620px){
-    .container{
-        padding:34px 18px 54px;
-    }
-
-    .page-hero{
-        padding:32px;
-    }
-
-    .page-hero h1{
-        font-size:2.25rem;
-    }
-
-    .pub-card{
-        padding:24px;
-    }
-
-    .nav{
-        gap:14px;
-        font-size:.86rem;
-    }
-
-    .header-inner{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-}
-</style>
-<link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/archive-pages.css"><link rel="stylesheet" href="assets/third-stage.css?v=20260719-3">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>期刊論文｜嚴浩然 YIM HO YIN</title>
+  <meta name="description" content="嚴浩然個人學術網站的期刊論文頁面。">
+  <link rel="canonical" href="https://hoyinyim.github.io/journal-papers.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="嚴浩然個人學術網站">
+  <meta property="og:title" content="期刊論文｜嚴浩然 YIM HO YIN">
+  <meta property="og:description" content="嚴浩然個人學術網站的期刊論文頁面。">
+  <meta property="og:url" content="https://hoyinyim.github.io/journal-papers.html">
+  <meta property="og:image" content="https://hoyinyim.github.io/images/profile.png.JPG">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="期刊論文｜嚴浩然 YIM HO YIN">
+  <meta name="twitter:description" content="嚴浩然個人學術網站的期刊論文頁面。">
+  <meta name="theme-color" content="#f2efe7">
+  <link rel="preload" href="assets/site.css" as="style">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"〈《荀子》「直」義的倫理與政治思想探微〉","url":"https://hoyinyim.github.io/journal-papers.html#year-2026"},{"@type":"ListItem","position":2,"name":"〈《群書治要》所見《管子》研究〉","url":"https://hoyinyim.github.io/journal-papers.html#year-2026"},{"@type":"ListItem","position":3,"name":"〈《清華簡拾叁・畏天用身》篇章結構探微〉","url":"https://hoyinyim.github.io/journal-papers.html#year-2025"},{"@type":"ListItem","position":4,"name":"〈從能群到和一：《荀子》「群」義思想的結構與展開〉","url":"https://hoyinyim.github.io/journal-papers.html#year-2025"},{"@type":"ListItem","position":5,"name":"〈安大簡〈仲尼曰〉所見《論語》異文研究〉","url":"https://hoyinyim.github.io/journal-papers.html#year-2025"},{"@type":"ListItem","position":6,"name":"〈《孟子》「踐形」觀念綜論〉","url":"https://hoyinyim.github.io/journal-papers.html#year-2025"},{"@type":"ListItem","position":7,"name":"〈德位思維的啟發：儒家倫理身份的現代轉換探微〉","url":"https://hoyinyim.github.io/journal-papers.html#year-2024"},{"@type":"ListItem","position":8,"name":"〈書評：葉海煙，《跨領域的道家哲學》〉","url":"https://hoyinyim.github.io/journal-papers.html#year-2024"},{"@type":"ListItem","position":9,"name":"〈論老子道在多元價值發展的條件思考〉","url":"https://hoyinyim.github.io/journal-papers.html#year-2021"},{"@type":"ListItem","position":10,"name":"〈晚清越南使節之中國見聞──（六）河北篇〉","url":"https://hoyinyim.github.io/journal-papers.html#year-2021"}]}</script>
 </head>
-
-<body>
-
-<div class="progressbar"><div class="progressbar-inner" id="progressbar"></div></div>
-
-<div class="bg-characters">
-    <span>文</span>
-    <span>學</span>
-    <span>思</span>
-    <span>論</span>
-</div>
-
-<header class="site-header">
-    <div class="header-inner">
-        <a class="brand" href="index.html">
-            <span class="zh">嚴浩然</span>
-            <span class="en">YIM HO YIN</span>
-        </a>
-
-        <nav class="nav">
-            <a href="index.html">HOME</a>
-            <a href="certificates.html">證照／證書／獎項</a>
-            <a href="translations.html">譯著／哲學普及作品</a>
-            <a href="journal-papers.html" class="active">期刊論文</a>
-            <a href="conference-papers.html">研討會論文</a>
-        </nav>
+<body class="page-journal " data-page="journal">
+  <a class="skip-link" href="#main-content">跳至主要內容</a>
+  <div class="scroll-progress" aria-hidden="true"><i data-scroll-progress></i></div>
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html" aria-label="嚴浩然首頁"><span>嚴浩然</span><small>YIM HO YIN</small></a>
+    <nav class="primary-nav" aria-label="主要導覽"><a href="about.html">關於</a><a href="research.html">研究</a><a href="journal-papers.html" aria-current="page">期刊論文</a><a href="conference-papers.html">研討會論文</a><a href="cv.html">履歷</a></nav>
+    <div class="header-actions">
+      <button class="text-control search-trigger" type="button" data-search-open aria-haspopup="dialog"><span>搜尋</span><kbd>Ctrl K</kbd></button>
+      <button class="icon-control" type="button" data-theme-toggle aria-label="切換深色或淺色模式"><span aria-hidden="true">◐</span></button>
+      <button class="menu-trigger" type="button" data-menu-open aria-haspopup="dialog"><span>選單</span><i aria-hidden="true"></i></button>
     </div>
-</header>
-
-<main class="container">
-
-    <section class="page-hero scroll-animate">
-        <div class="kicker">Journal Articles</div>
-        <h1>期刊論文</h1>
-        <div class="subtitle">Peer-reviewed Articles, Forthcoming Papers, and Book Reviews</div>
-        <p>
-            本頁收錄已刊登、待刊相關期刊論文。保留引用資訊，便於讀者查閱與引用。
-        </p>
-    </section>
-
-    <div class="filter-bar scroll-animate">
-        <button class="filter-btn active" data-filter="all">全部</button>
-        <button class="filter-btn" data-filter="forthcoming">待刊</button>
-        <button class="filter-btn" data-filter="2025">2025</button>
-        <button class="filter-btn" data-filter="2024">2024</button>
-        <button class="filter-btn" data-filter="2021">2021</button>
-        <button class="filter-btn" data-filter="thci">THCI／THCI Core</button>
+  </header>
+  <dialog class="menu-dialog" data-menu-dialog aria-labelledby="menu-title">
+    <div class="dialog-topline"><p id="menu-title">網站索引</p><button class="dialog-close" type="button" data-menu-close>關閉 <span aria-hidden="true">×</span></button></div>
+    <div class="menu-layout">
+      <nav aria-label="完整網站導覽"><ol class="menu-index"><li>
+    <a href="index.html">
+      <span>01</span><strong>首頁</strong><small>Home</small>
+    </a>
+  </li><li>
+    <a href="about.html">
+      <span>02</span><strong>關於</strong><small>About</small>
+    </a>
+  </li><li>
+    <a href="research.html">
+      <span>03</span><strong>研究</strong><small>Research</small>
+    </a>
+  </li><li>
+    <a href="journal-papers.html" aria-current="page">
+      <span>04</span><strong>期刊論文</strong><small>Journal Articles</small>
+    </a>
+  </li><li>
+    <a href="conference-papers.html">
+      <span>05</span><strong>研討會論文</strong><small>Conference Papers</small>
+    </a>
+  </li><li>
+    <a href="translations.html">
+      <span>06</span><strong>譯著／哲學普及作品</strong><small>Translations</small>
+    </a>
+  </li><li>
+    <a href="certificates.html">
+      <span>07</span><strong>證照／證書／獎項</strong><small>Credentials</small>
+    </a>
+  </li><li>
+    <a href="teaching.html">
+      <span>08</span><strong>教學</strong><small>Teaching</small>
+    </a>
+  </li><li>
+    <a href="cv.html">
+      <span>09</span><strong>履歷</strong><small>CV</small>
+    </a>
+  </li><li>
+    <a href="contact.html">
+      <span>10</span><strong>聯絡</strong><small>Contact</small>
+    </a>
+  </li></ol></nav>
+      <aside class="menu-aside">
+        <button type="button" class="menu-search" data-search-from-menu>搜尋全站 <span aria-hidden="true">↗</span></button>
+        <a href="mailto:K18111026@gs.ncku.edu.tw">K18111026@gs.ncku.edu.tw</a>
+        <p>國立成功大學中國文學系博士候選人</p>
+      </aside>
     </div>
-
-    <section class="publication-layout">
-
-        <aside class="side-index scroll-animate">
-            <div class="label">Archive</div>
-            <a href="#y2026">2026｜待刊</a>
-            <a href="#y2025">2025</a>
-            <a href="#y2024">2024</a>
-            <a href="#y2021">2021</a>
-        </aside>
-
-        <div class="publication-list" id="publicationList"></div>
-
-    </section>
-
-</main>
-
-<footer class="footer">
-    <div class="footer-inner">
-        <div>
-            <strong>嚴浩然 YIM HO YIN</strong><br>
-            國立成功大學中國文學系博士候選人｜中國思想專攻
-        </div>
-
-        <div>
-            Email:
-            <a href="mailto:K18111026@gs.ncku.edu.tw">K18111026@gs.ncku.edu.tw</a><br>
-            &copy; <span id="year"></span> YIM HO YIN. All Rights Reserved.
-        </div>
+  </dialog>
+  <dialog class="search-dialog" data-search-dialog aria-labelledby="search-title">
+    <div class="dialog-topline"><p id="search-title">搜尋全站</p><button class="dialog-close" type="button" data-search-close>關閉 <span aria-hidden="true">×</span></button></div>
+    <div class="search-field">
+      <label for="site-search">輸入頁面、論文或作品題名</label>
+      <input id="site-search" type="search" autocomplete="off" spellcheck="false" data-search-input aria-controls="search-results" aria-describedby="search-status">
     </div>
-</footer>
-
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
-
-const publications = [
-{
-    year:"2026",
-    group:"y2026",
-    filter:["forthcoming","thci"],
-    title:"〈《荀子》「直」義的倫理與政治思想探微〉",
-    venue:"《中國學術年刊》",
-    meta:"第48期（2026年秋季號），頁數待定。",
-    tags:["THCI Core 第二級","已通過（待刊）"],
-    tagTypes:["core","accepted"],
-    link:"",
-    cite:"嚴浩然，〈《荀子》「直」義的倫理與政治思想探微〉，《中國學術年刊》第48期（2026年秋季號）：待刊。"
-},
-{
-    year:"2026",
-    group:"y2026",
-    filter:["forthcoming","thci"],
-    title:"〈《群書治要》所見《管子》研究〉",
-    venue:"《東華漢學》",
-    meta:"第44期（2026年12月），頁數待定。",
-    tags:["THCI Core 第二級","已通過（待刊）"],
-    tagTypes:["core","accepted"],
-    link:"",
-    cite:"嚴浩然，〈《群書治要》所見《管子》研究〉，《東華漢學》第44期（2026年12月）：待刊。"
-},
-{
-      year:"2025",
-    group:"y2025",
-    filter:["2025","thci"],
-    title:"〈《清華簡拾叁・畏天用身》篇章結構探微〉",
-    venue:"《經學研究集刊》",
-    meta:"第39期（2025年11月），頁55-74。",
-    tags:["THCI"],
-    tagTypes:["thci"],
-    link:"https://toaj.stpi.niar.org.tw/index/journal/volume/article/4b1141f99b0133c5019b20756004130b",
-    cite:"嚴浩然，〈《清華簡拾叁・畏天用身》篇章結構探微〉，《經學研究集刊》第39期（2025年11月）：55-74。"
-},
-{
-    year:"2025",
-    group:"y2025",
-    filter:["2025","thci"],
-    title:"〈從能群到和一：《荀子》「群」義思想的結構與展開〉",
-    venue:"《中國學術年刊》",
-    meta:"第47期（2025年秋季號），頁99-126。",
-    tags:["THCI Core 第二級"],
-    tagTypes:["core"],
-    link:"https://www.ch.ntnu.edu.tw/SIS/show_paper_detail.php?issue_id=68&paper_id=640",
-    cite:"嚴浩然，〈從能群到和一：《荀子》「群」義思想的結構與展開〉，《中國學術年刊》第47期（2025年秋季號）：99-126。"
-},
-{
-    year:"2025",
-    group:"y2025",
-    filter:["2025"],
-    title:"〈安大簡〈仲尼曰〉所見《論語》異文研究〉",
-    venue:"《人文社會學報》",
-    meta:"第25期（2025年7月），頁105-132。",
-    tags:[],
-    tagTypes:[],
-    link:"https://www.airitilibrary.com/Article/Detail/P20160418002-N202509060003-00004",
-    cite:"嚴浩然，〈安大簡〈仲尼曰〉所見《論語》異文研究〉，《人文社會學報》第25期（2025年7月）：105-132。"
-},
-{
-    year:"2025",
-    group:"y2025",
-    filter:["2025"],
-    title:"〈《孟子》「踐形」觀念綜論〉",
-    venue:"《止善》",
-    meta:"第38期（2025年6月），頁55-74。",
-    tags:[],
-    tagTypes:[],
-    link:"https://ir.lib.cyut.edu.tw/handle/310901800/44561?locale=zh-TW",
-    cite:"嚴浩然，〈《孟子》「踐形」觀念綜論〉，《止善》第38期（2025年6月）：55-74。"
-},
-{
-    year:"2024",
-    group:"y2024",
-    filter:["2024","thci"],
-    title:"〈德位思維的啟發：儒家倫理身份的現代轉換探微〉",
-    venue:"《鵝湖學誌》",
-    meta:"第72期（2024年6月），頁84-98。",
-    tags:["THCI"],
-    tagTypes:["thci"],
-    link:"",
-    cite:"嚴浩然，〈德位思維的啟發：儒家倫理身份的現代轉換探微〉，《鵝湖學誌》第72期（2024年6月）：84-98。"
-},
-{
-    year:"2024",
-    group:"y2024",
-    filter:["2024"],
-    title:"〈書評：葉海煙，《跨領域的道家哲學》〉",
-    venue:"《哲學與文化》",
-    meta:"第51卷第1期（2024年1月），頁189-193。",
-    tags:["書評"],
-    tagTypes:[""],
-    link:"https://www.airitilibrary.com/Article/Detail/10158383-N202401240011-00014",
-    cite:"嚴浩然，〈書評：葉海煙，《跨領域的道家哲學》〉，《哲學與文化》第51卷第1期（2024年1月）：189-193。"
-},
-{
-    year:"2021",
-    group:"y2021",
-    filter:["2021"],
-    title:"〈論老子道在多元價值發展的條件思考〉",
-    venue:"《成大宗教與文化學報》",
-    meta:"第28期（2021年12月），頁1-23。",
-    tags:[],
-    tagTypes:[],
-    link:"https://drive.google.com/file/d/1vD1JVr5YNOZw2my1ohWs6EWYrxLqoocd/view",
-    cite:"嚴浩然，〈論老子道在多元價值發展的條件思考〉，《成大宗教與文化學報》第28期（2021年12月）：1-23。"
-},
-{
-    year:"2021",
-    group:"y2021",
-    filter:["2021"],
-    title:"〈晚清越南使節之中國見聞──（六）河北篇〉",
-    venue:"《國文天地》",
-    meta:"第37卷第5期（2021年10月），頁49-54。",
-    tags:["本人為第一作者，通訊作者"],
-    tagTypes:["author"],
-    link:"",
-    cite:"嚴浩然，〈晚清越南使節之中國見聞──（六）河北篇〉，《國文天地》第37卷第5期（2021年10月）：49-54。"
-}
-];
-
-function formatQuote(pub, style){
-    if(style === "apa"){
-        return pub.cite.replace("嚴浩然，", "嚴浩然。（" + pub.year + "）。").replace("〉，", "〉。");
-    }
-    if(style === "chicago"){
-        return pub.cite.replace("，〈", "。〈");
-    }
-    if(style === "bjclp"){
-        return pub.cite.replace("嚴浩然，", "嚴浩然︰");
-    }
-    if(style === "mla"){
-        return pub.cite.replace("：", "，頁");
-    }
-    return pub.cite;
-}
-
-function renderPublications(filter="all"){
-    const list = document.getElementById("publicationList");
-    list.innerHTML = "";
-
-    publications.forEach((pub, index)=>{
-        if(filter !== "all" && !pub.filter.includes(filter)) return;
-
-        const card = document.createElement("article");
-        card.className = "pub-card scroll-animate";
-        card.id = index === 0 || publications[index-1]?.group !== pub.group ? pub.group : "";
-
-        const tagHtml = pub.tags.map((tag, i)=>{
-            const type = pub.tagTypes[i] || "";
-            return `<span class="tag ${type}">${tag}</span>`;
-        }).join("");
-
-        const titleHtml = pub.link
-            ? `<a href="${pub.link}" target="_blank" rel="noopener noreferrer">${pub.title}</a>`
-            : pub.title;
-
-        card.innerHTML = `
-            <div class="pub-year">${pub.year}</div>
-            <div class="pub-main">
-                <h2>${titleHtml}</h2>
-                <p class="venue">${pub.venue}</p>
-                <p class="meta">${pub.meta}</p>
-                <div class="tags">${tagHtml}</div>
-                <div class="actions">
-                    ${pub.link ? `<a class="action-btn" href="${pub.link}" target="_blank" rel="noopener noreferrer">查看連結</a>` : ""}
-                    <button class="action-btn quote-toggle" type="button">引用格式</button>
-                </div>
-                <div class="quote-box">
-                    <div class="quote-top">
-                        <strong>引用書目</strong>
-                        <select class="quote-style">
-                            <option value="ihp">史語所集刊格式</option>
-                            <option value="apa">APA 7</option>
-                            <option value="chicago">Chicago 17</option>
-                            <option value="mla">MLA 9</option>
-                            <option value="bjclp">文哲研究集刊格式</option>
-                        </select>
-                    </div>
-                    <div class="quote-content">${formatQuote(pub,"ihp")}</div>
-                    <button class="copy-btn" type="button">複製</button>
-                </div>
-            </div>
-        `;
-
-        list.appendChild(card);
-    });
-
-    bindQuoteEvents();
-    observeScroll();
-}
-
-function bindQuoteEvents(){
-    document.querySelectorAll(".quote-toggle").forEach(btn=>{
-        btn.addEventListener("click",()=>{
-            const box = btn.closest(".pub-main").querySelector(".quote-box");
-            box.classList.toggle("open");
-        });
-    });
-
-    document.querySelectorAll(".quote-style").forEach(select=>{
-        select.addEventListener("change",()=>{
-            const card = select.closest(".pub-card");
-            const index = Array.from(document.querySelectorAll(".pub-card")).indexOf(card);
-            const title = card.querySelector("h2").innerText.trim();
-            const pub = publications.find(p => p.title === title);
-            card.querySelector(".quote-content").innerHTML = formatQuote(pub, select.value);
-        });
-    });
-
-    document.querySelectorAll(".copy-btn").forEach(btn=>{
-        btn.addEventListener("click",()=>{
-            const text = btn.closest(".quote-box").querySelector(".quote-content").innerText;
-            navigator.clipboard.writeText(text);
-            btn.innerText = "已複製";
-            setTimeout(()=>btn.innerText="複製",1200);
-        });
-    });
-}
-
-document.querySelectorAll(".filter-btn").forEach(btn=>{
-    btn.addEventListener("click",()=>{
-        document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
-        btn.classList.add("active");
-        renderPublications(btn.dataset.filter);
-    });
-});
-
-function observeScroll(){
-    const animated = document.querySelectorAll(".scroll-animate");
-    const observer = new IntersectionObserver(entries=>{
-        entries.forEach(entry=>{
-            if(entry.isIntersecting){
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-            }
-        });
-    },{threshold:.12});
-    animated.forEach(el=>observer.observe(el));　
-}
-
-window.addEventListener("scroll",()=>{
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    document.getElementById("progressbar").style.width = percent + "%";
-});
-
-renderPublications();
-observeScroll();
-</script>
-
-<script src="assets/site.js?v=20260719-3" defer></script>
+    <p class="search-status" id="search-status" data-search-status aria-live="polite">開始輸入以搜尋全部靜態資料。</p>
+    <ol class="search-results" id="search-results" data-search-results></ol>
+    <p class="search-help"><kbd>↑</kbd><kbd>↓</kbd> 移動　<kbd>Enter</kbd> 開啟　<kbd>Esc</kbd> 關閉</p>
+  </dialog>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumb" aria-label="麵包屑"><a href="index.html">首頁</a><span aria-hidden="true">/</span><span aria-current="page">期刊論文</span></nav><header class="page-hero">
+    <div class="page-hero-index" aria-hidden="true">04</div>
+    <p class="eyebrow">Journal Articles · Bibliography</p>
+    <h1>期刊論文</h1>
+    <p class="page-lead">本頁收錄已刊登、待刊相關期刊論文。保留引用資訊，便於讀者查閱與引用。</p>
+  </header>
+  <div class="archive-toolbar" id="journal-top"><div class="filter-strip" role="group" aria-label="篩選期刊論文"><button type="button" data-publication-filter="all" aria-pressed="true">全部</button><button type="button" data-publication-filter="forthcoming" aria-pressed="false">待刊</button><button type="button" data-publication-filter="2021" aria-pressed="false">2021</button><button type="button" data-publication-filter="2024" aria-pressed="false">2024</button><button type="button" data-publication-filter="2025" aria-pressed="false">2025</button><button type="button" data-publication-filter="2026" aria-pressed="false">2026</button><button type="button" data-publication-filter="thci" aria-pressed="false">THCI</button></div><p><span data-publication-count>10</span> 筆書目</p></div>
+  <div class="publication-archive" data-publication-archive><section class="publication-year" id="year-2021" data-publication-year>
+    <header><p>Year</p><h2>2021</h2><a href="#journal-top">返回篩選 ↑</a></header>
+    <ol><li class="publication-entry" data-publication data-filters="2021">
+      <article><span class="entry-index">01</span><div class="publication-main"><h3>〈論老子道在多元價值發展的條件思考〉</h3><p class="publication-venue">《成大宗教與文化學報》</p><p class="publication-meta">第28期（2021年12月），頁1-23。</p><div class="entry-actions"><a href="https://drive.google.com/file/d/1vD1JVr5YNOZw2my1ohWs6EWYrxLqoocd/view" target="_blank" rel="noopener noreferrer">電子全文 <span aria-hidden="true">↗</span></a><button type="button" data-copy="嚴浩然，〈論老子道在多元價值發展的條件思考〉，《成大宗教與文化學報》第28期（2021年12月）：1-23。">複製引用</button></div><details><summary>引用格式</summary><p>嚴浩然，〈論老子道在多元價值發展的條件思考〉，《成大宗教與文化學報》第28期（2021年12月）：1-23。</p></details></div></article>
+    </li><li class="publication-entry" data-publication data-filters="2021">
+      <article><span class="entry-index">02</span><div class="publication-main"><h3>〈晚清越南使節之中國見聞──（六）河北篇〉</h3><p class="publication-venue">《國文天地》</p><p class="publication-meta">第37卷第5期（2021年10月），頁49-54。</p><ul class="status-list"><li>本人為第一作者，通訊作者</li></ul><div class="entry-actions"><button type="button" data-copy="嚴浩然，〈晚清越南使節之中國見聞──（六）河北篇〉，《國文天地》第37卷第5期（2021年10月）：49-54。">複製引用</button></div><details><summary>引用格式</summary><p>嚴浩然，〈晚清越南使節之中國見聞──（六）河北篇〉，《國文天地》第37卷第5期（2021年10月）：49-54。</p></details></div></article>
+    </li></ol>
+  </section><section class="publication-year" id="year-2024" data-publication-year>
+    <header><p>Year</p><h2>2024</h2><a href="#journal-top">返回篩選 ↑</a></header>
+    <ol><li class="publication-entry" data-publication data-filters="2024 thci">
+      <article><span class="entry-index">01</span><div class="publication-main"><h3>〈德位思維的啟發：儒家倫理身份的現代轉換探微〉</h3><p class="publication-venue">《鵝湖學誌》</p><p class="publication-meta">第72期（2024年6月），頁84-98。</p><ul class="status-list"><li>THCI</li></ul><div class="entry-actions"><button type="button" data-copy="嚴浩然，〈德位思維的啟發：儒家倫理身份的現代轉換探微〉，《鵝湖學誌》第72期（2024年6月）：84-98。">複製引用</button></div><details><summary>引用格式</summary><p>嚴浩然，〈德位思維的啟發：儒家倫理身份的現代轉換探微〉，《鵝湖學誌》第72期（2024年6月）：84-98。</p></details></div></article>
+    </li><li class="publication-entry" data-publication data-filters="2024">
+      <article><span class="entry-index">02</span><div class="publication-main"><h3>〈書評：葉海煙，《跨領域的道家哲學》〉</h3><p class="publication-venue">《哲學與文化》</p><p class="publication-meta">第51卷第1期（2024年1月），頁189-193。</p><ul class="status-list"><li>書評</li></ul><div class="entry-actions"><a href="https://www.airitilibrary.com/Article/Detail/10158383-N202401240011-00014" target="_blank" rel="noopener noreferrer">電子全文 <span aria-hidden="true">↗</span></a><button type="button" data-copy="嚴浩然，〈書評：葉海煙，《跨領域的道家哲學》〉，《哲學與文化》第51卷第1期（2024年1月）：189-193。">複製引用</button></div><details><summary>引用格式</summary><p>嚴浩然，〈書評：葉海煙，《跨領域的道家哲學》〉，《哲學與文化》第51卷第1期（2024年1月）：189-193。</p></details></div></article>
+    </li></ol>
+  </section><section class="publication-year" id="year-2025" data-publication-year>
+    <header><p>Year</p><h2>2025</h2><a href="#journal-top">返回篩選 ↑</a></header>
+    <ol><li class="publication-entry" data-publication data-filters="2025 thci">
+      <article><span class="entry-index">01</span><div class="publication-main"><h3>〈《清華簡拾叁・畏天用身》篇章結構探微〉</h3><p class="publication-venue">《經學研究集刊》</p><p class="publication-meta">第39期（2025年11月），頁55-74。</p><ul class="status-list"><li>THCI</li></ul><div class="entry-actions"><a href="https://toaj.stpi.niar.org.tw/index/journal/volume/article/4b1141f99b0133c5019b20756004130b" target="_blank" rel="noopener noreferrer">電子全文 <span aria-hidden="true">↗</span></a><button type="button" data-copy="嚴浩然，〈《清華簡拾叁・畏天用身》篇章結構探微〉，《經學研究集刊》第39期（2025年11月）：55-74。">複製引用</button></div><details><summary>引用格式</summary><p>嚴浩然，〈《清華簡拾叁・畏天用身》篇章結構探微〉，《經學研究集刊》第39期（2025年11月）：55-74。</p></details></div></article>
+    </li><li class="publication-entry" data-publication data-filters="2025 thci">
+      <article><span class="entry-index">02</span><div class="publication-main"><h3>〈從能群到和一：《荀子》「群」義思想的結構與展開〉</h3><p class="publication-venue">《中國學術年刊》</p><p class="publication-meta">第47期（2025年秋季號），頁99-126。</p><ul class="status-list"><li>THCI Core 第二級</li></ul><div class="entry-actions"><a href="https://www.ch.ntnu.edu.tw/SIS/show_paper_detail.php?issue_id=68&paper_id=640" target="_blank" rel="noopener noreferrer">電子全文 <span aria-hidden="true">↗</span></a><button type="button" data-copy="嚴浩然，〈從能群到和一：《荀子》「群」義思想的結構與展開〉，《中國學術年刊》第47期（2025年秋季號）：99-126。">複製引用</button></div><details><summary>引用格式</summary><p>嚴浩然，〈從能群到和一：《荀子》「群」義思想的結構與展開〉，《中國學術年刊》第47期（2025年秋季號）：99-126。</p></details></div></article>
+    </li><li class="publication-entry" data-publication data-filters="2025">
+      <article><span class="entry-index">03</span><div class="publication-main"><h3>〈安大簡〈仲尼曰〉所見《論語》異文研究〉</h3><p class="publication-venue">《人文社會學報》</p><p class="publication-meta">第25期（2025年7月），頁105-132。</p><div class="entry-actions"><a href="https://www.airitilibrary.com/Article/Detail/P20160418002-N202509060003-00004" target="_blank" rel="noopener noreferrer">電子全文 <span aria-hidden="true">↗</span></a><button type="button" data-copy="嚴浩然，〈安大簡〈仲尼曰〉所見《論語》異文研究〉，《人文社會學報》第25期（2025年7月）：105-132。">複製引用</button></div><details><summary>引用格式</summary><p>嚴浩然，〈安大簡〈仲尼曰〉所見《論語》異文研究〉，《人文社會學報》第25期（2025年7月）：105-132。</p></details></div></article>
+    </li><li class="publication-entry" data-publication data-filters="2025">
+      <article><span class="entry-index">04</span><div class="publication-main"><h3>〈《孟子》「踐形」觀念綜論〉</h3><p class="publication-venue">《止善》</p><p class="publication-meta">第38期（2025年6月），頁55-74。</p><div class="entry-actions"><a href="https://ir.lib.cyut.edu.tw/handle/310901800/44561?locale=zh-TW" target="_blank" rel="noopener noreferrer">電子全文 <span aria-hidden="true">↗</span></a><button type="button" data-copy="嚴浩然，〈《孟子》「踐形」觀念綜論〉，《止善》第38期（2025年6月）：55-74。">複製引用</button></div><details><summary>引用格式</summary><p>嚴浩然，〈《孟子》「踐形」觀念綜論〉，《止善》第38期（2025年6月）：55-74。</p></details></div></article>
+    </li></ol>
+  </section><section class="publication-year" id="year-2026" data-publication-year>
+    <header><p>Year</p><h2>2026</h2><a href="#journal-top">返回篩選 ↑</a></header>
+    <ol><li class="publication-entry" data-publication data-filters="forthcoming thci">
+      <article><span class="entry-index">01</span><div class="publication-main"><h3>〈《荀子》「直」義的倫理與政治思想探微〉</h3><p class="publication-venue">《中國學術年刊》</p><p class="publication-meta">第48期（2026年秋季號），頁數待定。</p><ul class="status-list"><li>THCI Core 第二級</li><li>已通過（待刊）</li></ul><div class="entry-actions"><button type="button" data-copy="嚴浩然，〈《荀子》「直」義的倫理與政治思想探微〉，《中國學術年刊》第48期（2026年秋季號）：待刊。">複製引用</button></div><details><summary>引用格式</summary><p>嚴浩然，〈《荀子》「直」義的倫理與政治思想探微〉，《中國學術年刊》第48期（2026年秋季號）：待刊。</p></details></div></article>
+    </li><li class="publication-entry" data-publication data-filters="forthcoming thci">
+      <article><span class="entry-index">02</span><div class="publication-main"><h3>〈《群書治要》所見《管子》研究〉</h3><p class="publication-venue">《東華漢學》</p><p class="publication-meta">第44期（2026年12月），頁數待定。</p><ul class="status-list"><li>THCI Core 第二級</li><li>已通過（待刊）</li></ul><div class="entry-actions"><button type="button" data-copy="嚴浩然，〈《群書治要》所見《管子》研究〉，《東華漢學》第44期（2026年12月）：待刊。">複製引用</button></div><details><summary>引用格式</summary><p>嚴浩然，〈《群書治要》所見《管子》研究〉，《東華漢學》第44期（2026年12月）：待刊。</p></details></div></article>
+    </li></ol>
+  </section></div></main>
+  <footer class="site-footer">
+    <div class="footer-identity"><strong>嚴浩然</strong><span>YIM HO YIN</span></div>
+    <nav aria-label="頁尾導覽"><a href="index.html">首頁</a><a href="about.html">關於</a><a href="research.html">研究</a><a href="journal-papers.html">期刊論文</a><a href="conference-papers.html">研討會論文</a><a href="translations.html">譯著／哲學普及作品</a><a href="certificates.html">證照／證書／獎項</a><a href="teaching.html">教學</a><a href="cv.html">履歷</a><a href="contact.html">聯絡</a></nav>
+    <div class="footer-contact"><a href="mailto:K18111026@gs.ncku.edu.tw">K18111026@gs.ncku.edu.tw</a><button type="button" data-back-top>返回頁首 ↑</button></div>
+    <p class="copyright">© <span data-year></span> YIM HO YIN. All Rights Reserved.</p>
+  </footer>
+  <div class="live-region" data-live-region aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>

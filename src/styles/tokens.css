@@ -1,0 +1,48 @@
+:root {
+  color-scheme: light;
+  --paper: #f2efe7;
+  --paper-raised: #faf8f2;
+  --ink: #191a17;
+  --ink-soft: #55564f;
+  --line: #c8c4b8;
+  --line-strong: #8e8b81;
+  --moss: #66705c;
+  --indigo: #445669;
+  --vermilion: #9b3e2e;
+  --wood: #a69782;
+  --serif: "Iowan Old Style", "Noto Serif TC", "Source Han Serif TC", "PMingLiU", serif;
+  --sans: Inter, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --body: clamp(1.0625rem, .25vw + 1rem, 1.1875rem);
+  --small: clamp(.875rem, .12vw + .85rem, 1rem);
+  --step-1: clamp(1.35rem, 1.2vw + 1.05rem, 2rem);
+  --step-2: clamp(1.8rem, 2.5vw + 1.1rem, 3.6rem);
+  --step-3: clamp(2.8rem, 6vw + 1rem, 7.5rem);
+  --display: clamp(4.8rem, 14vw, 13.5rem);
+  --container: 90rem;
+  --gutter: clamp(1rem, 4vw, 4rem);
+  --space-xs: .5rem;
+  --space-s: 1rem;
+  --space-m: clamp(1.5rem, 3vw, 3rem);
+  --space-l: clamp(3rem, 7vw, 7rem);
+  --space-xl: clamp(5rem, 11vw, 11rem);
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --fast: 180ms;
+  --medium: 420ms;
+  --header-h: 5rem;
+  --z-header: 20;
+  --z-dialog: 100;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #181914;
+  --paper-raised: #22231e;
+  --ink: #ece9de;
+  --ink-soft: #b7b4a9;
+  --line: #484941;
+  --line-strong: #77786e;
+  --moss: #a7b49a;
+  --indigo: #a9bccb;
+  --vermilion: #d98470;
+  --wood: #b6a78f;
+}

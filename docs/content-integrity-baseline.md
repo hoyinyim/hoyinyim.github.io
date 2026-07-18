@@ -1,12 +1,11 @@
 # 內容完整性基準
 
-基準提交：`93c865fd405b25678efb64b8f963ff80fbc0ddbd`  
-原始快照：`backups/original-content-93c865f.zip`  
-快照 SHA-256：`D0F95D24D88F2B1D73F6CDC68B18B109DE9902DAB5E54C4FE6442F50417001EC`
+- 上游基準：`f8f7acb`
+- 完整快照：`backups/professional-rebuild-baseline-f8f7acb.zip`
+- 快照 SHA-256：`96B0BD29AF49D00EFAE2D3F3C585CCDC669DC623CCC661925A4C924E7B240C31`
+- 不可變來源：`content-source/original/`
 
-第一階段基準以來源檔與原始資產的 SHA-256 固定資料狀態，並由 `tests/content-integrity/check.mjs` 驗證。此測試未把介面文案視為可調整資料；後續資料模型建立時，將增加逐筆來源映射測試。
-
-| 檔案 | SHA-256 |
+| 來源檔 | SHA-256 |
 | --- | --- |
 | `index.html` | `6071AB9D5B468A5EF13383C71804B784D4B7EECEA1B13F94840480442CBEAF40` |
 | `journal-papers.html` | `180B5C5DC9F180666B673F9B8B2EE727480A74121DF19E66F8C048FA83289F9E` |
@@ -14,3 +13,4 @@
 | `conference-papers.html` | `FBC46D0783129E717AC79160A4AEDB6F8415C8AFC5FC55DF0B556940DD219764` |
 | `certificates.html` | `2750561BFFE12A7CD56245CAAE0FD20B58E4FC2EEF05E7AE8B80AD0D1DD41798` |
 
+完整性測試同時驗證：來源雜湊、每一群組數量、逐筆欄位內容、原始順序、結構化資料與建置後初始 HTML。允許差異只有兩個授權電子全文網址、穩定 ID、客觀年份索引、路由欄位與不新增學術主張的 SEO 技術資料。

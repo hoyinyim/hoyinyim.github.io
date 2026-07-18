@@ -1,0 +1,72 @@
+[
+  {
+    "id": "home",
+    "href": "index.html",
+    "labelZh": "首頁",
+    "labelEn": "Home",
+    "order": 1
+  },
+  {
+    "id": "about",
+    "href": "about.html",
+    "labelZh": "關於",
+    "labelEn": "About",
+    "order": 2
+  },
+  {
+    "id": "research",
+    "href": "research.html",
+    "labelZh": "研究",
+    "labelEn": "Research",
+    "order": 3
+  },
+  {
+    "id": "journal",
+    "href": "journal-papers.html",
+    "labelZh": "期刊論文",
+    "labelEn": "Journal Articles",
+    "order": 4
+  },
+  {
+    "id": "conference",
+    "href": "conference-papers.html",
+    "labelZh": "研討會論文",
+    "labelEn": "Conference Papers",
+    "order": 5
+  },
+  {
+    "id": "translations",
+    "href": "translations.html",
+    "labelZh": "譯著／哲學普及作品",
+    "labelEn": "Translations",
+    "order": 6
+  },
+  {
+    "id": "certificates",
+    "href": "certificates.html",
+    "labelZh": "證照／證書／獎項",
+    "labelEn": "Credentials",
+    "order": 7
+  },
+  {
+    "id": "teaching",
+    "href": "teaching.html",
+    "labelZh": "教學",
+    "labelEn": "Teaching",
+    "order": 8
+  },
+  {
+    "id": "cv",
+    "href": "cv.html",
+    "labelZh": "履歷",
+    "labelEn": "CV",
+    "order": 9
+  },
+  {
+    "id": "contact",
+    "href": "contact.html",
+    "labelZh": "聯絡",
+    "labelEn": "Contact",
+    "order": 10
+  }
+]

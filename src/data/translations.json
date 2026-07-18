@@ -1,0 +1,94 @@
+{
+  "translation": {
+    "id": "translation-01",
+    "title": "亞里斯多德與《詩學》",
+    "originalTitle": "Routledge Philosophy GuideBook to Aristotle and the Poetics",
+    "author": "安吉拉・柯倫（Angela Curran）",
+    "translator": "嚴浩然",
+    "publisher": "五南",
+    "publicationDate": "2024/09/28",
+    "description": "清晰導讀西方文學理論和批評奠基文本。學習文學、哲學、藝術理論及媒體理論必備入門書。亞里斯多德的《詩學》是藝術理論的首部哲學著作、美學史奠基文本，也是亞里斯多德被閱讀廣泛著作之一。",
+    "cover": "https://www.wunan.com.tw/images/pic/1BBP.gif",
+    "coverAlt": "亞里斯多德與《詩學》書封",
+    "link": "https://www.wunan.com.tw/bookdetail?NO=16980"
+  },
+  "publicWriting": [
+    {
+      "id": "public-writing-01",
+      "title": "卸下預設的相遇：莊學與精神分析的跨領域對話",
+      "description": "「當代莊學與精神分析技藝的相遇」講座報導。",
+      "source": "哲學新媒體｜2026/04/10",
+      "link": "https://philomedium.com/contributions/83764"
+    },
+    {
+      "id": "public-writing-02",
+      "title": "公共情感：重建一個「心更軟」、更具正義感的公民社會",
+      "description": "錢永祥教授〈公共情感的倫理思考〉講座報導。",
+      "source": "哲學新媒體｜2025/11/21",
+      "link": "https://philomedium.com/contributions/83651"
+    },
+    {
+      "id": "public-writing-03",
+      "title": "失、抒、理、越、異、皴丘：看見書法的現代轉身",
+      "description": "「相與・問學——六經衍至文的書畫潛能」講座側記。",
+      "source": "哲學新媒體｜2025/12/12",
+      "link": "https://philomedium.com/contributions/83673"
+    },
+    {
+      "id": "public-writing-04",
+      "title": "老子就要極簡和躺平？",
+      "description": "談談老子的「少私寡欲」。",
+      "source": "哲學新媒體｜2021/8/9",
+      "link": "https://philomedium.com/blog/81762"
+    },
+    {
+      "id": "public-writing-05",
+      "title": "是網路法官還是劊子手？",
+      "description": "談談網路公審中支離破碎的道德判斷。",
+      "source": "哲學新媒體｜2021/8/9",
+      "link": "https://philomedium.com/blog/81597"
+    },
+    {
+      "id": "public-writing-06",
+      "title": "犧牲小我完成大我？少來了！",
+      "description": "談談楊朱的「貴己為我」思想。",
+      "source": "哲學新媒體｜2021/5/19",
+      "link": "https://philomedium.com/blog/81453"
+    },
+    {
+      "id": "public-writing-07",
+      "title": "「我是為你好」怎麼變成了一句髒話？",
+      "description": "談老子的「無常心」。",
+      "source": "哲學新媒體｜2020/12/16",
+      "link": "https://philomedium.com/blog/81410"
+    },
+    {
+      "id": "public-writing-08",
+      "title": "哀樂莊妻：莊子的生死詠歌",
+      "description": "談莊子關於「死而不亡」的觀點。",
+      "source": "哲學新媒體｜2020/11/4",
+      "link": "https://philomedium.com/blog/81328"
+    },
+    {
+      "id": "public-writing-09",
+      "title": "你也得了「愛情強迫症」嗎？",
+      "description": "從《怪胎》談佛學中的愛情之苦。",
+      "source": "哲學新媒體｜2020/9/11",
+      "link": "https://philomedium.com/blog/81265"
+    },
+    {
+      "id": "public-writing-10",
+      "title": "假如真實世界只是視覺暫留下的一齣電影",
+      "description": "談談《肇論》中的物不遷論。",
+      "source": "哲學新媒體｜2020/8/5",
+      "link": "https://philomedium.com/blog/81226"
+    },
+    {
+      "id": "public-writing-11",
+      "title": "做自己，反而不自在？",
+      "description": "以莊子「無己」談自我。",
+      "source": "哲學新媒體｜2020/6/15",
+      "link": "https://philomedium.com/blog/81161"
+    }
+  ]
+}
