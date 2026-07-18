@@ -332,6 +332,13 @@ dialog::backdrop { background: color-mix(in srgb, var(--ink) 22%, transparent); 
   .award-archive li:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
 }
 
+@media (max-width: 56rem) {
+  .conference-year { grid-template-columns: 1fr; gap: 1rem; margin-bottom: var(--space-m); }
+  .conference-year > h3 { position: sticky; top: calc(var(--header-h) + 3.6rem); z-index: 2; padding: .4rem 0; background: var(--paper); }
+  .conference-year li { grid-template-columns: 2rem minmax(0, 1fr); gap: 1rem; }
+  .conference-year li p { grid-column: 2; }
+}
+
 @media (max-width: 48rem) {
   :root { --header-h: 4.25rem; --gutter: clamp(1rem, 5vw, 1.75rem); }
   .site-header { min-height: var(--header-h); gap: .5rem; }
@@ -375,10 +382,6 @@ dialog::backdrop { background: color-mix(in srgb, var(--ink) 22%, transparent); 
   .conference-published .published-diptych { grid-template-columns: 1fr; }
   .published-diptych article { min-height: 23rem; }
   .published-diptych article:first-child { border-right: 0; border-bottom: 1px solid var(--line); }
-  .conference-year { grid-template-columns: 1fr; gap: 1rem; margin-bottom: var(--space-m); }
-  .conference-year > h3 { position: sticky; top: calc(var(--header-h) + 3.6rem); z-index: 2; padding: .4rem 0; background: var(--paper); }
-  .conference-year li { grid-template-columns: 2rem minmax(0, 1fr); gap: 1rem; }
-  .conference-year li p { grid-column: 2; }
   .translation-feature figure { width: min(22rem, 85%); }
   .credential-archive > ol > li { grid-template-columns: 2.5rem minmax(0, 1fr); }
   .credential-format { grid-column: 2; text-align: left; }
