@@ -1,0 +1,15 @@
+@page { size: A4; margin: 16mm 15mm 18mm; }
+
+@media print {
+  :root { --paper: #fff; --paper-raised: #fff; --ink: #000; --ink-soft: #333; --line: #bbb; --line-strong: #555; }
+  body { font-size: 10.5pt; line-height: 1.45; background: #fff; }
+  .site-header, .site-footer, .breadcrumb, dialog, .scroll-progress, .skip-link, .live-region, .cv-header button { display: none !important; }
+  .cv-header, .cv-document { max-width: none; padding-inline: 0; }
+  .cv-header { padding-top: 0; padding-bottom: 6mm; }
+  .cv-header h1 { font-size: 24pt; }
+  .cv-document > section { grid-template-columns: 33mm 1fr; gap: 6mm; padding: 5mm 0; }
+  .cv-document section > p, .cv-document section > ol { grid-column: 2; }
+  .cv-list li { grid-template-columns: 25mm 1fr; padding: 2.5mm 0; break-inside: avoid; }
+  a { text-decoration: none; }
+  h2, h3 { break-after: avoid; }
+}

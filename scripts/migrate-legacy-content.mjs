@@ -152,6 +152,21 @@ const routes = [
   ['contact', 'contact.html', '聯絡', 'Contact']
 ].map(([id, href, labelZh, labelEn], index) => ({ id, href, labelZh, labelEn, order: index + 1 }));
 
+const $journal = load(journalHtml);
+const pageIntros = {
+  journal: { lead: clean($journal('.page-hero p').text()) },
+  conference: { lead: clean($conference('.hero > p').first().text()) },
+  translations: {
+    lead: clean($translations('.hero-text').text()),
+    note: clean($translations('.panel-desc').text())
+  },
+  certificates: {
+    lead: clean($credentials('.hero-copy').text()),
+    note: clean($credentials('.lead').text()),
+    closing: clean($credentials('.note').text())
+  }
+};
+
 await Promise.all([
   writeJson('profile.json', profile),
   writeJson('education.json', education),
@@ -161,7 +176,8 @@ await Promise.all([
   writeJson('conferences.json', { published, presentations }),
   writeJson('translations.json', { translation, publicWriting }),
   writeJson('credentials.json', { credentials, awards }),
-  writeJson('routes.json', routes)
+  writeJson('routes.json', routes),
+  writeJson('page-intros.json', pageIntros)
 ]);
 
 console.log(`內容遷移完成：${publications.length} 篇期刊、${published.length} 篇已出版研討會論文、${presentations.length} 筆發表、${publicWriting.length} 篇公共寫作。`);

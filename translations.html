@@ -1,751 +1,115 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" data-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>嚴浩然 YIM HO YIN｜譯著與哲學普及作品</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>譯著／哲學普及作品｜嚴浩然 YIM HO YIN</title>
+  <meta name="description" content="嚴浩然個人學術網站的譯著／哲學普及作品頁面。">
+  <link rel="canonical" href="https://hoyinyim.github.io/translations.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="嚴浩然個人學術網站">
+  <meta property="og:title" content="譯著／哲學普及作品｜嚴浩然 YIM HO YIN">
+  <meta property="og:description" content="嚴浩然個人學術網站的譯著／哲學普及作品頁面。">
+  <meta property="og:url" content="https://hoyinyim.github.io/translations.html">
+  <meta property="og:image" content="https://hoyinyim.github.io/images/profile.png.JPG">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="譯著／哲學普及作品｜嚴浩然 YIM HO YIN">
+  <meta name="twitter:description" content="嚴浩然個人學術網站的譯著／哲學普及作品頁面。">
+  <meta name="theme-color" content="#f2efe7">
+  <link rel="preload" href="assets/site.css" as="style">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-<style>
-:root{
-    --ink:#14110d;
-    --muted:#6c6256;
-    --bg:#ede4d3;
-    --paper:#fffaf0;
-    --paper2:#f7efe0;
-    --black:#0d0d0c;
-    --black2:#171513;
-    --gold:#b88a34;
-    --gold2:#d7b365;
-    --brown:#6a4327;
-    --red:#7b281e;
-    --line:#d8cbb8;
-    --shadow:0 24px 80px rgba(18,14,8,.18);
-    --shadow-dark:0 24px 80px rgba(0,0,0,.32);
-    --radius:26px;
-    --font-zh-serif:'Source Han Serif TC','Noto Serif TC','PMingLiU',serif;
-    --font-zh-sans:'Noto Sans TC','微軟正黑體',sans-serif;
-    --font-en:'Cormorant Garamond','Times New Roman',serif;
-}
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-    margin:0;
-    font-family:var(--font-zh-sans);
-    color:var(--ink);
-    background:
-        radial-gradient(circle at 12% 7%, rgba(184,138,52,.25), transparent 25%),
-        radial-gradient(circle at 88% 15%, rgba(123,40,30,.16), transparent 28%),
-        linear-gradient(115deg, #f1e8d7 0%, #e8decf 46%, #f7f1e7 100%);
-    line-height:1.85;
-    overflow-x:hidden;
-}
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-2;
-    pointer-events:none;
-    background:
-        repeating-radial-gradient(circle at 13% 17%, rgba(20,17,13,.065) 0 1px, transparent 1px 4px),
-        repeating-linear-gradient(100deg, rgba(255,255,255,.08) 0 1px, transparent 1px 7px);
-    mix-blend-mode:multiply;
-    opacity:.46;
-}
-body::after{
-    content:"YIM HO YIN";
-    position:fixed;
-    left:-8vw;
-    bottom:-5vw;
-    z-index:-1;
-    pointer-events:none;
-    font-family:var(--font-en);
-    font-size:19vw;
-    font-weight:700;
-    line-height:.75;
-    letter-spacing:.02em;
-    color:rgba(20,17,13,.045);
-    white-space:nowrap;
-}
-a{color:inherit;text-decoration:none;}
-::selection{background:var(--black);color:#fff;}
-
-.page-transition{
-    position:fixed;
-    inset:0;
-    z-index:9999;
-    background:var(--black);
-    transform:translateY(0);
-    transition:transform .85s cubic-bezier(.76,0,.24,1);
-}
-.page-transition.is-hidden{transform:translateY(-100%);}
-.progressbar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:4px;
-    background:rgba(184,138,52,.18);
-    z-index:3000;
-}
-.progressbar-inner{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--red));}
-
-.site-header{
-    position:sticky;
-    top:0;
-    z-index:999;
-    background:rgba(255,250,240,.76);
-    backdrop-filter:blur(18px) saturate(1.25);
-    border-bottom:1px solid rgba(216,203,184,.82);
-}
-.header-inner{
-    max-width:1280px;
-    margin:0 auto;
-    padding:15px 26px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:24px;
-}
-.brand{
-    display:flex;
-    flex-direction:column;
-    line-height:1.18;
-    position:relative;
-    padding-left:16px;
-}
-.brand::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:3px;
-    bottom:3px;
-    width:5px;
-    background:linear-gradient(var(--gold),var(--red));
-    border-radius:999px;
-}
-.brand .zh{
-    font-family:var(--font-zh-serif);
-    font-size:1.28rem;
-    font-weight:900;
-    color:var(--black);
-    letter-spacing:.1em;
-}
-.brand .en{
-    font-family:var(--font-en);
-    font-size:1rem;
-    font-weight:700;
-    color:#4e4338;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-}
-.nav{display:flex;flex-wrap:wrap;gap:18px;font-size:.9rem;font-weight:800;}
-.nav a{position:relative;padding:8px 0;}
-.nav a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:0;
-    width:100%;
-    height:2px;
-    background:var(--gold);
-    transform:scaleX(0);
-    transform-origin:right;
-    transition:transform .38s cubic-bezier(.22,1,.36,1);
-}
-.nav a:hover::after,.nav a.active::after{transform:scaleX(1);transform-origin:left;}
-
-.container{max-width:1280px;margin:0 auto;padding:52px 26px 80px;}
-
-.hero{
-    min-height:74vh;
-    display:grid;
-    grid-template-columns:minmax(0,1.08fr) minmax(330px,.72fr);
-    gap:36px;
-    align-items:stretch;
-    position:relative;
-}
-.hero::before{
-    content:"TRANSLATION / PUBLIC PHILOSOPHY";
-    position:absolute;
-    right:7px;
-    top:-36px;
-    font-family:var(--font-en);
-    font-size:clamp(2.3rem,6vw,6.2rem);
-    font-weight:700;
-    letter-spacing:.04em;
-    color:rgba(13,13,12,.075);
-    white-space:nowrap;
-    z-index:-1;
-}
-.hero-main{
-    min-height:620px;
-    border:1px solid rgba(216,203,184,.95);
-    border-radius:34px;
-    background:
-        linear-gradient(145deg, rgba(255,250,240,.92), rgba(239,226,207,.70)),
-        radial-gradient(circle at 88% 11%, rgba(184,138,52,.28), transparent 30%);
-    padding:clamp(28px,5vw,64px);
-    box-shadow:var(--shadow);
-    position:relative;
-    overflow:hidden;
-}
-.hero-main::before{
-    content:"";
-    position:absolute;
-    inset:auto -24% -22% auto;
-    width:62%;
-    aspect-ratio:1;
-    border-radius:50%;
-    border:1px solid rgba(184,138,52,.28);
-    box-shadow:inset 0 0 0 28px rgba(255,255,255,.13), inset 0 0 0 64px rgba(184,138,52,.08);
-}
-.hero-kicker{
-    font-family:var(--font-en);
-    font-weight:700;
-    color:var(--red);
-    letter-spacing:.24em;
-    text-transform:uppercase;
-    margin-bottom:22px;
-}
-.hero-title{
-    font-family:var(--font-zh-serif);
-    font-size:clamp(4.9rem,12vw,11.6rem);
-    line-height:.78;
-    letter-spacing:-.05em;
-    margin:0;
-    font-weight:900;
-    max-width:6.2em;
-}
-.hero-title .line{display:block;}
-.hero-title .en{
-    display:block;
-    font-family:var(--font-en);
-    font-size:.42em;
-    font-weight:700;
-    letter-spacing:.015em;
-    color:transparent;
-    -webkit-text-stroke:1.2px rgba(106,67,39,.72);
-    margin-top:.08em;
-}
-.hero-text{
-    max-width:45em;
-    font-size:1.12rem;
-    line-height:2.08;
-    color:#443b34;
-    margin-top:36px;
-    position:relative;
-    z-index:1;
-}
-.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;position:relative;z-index:1;}
-.hero-meta span{
-    padding:8px 13px;
-    border:1px solid rgba(106,67,39,.22);
-    border-radius:999px;
-    background:rgba(255,255,255,.52);
-    color:#4a4038;
-    font-size:.92rem;
-    font-weight:800;
-}
-.hero-panel{
-    border-radius:34px;
-    background:var(--black);
-    color:white;
-    padding:34px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    box-shadow:var(--shadow-dark);
-    position:relative;
-    overflow:hidden;
-    isolation:isolate;
-}
-.hero-panel::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        linear-gradient(135deg, rgba(184,138,52,.28), transparent 42%),
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,.14), transparent 20%);
-    z-index:-1;
-}
-.hero-panel::after{
-    content:"譯";
-    position:absolute;
-    right:-.15em;
-    bottom:-.35em;
-    font-family:var(--font-zh-serif);
-    font-size:24rem;
-    font-weight:900;
-    line-height:1;
-    color:rgba(255,255,255,.045);
-    z-index:-1;
-}
-.panel-kicker{font-family:var(--font-en);font-size:1.1rem;letter-spacing:.22em;color:var(--gold2);text-transform:uppercase;}
-.panel-title{font-family:var(--font-zh-serif);font-size:2.45rem;line-height:1.28;margin:34px 0 12px;}
-.panel-desc{color:#d4d0ca;font-size:1.02rem;line-height:1.92;}
-.scroll-note{font-family:var(--font-en);color:#aaa;letter-spacing:.15em;text-transform:uppercase;font-size:.95rem;}
-
-.section{margin-top:86px;position:relative;}
-.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px;}
-.section-title{font-family:var(--font-zh-serif);font-size:clamp(2.4rem,5vw,4.5rem);line-height:.95;margin:0;letter-spacing:-.04em;}
-.section-title small{display:block;font-family:var(--font-en);font-size:1.12rem;color:var(--brown);letter-spacing:.1em;margin-top:14px;}
-
-.translation-feature{
-    display:grid;
-    grid-template-columns:360px 1fr;
-    gap:46px;
-    align-items:stretch;
-    background:linear-gradient(120deg, var(--paper), var(--paper2));
-    border:1px solid var(--line);
-    border-radius:34px;
-    padding:46px;
-    box-shadow:var(--shadow);
-    position:relative;
-    overflow:hidden;
-}
-.translation-feature::before{
-    content:"FEATURED";
-    position:absolute;
-    right:-.15em;
-    top:-.17em;
-    font-family:var(--font-en);
-    font-size:13vw;
-    line-height:1;
-    font-weight:700;
-    color:rgba(13,13,12,.05);
-    pointer-events:none;
-}
-.image-reveal{position:relative;overflow:hidden;border-radius:22px;box-shadow:var(--shadow);align-self:stretch;min-height:440px;background:#111;}
-.image-reveal img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.1);transition:transform 1.15s cubic-bezier(.22,1,.36,1), filter .8s;filter:saturate(.9) contrast(1.08);}
-.image-reveal:hover img{transform:scale(1.03) rotate(-1deg);filter:saturate(1.05) contrast(1.12);}
-.image-reveal::after{content:"";position:absolute;inset:0;background:var(--black);transform:translateX(0);transition:transform 1s cubic-bezier(.76,0,.24,1);}
-.image-reveal.is-visible img{transform:scale(1);}
-.image-reveal.is-visible::after{transform:translateX(100%);}
-.book-info{position:relative;z-index:1;padding:10px 0;}
-.book-info .label{font-family:var(--font-en);font-size:1.05rem;letter-spacing:.22em;color:var(--red);text-transform:uppercase;margin-bottom:14px;font-weight:700;}
-.book-info h2{font-family:var(--font-zh-serif);font-size:clamp(2.6rem,6vw,5rem);line-height:.98;margin:0 0 14px;letter-spacing:-.05em;}
-.original-title{font-family:var(--font-en);font-size:1.6rem;color:#665b52;line-height:1.3;margin-bottom:28px;max-width:17em;}
-.info-list{list-style:none;padding:0;margin:0 0 28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 20px;}
-.info-list li{padding:12px 0;border-bottom:1px solid var(--line);color:#4e4e4e;font-size:1.02rem;}
-.info-list strong{color:#171717;display:block;font-size:.86rem;letter-spacing:.08em;margin-bottom:2px;}
-.button-row{display:flex;flex-wrap:wrap;gap:12px;}
-.magnetic-button{display:inline-flex;align-items:center;justify-content:center;min-width:158px;padding:13px 20px;border-radius:999px;border:1px solid var(--black);background:var(--black);color:white;font-weight:800;transition:transform .35s cubic-bezier(.22,1,.36,1), box-shadow .3s;}
-.magnetic-button.secondary{background:transparent;color:var(--black);}
-.magnetic-button:hover{box-shadow:var(--shadow);}
-.magnetic-button span{display:block;transition:transform .35s cubic-bezier(.22,1,.36,1);}
-
-.marquee-section{
-    background:var(--black);
-    color:white;
-    border-radius:34px;
-    padding:42px 0 46px;
-    overflow:hidden;
-    box-shadow:var(--shadow-dark);
-    position:relative;
-    isolation:isolate;
-}
-.marquee-section::before{
-    content:"PUBLIC WRITING";
-    position:absolute;
-    left:26px;
-    top:4px;
-    z-index:-1;
-    font-family:var(--font-en);
-    font-size:clamp(4rem,13vw,12rem);
-    font-weight:700;
-    line-height:.8;
-    color:rgba(255,255,255,.045);
-    white-space:nowrap;
-}
-.marquee-title{padding:0 42px 10px;font-family:var(--font-zh-serif);font-size:clamp(2.1rem,5vw,4rem);line-height:1;margin:0;letter-spacing:-.03em;}
-.drag-hint{padding:0 42px 24px;color:#c8c1b7;font-size:.95rem;letter-spacing:.06em;}
-.marquee-strip{width:100%;overflow-x:auto;overflow-y:hidden;user-select:none;touch-action:pan-x;scroll-behavior:smooth;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;mask-image:linear-gradient(to right, transparent, black 6%, black 94%, transparent);-webkit-mask-image:linear-gradient(to right, transparent, black 6%, black 94%, transparent);}
-.marquee-strip::-webkit-scrollbar{display:none;}
-.marquee-strip.is-dragging{scroll-behavior:auto;}
-.marquee-track{display:flex;gap:22px;width:max-content;min-width:max-content;padding:0 42px 8px;}
-.public-card{
-    flex:0 0 auto;
-    width:355px;
-    min-height:270px;
-    background:linear-gradient(150deg,#1d1c1a,#111);
-    border:1px solid rgba(255,255,255,.13);
-    border-radius:26px;
-    padding:26px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    transition:transform .38s cubic-bezier(.22,1,.36,1), border-color .38s, background .38s;
-    cursor:grab;
-    user-select:none;
-    touch-action:pan-y;
-    position:relative;
-    overflow:hidden;
-}
-.public-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(215,179,101,.25), transparent 42%);opacity:0;transition:.3s;}
-.public-card:hover::before{opacity:1;}
-.public-card:hover{transform:translateY(-10px) rotate(-1.3deg) scale(1.025);border-color:rgba(215,179,101,.72);}
-.public-card.is-dragging{cursor:grabbing;transform:scale(.985);}
-.public-card.is-dragging a{pointer-events:none;}
-.public-card > *{position:relative;}
-.public-card .type{font-family:var(--font-en);color:var(--gold2);letter-spacing:.15em;text-transform:uppercase;font-weight:700;font-size:.95rem;}
-.public-card h3{font-family:var(--font-zh-serif);font-size:1.58rem;line-height:1.38;margin:18px 0 12px;}
-.public-card p{color:#c7c3bd;margin:0;line-height:1.72;}
-.public-card a{color:white;border-bottom:1px solid rgba(255,255,255,.5);align-self:flex-start;margin-top:22px;font-weight:800;}
-
-.filter-bar{display:flex;flex-wrap:wrap;gap:10px;}
-.filter-btn{border:1px solid var(--line);background:rgba(255,255,255,.60);border-radius:999px;padding:10px 16px;cursor:pointer;font-weight:800;color:#3f342d;transition:.3s;}
-.filter-btn.active,.filter-btn:hover{background:var(--black);color:white;border-color:var(--black);}
-.work-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;grid-auto-flow:dense;}
-.work-card{
-    grid-column:span 2;
-    min-height:300px;
-    background:rgba(255,250,240,.82);
-    border:1px solid rgba(216,203,184,.96);
-    border-radius:26px;
-    padding:26px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    transition:transform .38s cubic-bezier(.22,1,.36,1), box-shadow .38s, background .38s, border-color .38s;
-    position:relative;
-    overflow:hidden;
-    backdrop-filter:blur(8px);
-}
-.work-card:nth-child(1){grid-column:span 3;grid-row:span 2;min-height:630px;background:linear-gradient(145deg,#161412,#272017);color:white;border-color:#2e281f;}
-.work-card:nth-child(2),.work-card:nth-child(3){grid-column:span 3;min-height:330px;}
-.work-card:nth-child(6),.work-card:nth-child(9){grid-column:span 4;}
-.work-card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg, rgba(184,138,52,.18), transparent 58%);opacity:0;transition:.35s;}
-.work-card::after{content:attr(data-index);position:absolute;right:18px;bottom:-.22em;font-family:var(--font-en);font-size:8.4rem;line-height:1;font-weight:700;color:rgba(20,17,13,.055);}
-.work-card:nth-child(1)::after{color:rgba(255,255,255,.07);}
-.work-card:hover{transform:translateY(-12px) rotate(.6deg);box-shadow:var(--shadow);border-color:rgba(184,138,52,.55);background:#fffaf0;}
-.work-card:nth-child(1):hover{background:#191612;box-shadow:var(--shadow-dark);}
-.work-card:hover::before{opacity:1;}
-.work-card > *{position:relative;z-index:1;}
-.work-card .category{font-family:var(--font-en);color:var(--red);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.94rem;}
-.work-card:nth-child(1) .category{color:var(--gold2);}
-.work-card h3{font-family:var(--font-zh-serif);font-size:clamp(1.4rem,2.4vw,2.15rem);line-height:1.35;margin:18px 0 12px;letter-spacing:-.02em;}
-.work-card:nth-child(1) h3{font-size:clamp(2.3rem,4.4vw,4.15rem);line-height:1.04;letter-spacing:-.06em;}
-.work-card p{color:var(--muted);margin:0;font-size:1rem;}
-.work-card:nth-child(1) p{color:#d8d0c4;font-size:1.08rem;line-height:1.92;}
-.work-card .source{margin-top:24px;display:flex;justify-content:space-between;gap:14px;align-items:center;border-top:1px solid rgba(216,203,184,.82);padding-top:16px;font-size:.94rem;}
-.work-card:nth-child(1) .source{border-top-color:rgba(255,255,255,.16);}
-.work-card .source a{color:var(--brown);font-weight:900;}
-.work-card:nth-child(1) .source a{color:var(--gold2);}
-.hidden{display:none!important;}
-
-.preview-box{
-    position:fixed;
-    left:0;
-    top:0;
-    z-index:2000;
-    width:min(360px,calc(100vw - 38px));
-    padding:22px;
-    border-radius:24px;
-    background:rgba(13,13,12,.90);
-    color:white;
-    backdrop-filter:blur(18px);
-    border:1px solid rgba(215,179,101,.35);
-    opacity:0;
-    transform:translate3d(-999px,-999px,0) scale(.96);
-    pointer-events:none;
-    transition:opacity .18s, transform .12s linear;
-    box-shadow:var(--shadow-dark);
-}
-.preview-box::before{content:"PREVIEW";display:block;font-family:var(--font-en);letter-spacing:.18em;color:var(--gold2);font-weight:700;margin-bottom:9px;}
-.preview-box strong{font-family:var(--font-zh-serif);display:block;font-size:1.22rem;line-height:1.42;margin-bottom:8px;}
-.preview-box p{color:#d4d0c9;margin:0;line-height:1.7;}
-.preview-box.is-visible{opacity:1;}
-.footer{margin-top:90px;padding:36px 0 0;border-top:1px solid var(--line);color:var(--muted);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;}
-
-[data-reveal]{opacity:0;transform:translateY(50px) scale(.985);filter:blur(8px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1),filter .9s cubic-bezier(.22,1,.36,1);}
-[data-reveal].is-visible{opacity:1;transform:translateY(0) scale(1);filter:blur(0);}
-
-@supports (animation-timeline:view()){
-    .translation-feature,.marquee-section,.work-card{
-        animation:scrollLift linear both;
-        animation-timeline:view();
-        animation-range:entry 0% cover 35%;
-    }
-    @keyframes scrollLift{
-        from{opacity:.25;transform:translateY(70px) scale(.96);filter:blur(8px);}
-        to{opacity:1;transform:translateY(0) scale(1);filter:blur(0);}
-    }
-}
-
-@media(prefers-reduced-motion:reduce){
-    *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
-    [data-reveal]{opacity:1;transform:none;filter:none;}
-}
-@media(max-width:1040px){
-    .hero,.translation-feature{grid-template-columns:1fr;}
-    .hero-main{min-height:auto;}
-    .work-grid{grid-template-columns:repeat(2,1fr);}
-    .work-card,.work-card:nth-child(1),.work-card:nth-child(2),.work-card:nth-child(3),.work-card:nth-child(6),.work-card:nth-child(9){grid-column:span 1;grid-row:span 1;min-height:300px;}
-    .work-card:nth-child(1){min-height:430px;}
-}
-@media(max-width:680px){
-    .header-inner{flex-direction:column;align-items:flex-start;}
-    .nav{gap:12px;font-size:.82rem;}
-    .container{padding:34px 16px 58px;}
-    .hero-title{font-size:4.4rem;}
-    .hero-main,.hero-panel,.translation-feature,.marquee-section{border-radius:24px;}
-    .translation-feature{padding:24px;}
-    .image-reveal{min-height:360px;}
-    .info-list{grid-template-columns:1fr;}
-    .work-grid{grid-template-columns:1fr;}
-    .public-card{width:292px;min-height:250px;}
-    .preview-box{display:none;}
-}
-</style>
-<link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/archive-pages.css"><link rel="stylesheet" href="assets/third-stage.css?v=20260719-3">
 </head>
-
-<body>
-<div class="page-transition" id="pageTransition"></div>
-<div class="progressbar"><div class="progressbar-inner" id="progressbar"></div></div>
-
-<header class="site-header">
-    <div class="header-inner">
-        <a class="brand" href="index.html">
-            <span class="zh">嚴浩然</span>
-            <span class="en">YIM HO YIN</span>
-        </a>
-        <nav class="nav">
-            <a href="index.html">HOME</a>
-            <a href="certificates.html">證照／證書／獎項</a>
-            <a href="translations.html" class="active">譯著／哲學普及作品</a>
-            <a href="journal-papers.html">期刊論文</a>
-            <a href="conference-papers.html">研討會論文</a>
-        </nav>
+<body class="page-translations " data-page="translations">
+  <a class="skip-link" href="#main-content">跳至主要內容</a>
+  <div class="scroll-progress" aria-hidden="true"><i data-scroll-progress></i></div>
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html" aria-label="嚴浩然首頁"><span>嚴浩然</span><small>YIM HO YIN</small></a>
+    <nav class="primary-nav" aria-label="主要導覽"><a href="about.html">關於</a><a href="research.html">研究</a><a href="journal-papers.html">期刊論文</a><a href="conference-papers.html">研討會論文</a><a href="cv.html">履歷</a></nav>
+    <div class="header-actions">
+      <button class="text-control search-trigger" type="button" data-search-open aria-haspopup="dialog"><span>搜尋</span><kbd>Ctrl K</kbd></button>
+      <button class="icon-control" type="button" data-theme-toggle aria-label="切換深色或淺色模式"><span aria-hidden="true">◐</span></button>
+      <button class="menu-trigger" type="button" data-menu-open aria-haspopup="dialog"><span>選單</span><i aria-hidden="true"></i></button>
     </div>
-</header>
-
-<main class="container">
-
-<section class="hero">
-    <div class="hero-main" data-reveal>
-        <div class="hero-kicker">Archive of Translation and Public Philosophy</div>
-        <h1 class="hero-title">
-            <span class="line">譯著</span>
-            <span class="line">哲普</span>
-            <span class="en">Translations</span>
-        </h1>
-        <p class="hero-text">
-            由學術研究延伸至譯介、導讀、講座報導與哲學普及，使哲學文本轉入更廣泛的閱讀場域。此頁以「思想翻譯」與「公共哲學寫作」為核心，呈現學術研究、公共語言與當代生活之間的轉譯路徑。
-        </p>
-        <div class="hero-meta">
-            <span>Translation</span>
-            <span>Public Philosophy</span>
-            <span>Philosophical Essays</span>
-            <span>Lecture Reports</span>
-        </div>
+  </header>
+  <dialog class="menu-dialog" data-menu-dialog aria-labelledby="menu-title">
+    <div class="dialog-topline"><p id="menu-title">網站索引</p><button class="dialog-close" type="button" data-menu-close>關閉 <span aria-hidden="true">×</span></button></div>
+    <div class="menu-layout">
+      <nav aria-label="完整網站導覽"><ol class="menu-index"><li>
+    <a href="index.html">
+      <span>01</span><strong>首頁</strong><small>Home</small>
+    </a>
+  </li><li>
+    <a href="about.html">
+      <span>02</span><strong>關於</strong><small>About</small>
+    </a>
+  </li><li>
+    <a href="research.html">
+      <span>03</span><strong>研究</strong><small>Research</small>
+    </a>
+  </li><li>
+    <a href="journal-papers.html">
+      <span>04</span><strong>期刊論文</strong><small>Journal Articles</small>
+    </a>
+  </li><li>
+    <a href="conference-papers.html">
+      <span>05</span><strong>研討會論文</strong><small>Conference Papers</small>
+    </a>
+  </li><li>
+    <a href="translations.html" aria-current="page">
+      <span>06</span><strong>譯著／哲學普及作品</strong><small>Translations</small>
+    </a>
+  </li><li>
+    <a href="certificates.html">
+      <span>07</span><strong>證照／證書／獎項</strong><small>Credentials</small>
+    </a>
+  </li><li>
+    <a href="teaching.html">
+      <span>08</span><strong>教學</strong><small>Teaching</small>
+    </a>
+  </li><li>
+    <a href="cv.html">
+      <span>09</span><strong>履歷</strong><small>CV</small>
+    </a>
+  </li><li>
+    <a href="contact.html">
+      <span>10</span><strong>聯絡</strong><small>Contact</small>
+    </a>
+  </li></ol></nav>
+      <aside class="menu-aside">
+        <button type="button" class="menu-search" data-search-from-menu>搜尋全站 <span aria-hidden="true">↗</span></button>
+        <a href="mailto:K18111026@gs.ncku.edu.tw">K18111026@gs.ncku.edu.tw</a>
+        <p>國立成功大學中國文學系博士候選人</p>
+      </aside>
     </div>
-
-    <aside class="hero-panel" data-reveal>
-        <div>
-            <div class="panel-kicker">Public Writing Archive</div>
-            <h2 class="panel-title">思想翻譯與公共哲學寫作</h2>
-            <p class="panel-desc">
-                這裡不是單純羅列作品，而是以策展式頁面呈現翻譯、導讀、報導與公共哲學寫作之間的連續性。讀者可以從譯著進入，再滑動文章卡，最後進入下方作品矩陣。
-            </p>
-        </div>
-        <div class="scroll-note">Scroll / Drag cards to browse</div>
-    </aside>
-</section>
-
-<section class="section">
-    <div class="section-head" data-reveal>
-        <h2 class="section-title">譯著<small>Featured Translation</small></h2>
+  </dialog>
+  <dialog class="search-dialog" data-search-dialog aria-labelledby="search-title">
+    <div class="dialog-topline"><p id="search-title">搜尋全站</p><button class="dialog-close" type="button" data-search-close>關閉 <span aria-hidden="true">×</span></button></div>
+    <div class="search-field">
+      <label for="site-search">輸入頁面、論文或作品題名</label>
+      <input id="site-search" type="search" autocomplete="off" spellcheck="false" data-search-input aria-controls="search-results" aria-describedby="search-status">
     </div>
-
-    <article class="translation-feature" data-reveal>
-        <div class="image-reveal" data-reveal-image>
-            <img src="https://www.wunan.com.tw/images/pic/1BBP.gif" alt="亞里斯多德與《詩學》書封">
-        </div>
-        <div class="book-info">
-            <div class="label">Book Translation</div>
-            <h2>亞里斯多德與《詩學》</h2>
-            <div class="original-title">Routledge Philosophy GuideBook to Aristotle and the Poetics</div>
-            <ul class="info-list">
-                <li><strong>作者</strong>安吉拉・柯倫（Angela Curran）</li>
-                <li><strong>譯者</strong>嚴浩然</li>
-                <li><strong>出版社</strong>五南</li>
-                <li><strong>出版日</strong>2024/09/28</li>
-            </ul>
-            <div class="button-row">
-                <a class="magnetic-button" href="https://www.wunan.com.tw/bookdetail?NO=16980" target="_blank" rel="noopener" data-magnetic><span>前往五南圖書</span></a>
-                <a class="magnetic-button secondary" href="#public-writing" data-magnetic><span>瀏覽哲學普及作品</span></a>
-            </div>
-        </div>
-    </article>
-</section>
-
-<section class="section marquee-section" id="public-writing" data-reveal>
-    <h2 class="marquee-title">哲學普及作品</h2>
-    <div class="drag-hint">按住任一張文章卡左右拖曳｜Drag any article card horizontally</div>
-    <div class="marquee-strip">
-        <div class="marquee-track">
-            <article class="public-card"><div><div class="type">Zhuangzi / Psychoanalysis</div><h3>卸下預設的相遇：莊學與精神分析的跨領域對話</h3><p>「當代莊學與精神分析技藝的相遇」講座報導。</p></div><a href="https://philomedium.com/contributions/83764" target="_blank" rel="noopener">Read</a></article>
-            <article class="public-card"><div><div class="type">Public Ethics</div><h3>公共情感：重建一個「心更軟」、更具正義感的公民社會</h3><p>錢永祥教授〈公共情感的倫理思考〉講座報導。</p></div><a href="https://philomedium.com/contributions/83651" target="_blank" rel="noopener">Read</a></article>
-            <article class="public-card"><div><div class="type">Calligraphy / Six Classics</div><h3>失、抒、理、越、異、皴丘：看見書法的現代轉身</h3><p>「相與・問學——六經衍至文的書畫潛能」講座側記。</p></div><a href="https://philomedium.com/contributions/83673" target="_blank" rel="noopener">Read</a></article>
-            <article class="public-card"><div><div class="type">Laozi</div><h3>老子就要極簡和躺平？</h3><p>談談老子的「少私寡欲」。</p></div><a href="https://philomedium.com/blog/81762" target="_blank" rel="noopener">Read</a></article>
-            <article class="public-card"><div><div class="type">Ethics</div><h3>是網路法官還是劊子手？</h3><p>談網路公審中支離破碎的道德判斷。</p></div><a href="https://philomedium.com/blog/81597" target="_blank" rel="noopener">Read</a></article>
-            <article class="public-card"><div><div class="type">Yang Zhu</div><h3>犧牲小我完成大我？少來了！</h3><p>談楊朱的「貴己為我」思想。</p></div><a href="https://philomedium.com/blog/81453" target="_blank" rel="noopener">Read</a></article>
-            <article class="public-card"><div><div class="type">Laozi</div><h3>「我是為你好」怎麼變成了一句髒話？</h3><p>談老子的「無常心」。</p></div><a href="https://philomedium.com/blog/81410" target="_blank" rel="noopener">Read</a></article>
-            <article class="public-card"><div><div class="type">Zhuangzi</div><h3>哀樂莊妻：莊子的生死詠歌</h3><p>談莊子關於「死而不亡」的觀點。</p></div><a href="https://philomedium.com/blog/81328" target="_blank" rel="noopener">Read</a></article>
-            <article class="public-card"><div><div class="type">Buddhism</div><h3>你也得了「愛情強迫症」嗎？</h3><p>從《怪胎》談佛學中的愛情之苦。</p></div><a href="https://philomedium.com/blog/81265" target="_blank" rel="noopener">Read</a></article>
-            <article class="public-card"><div><div class="type">Buddhist Philosophy</div><h3>假如真實世界只是視覺暫留下的一齣電影</h3><p>談《肇論》中的物不遷論。</p></div><a href="https://philomedium.com/blog/81226" target="_blank" rel="noopener">Read</a></article>
-            <article class="public-card"><div><div class="type">Zhuangzi</div><h3>做自己，反而不自在？</h3><p>以莊子「無己」談自我。</p></div><a href="https://philomedium.com/blog/81161" target="_blank" rel="noopener">Read</a></article>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="section-head" data-reveal>
-        <h2 class="section-title">全部作品<small>Asymmetrical Works Matrix</small></h2>
-        <div class="filter-bar">
-            <button class="filter-btn active" data-filter="all">全部</button>
-            <button class="filter-btn" data-filter="translation">譯著</button>
-            <button class="filter-btn" data-filter="public">哲學普及</button>
-        </div>
-    </div>
-
-    <div class="work-grid" id="workGrid">
-        <article class="work-card" data-index="01" data-type="translation" data-reveal data-preview-title="亞里斯多德與《詩學》" data-preview-text="Routledge Philosophy GuideBook 系列譯著，五南出版。"><div><div class="category">Translation</div><h3>亞里斯多德與《詩學》</h3><p>清晰導讀西方文學理論和批評奠基文本。學習文學、哲學、藝術理論及媒體理論必備入門書。亞里斯多德的《詩學》是藝術理論的首部哲學著作、美學史奠基文本，也是亞里斯多德被閱讀廣泛著作之一。</p></div><div class="source"><span>五南</span><a href="https://www.wunan.com.tw/bookdetail?NO=16980" target="_blank" rel="noopener">查看</a></div></article>
-        <article class="work-card" data-index="02" data-type="public" data-reveal data-preview-title="卸下預設的相遇：莊學與精神分析的跨領域對話" data-preview-text="「當代莊學與精神分析技藝的相遇」講座報導，刊於哲學新媒體。"><div><div class="category">Public Philosophy</div><h3>卸下預設的相遇：莊學與精神分析的跨領域對話</h3><p>「當代莊學與精神分析技藝的相遇」講座報導。</p></div><div class="source"><span>哲學新媒體｜2026/04/10</span><a href="https://philomedium.com/contributions/83764" target="_blank" rel="noopener">閱讀</a></div></article>
-        <article class="work-card" data-index="03" data-type="public" data-reveal data-preview-title="公共情感：重建一個「心更軟」、更具正義感的公民社會" data-preview-text="錢永祥教授〈公共情感的倫理思考〉講座報導，刊於哲學新媒體。"><div><div class="category">Public Philosophy</div><h3>公共情感：重建一個「心更軟」、更具正義感的公民社會</h3><p>錢永祥教授〈公共情感的倫理思考〉講座報導。</p></div><div class="source"><span>哲學新媒體｜2025/11/21</span><a href="https://philomedium.com/contributions/83651" target="_blank" rel="noopener">閱讀</a></div></article>
-        <article class="work-card" data-index="04" data-type="public" data-reveal data-preview-title="失、抒、理、越、異、皴丘：看見書法的現代轉身" data-preview-text="「相與・問學——六經衍至文的書畫潛能」講座側記，刊於哲學新媒體。"><div><div class="category">Public Philosophy</div><h3>失、抒、理、越、異、皴丘：看見書法的現代轉身</h3><p>「相與・問學——六經衍至文的書畫潛能」講座側記。</p></div><div class="source"><span>哲學新媒體｜2025/12/12</span><a href="https://philomedium.com/contributions/83673" target="_blank" rel="noopener">閱讀</a></div></article>
-        <article class="work-card" data-index="05" data-type="public" data-reveal data-preview-title="老子就要極簡和躺平？" data-preview-text="談老子的「少私寡欲」，回應現代生活中的欲望、節制與躺平想像。"><div><div class="category">Public Philosophy</div><h3>老子就要極簡和躺平？</h3><p>談談老子的「少私寡欲」。</p></div><div class="source"><span>哲學新媒體｜2021/8/9</span><a href="https://philomedium.com/blog/81762" target="_blank" rel="noopener">閱讀</a></div></article>
-        <article class="work-card" data-index="06" data-type="public" data-reveal data-preview-title="是網路法官還是劊子手？" data-preview-text="以網路公審為問題意識，討論支離破碎的道德判斷。"><div><div class="category">Public Philosophy</div><h3>是網路法官還是劊子手？</h3><p>談談網路公審中支離破碎的道德判斷。</p></div><div class="source"><span>哲學新媒體｜2021/8/9</span><a href="https://philomedium.com/blog/81597" target="_blank" rel="noopener">閱讀</a></div></article>
-        <article class="work-card" data-index="07" data-type="public" data-reveal data-preview-title="犧牲小我完成大我？少來了！" data-preview-text="以楊朱「貴己為我」思想，重新理解個體與群體之間的張力。"><div><div class="category">Public Philosophy</div><h3>犧牲小我完成大我？少來了！</h3><p>談談楊朱的「貴己為我」思想。</p></div><div class="source"><span>哲學新媒體｜2021/5/19</span><a href="https://philomedium.com/blog/81453" target="_blank" rel="noopener">閱讀</a></div></article>
-        <article class="work-card" data-index="08" data-type="public" data-reveal data-preview-title="「我是為你好」怎麼變成了一句髒話？" data-preview-text="由老子的「無常心」切入，討論善意、控制與倫理判斷。"><div><div class="category">Public Philosophy</div><h3>「我是為你好」怎麼變成了一句髒話？</h3><p>談老子的「無常心」。</p></div><div class="source"><span>哲學新媒體｜2020/12/16</span><a href="https://philomedium.com/blog/81410" target="_blank" rel="noopener">閱讀</a></div></article>
-        <article class="work-card" data-index="09" data-type="public" data-reveal data-preview-title="哀樂莊妻：莊子的生死詠歌" data-preview-text="以莊子故事討論生死、哀樂與「死而不亡」的思想向度。"><div><div class="category">Public Philosophy</div><h3>哀樂莊妻：莊子的生死詠歌</h3><p>談莊子關於「死而不亡」的觀點。</p></div><div class="source"><span>哲學新媒體｜2020/11/4</span><a href="https://philomedium.com/blog/81328" target="_blank" rel="noopener">閱讀</a></div></article>
-        <article class="work-card" data-index="10" data-type="public" data-reveal data-preview-title="你也得了「愛情強迫症」嗎？" data-preview-text="從電影《怪胎》切入，談佛學中的愛情之苦。"><div><div class="category">Public Philosophy</div><h3>你也得了「愛情強迫症」嗎？</h3><p>從《怪胎》談佛學中的愛情之苦。</p></div><div class="source"><span>哲學新媒體｜2020/9/11</span><a href="https://philomedium.com/blog/81265" target="_blank" rel="noopener">閱讀</a></div></article>
-        <article class="work-card" data-index="11" data-type="public" data-reveal data-preview-title="假如真實世界只是視覺暫留下的一齣電影" data-preview-text="談《肇論》中的物不遷論，思考變動與不變。"><div><div class="category">Public Philosophy</div><h3>假如真實世界只是視覺暫留下的一齣電影</h3><p>談談《肇論》中的物不遷論。</p></div><div class="source"><span>哲學新媒體｜2020/8/5</span><a href="https://philomedium.com/blog/81226" target="_blank" rel="noopener">閱讀</a></div></article>
-        <article class="work-card" data-index="12" data-type="public" data-reveal data-preview-title="做自己，反而不自在？" data-preview-text="以莊子「無己」談自我，反思現代人對「做自己」的執著。"><div><div class="category">Public Philosophy</div><h3>做自己，反而不自在？</h3><p>以莊子「無己」談自我。</p></div><div class="source"><span>哲學新媒體｜2020/6/15</span><a href="https://philomedium.com/blog/81161" target="_blank" rel="noopener">閱讀</a></div></article>
-    </div>
-</section>
-
-<footer class="footer">
-    <div><strong>嚴浩然 YIM HO YIN</strong><br>譯著與哲學普及作品</div>
-    <div>&copy; <span id="year"></span> YIM HO YIN. All Rights Reserved.</div>
-</footer>
-</main>
-
-<div class="preview-box" id="previewBox"><strong id="previewTitle"></strong><p id="previewText"></p></div>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-window.addEventListener("load",()=>{document.getElementById("pageTransition").classList.add("is-hidden");});
-window.addEventListener("scroll",()=>{
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    document.getElementById("progressbar").style.width = percent + "%";
-});
-function scrollReveal(){
-    const elements = document.querySelectorAll("[data-reveal], [data-reveal-image]");
-    const observer = new IntersectionObserver(entries=>{
-        entries.forEach(entry=>{
-            if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target);}
-        });
-    },{threshold:.13,rootMargin:"0px 0px -50px 0px"});
-    elements.forEach((el,index)=>{el.style.transitionDelay = `${Math.min(index * 35, 280)}ms`;observer.observe(el);});
-}
-function initMagnetic(){
-    const items = document.querySelectorAll("[data-magnetic]");
-    items.forEach(item=>{
-        const inner = item.querySelector("span");
-        item.addEventListener("pointermove",event=>{
-            if(window.innerWidth < 900) return;
-            const rect = item.getBoundingClientRect();
-            const x = event.clientX - rect.left - rect.width / 2;
-            const y = event.clientY - rect.top - rect.height / 2;
-            item.style.transform = `translate(${x * .14}px, ${y * .14}px)`;
-            if(inner) inner.style.transform = `translate(${x * .08}px, ${y * .08}px)`;
-        });
-        item.addEventListener("pointerleave",()=>{item.style.transform = "translate(0,0)"; if(inner) inner.style.transform = "translate(0,0)";});
-    });
-}
-function initFilter(){
-    const buttons = document.querySelectorAll(".filter-btn");
-    const cards = document.querySelectorAll(".work-card");
-    buttons.forEach(button=>{
-        button.addEventListener("click",()=>{
-            buttons.forEach(btn=>btn.classList.remove("active"));
-            button.classList.add("active");
-            const filter = button.dataset.filter;
-            cards.forEach(card=>{
-                if(filter === "all" || card.dataset.type === filter){card.classList.remove("hidden");}
-                else{card.classList.add("hidden");}
-            });
-        });
-    });
-}
-function initPreview(){
-    const box = document.getElementById("previewBox");
-    const title = document.getElementById("previewTitle");
-    const text = document.getElementById("previewText");
-    let active = false;
-    function moveBox(event){
-        if(!active) return;
-        const margin = 22;
-        const bw = box.offsetWidth;
-        const bh = box.offsetHeight;
-        let x = event.clientX + 24;
-        let y = event.clientY + 24;
-        if(x + bw + margin > window.innerWidth) x = event.clientX - bw - 24;
-        if(y + bh + margin > window.innerHeight) y = event.clientY - bh - 24;
-        box.style.transform = `translate3d(${x}px, ${y}px, 0) scale(1)`;
-    }
-    document.querySelectorAll("[data-preview-title]").forEach(item=>{
-        item.addEventListener("pointerenter",event=>{active = true;title.textContent = item.dataset.previewTitle;text.textContent = item.dataset.previewText;box.classList.add("is-visible");moveBox(event);});
-        item.addEventListener("pointermove",moveBox);
-        item.addEventListener("pointerleave",()=>{active = false;box.classList.remove("is-visible");box.style.transform = "translate3d(-999px,-999px,0) scale(.96)";});
-    });
-}
-function initCardDrag(){
-    const strips = document.querySelectorAll(".marquee-strip");
-    strips.forEach(strip=>{
-        const cards = strip.querySelectorAll(".public-card");
-        cards.forEach(card=>{
-            let isDragging = false;
-            let startX = 0;
-            let startScrollLeft = 0;
-            let hasMoved = false;
-            card.addEventListener("pointermove",event=>{
-                const rect = card.getBoundingClientRect();
-                card.style.setProperty("--mx", `${event.clientX - rect.left}px`);
-                card.style.setProperty("--my", `${event.clientY - rect.top}px`);
-                if(!isDragging) return;
-                const dx = event.clientX - startX;
-                if(Math.abs(dx) > 5) hasMoved = true;
-                strip.scrollLeft = startScrollLeft - dx;
-            });
-            card.addEventListener("pointerdown",event=>{
-                if(event.button !== undefined && event.button !== 0) return;
-                isDragging = true; hasMoved = false; startX = event.clientX; startScrollLeft = strip.scrollLeft;
-                strip.classList.add("is-dragging"); card.classList.add("is-dragging"); card.setPointerCapture(event.pointerId);
-            });
-            function stopDragging(event){
-                if(!isDragging) return;
-                isDragging = false; strip.classList.remove("is-dragging"); card.classList.remove("is-dragging");
-                try{card.releasePointerCapture(event.pointerId);}catch(error){}
-                if(hasMoved){card.dataset.dragged = "true"; window.setTimeout(()=>{delete card.dataset.dragged;},100);}
-            }
-            card.addEventListener("pointerup",stopDragging);
-            card.addEventListener("pointercancel",stopDragging);
-            card.addEventListener("pointerleave",stopDragging);
-            card.addEventListener("click",event=>{if(card.dataset.dragged === "true"){event.preventDefault();event.stopPropagation();}},true);
-        });
-    });
-}
-document.addEventListener("DOMContentLoaded",()=>{scrollReveal();initMagnetic();initFilter();initPreview();initCardDrag();});
-</script>
-<script src="assets/site.js?v=20260719-3" defer></script>
+    <p class="search-status" id="search-status" data-search-status aria-live="polite">開始輸入以搜尋全部靜態資料。</p>
+    <ol class="search-results" id="search-results" data-search-results></ol>
+    <p class="search-help"><kbd>↑</kbd><kbd>↓</kbd> 移動　<kbd>Enter</kbd> 開啟　<kbd>Esc</kbd> 關閉</p>
+  </dialog>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumb" aria-label="麵包屑"><a href="index.html">首頁</a><span aria-hidden="true">/</span><span aria-current="page">譯著／哲學普及作品</span></nav><header class="page-hero">
+    <div class="page-hero-index" aria-hidden="true">06</div>
+    <p class="eyebrow">Translations · Public Philosophy</p>
+    <h1>譯著／哲學普及作品</h1>
+    <p class="page-lead">由學術研究延伸至譯介、導讀、講座報導與哲學普及，使哲學文本轉入更廣泛的閱讀場域。此頁以「思想翻譯」與「公共哲學寫作」為核心，呈現學術研究、公共語言與當代生活之間的轉譯路徑。</p>
+  </header>
+  <p class="page-intro-note">這裡不是單純羅列作品，而是以策展式頁面呈現翻譯、導讀、報導與公共哲學寫作之間的連續性。讀者可以從譯著進入，再滑動文章卡，最後進入下方作品矩陣。</p>
+  <section class="translation-feature" aria-labelledby="translation-title"><figure><img src="https://www.wunan.com.tw/images/pic/1BBP.gif" width="500" height="700" loading="lazy" decoding="async" alt="亞里斯多德與《詩學》書封"></figure><div><p class="eyebrow">Book Translation</p><h2 id="translation-title">亞里斯多德與《詩學》</h2><p class="original-title">Routledge Philosophy GuideBook to Aristotle and the Poetics</p><dl><div><dt>作者</dt><dd>安吉拉・柯倫（Angela Curran）</dd></div><div><dt>譯者</dt><dd>嚴浩然</dd></div><div><dt>出版社</dt><dd>五南</dd></div><div><dt>出版日</dt><dd>2024/09/28</dd></div></dl><p>清晰導讀西方文學理論和批評奠基文本。學習文學、哲學、藝術理論及媒體理論必備入門書。亞里斯多德的《詩學》是藝術理論的首部哲學著作、美學史奠基文本，也是亞里斯多德被閱讀廣泛著作之一。</p><a href="https://www.wunan.com.tw/bookdetail?NO=16980" target="_blank" rel="noopener noreferrer">前往五南圖書 <span aria-hidden="true">↗</span></a></div></section>
+  <section class="public-writing" aria-labelledby="public-writing-title"><header class="section-heading"><p>Public Writing Archive</p><h2>哲學普及作品</h2><span>11 WORKS</span></header><h2 id="public-writing-title" class="sr-only">哲學普及作品</h2><div class="scroll-controls"><button type="button" data-scroll-archive="previous" aria-label="向前瀏覽作品">←</button><button type="button" data-scroll-archive="next" aria-label="向後瀏覽作品">→</button></div><ol data-horizontal-archive tabindex="0" aria-label="哲學普及作品橫向索引"><li><article><span>01</span><h3>卸下預設的相遇：莊學與精神分析的跨領域對話</h3><p>「當代莊學與精神分析技藝的相遇」講座報導。</p><footer><small>哲學新媒體｜2026/04/10</small><a href="https://philomedium.com/contributions/83764" target="_blank" rel="noopener noreferrer">閱讀 <span aria-hidden="true">↗</span></a></footer></article></li><li><article><span>02</span><h3>公共情感：重建一個「心更軟」、更具正義感的公民社會</h3><p>錢永祥教授〈公共情感的倫理思考〉講座報導。</p><footer><small>哲學新媒體｜2025/11/21</small><a href="https://philomedium.com/contributions/83651" target="_blank" rel="noopener noreferrer">閱讀 <span aria-hidden="true">↗</span></a></footer></article></li><li><article><span>03</span><h3>失、抒、理、越、異、皴丘：看見書法的現代轉身</h3><p>「相與・問學——六經衍至文的書畫潛能」講座側記。</p><footer><small>哲學新媒體｜2025/12/12</small><a href="https://philomedium.com/contributions/83673" target="_blank" rel="noopener noreferrer">閱讀 <span aria-hidden="true">↗</span></a></footer></article></li><li><article><span>04</span><h3>老子就要極簡和躺平？</h3><p>談談老子的「少私寡欲」。</p><footer><small>哲學新媒體｜2021/8/9</small><a href="https://philomedium.com/blog/81762" target="_blank" rel="noopener noreferrer">閱讀 <span aria-hidden="true">↗</span></a></footer></article></li><li><article><span>05</span><h3>是網路法官還是劊子手？</h3><p>談談網路公審中支離破碎的道德判斷。</p><footer><small>哲學新媒體｜2021/8/9</small><a href="https://philomedium.com/blog/81597" target="_blank" rel="noopener noreferrer">閱讀 <span aria-hidden="true">↗</span></a></footer></article></li><li><article><span>06</span><h3>犧牲小我完成大我？少來了！</h3><p>談談楊朱的「貴己為我」思想。</p><footer><small>哲學新媒體｜2021/5/19</small><a href="https://philomedium.com/blog/81453" target="_blank" rel="noopener noreferrer">閱讀 <span aria-hidden="true">↗</span></a></footer></article></li><li><article><span>07</span><h3>「我是為你好」怎麼變成了一句髒話？</h3><p>談老子的「無常心」。</p><footer><small>哲學新媒體｜2020/12/16</small><a href="https://philomedium.com/blog/81410" target="_blank" rel="noopener noreferrer">閱讀 <span aria-hidden="true">↗</span></a></footer></article></li><li><article><span>08</span><h3>哀樂莊妻：莊子的生死詠歌</h3><p>談莊子關於「死而不亡」的觀點。</p><footer><small>哲學新媒體｜2020/11/4</small><a href="https://philomedium.com/blog/81328" target="_blank" rel="noopener noreferrer">閱讀 <span aria-hidden="true">↗</span></a></footer></article></li><li><article><span>09</span><h3>你也得了「愛情強迫症」嗎？</h3><p>從《怪胎》談佛學中的愛情之苦。</p><footer><small>哲學新媒體｜2020/9/11</small><a href="https://philomedium.com/blog/81265" target="_blank" rel="noopener noreferrer">閱讀 <span aria-hidden="true">↗</span></a></footer></article></li><li><article><span>10</span><h3>假如真實世界只是視覺暫留下的一齣電影</h3><p>談談《肇論》中的物不遷論。</p><footer><small>哲學新媒體｜2020/8/5</small><a href="https://philomedium.com/blog/81226" target="_blank" rel="noopener noreferrer">閱讀 <span aria-hidden="true">↗</span></a></footer></article></li><li><article><span>11</span><h3>做自己，反而不自在？</h3><p>以莊子「無己」談自我。</p><footer><small>哲學新媒體｜2020/6/15</small><a href="https://philomedium.com/blog/81161" target="_blank" rel="noopener noreferrer">閱讀 <span aria-hidden="true">↗</span></a></footer></article></li></ol></section></main>
+  <footer class="site-footer">
+    <div class="footer-identity"><strong>嚴浩然</strong><span>YIM HO YIN</span></div>
+    <nav aria-label="頁尾導覽"><a href="index.html">首頁</a><a href="about.html">關於</a><a href="research.html">研究</a><a href="journal-papers.html">期刊論文</a><a href="conference-papers.html">研討會論文</a><a href="translations.html">譯著／哲學普及作品</a><a href="certificates.html">證照／證書／獎項</a><a href="teaching.html">教學</a><a href="cv.html">履歷</a><a href="contact.html">聯絡</a></nav>
+    <div class="footer-contact"><a href="mailto:K18111026@gs.ncku.edu.tw">K18111026@gs.ncku.edu.tw</a><button type="button" data-back-top>返回頁首 ↑</button></div>
+    <p class="copyright">© <span data-year></span> YIM HO YIN. All Rights Reserved.</p>
+  </footer>
+  <div class="live-region" data-live-region aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>
