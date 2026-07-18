@@ -16,7 +16,7 @@
   .menu-trigger { min-height: 2.75rem; font-size: .9rem; }
   .page-hero { min-height: 20rem; grid-template-columns: 1fr; padding-block: var(--space-l) var(--space-m); }
   .page-hero .eyebrow, .page-hero h1, .page-lead { grid-column: 1; }
-  .page-hero-index { font-size: 10rem; }
+  .page-hero-index { font-size: 6.5rem; }
   .home-hero { min-height: calc(100svh - var(--header-h)); grid-template-columns: 1fr; padding-top: var(--space-l); }
   .home-hero h1 { font-size: clamp(4.4rem, 27vw, 7.5rem); }
   .home-material { position: absolute; inset: 0 0 0 44%; min-height: 0; opacity: .65; }

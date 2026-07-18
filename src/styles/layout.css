@@ -26,7 +26,7 @@ main { min-width: 0; }
 .page-hero .eyebrow { grid-column: 1; }
 .page-hero h1 { grid-column: 2; margin: 0; max-width: 12ch; font-size: var(--step-3); }
 .page-lead { grid-column: 2; color: var(--ink-soft); }
-.page-hero-index { position: absolute; inset: 0 var(--gutter) auto auto; color: color-mix(in srgb, var(--ink) 8%, transparent); font: 700 clamp(9rem, 25vw, 24rem)/.75 var(--serif); pointer-events: none; }
+.page-hero-index { position: absolute; inset: 0 var(--gutter) auto auto; color: color-mix(in srgb, var(--ink) 52%, transparent); font: 700 clamp(6rem, 14vw, 14rem)/.78 var(--serif); pointer-events: none; }
 .site-footer { max-width: var(--container); margin: var(--space-xl) auto 0; padding: var(--space-l) var(--gutter) var(--space-m); display: grid; grid-template-columns: 1fr 2fr 1fr; gap: var(--space-m); border-top: 1px solid var(--line-strong); }
 .footer-identity { display: flex; flex-direction: column; }
 .footer-identity strong { font: 700 1.3rem var(--serif); }
