@@ -50,4 +50,12 @@
 - 桌機／手機錄影：`docs/qa/professional-rebuild/videos/`
 - 履歷 PDF：`downloads/yim-ho-yin-cv.pdf`
 
-公開部署 SHA、PR 與 GitHub Pages workflow 將在實際發布複驗後記入本報告的發布提交。
+## 正式發布與公開複驗
+
+- Pull request：`https://github.com/hoyinyim/hoyinyim.github.io/pull/15`
+- 合併版本：`cf4f739ad429ba9c1cbf5eabcbb62ca8cbb803a5`
+- GitHub Pages workflow：`https://github.com/hoyinyim/hoyinyim.github.io/actions/runs/29763150123`，結論為 `success`。
+- 公開站 11 個 HTML、CSS、JavaScript、CV PDF 與 Open Graph 圖像共 15 個關鍵資源，均回應 HTTP 200。
+- 公開站 E2E 67／67；桌機／手機／明暗模式 Axe WCAG 2.2 AA 共 44 次，0 violations；12 種寬度乘 10 頁的響應式複驗 120／120。
+- 已實際檢視公開版 1920px 首屏、390px 全頁、手機 Menu、深色模式、期刊論文、研討會論文與證照／證書／獎項頁；未見水平溢出、文字裁切、異常換行或比例失衡。
+- 公開驗收紀錄的 `baseUrl` 均為 `https://hoyinyim.github.io`，見 `docs/qa/professional-rebuild/` 下的 JSON 與截圖。
