@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-07-18T19:24:06.509Z",
-  "url": "https://hoyinyim.github.io/index.html",
+  "generatedAt": "2026-07-20T16:54:41.619Z",
+  "url": "http://127.0.0.1:4176/index.html",
   "scores": {
-    "performance": 93,
+    "performance": 99,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 100
   },
   "metrics": {
-    "lcpMs": 2283.0389999999998,
+    "lcpMs": 1801.5705,
     "cls": 0,
-    "tbtMs": 226.99999999999977,
-    "speedIndexMs": 2747.014112002752
+    "tbtMs": 100,
+    "speedIndexMs": 1117.5705
   },
   "assets": {
-    "javascriptBytes": 9681,
-    "cssBytes": 36876,
-    "deployedImageFiles": 3,
-    "deployedImageBytes": 171296
+    "javascriptBytes": 8436,
+    "cssBytes": 35465,
+    "deployedImageFiles": 4,
+    "deployedImageBytes": 1600675
   },
   "passed": true,
   "errors": []

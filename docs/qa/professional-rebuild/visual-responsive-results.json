@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-18T19:29:35.075Z",
-  "baseUrl": "https://hoyinyim.github.io",
+  "generatedAt": "2026-07-20T16:57:34.891Z",
+  "baseUrl": "http://127.0.0.1:4176",
   "widths": [
     320,
     360,
@@ -41,10 +41,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "查看期刊論文",
-        "查看研討會論文",
-        "聯繫方式",
-        "首頁"
+        "About",
+        "Research",
+        "Journal Articles",
+        "Conference Papers"
       ],
       "h1": 1,
       "mainWidth": 320
@@ -59,10 +59,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 320
@@ -77,10 +77,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 320
@@ -95,10 +95,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "全部",
         "待刊",
-        "2021"
+        "2026"
       ],
       "h1": 1,
       "mainWidth": 320
@@ -113,10 +113,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "電子全文 ↗",
         "電子全文 ↗",
-        "首頁"
+        "About"
       ],
       "h1": 1,
       "mainWidth": 320
@@ -131,10 +131,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "前往五南圖書 ↗",
-        "閱讀 ↗",
-        "閱讀 ↗"
+        "Home",
+        "老子就要極簡和躺平？",
+        "是網路法官還是劊子手？",
+        "犧牲小我完成大我？少來了！"
       ],
       "h1": 1,
       "mainWidth": 320
@@ -149,10 +149,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 320
@@ -167,10 +167,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "查看證照／證書／獎項 ↗",
-        "首頁",
-        "關於"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 320
@@ -185,10 +185,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "K18111026@gs.ncku.edu.tw",
-        "首頁",
-        "關於"
+        "Home",
+        "教育",
+        "About",
+        "Research"
       ],
       "h1": 1,
       "mainWidth": 320
@@ -203,10 +203,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "K18111026@gs.ncku.edu.tw",
-        "撰寫郵件",
-        "複製 Email"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 320
@@ -221,10 +221,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "查看期刊論文",
-        "查看研討會論文",
-        "聯繫方式",
-        "首頁"
+        "About",
+        "Research",
+        "Journal Articles",
+        "Conference Papers"
       ],
       "h1": 1,
       "mainWidth": 360
@@ -239,10 +239,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 360
@@ -257,10 +257,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 360
@@ -270,15 +270,15 @@
       "path": "journal-papers.html",
       "bodyFont": 17,
       "navFont": null,
-      "minMetadata": 14.032,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "全部",
         "待刊",
-        "2021"
+        "2026"
       ],
       "h1": 1,
       "mainWidth": 360
@@ -293,10 +293,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "電子全文 ↗",
         "電子全文 ↗",
-        "首頁"
+        "About"
       ],
       "h1": 1,
       "mainWidth": 360
@@ -311,10 +311,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "前往五南圖書 ↗",
-        "閱讀 ↗",
-        "閱讀 ↗"
+        "Home",
+        "老子就要極簡和躺平？",
+        "是網路法官還是劊子手？",
+        "犧牲小我完成大我？少來了！"
       ],
       "h1": 1,
       "mainWidth": 360
@@ -329,10 +329,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 360
@@ -347,10 +347,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "查看證照／證書／獎項 ↗",
-        "首頁",
-        "關於"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 360
@@ -360,15 +360,15 @@
       "path": "cv.html",
       "bodyFont": 17,
       "navFont": null,
-      "minMetadata": 14.032,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "K18111026@gs.ncku.edu.tw",
-        "首頁",
-        "關於"
+        "Home",
+        "教育",
+        "About",
+        "Research"
       ],
       "h1": 1,
       "mainWidth": 360
@@ -378,15 +378,15 @@
       "path": "contact.html",
       "bodyFont": 17,
       "navFont": null,
-      "minMetadata": 14.032,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "K18111026@gs.ncku.edu.tw",
-        "撰寫郵件",
-        "複製 Email"
+        "About",
+        "Research"
       ],
       "h1": 1,
       "mainWidth": 360
@@ -401,10 +401,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "查看期刊論文",
-        "查看研討會論文",
-        "聯繫方式",
-        "首頁"
+        "About",
+        "Research",
+        "Journal Articles",
+        "Conference Papers"
       ],
       "h1": 1,
       "mainWidth": 375
@@ -419,10 +419,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 375
@@ -437,10 +437,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 375
@@ -450,15 +450,15 @@
       "path": "journal-papers.html",
       "bodyFont": 17,
       "navFont": null,
-      "minMetadata": 14.05,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "全部",
         "待刊",
-        "2021"
+        "2026"
       ],
       "h1": 1,
       "mainWidth": 375
@@ -473,10 +473,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "電子全文 ↗",
         "電子全文 ↗",
-        "首頁"
+        "About"
       ],
       "h1": 1,
       "mainWidth": 375
@@ -491,10 +491,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "前往五南圖書 ↗",
-        "閱讀 ↗",
-        "閱讀 ↗"
+        "Home",
+        "老子就要極簡和躺平？",
+        "是網路法官還是劊子手？",
+        "犧牲小我完成大我？少來了！"
       ],
       "h1": 1,
       "mainWidth": 375
@@ -509,10 +509,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 375
@@ -527,10 +527,10 @@
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "查看證照／證書／獎項 ↗",
-        "首頁",
-        "關於"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 375
@@ -540,15 +540,15 @@
       "path": "cv.html",
       "bodyFont": 17,
       "navFont": null,
-      "minMetadata": 14.05,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "K18111026@gs.ncku.edu.tw",
-        "首頁",
-        "關於"
+        "Home",
+        "教育",
+        "About",
+        "Research"
       ],
       "h1": 1,
       "mainWidth": 375
@@ -558,15 +558,15 @@
       "path": "contact.html",
       "bodyFont": 17,
       "navFont": null,
-      "minMetadata": 14.05,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "K18111026@gs.ncku.edu.tw",
-        "撰寫郵件",
-        "複製 Email"
+        "About",
+        "Research"
       ],
       "h1": 1,
       "mainWidth": 375
@@ -574,17 +574,17 @@
     {
       "width": 390,
       "path": "index.html",
-      "bodyFont": 17,
+      "bodyFont": 17.022,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "查看期刊論文",
-        "查看研討會論文",
-        "聯繫方式",
-        "首頁"
+        "About",
+        "Research",
+        "Journal Articles",
+        "Conference Papers"
       ],
       "h1": 1,
       "mainWidth": 390
@@ -592,17 +592,17 @@
     {
       "width": 390,
       "path": "about.html",
-      "bodyFont": 17,
+      "bodyFont": 17.022,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 390
@@ -610,17 +610,17 @@
     {
       "width": 390,
       "path": "research.html",
-      "bodyFont": 17,
+      "bodyFont": 17.022,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 390
@@ -628,17 +628,17 @@
     {
       "width": 390,
       "path": "journal-papers.html",
-      "bodyFont": 17,
+      "bodyFont": 17.022,
       "navFont": null,
-      "minMetadata": 14.068,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "全部",
         "待刊",
-        "2021"
+        "2026"
       ],
       "h1": 1,
       "mainWidth": 390
@@ -646,17 +646,17 @@
     {
       "width": 390,
       "path": "conference-papers.html",
-      "bodyFont": 17,
+      "bodyFont": 17.022,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "電子全文 ↗",
         "電子全文 ↗",
-        "首頁"
+        "About"
       ],
       "h1": 1,
       "mainWidth": 390
@@ -664,17 +664,17 @@
     {
       "width": 390,
       "path": "translations.html",
-      "bodyFont": 17,
+      "bodyFont": 17.022,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "前往五南圖書 ↗",
-        "閱讀 ↗",
-        "閱讀 ↗"
+        "Home",
+        "老子就要極簡和躺平？",
+        "是網路法官還是劊子手？",
+        "犧牲小我完成大我？少來了！"
       ],
       "h1": 1,
       "mainWidth": 390
@@ -682,17 +682,17 @@
     {
       "width": 390,
       "path": "certificates.html",
-      "bodyFont": 17,
+      "bodyFont": 17.022,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 390
@@ -700,17 +700,17 @@
     {
       "width": 390,
       "path": "teaching.html",
-      "bodyFont": 17,
+      "bodyFont": 17.022,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "查看證照／證書／獎項 ↗",
-        "首頁",
-        "關於"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 390
@@ -718,17 +718,17 @@
     {
       "width": 390,
       "path": "cv.html",
-      "bodyFont": 17,
+      "bodyFont": 17.022,
       "navFont": null,
-      "minMetadata": 14.068,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "K18111026@gs.ncku.edu.tw",
-        "首頁",
-        "關於"
+        "Home",
+        "教育",
+        "About",
+        "Research"
       ],
       "h1": 1,
       "mainWidth": 390
@@ -736,17 +736,17 @@
     {
       "width": 390,
       "path": "contact.html",
-      "bodyFont": 17,
+      "bodyFont": 17.022,
       "navFont": null,
-      "minMetadata": 14.068,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "K18111026@gs.ncku.edu.tw",
-        "撰寫郵件",
-        "複製 Email"
+        "About",
+        "Research"
       ],
       "h1": 1,
       "mainWidth": 390
@@ -754,17 +754,17 @@
     {
       "width": 430,
       "path": "index.html",
-      "bodyFont": 17.075,
+      "bodyFont": 17.094,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "查看期刊論文",
-        "查看研討會論文",
-        "聯繫方式",
-        "首頁"
+        "About",
+        "Research",
+        "Journal Articles",
+        "Conference Papers"
       ],
       "h1": 1,
       "mainWidth": 430
@@ -772,17 +772,17 @@
     {
       "width": 430,
       "path": "about.html",
-      "bodyFont": 17.075,
+      "bodyFont": 17.094,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 430
@@ -790,17 +790,17 @@
     {
       "width": 430,
       "path": "research.html",
-      "bodyFont": 17.075,
+      "bodyFont": 17.094,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 430
@@ -808,17 +808,17 @@
     {
       "width": 430,
       "path": "journal-papers.html",
-      "bodyFont": 17.075,
+      "bodyFont": 17.094,
       "navFont": null,
-      "minMetadata": 14.116,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "全部",
         "待刊",
-        "2021"
+        "2026"
       ],
       "h1": 1,
       "mainWidth": 430
@@ -826,17 +826,17 @@
     {
       "width": 430,
       "path": "conference-papers.html",
-      "bodyFont": 17.075,
+      "bodyFont": 17.094,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "電子全文 ↗",
         "電子全文 ↗",
-        "首頁"
+        "About"
       ],
       "h1": 1,
       "mainWidth": 430
@@ -844,17 +844,17 @@
     {
       "width": 430,
       "path": "translations.html",
-      "bodyFont": 17.075,
+      "bodyFont": 17.094,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "前往五南圖書 ↗",
-        "閱讀 ↗",
-        "閱讀 ↗"
+        "Home",
+        "老子就要極簡和躺平？",
+        "是網路法官還是劊子手？",
+        "犧牲小我完成大我？少來了！"
       ],
       "h1": 1,
       "mainWidth": 430
@@ -862,17 +862,17 @@
     {
       "width": 430,
       "path": "certificates.html",
-      "bodyFont": 17.075,
+      "bodyFont": 17.094,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 430
@@ -880,17 +880,17 @@
     {
       "width": 430,
       "path": "teaching.html",
-      "bodyFont": 17.075,
+      "bodyFont": 17.094,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "查看證照／證書／獎項 ↗",
-        "首頁",
-        "關於"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 430
@@ -898,17 +898,17 @@
     {
       "width": 430,
       "path": "cv.html",
-      "bodyFont": 17.075,
+      "bodyFont": 17.094,
       "navFont": null,
-      "minMetadata": 14.116,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "K18111026@gs.ncku.edu.tw",
-        "首頁",
-        "關於"
+        "Home",
+        "教育",
+        "About",
+        "Research"
       ],
       "h1": 1,
       "mainWidth": 430
@@ -916,17 +916,17 @@
     {
       "width": 430,
       "path": "contact.html",
-      "bodyFont": 17.075,
+      "bodyFont": 17.094,
       "navFont": null,
-      "minMetadata": 14.116,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "K18111026@gs.ncku.edu.tw",
-        "撰寫郵件",
-        "複製 Email"
+        "About",
+        "Research"
       ],
       "h1": 1,
       "mainWidth": 430
@@ -934,17 +934,17 @@
     {
       "width": 540,
       "path": "index.html",
-      "bodyFont": 17.35,
+      "bodyFont": 17.292,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "查看期刊論文",
-        "查看研討會論文",
-        "聯繫方式",
-        "首頁"
+        "About",
+        "Research",
+        "Journal Articles",
+        "Conference Papers"
       ],
       "h1": 1,
       "mainWidth": 540
@@ -952,17 +952,17 @@
     {
       "width": 540,
       "path": "about.html",
-      "bodyFont": 17.35,
+      "bodyFont": 17.292,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 540
@@ -970,17 +970,17 @@
     {
       "width": 540,
       "path": "research.html",
-      "bodyFont": 17.35,
+      "bodyFont": 17.292,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 540
@@ -988,17 +988,17 @@
     {
       "width": 540,
       "path": "journal-papers.html",
-      "bodyFont": 17.35,
+      "bodyFont": 17.292,
       "navFont": null,
-      "minMetadata": 14.248,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "全部",
         "待刊",
-        "2021"
+        "2026"
       ],
       "h1": 1,
       "mainWidth": 540
@@ -1006,17 +1006,17 @@
     {
       "width": 540,
       "path": "conference-papers.html",
-      "bodyFont": 17.35,
+      "bodyFont": 17.292,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
         "電子全文 ↗",
         "電子全文 ↗",
-        "首頁"
+        "About"
       ],
       "h1": 1,
       "mainWidth": 540
@@ -1024,17 +1024,17 @@
     {
       "width": 540,
       "path": "translations.html",
-      "bodyFont": 17.35,
+      "bodyFont": 17.292,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "前往五南圖書 ↗",
-        "閱讀 ↗",
-        "閱讀 ↗"
+        "Home",
+        "老子就要極簡和躺平？",
+        "是網路法官還是劊子手？",
+        "犧牲小我完成大我？少來了！"
       ],
       "h1": 1,
       "mainWidth": 540
@@ -1042,17 +1042,17 @@
     {
       "width": 540,
       "path": "certificates.html",
-      "bodyFont": 17.35,
+      "bodyFont": 17.292,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "首頁",
-        "關於",
-        "研究"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 540
@@ -1060,17 +1060,17 @@
     {
       "width": 540,
       "path": "teaching.html",
-      "bodyFont": 17.35,
+      "bodyFont": 17.292,
       "navFont": null,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
-        "查看證照／證書／獎項 ↗",
-        "首頁",
-        "關於"
+        "Home",
+        "About",
+        "Research",
+        "Journal Articles"
       ],
       "h1": 1,
       "mainWidth": 540
@@ -1078,35 +1078,35 @@
     {
       "width": 540,
       "path": "cv.html",
-      "bodyFont": 17.35,
+      "bodyFont": 17.292,
       "navFont": null,
-      "minMetadata": 14.248,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
         "嚴浩然YIM HO YIN",
-        "首頁",
+        "Home",
+        "教育",
+        "About",
+        "Research"
+      ],
+      "h1": 1,
+      "mainWidth": 540
+    },
+    {
+      "width": 540,
+      "path": "contact.html",
+      "bodyFont": 17.292,
+      "navFont": null,
+      "minMetadata": 14,
+      "overflow": 0,
+      "clipped": [],
+      "touchTargets": [
+        "嚴浩然YIM HO YIN",
+        "Home",
         "K18111026@gs.ncku.edu.tw",
-        "首頁",
-        "關於"
-      ],
-      "h1": 1,
-      "mainWidth": 540
-    },
-    {
-      "width": 540,
-      "path": "contact.html",
-      "bodyFont": 17.35,
-      "navFont": null,
-      "minMetadata": 14.248,
-      "overflow": 0,
-      "clipped": [],
-      "touchTargets": [
-        "嚴浩然YIM HO YIN",
-        "首頁",
-        "K18111026@gs.ncku.edu.tw",
-        "撰寫郵件",
-        "複製 Email"
+        "About",
+        "Research"
       ],
       "h1": 1,
       "mainWidth": 540
@@ -1114,8 +1114,8 @@
     {
       "width": 768,
       "path": "index.html",
-      "bodyFont": 17.92,
-      "navFont": null,
+      "bodyFont": 17.7024,
+      "navFont": 17.7024,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1126,8 +1126,8 @@
     {
       "width": 768,
       "path": "about.html",
-      "bodyFont": 17.92,
-      "navFont": null,
+      "bodyFont": 17.7024,
+      "navFont": 17.7024,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1138,8 +1138,8 @@
     {
       "width": 768,
       "path": "research.html",
-      "bodyFont": 17.92,
-      "navFont": null,
+      "bodyFont": 17.7024,
+      "navFont": 17.7024,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1150,9 +1150,9 @@
     {
       "width": 768,
       "path": "journal-papers.html",
-      "bodyFont": 17.92,
-      "navFont": null,
-      "minMetadata": 14.5216,
+      "bodyFont": 17.7024,
+      "navFont": 17.7024,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1162,8 +1162,8 @@
     {
       "width": 768,
       "path": "conference-papers.html",
-      "bodyFont": 17.92,
-      "navFont": null,
+      "bodyFont": 17.7024,
+      "navFont": 17.7024,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1174,8 +1174,8 @@
     {
       "width": 768,
       "path": "translations.html",
-      "bodyFont": 17.92,
-      "navFont": null,
+      "bodyFont": 17.7024,
+      "navFont": 17.7024,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1186,8 +1186,8 @@
     {
       "width": 768,
       "path": "certificates.html",
-      "bodyFont": 17.92,
-      "navFont": null,
+      "bodyFont": 17.7024,
+      "navFont": 17.7024,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1198,8 +1198,8 @@
     {
       "width": 768,
       "path": "teaching.html",
-      "bodyFont": 17.92,
-      "navFont": null,
+      "bodyFont": 17.7024,
+      "navFont": 17.7024,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1210,9 +1210,9 @@
     {
       "width": 768,
       "path": "cv.html",
-      "bodyFont": 17.92,
-      "navFont": null,
-      "minMetadata": 14.5216,
+      "bodyFont": 17.7024,
+      "navFont": 17.7024,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1222,9 +1222,9 @@
     {
       "width": 768,
       "path": "contact.html",
-      "bodyFont": 17.92,
-      "navFont": null,
-      "minMetadata": 14.5216,
+      "bodyFont": 17.7024,
+      "navFont": 17.7024,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1234,8 +1234,8 @@
     {
       "width": 820,
       "path": "index.html",
-      "bodyFont": 18.05,
-      "navFont": null,
+      "bodyFont": 17.796,
+      "navFont": 17.796,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1246,8 +1246,8 @@
     {
       "width": 820,
       "path": "about.html",
-      "bodyFont": 18.05,
-      "navFont": null,
+      "bodyFont": 17.796,
+      "navFont": 17.796,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1258,8 +1258,8 @@
     {
       "width": 820,
       "path": "research.html",
-      "bodyFont": 18.05,
-      "navFont": null,
+      "bodyFont": 17.796,
+      "navFont": 17.796,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1270,9 +1270,9 @@
     {
       "width": 820,
       "path": "journal-papers.html",
-      "bodyFont": 18.05,
-      "navFont": null,
-      "minMetadata": 14.584,
+      "bodyFont": 17.796,
+      "navFont": 17.796,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1282,8 +1282,8 @@
     {
       "width": 820,
       "path": "conference-papers.html",
-      "bodyFont": 18.05,
-      "navFont": null,
+      "bodyFont": 17.796,
+      "navFont": 17.796,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1294,8 +1294,8 @@
     {
       "width": 820,
       "path": "translations.html",
-      "bodyFont": 18.05,
-      "navFont": null,
+      "bodyFont": 17.796,
+      "navFont": 17.796,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1306,8 +1306,8 @@
     {
       "width": 820,
       "path": "certificates.html",
-      "bodyFont": 18.05,
-      "navFont": null,
+      "bodyFont": 17.796,
+      "navFont": 17.796,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1318,8 +1318,8 @@
     {
       "width": 820,
       "path": "teaching.html",
-      "bodyFont": 18.05,
-      "navFont": null,
+      "bodyFont": 17.796,
+      "navFont": 17.796,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1330,9 +1330,9 @@
     {
       "width": 820,
       "path": "cv.html",
-      "bodyFont": 18.05,
-      "navFont": null,
-      "minMetadata": 14.584,
+      "bodyFont": 17.796,
+      "navFont": 17.796,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1342,9 +1342,9 @@
     {
       "width": 820,
       "path": "contact.html",
-      "bodyFont": 18.05,
-      "navFont": null,
-      "minMetadata": 14.584,
+      "bodyFont": 17.796,
+      "navFont": 17.796,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1354,8 +1354,8 @@
     {
       "width": 1024,
       "path": "index.html",
-      "bodyFont": 18.56,
-      "navFont": null,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1366,8 +1366,8 @@
     {
       "width": 1024,
       "path": "about.html",
-      "bodyFont": 18.56,
-      "navFont": null,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1378,8 +1378,8 @@
     {
       "width": 1024,
       "path": "research.html",
-      "bodyFont": 18.56,
-      "navFont": null,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1390,9 +1390,9 @@
     {
       "width": 1024,
       "path": "journal-papers.html",
-      "bodyFont": 18.56,
-      "navFont": null,
-      "minMetadata": 14.8288,
+      "bodyFont": 18,
+      "navFont": 18,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1402,8 +1402,8 @@
     {
       "width": 1024,
       "path": "conference-papers.html",
-      "bodyFont": 18.56,
-      "navFont": null,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1414,8 +1414,8 @@
     {
       "width": 1024,
       "path": "translations.html",
-      "bodyFont": 18.56,
-      "navFont": null,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1426,8 +1426,8 @@
     {
       "width": 1024,
       "path": "certificates.html",
-      "bodyFont": 18.56,
-      "navFont": null,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1438,8 +1438,8 @@
     {
       "width": 1024,
       "path": "teaching.html",
-      "bodyFont": 18.56,
-      "navFont": null,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1450,9 +1450,9 @@
     {
       "width": 1024,
       "path": "cv.html",
-      "bodyFont": 18.56,
-      "navFont": null,
-      "minMetadata": 14.8288,
+      "bodyFont": 18,
+      "navFont": 18,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1462,9 +1462,9 @@
     {
       "width": 1024,
       "path": "contact.html",
-      "bodyFont": 18.56,
-      "navFont": null,
-      "minMetadata": 14.8288,
+      "bodyFont": 18,
+      "navFont": 18,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1474,8 +1474,8 @@
     {
       "width": 1280,
       "path": "index.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1486,8 +1486,8 @@
     {
       "width": 1280,
       "path": "about.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1498,8 +1498,8 @@
     {
       "width": 1280,
       "path": "research.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1510,9 +1510,9 @@
     {
       "width": 1280,
       "path": "journal-papers.html",
-      "bodyFont": 19,
-      "navFont": 16,
-      "minMetadata": 15.136,
+      "bodyFont": 18,
+      "navFont": 18,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1522,8 +1522,8 @@
     {
       "width": 1280,
       "path": "conference-papers.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1534,8 +1534,8 @@
     {
       "width": 1280,
       "path": "translations.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1546,8 +1546,8 @@
     {
       "width": 1280,
       "path": "certificates.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1558,8 +1558,8 @@
     {
       "width": 1280,
       "path": "teaching.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1570,9 +1570,9 @@
     {
       "width": 1280,
       "path": "cv.html",
-      "bodyFont": 19,
-      "navFont": 16,
-      "minMetadata": 15.136,
+      "bodyFont": 18,
+      "navFont": 18,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1582,9 +1582,9 @@
     {
       "width": 1280,
       "path": "contact.html",
-      "bodyFont": 19,
-      "navFont": 16,
-      "minMetadata": 15.136,
+      "bodyFont": 18,
+      "navFont": 18,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1594,8 +1594,8 @@
     {
       "width": 1440,
       "path": "index.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1606,8 +1606,8 @@
     {
       "width": 1440,
       "path": "about.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1618,8 +1618,8 @@
     {
       "width": 1440,
       "path": "research.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1630,9 +1630,9 @@
     {
       "width": 1440,
       "path": "journal-papers.html",
-      "bodyFont": 19,
-      "navFont": 16,
-      "minMetadata": 15.328,
+      "bodyFont": 18,
+      "navFont": 18,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1642,8 +1642,8 @@
     {
       "width": 1440,
       "path": "conference-papers.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1654,8 +1654,8 @@
     {
       "width": 1440,
       "path": "translations.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1666,8 +1666,8 @@
     {
       "width": 1440,
       "path": "certificates.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1678,8 +1678,8 @@
     {
       "width": 1440,
       "path": "teaching.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1690,9 +1690,9 @@
     {
       "width": 1440,
       "path": "cv.html",
-      "bodyFont": 19,
-      "navFont": 16,
-      "minMetadata": 15.328,
+      "bodyFont": 18,
+      "navFont": 18,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1702,9 +1702,9 @@
     {
       "width": 1440,
       "path": "contact.html",
-      "bodyFont": 19,
-      "navFont": 16,
-      "minMetadata": 15.328,
+      "bodyFont": 18,
+      "navFont": 18,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1714,8 +1714,8 @@
     {
       "width": 1920,
       "path": "index.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1726,8 +1726,8 @@
     {
       "width": 1920,
       "path": "about.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1738,8 +1738,8 @@
     {
       "width": 1920,
       "path": "research.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1750,9 +1750,9 @@
     {
       "width": 1920,
       "path": "journal-papers.html",
-      "bodyFont": 19,
-      "navFont": 16,
-      "minMetadata": 15.904,
+      "bodyFont": 18,
+      "navFont": 18,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1762,8 +1762,8 @@
     {
       "width": 1920,
       "path": "conference-papers.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1774,8 +1774,8 @@
     {
       "width": 1920,
       "path": "translations.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1786,8 +1786,8 @@
     {
       "width": 1920,
       "path": "certificates.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1798,8 +1798,8 @@
     {
       "width": 1920,
       "path": "teaching.html",
-      "bodyFont": 19,
-      "navFont": 16,
+      "bodyFont": 18,
+      "navFont": 18,
       "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
@@ -1810,9 +1810,9 @@
     {
       "width": 1920,
       "path": "cv.html",
-      "bodyFont": 19,
-      "navFont": 16,
-      "minMetadata": 15.904,
+      "bodyFont": 18,
+      "navFont": 18,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1822,9 +1822,9 @@
     {
       "width": 1920,
       "path": "contact.html",
-      "bodyFont": 19,
-      "navFont": 16,
-      "minMetadata": 15.904,
+      "bodyFont": 18,
+      "navFont": 18,
+      "minMetadata": 14,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
