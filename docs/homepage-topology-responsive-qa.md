@@ -52,3 +52,11 @@
 - `videos/topology-keyboard.webm`
 - `videos/topology-mobile-tap.webm`
 - `videos/topology-page-transition.webm`
+
+## 公開部署複驗
+
+- GitHub Pages workflow：`https://github.com/hoyinyim/hoyinyim.github.io/actions/runs/29765478982`，結論為 `success`。
+- 正式發布版本：`b27f6be36c41843747bd082075bfbe105c4e377f`；HTML 內建置標記為實作版本 `3d64daf81ee6`。
+- 公開 `index.html`、`assets/site.css`、`assets/site.js` 與 GitHub `main` 原始位元組雜湊一致。
+- 公開站 E2E 83／83 通過；Research、Service、Teaching 三個入口與目的頁面均正確。
+- 已在實際公開瀏覽器檢查深色首頁與三域拓樸，三圓交疊、文字、細線與低透明色階皆正常。
