@@ -1,0 +1,185 @@
+{
+  "generatedAt": "2026-07-20T16:26:27.868Z",
+  "records": [
+    {
+      "name": "home",
+      "width": 1440,
+      "requestedTheme": "light",
+      "url": "http://127.0.0.1:4176/prototypes/axis/home.html?theme=light",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "light"
+    },
+    {
+      "name": "research",
+      "width": 1440,
+      "requestedTheme": "light",
+      "url": "http://127.0.0.1:4176/prototypes/axis/research.html?theme=light",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "light"
+    },
+    {
+      "name": "journal",
+      "width": 1440,
+      "requestedTheme": "light",
+      "url": "http://127.0.0.1:4176/prototypes/axis/journal.html?theme=light",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "light"
+    },
+    {
+      "name": "about",
+      "width": 1440,
+      "requestedTheme": "light",
+      "url": "http://127.0.0.1:4176/prototypes/axis/about.html?theme=light",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "light"
+    },
+    {
+      "name": "menu",
+      "width": 1440,
+      "requestedTheme": "light",
+      "url": "http://127.0.0.1:4176/prototypes/axis/menu.html?theme=light",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "light"
+    },
+    {
+      "name": "home",
+      "width": 1440,
+      "requestedTheme": "dark",
+      "url": "http://127.0.0.1:4176/prototypes/axis/home.html?theme=dark",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "dark"
+    },
+    {
+      "name": "research",
+      "width": 1440,
+      "requestedTheme": "dark",
+      "url": "http://127.0.0.1:4176/prototypes/axis/research.html?theme=dark",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "dark"
+    },
+    {
+      "name": "journal",
+      "width": 1440,
+      "requestedTheme": "dark",
+      "url": "http://127.0.0.1:4176/prototypes/axis/journal.html?theme=dark",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "dark"
+    },
+    {
+      "name": "about",
+      "width": 1440,
+      "requestedTheme": "dark",
+      "url": "http://127.0.0.1:4176/prototypes/axis/about.html?theme=dark",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "dark"
+    },
+    {
+      "name": "menu",
+      "width": 1440,
+      "requestedTheme": "dark",
+      "url": "http://127.0.0.1:4176/prototypes/axis/menu.html?theme=dark",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "dark"
+    },
+    {
+      "name": "home",
+      "width": 390,
+      "requestedTheme": "light",
+      "url": "http://127.0.0.1:4176/prototypes/axis/home.html?theme=light",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "light"
+    },
+    {
+      "name": "research",
+      "width": 390,
+      "requestedTheme": "light",
+      "url": "http://127.0.0.1:4176/prototypes/axis/research.html?theme=light",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "light"
+    },
+    {
+      "name": "journal",
+      "width": 390,
+      "requestedTheme": "light",
+      "url": "http://127.0.0.1:4176/prototypes/axis/journal.html?theme=light",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "light"
+    },
+    {
+      "name": "about",
+      "width": 390,
+      "requestedTheme": "light",
+      "url": "http://127.0.0.1:4176/prototypes/axis/about.html?theme=light",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "light"
+    },
+    {
+      "name": "menu",
+      "width": 390,
+      "requestedTheme": "light",
+      "url": "http://127.0.0.1:4176/prototypes/axis/menu.html?theme=light",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "light"
+    },
+    {
+      "name": "home",
+      "width": 390,
+      "requestedTheme": "dark",
+      "url": "http://127.0.0.1:4176/prototypes/axis/home.html?theme=dark",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "dark"
+    },
+    {
+      "name": "research",
+      "width": 390,
+      "requestedTheme": "dark",
+      "url": "http://127.0.0.1:4176/prototypes/axis/research.html?theme=dark",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "dark"
+    },
+    {
+      "name": "journal",
+      "width": 390,
+      "requestedTheme": "dark",
+      "url": "http://127.0.0.1:4176/prototypes/axis/journal.html?theme=dark",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "dark"
+    },
+    {
+      "name": "about",
+      "width": 390,
+      "requestedTheme": "dark",
+      "url": "http://127.0.0.1:4176/prototypes/axis/about.html?theme=dark",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "dark"
+    },
+    {
+      "name": "menu",
+      "width": 390,
+      "requestedTheme": "dark",
+      "url": "http://127.0.0.1:4176/prototypes/axis/menu.html?theme=dark",
+      "h1": 1,
+      "overflow": 0,
+      "theme": "dark"
+    }
+  ]
+}

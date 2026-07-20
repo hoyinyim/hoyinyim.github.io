@@ -1,25 +1,31 @@
 # 資訊架構
 
-## 一、單一路由來源
+## 核心入口
 
-`src/data/routes.json` 是十個主要頁面的唯一導覽來源；`404.html` 為系統錯誤頁。實際路徑與標籤見 `route-inventory.md`。
+桌機 Header 只保留 Research、Publications、About、CV；Search、Theme、Menu 位於右側。手機 Header 保留品牌、Theme、Menu。完整導覽由三組選單承接：
 
-## 二、頁面角色
+| 組別 | 頁面 |
+| --- | --- |
+| PROFILE | About、CV、Credentials |
+| RESEARCH & WORK | Research、Journal、Conference、Translations |
+| PRACTICE | Teaching、Contact |
 
-| 頁面 | 專屬任務 | 不重複的內容策略 |
-| --- | --- | --- |
-| Home | 身分、個人檔案、成果入口、目前研究、研究索引、教育、經驗 | 使用七種空間構圖作全站入口 |
-| About | 肖像、完整既有簡介與教育背景 | 不複製全部研究條目 |
-| Research | 目前研究與研究專長的完整索引 | 不補寫貢獻、方法或關係 |
-| Journal Articles | 十筆正式書目、年份、篩選、引用 | 初始 HTML 即可完整閱讀 |
-| Conference Papers | 兩筆已出版論文與十七筆發表 | 明確分為雙幅出版區及年份帳冊 |
-| Translations | 一筆主要譯著與十一筆公共寫作 | 公共寫作只有一套完整索引 |
-| Certificates | 五筆證照／證書與四筆獎項 | 無真實圖片時採純文字檔案，不生成預覽 |
-| Teaching | 三筆既有教學與學術經驗 | 精簡單場景 Ledger |
-| CV | 全站資料彙整及 A4 列印 | 不另維護重複 CV 資料 |
-| Contact | Email、正式身分與署名 | 不套用成果列表版型 |
-| 404 | 返回首頁及 Search 入口 | 不加入虛構內容 |
+## 路由職責
 
-## 三、共用元件
+| 路由 | 唯一任務 |
+| --- | --- |
+| `index.html` | 六段式身分與工作總覽 |
+| `about.html` | 肖像、完整簡介、教育時間線 |
+| `research.html` | 三項目前研究與研究專長矩陣 |
+| `journal-articles.html` | 完整期刊書目帳冊、篩選、全文與引用 |
+| `conference-papers.html` | 已出版會議論文與歷年發表帳冊 |
+| `translations.html` | 主要譯著、最新公共寫作、完整索引 |
+| `certificates.html` | 證照／證書帳冊與獎項時間線 |
+| `teaching.html` | 教學經驗與學術／專業實踐分區 |
+| `cv.html` | 全站資料共源履歷、頁內索引、列印與 PDF |
+| `contact.html` | Email、正式身分與聯絡說明 |
+| `404.html` | 搜尋與返回主要入口 |
 
-每頁只生成一個 Header、Menu Dialog、Search Dialog、Footer、Scroll Progress 與全站控制器。Header 顯示核心入口，完整十頁索引由 Menu 呈現；兩者均由同一路由資料生成。
+## 資料與重複控制
+
+`src/data/routes.json` 是導覽來源，其他 JSON 是內容來源；HTML 由建置程式生成。首頁只做摘要與入口，完整條目留在專屬頁面；Footer 只生成一次；CV 不另維護第二份人工資料。
