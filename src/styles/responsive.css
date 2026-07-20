@@ -4,6 +4,10 @@
   .primary-nav { gap: 20px; }
   .home-intro h1 { grid-column: 1 / span 12; }
   .home-identity { grid-column: 11 / -1; }
+  .topology-canvas { height: clamp(580px, 67vw, 670px); }
+  .domain-research { width: 48vw; }
+  .domain-service { width: 42vw; }
+  .domain-teaching { width: 44vw; }
   .about-biography > div { grid-column: 6 / -1; }
   .publication-entry article { grid-template-columns: 3fr 8fr; }
   .publication-entry .publication-meta, .publication-entry .status-list { grid-column: 1; }
@@ -27,25 +31,34 @@
   .home-intro h1 span { white-space: normal; word-break: keep-all; }
   .home-identity { grid-column: 1 / -1; margin-top: 52px; }
   .home-axis { margin-top: 30px; }
+  .home-topology { padding-top: 24px; }
+  .topology-kicker { font-size: .7rem; }
+  .topology-canvas { width: calc(100vw + 40px); height: clamp(430px, 128vw, 560px); margin-left: calc(-1 * (var(--gutter) + 20px)); }
+  .topology-axis { inset: 47% 6% auto; }
+  .domain-research { top: 2%; left: 15%; width: 82vw; }
+  .domain-service { top: 36%; left: 0; width: 70vw; }
+  .domain-teaching { top: 34%; right: 0; left: auto; width: 73vw; }
+  .domain-research .domain-label { top: 17%; left: 18%; }
+  .domain-service .domain-label { bottom: 17%; left: 14%; }
+  .domain-teaching .domain-label { right: 12%; bottom: 20%; }
+  .domain-label strong { font-size: clamp(1.6rem, 8vw, 2.4rem); }
+  .domain-label small { margin-top: 6px; font-size: .72rem; }
+  .domain-label em { margin-top: 17px; font-size: .875rem; opacity: 1; transform: none; }
+  .home-domain-index { grid-template-columns: 1fr; }
+  .home-domain-index article { min-height: 350px; padding-block: 28px 38px; }
+  .home-domain-index article + article { border-top: 1px solid var(--line); border-left: 0; }
+  .home-domain-index h3 { margin: 24px 0 30px; font-size: 3rem; }
+  .home-domain-index ol { margin-bottom: 30px; }
   .home-profile { padding-top: 88px; }
   .home-profile figure, .home-profile > div { grid-column: 1 / -1; }
   .home-profile > div { margin-top: 30px; }
   .home-profile h2 { margin-bottom: 28px; font-size: 3.3rem; }
-  .home-portals, .home-expertise, .research-matrix-section, .conference-published, .conference-ledger, .latest-writing, .writing-index, .credential-ledger, .award-timeline, .practice-ledger { margin-top: 92px; }
-  .portal-grid { grid-template-columns: 1fr; }
-  .portal-grid a { min-height: 0; padding: 24px 0 32px; }
-  .portal-grid a + a { border-left: 0; }
-  .portal-grid h3 { margin: 34px 0 14px; font-size: 1.8rem; }
-  .home-focus { margin-top: 92px; }
-  .home-focus > header, .home-focus > div { grid-column: 1 / -1; }
-  .home-focus > div { margin-top: 30px; }
-  .home-focus article { grid-template-columns: 1fr; }
-  .home-focus article h3 { font-size: 1.7rem; }
+  .research-matrix-section, .conference-published, .conference-ledger, .latest-writing, .writing-index, .credential-ledger, .award-timeline, .practice-ledger { margin-top: 92px; }
   .expertise-matrix { grid-template-columns: 1fr; }
   .expertise-matrix article { min-height: 0; padding: 25px 0 30px; }
   .expertise-matrix article:nth-child(3n+2) { border-inline: 0; }
-  .home-education, .about-education { margin-top: 92px; }
-  .home-education > header, .about-education > header, .education-ledger { grid-column: 1 / -1; }
+  .about-education { margin-top: 92px; }
+  .about-education > header, .education-ledger { grid-column: 1 / -1; }
   .education-ledger { margin-top: 26px; }
   .education-ledger li { grid-template-columns: 1fr; gap: 7px; }
   .about-opening { padding-top: 28px; }
@@ -126,5 +139,12 @@
   .brand strong { font-size: .9rem; }
   .header-control { padding-inline: 7px; font-size: .875rem; }
   .home-intro h1 { font-size: 4.55rem; }
+  .domain-label strong { font-size: 1.55rem; }
+  .domain-label small { font-size: .67rem; }
+  .domain-label em { margin-top: 12px; font-size: .8rem; }
   .translations-opening h1, .credentials-opening h1 { font-size: 3.1rem; }
+}
+
+@media (hover: none) {
+  .domain-label em { opacity: 1; transform: none; }
 }

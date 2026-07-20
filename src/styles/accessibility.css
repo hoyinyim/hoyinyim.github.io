@@ -1,11 +1,17 @@
-.skip-link { position: fixed; z-index: 200; top: 8px; left: 8px; transform: translateY(-160%); padding: 10px 14px; background: var(--ink); color: var(--paper); }
-.skip-link:focus { transform: none; }
+.skip-link { position: fixed; z-index: 200; top: -160px; left: 8px; padding: 10px 14px; background: var(--ink); color: var(--paper); }
+.skip-link:focus { top: 8px; }
 .visually-hidden { position: absolute !important; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .domain-link::before, .domain-link::after, .domain-label strong, .domain-label small { animation: none !important; opacity: 1; transform: none; }
 }
 @media (prefers-contrast: more) {
   :root { --line: #69716d; --line-strong: var(--ink); }
+}
+@media (forced-colors: active) {
+  .domain-link { border-color: CanvasText; forced-color-adjust: auto; }
+  .domain-link::before { border-color: CanvasText; }
+  .topology-axis { background: CanvasText; }
 }

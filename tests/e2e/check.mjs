@@ -58,12 +58,35 @@ try {
   await page.reload({ waitUntil: 'networkidle' });
   check(await page.locator('html').getAttribute('data-theme') !== initialTheme, '主題設定未保存');
 
-  const cta = page.locator('.portal-grid a[href="conference-papers.html"]');
-  check(await cta.count() === 1, '首頁研討會入口路由錯誤');
-  await Promise.all([page.waitForURL('**/conference-papers.html'), cta.click()]);
-  check((await page.locator('h1').innerText()) === '研討會論文', '首頁 CTA 導向錯誤頁面');
+  const topology = page.locator('[data-topology]');
+  const researchDomain = page.locator('[data-topology-domain="research"]');
+  const serviceDomain = page.locator('[data-topology-domain="service"]');
+  const teachingDomain = page.locator('[data-topology-domain="teaching"]');
+  check(await topology.count() === 1, '首頁三域拓樸遺漏或重複');
+  check(await page.locator('[data-topology-domain]').count() === 3, '首頁三域入口不是三個');
+  check(await researchDomain.getAttribute('href') === 'research.html', 'Research 拓樸入口錯誤');
+  check(await serviceDomain.getAttribute('href') === 'translations.html', 'Service 拓樸入口錯誤');
+  check(await teachingDomain.getAttribute('href') === 'teaching.html', 'Teaching 拓樸入口錯誤');
+  check((await researchDomain.getAttribute('aria-label'))?.includes('研究'), 'Research Accessible Name 遺漏');
+  check((await serviceDomain.getAttribute('aria-label'))?.includes('服務'), 'Service Accessible Name 遺漏');
+  check((await teachingDomain.getAttribute('aria-label'))?.includes('教學'), 'Teaching Accessible Name 遺漏');
+  await researchDomain.focus();
+  check(await topology.getAttribute('data-active-domain') === 'research', 'Research Focus 未啟動拓樸狀態');
+  await page.keyboard.press('Tab');
+  check(await serviceDomain.evaluate((node) => node === document.activeElement), '拓樸 Tab 順序未由 Research 前往 Service');
+  await page.keyboard.press('Tab');
+  check(await teachingDomain.evaluate((node) => node === document.activeElement), '拓樸 Tab 順序未由 Service 前往 Teaching');
+  await page.keyboard.press('Enter');
+  await page.waitForURL('**/teaching.html');
+  check((await page.locator('h1').innerText()) === '教學', 'Teaching 拓樸入口導向錯誤');
   await page.goBack({ waitUntil: 'networkidle' });
-  check(page.url().endsWith('/index.html'), '瀏覽器返回未回首頁');
+  await Promise.all([page.waitForURL('**/research.html'), page.locator('[data-topology-domain="research"]').click()]);
+  check((await page.locator('h1').innerText()) === '研究', 'Research 拓樸入口導向錯誤');
+  await page.goBack({ waitUntil: 'networkidle' });
+  await Promise.all([page.waitForURL('**/translations.html'), page.locator('[data-topology-domain="service"]').click()]);
+  check((await page.locator('h1').innerText()).includes('譯著／'), 'Service 拓樸入口導向錯誤');
+  await page.goBack({ waitUntil: 'networkidle' });
+  check(page.url().endsWith('/index.html'), '拓樸 Browser Back 未回首頁');
 
   await page.goto(`${baseUrl}/conference-papers.html`, { waitUntil: 'networkidle' });
   for (const href of ['https://chinese.nccu.edu.tw/PageDoc/Detail?fid=8363&id=20873', 'https://www.airitilibrary.com/Article/Detail/18172903-N202305110002-00020']) {
@@ -109,6 +132,10 @@ try {
   const mobile = await mobileContext.newPage();
   await mobile.goto(`${baseUrl}/index.html`, { waitUntil: 'networkidle' });
   check(await mobile.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), '320px 首頁水平溢出');
+  check(await mobile.locator('[data-topology-domain]').count() === 3, '320px 三域拓樸入口遺漏');
+  check(await mobile.locator('[data-topology-domain]').evaluateAll((nodes) => nodes.every((node) => { const box = node.getBoundingClientRect(); return box.width >= 44 && box.height >= 44; })), '320px 三域拓樸觸控區小於 44px');
+  check(await mobile.locator('.domain-label em').evaluateAll((nodes) => nodes.every((node) => getComputedStyle(node).opacity === '1')), '320px 觸控入口提示未直接顯示');
+  check(await mobile.locator('[data-topology-domain="research"]').evaluate((node) => node.getAnimations({ subtree: true }).every((animation) => animation.effect.getComputedTiming().duration <= 1)), 'Reduced Motion 仍播放拓樸動畫');
   await mobile.locator('[data-menu-open]').click();
   check(await mobile.locator('[data-menu-dialog]').evaluate((dialog) => dialog.open), '320px Menu 無法開啟');
   check(await mobile.evaluate(() => document.querySelector('[data-menu-dialog]').scrollWidth <= innerWidth + 1), '320px Menu 水平溢出');
@@ -126,4 +153,4 @@ if (errors.length) {
   console.error(`E2E 測試失敗：${errors.length} 項／${checks} 項。`);
   errors.forEach((error) => console.error(`- ${error}`));
   process.exitCode = 1;
-} else console.log(`E2E 測試通過：${checks} 項，涵蓋 11 頁、Menu、Search、Theme、入口、Filter、Education、CV、Contact 與 320px Reduced Motion。`);
+} else console.log(`E2E 測試通過：${checks} 項，涵蓋 11 頁、三域拓樸、Menu、Search、Theme、Filter、Education、CV、Contact 與 320px Reduced Motion。`);

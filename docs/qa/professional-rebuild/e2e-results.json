@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-20T17:20:43.170Z",
-  "baseUrl": "https://hoyinyim.github.io",
-  "checks": 67,
+  "generatedAt": "2026-07-20T17:50:58.533Z",
+  "baseUrl": "http://127.0.0.1:4173",
+  "checks": 83,
   "passed": true,
   "errors": []
 }

@@ -10,6 +10,7 @@
     "test:a11y": "node tests/accessibility/check.mjs",
     "test:performance": "node tests/performance/check.mjs",
     "test:visual": "node tests/visual-responsive/check.mjs",
+    "record:topology": "node tests/record-topology.mjs",
     "test:browser": "node tests/run-browser-suite.mjs",
     "build": "node scripts/build.mjs",
     "package:site": "node scripts/package-site.mjs",

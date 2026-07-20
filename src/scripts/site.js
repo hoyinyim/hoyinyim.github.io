@@ -136,6 +136,31 @@
     } catch { announce('無法自動複製，請手動選取文字。'); }
   }));
 
+  const topology = doc.querySelector('[data-topology]');
+  const topologyDomains = [...doc.querySelectorAll('[data-topology-domain]')];
+  const setTopologyState = (domain = '') => {
+    if (!topology) return;
+    if (domain) topology.dataset.activeDomain = domain;
+    else delete topology.dataset.activeDomain;
+  };
+  topologyDomains.forEach((link) => {
+    link.addEventListener('pointerenter', () => setTopologyState(link.dataset.topologyDomain));
+    link.addEventListener('focus', () => setTopologyState(link.dataset.topologyDomain));
+    link.addEventListener('blur', () => setTopologyState());
+    link.addEventListener('pointerleave', () => {
+      link.style.setProperty('--pointer-x', '0px');
+      link.style.setProperty('--pointer-y', '0px');
+      if (!link.matches(':focus-visible')) setTopologyState();
+    });
+    if (!reducedMotion && matchMedia('(pointer: fine)').matches) link.addEventListener('pointermove', (event) => {
+      const box = link.getBoundingClientRect();
+      const x = ((event.clientX - box.left) / box.width - .5) * 4;
+      const y = ((event.clientY - box.top) / box.height - .5) * 4;
+      link.style.setProperty('--pointer-x', `${x.toFixed(2)}px`);
+      link.style.setProperty('--pointer-y', `${y.toFixed(2)}px`);
+    });
+  });
+
   const archive = doc.querySelector('[data-publication-archive]');
   doc.querySelectorAll('[data-publication-filter]').forEach((button) => button.addEventListener('click', () => {
     const filter = button.dataset.publicationFilter;

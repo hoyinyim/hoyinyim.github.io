@@ -4,18 +4,46 @@ const tags = (items = []) => items.length ? `<ul class="status-list">${items.map
 
 const educationLedger = (education) => `<ol class="education-ledger">${education.map((item) => `<li><time>${escapeHtml(item.period)}</time><div><h3>${escapeHtml(item.degree)}</h3><p>${escapeHtml(item.institution)}</p></div></li>`).join('')}</ol>`;
 
-export function homePage({ profile, research, education }) {
+export function homePage({ profile, research, experience, translations, credentials }) {
+  const serviceItems = [
+    translations.publicWriting[0].title,
+    credentials.credentials.find((item) => item.id === 'credential-03').title,
+    credentials.credentials.find((item) => item.id === 'credential-04').title
+  ];
+  const teachingItems = [
+    experience[0].text,
+    credentials.credentials.find((item) => item.id === 'credential-01').title,
+    credentials.credentials.find((item) => item.id === 'credential-02').title
+  ];
   return `<section class="home-intro axis-grid" aria-labelledby="home-title">
     <p class="overline">Academic Profile / Chinese Thought</p>
     <h1 id="home-title"><span>${escapeHtml(profile.nameZh)}</span><small>${escapeHtml(profile.nameEn)}</small></h1>
     <div class="home-identity"><strong>${escapeHtml(profile.roleZh)}</strong><p>${escapeHtml(profile.roleEn)}</p><a class="axis-link" href="journal-papers.html">View publications</a></div>
     <i class="home-axis" aria-hidden="true"></i>
   </section>
-  <section class="home-profile axis-grid" aria-labelledby="home-profile-title"><figure><img src="${profile.portrait}" width="523" height="648" decoding="async" alt="${escapeHtml(profile.portraitAlt)}"><figcaption>${escapeHtml(profile.institutionEn)}</figcaption></figure><div><p class="overline">Profile</p><h2 id="home-profile-title">中國思想研究</h2>${profile.bio.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}<a class="axis-link" href="about.html">完整個人資料</a></div></section>
-  <section class="home-portals" aria-labelledby="home-portals-title"><header class="section-index"><p>Selected Archives</p><h2 id="home-portals-title">學術成果</h2></header><div class="portal-grid">${profile.quickLinks.map((item) => `<a href="${item.href}"><span>${escapeHtml(item.id)}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p><small>Open archive ↗</small></a>`).join('')}</div></section>
-  <section class="home-focus axis-grid" aria-labelledby="home-focus-title"><header><p class="overline">Current Research</p><h2 id="home-focus-title">目前研究</h2></header><div>${research.current.map((item, index) => `<article><span>0${index + 1}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p></article>`).join('')}</div></section>
-  <section class="home-expertise" aria-labelledby="home-expertise-title"><header class="section-index"><p>Research Matrix</p><h2 id="home-expertise-title">研究專長</h2></header><div class="expertise-matrix">${research.expertise.map((item) => `<article><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p></article>`).join('')}</div></section>
-  <section class="home-education axis-grid" aria-labelledby="home-education-title"><header><p class="overline">Education</p><h2 id="home-education-title">教育背景</h2></header>${educationLedger(education)}</section>`;
+  <section class="home-topology" aria-labelledby="topology-title" data-topology>
+    <h2 id="topology-title" class="visually-hidden">學術實踐拓樸：研究、服務與教學</h2>
+    <p class="topology-kicker" aria-hidden="true">Academic Practice / Three Domains</p>
+    <nav class="topology-canvas" aria-label="學術實踐領域">
+      <a class="domain-link domain-research" href="research.html" data-topology-domain="research" aria-label="研究：前往研究頁">
+        <span class="domain-label"><strong>研究</strong><small>Research</small><em>查看研究</em></span>
+      </a>
+      <a class="domain-link domain-service" href="translations.html" data-topology-domain="service" aria-label="服務：前往譯著與哲學普及作品頁">
+        <span class="domain-label"><strong>服務</strong><small>Service</small><em>查看服務</em></span>
+      </a>
+      <a class="domain-link domain-teaching" href="teaching.html" data-topology-domain="teaching" aria-label="教學：前往教學頁">
+        <span class="domain-label"><strong>教學</strong><small>Teaching</small><em>查看教學</em></span>
+      </a>
+      <i class="topology-axis" aria-hidden="true"></i>
+    </nav>
+  </section>
+  <section class="home-domain-index" aria-labelledby="home-domain-index-title">
+    <h2 id="home-domain-index-title" class="visually-hidden">研究、服務與教學內容索引</h2>
+    <article data-domain-summary="research"><header><p>01 / Research</p><h3>研究</h3></header><ol>${research.current.map((item) => `<li>${escapeHtml(item.title)}</li>`).join('')}</ol><a class="axis-link" href="research.html">完整研究資料 ↗</a></article>
+    <article data-domain-summary="service"><header><p>02 / Service</p><h3>服務</h3></header><ol>${serviceItems.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ol><a class="axis-link" href="translations.html">譯著與哲學普及作品 ↗</a></article>
+    <article data-domain-summary="teaching"><header><p>03 / Teaching</p><h3>教學</h3></header><ol>${teachingItems.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ol><a class="axis-link" href="teaching.html">完整教學資料 ↗</a></article>
+  </section>
+  <section class="home-profile axis-grid" aria-labelledby="home-profile-title"><figure><img src="${profile.portrait}" width="523" height="648" decoding="async" alt="${escapeHtml(profile.portraitAlt)}"><figcaption>${escapeHtml(profile.institutionEn)}</figcaption></figure><div><p class="overline">Profile</p><h2 id="home-profile-title">中國思想研究</h2>${profile.bio.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}<a class="axis-link" href="about.html">完整個人資料</a></div></section>`;
 }
 
 export function aboutPage({ profile, education }) {

@@ -68,6 +68,18 @@ const publicHtml = {
 };
 const contains = (html, text, label) => check(clean(load(html).text()).includes(clean(text)), `${label} 未出現在初始 HTML：${text}`);
 profile.bio.forEach((text) => contains(publicHtml.index, text, '首頁簡介'));
+const $homePublic = load(publicHtml.index);
+const topologyLinks = $homePublic('[data-topology-domain]').map((_, node) => ({ domain: $homePublic(node).attr('data-topology-domain'), href: $homePublic(node).attr('href') })).get();
+exact(topologyLinks, [
+  { domain: 'research', href: 'research.html' },
+  { domain: 'service', href: 'translations.html' },
+  { domain: 'teaching', href: 'teaching.html' }
+], '三域拓樸入口與順序');
+exact($homePublic('[data-domain-summary="research"] li').map((_, node) => clean($homePublic(node).text())).get(), research.current.map((item) => item.title), '首頁 Research 映射');
+exact($homePublic('[data-domain-summary="service"] li').map((_, node) => clean($homePublic(node).text())).get(), [translations.publicWriting[0].title, credentials.credentials[2].title, credentials.credentials[3].title], '首頁 Service 映射');
+exact($homePublic('[data-domain-summary="teaching"] li').map((_, node) => clean($homePublic(node).text())).get(), [experience[0].text, credentials.credentials[0].title, credentials.credentials[1].title], '首頁 Teaching 映射');
+check($homePublic('main > section').length === 4, '首頁未維持四個精簡主要區段');
+for (const invented of ['Impact', 'Knowledge', 'Public Intellectual', '期刊審查', '學會職務', '行政職務']) check(!clean($homePublic('[data-topology]').text()).includes(invented), `拓樸出現未授權概念：${invented}`);
 publications.forEach((item) => { contains(publicHtml.journal, item.title, '期刊題名'); contains(publicHtml.journal, item.venue, '期刊名稱'); contains(publicHtml.journal, item.meta, '期刊卷期頁碼'); contains(publicHtml.cv, item.title, 'CV 期刊題名'); });
 conferences.published.forEach((item) => { contains(publicHtml.conference, item.title, '已出版研討會題名'); contains(publicHtml.cv, item.title, 'CV 研討會題名'); });
 conferences.presentations.forEach((item) => { contains(publicHtml.conference, item.title, '研討會發表題名'); contains(publicHtml.cv, item.title, 'CV 研討會發表題名'); });
