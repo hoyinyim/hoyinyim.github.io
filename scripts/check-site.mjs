@@ -1,6 +1,7 @@
 import { access, readFile, readdir, stat } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { existsSync } from 'node:fs';
 import { load } from 'cheerio';
 import { HtmlValidate } from 'html-validate';
 
@@ -46,7 +47,7 @@ for (const file of htmlFiles) {
     const href = $(node).attr('href');
     if (!href || /^(https?:|mailto:|#)/.test(href)) return;
     const [target] = href.split('#');
-    check(htmlFiles.includes(target), `${file} 內部連結目標不存在：${href}`);
+    check(htmlFiles.includes(target) || existsSync(resolve(root, target)), `${file} 內部連結目標不存在：${href}`);
   });
   $('script[type="application/ld+json"]').each((_, node) => {
     try { JSON.parse($(node).html()); check(true, `${file} JSON-LD 可解析`); } catch { check(false, `${file} JSON-LD 無法解析`); }

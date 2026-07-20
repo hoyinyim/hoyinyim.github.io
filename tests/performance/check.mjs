@@ -21,7 +21,17 @@ try {
 }
 const lhr = result.lhr;
 const assetSize = async (path) => (await stat(resolve(root, path))).size;
-const imageFiles = (await readdir(resolve(root, '_site/images'), { withFileTypes: true })).filter((item) => item.isFile()).map((item) => item.name);
+const walkFiles = async (directory, relative = '') => {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const files = [];
+  for (const entry of entries) {
+    const nextRelative = relative ? `${relative}/${entry.name}` : entry.name;
+    if (entry.isDirectory()) files.push(...await walkFiles(resolve(directory, entry.name), nextRelative));
+    else files.push(nextRelative);
+  }
+  return files;
+};
+const imageFiles = await walkFiles(resolve(root, '_site/images'));
 const imageBytes = (await Promise.all(imageFiles.map((file) => assetSize(`_site/images/${file}`)))).reduce((sum, value) => sum + value, 0);
 const summary = {
   generatedAt: new Date().toISOString(), url: lhr.finalDisplayedUrl,

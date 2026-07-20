@@ -13,8 +13,8 @@ const errors = [];
 let checks = 0;
 const check = (condition, message) => { checks += 1; if (!condition) errors.push(message); };
 const routes = [
-  ['index.html', '嚴浩然'], ['about.html', '關於'], ['research.html', '研究'], ['journal-papers.html', '期刊論文'],
-  ['conference-papers.html', '研討會論文'], ['translations.html', '譯著／哲學普及作品'], ['certificates.html', '證照／證書／獎項'],
+  ['index.html', '嚴浩然'], ['about.html', '嚴浩然'], ['research.html', '研究'], ['journal-papers.html', '期刊論文'],
+  ['conference-papers.html', '研討會論文'], ['translations.html', '譯著／'], ['certificates.html', '證照、證書'],
   ['teaching.html', '教學'], ['cv.html', '嚴浩然'], ['contact.html', '聯絡'], ['404.html', '找不到頁面']
 ];
 const consoleErrors = [];
@@ -53,13 +53,13 @@ try {
 
   await page.goto(`${baseUrl}/index.html`, { waitUntil: 'networkidle' });
   const initialTheme = await page.locator('html').getAttribute('data-theme');
-  await page.locator('[data-theme-toggle]').click();
+  await page.locator('[data-theme-toggle]').first().click();
   check(await page.locator('html').getAttribute('data-theme') !== initialTheme, '主題切換失效');
   await page.reload({ waitUntil: 'networkidle' });
   check(await page.locator('html').getAttribute('data-theme') !== initialTheme, '主題設定未保存');
 
-  const cta = page.locator('[data-conference-cta]');
-  check(await cta.count() === 1 && await cta.getAttribute('href') === 'conference-papers.html', '首頁研討會 CTA 路由錯誤');
+  const cta = page.locator('.portal-grid a[href="conference-papers.html"]');
+  check(await cta.count() === 1, '首頁研討會入口路由錯誤');
   await Promise.all([page.waitForURL('**/conference-papers.html'), cta.click()]);
   check((await page.locator('h1').innerText()) === '研討會論文', '首頁 CTA 導向錯誤頁面');
   await page.goBack({ waitUntil: 'networkidle' });
@@ -85,16 +85,14 @@ try {
   check((await context.pages())[0] === page, '複製引用意外開啟頁面');
 
   await page.goto(`${baseUrl}/about.html`, { waitUntil: 'networkidle' });
-  const timelineTabs = page.locator('[data-timeline-tab]');
-  check(await timelineTabs.count() === 4, '教育時間線節點數錯誤');
-  await timelineTabs.nth(1).click();
-  check(await timelineTabs.nth(1).getAttribute('aria-selected') === 'true', '教育時間線切換失效');
-  check(await page.locator('[data-timeline-panel="1"]').isVisible(), '教育時間線面板未顯示');
+  const educationRows = page.locator('.about-education .education-ledger > li');
+  check(await educationRows.count() === 4, '教育時間線節點數錯誤');
+  check(await educationRows.nth(3).isVisible(), '教育時間線未完整展開');
 
   await page.goto(`${baseUrl}/certificates.html`, { waitUntil: 'networkidle' });
-  check(await page.locator('.credential-archive > ol > li').count() === 5, '證照檔案筆數錯誤');
-  check(await page.locator('.award-archive > ol > li').count() === 4, '獎項檔案筆數錯誤');
-  check(await page.locator('.credential-format').filter({ hasText: '文字檔案' }).count() === 5, '無證書圖片時未採文字檔案呈現');
+  check(await page.locator('.credential-ledger > ol > li').count() === 5, '證照檔案筆數錯誤');
+  check(await page.locator('.award-timeline > ol > li').count() === 4, '獎項檔案筆數錯誤');
+  check(await page.getByText('文字檔案').count() === 0, '頁面不應以假文件格式呈現無圖片證書');
 
   await page.goto(`${baseUrl}/cv.html`, { waitUntil: 'networkidle' });
   await page.evaluate(() => { window.__printCalled = false; window.print = () => { window.__printCalled = true; }; });
@@ -128,4 +126,4 @@ if (errors.length) {
   console.error(`E2E 測試失敗：${errors.length} 項／${checks} 項。`);
   errors.forEach((error) => console.error(`- ${error}`));
   process.exitCode = 1;
-} else console.log(`E2E 測試通過：${checks} 項，涵蓋 11 頁、Menu、Search、Theme、CTA、Filter、Timeline、CV、Contact 與 320px Reduced Motion。`);
+} else console.log(`E2E 測試通過：${checks} 項，涵蓋 11 頁、Menu、Search、Theme、入口、Filter、Education、CV、Contact 與 320px Reduced Motion。`);
