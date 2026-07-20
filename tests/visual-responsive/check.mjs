@@ -28,9 +28,9 @@ try {
           const box = element.getBoundingClientRect();
           return style.display !== 'none' && style.visibility !== 'hidden' && box.width > 0 && box.height > 0;
         };
-        const metadata = [...document.querySelectorAll('.eyebrow,.publication-meta,.status-list,.entry-index,.conference-year p,.credential-format,.cv-list time,.cv-list small,.section-heading > span,figcaption')]
+        const metadata = [...document.querySelectorAll('.overline,.publication-meta,.publication-venue,.status-list,.conference-year p,.credential-ledger li > p,.cv-list time,.cv-list small,.section-index > p,figcaption')]
           .filter(visible).map((element) => parseFloat(getComputedStyle(element).fontSize));
-        const clipped = [...document.querySelectorAll('h1,h2,h3,h4,p,a,button,dd')].filter(visible).filter((element) => {
+        const clipped = [...document.querySelectorAll('h1,h2,h3,h4,p,a,button,dd')].filter((element) => !element.classList.contains('visually-hidden')).filter(visible).filter((element) => {
           const style = getComputedStyle(element);
           return (['hidden', 'clip'].includes(style.overflowX) && element.scrollWidth > element.clientWidth + 2) || (['hidden', 'clip'].includes(style.overflowY) && element.scrollHeight > element.clientHeight + 2);
         }).slice(0, 5).map((element) => element.textContent.trim().slice(0, 80));
@@ -70,26 +70,28 @@ try {
   }
   await page.goto(`${baseUrl}/index.html`, { waitUntil: 'networkidle' });
   await page.locator('[data-menu-open]').click();
+  await page.waitForTimeout(400);
   await page.screenshot({ path: resolve(outDir, 'menu-desktop-1440.png') });
-  const desktopMenuFont = await page.locator('.menu-index a strong').first().evaluate((element) => parseFloat(getComputedStyle(element).fontSize));
+  const desktopMenuFont = await page.locator('.menu-groups a span').first().evaluate((element) => parseFloat(getComputedStyle(element).fontSize));
   check(desktopMenuFont >= 32, '桌面 Menu 頁名小於 32px', { desktopMenuFont });
   await page.keyboard.press('Escape');
   await page.keyboard.press(process.platform === 'darwin' ? 'Meta+KeyK' : 'Control+KeyK');
   await page.screenshot({ path: resolve(outDir, 'search-desktop-1440.png') });
   await page.keyboard.press('Escape');
-  await page.locator('.education-section').screenshot({ path: resolve(outDir, 'education-timeline-1440.png') });
+  await page.locator('.home-education').screenshot({ path: resolve(outDir, 'education-timeline-1440.png') });
   await page.locator('.site-footer').screenshot({ path: resolve(outDir, 'footer-1440.png') });
 
   await page.goto(`${baseUrl}/certificates.html`, { waitUntil: 'networkidle' });
-  await page.locator('.credential-archive').screenshot({ path: resolve(outDir, 'certificate-archive-1440.png') });
+  await page.locator('.credential-ledger').screenshot({ path: resolve(outDir, 'certificate-archive-1440.png') });
 
   for (const width of [390, 320]) {
     await page.setViewportSize({ width, height: 844 });
     await page.goto(`${baseUrl}/index.html`, { waitUntil: 'networkidle' });
     await page.screenshot({ path: resolve(outDir, `home-${width}-full.png`), fullPage: true });
     await page.locator('[data-menu-open]').click();
+    await page.waitForTimeout(400);
     await page.screenshot({ path: resolve(outDir, `menu-${width}.png`) });
-    const menuFont = await page.locator('.menu-index a strong').first().evaluate((element) => parseFloat(getComputedStyle(element).fontSize));
+    const menuFont = await page.locator('.menu-groups a span').first().evaluate((element) => parseFloat(getComputedStyle(element).fontSize));
     check(menuFont >= 28, '手機 Menu 頁名小於 28px', { width, menuFont });
     await page.keyboard.press('Escape');
   }

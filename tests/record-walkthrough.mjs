@@ -58,14 +58,13 @@ async function recordDesktop() {
   await pause(900);
 
   await page.goto(`${baseUrl}/about.html?recording=desktop`, { waitUntil: 'networkidle' });
-  await page.locator('.education-section').scrollIntoViewIfNeeded();
-  await page.locator('[data-timeline-tab="1"]').click();
+  await page.locator('.about-education').scrollIntoViewIfNeeded();
   await pause(1200);
 
   await page.goto(`${baseUrl}/certificates.html?recording=desktop`, { waitUntil: 'networkidle' });
-  await page.locator('.credential-archive').scrollIntoViewIfNeeded();
+  await page.locator('.credential-ledger').scrollIntoViewIfNeeded();
   await pause(1000);
-  await page.locator('.award-archive').scrollIntoViewIfNeeded();
+  await page.locator('.award-timeline').scrollIntoViewIfNeeded();
   await pause(1200);
   const video = page.video();
   await context.close();

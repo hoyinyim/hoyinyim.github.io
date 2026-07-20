@@ -1,13 +1,12 @@
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; text-size-adjust: 100%; }
-body { margin: 0; background: var(--paper); color: var(--ink); font: 400 var(--body)/1.72 var(--sans); overflow-wrap: anywhere; }
-img, svg, canvas { display: block; max-width: 100%; }
-button, input { font: inherit; color: inherit; }
+html { min-width: 320px; scroll-behavior: smooth; text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); }
+img, svg { display: block; max-width: 100%; }
+button, input { color: inherit; font: inherit; }
 button { cursor: pointer; }
-a { color: inherit; text-decoration-thickness: .07em; text-underline-offset: .2em; }
-p, h1, h2, h3, h4, ol, ul, dl, figure { margin-block-start: 0; }
-h1, h2, h3, h4 { text-wrap: pretty; overflow-wrap: anywhere; }
-ol, ul { padding: 0; }
+a { color: inherit; }
+h1, h2, h3, h4, p, figure, dl, dd { margin-top: 0; }
+ol, ul { margin: 0; padding: 0; }
+dialog { color: inherit; }
 [hidden] { display: none !important; }
-::selection { background: var(--vermilion); color: #fff; }
-:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 4px; }
+::selection { background: var(--accent); color: var(--paper); }

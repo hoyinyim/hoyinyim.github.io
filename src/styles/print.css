@@ -1,15 +1,13 @@
-@page { size: A4; margin: 16mm 15mm 18mm; }
-
+@page { size: A4; margin: 16mm 14mm; }
 @media print {
-  :root { --paper: #fff; --paper-raised: #fff; --ink: #000; --ink-soft: #333; --line: #bbb; --line-strong: #555; }
-  body { font-size: 10.5pt; line-height: 1.45; background: #fff; }
-  .site-header, .site-footer, .breadcrumb, dialog, .scroll-progress, .skip-link, .live-region, .cv-header button { display: none !important; }
-  .cv-header, .cv-document { max-width: none; padding-inline: 0; }
-  .cv-header { padding-top: 0; padding-bottom: 6mm; }
-  .cv-header h1 { font-size: 24pt; }
-  .cv-document > section { grid-template-columns: 33mm 1fr; gap: 6mm; padding: 5mm 0; }
-  .cv-document section > p, .cv-document section > ol { grid-column: 2; }
-  .cv-list li { grid-template-columns: 25mm 1fr; padding: 2.5mm 0; break-inside: avoid; }
+  :root { --paper: #fff; --ink: #000; --muted: #333; --line: #bbb; --line-strong: #000; }
+  body { background: #fff; color: #000; font-size: 9.4pt; line-height: 1.55; }
+  .site-header, .site-footer, .breadcrumb, .scroll-progress, .skip-link, .live-region, dialog, .cv-index, .cv-header button, .cv-header a[download] { display: none !important; }
+  .cv-header { padding: 0 0 8mm; }
+  .cv-header h1 { margin: 3mm 0; font-size: 28pt; }
+  .cv-layout { display: block; padding: 0; }
+  .cv-document section { break-inside: auto; padding: 4.5mm 0; }
+  .cv-document section h2 { margin-bottom: 4mm; font-size: 17pt; }
+  .cv-list > li { break-inside: avoid; padding: 2mm 0; }
   a { text-decoration: none; }
-  h2, h3 { break-after: avoid; }
 }

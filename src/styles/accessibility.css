@@ -1,21 +1,11 @@
+.skip-link { position: fixed; z-index: 200; top: 8px; left: 8px; transform: translateY(-160%); padding: 10px 14px; background: var(--ink); color: var(--paper); }
+.skip-link:focus { transform: none; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
-
 @media (prefers-contrast: more) {
-  :root { --line: #5e5e58; --line-strong: #20211e; }
-  :root[data-theme="dark"] { --line: #c5c5bd; --line-strong: #f3f1e9; }
-  .eyebrow, .section-heading > p, .publication-meta { color: var(--ink); }
-}
-
-@media (forced-colors: active) {
-  * { forced-color-adjust: auto; }
-  .scroll-progress i, .timeline-tabs button[aria-selected="true"] { background: Highlight; color: HighlightText; }
-  :focus-visible { outline-color: Highlight; }
-}
-
-@media (pointer: coarse) {
-  a, button, summary { min-height: 44px; }
-  .entry-actions a, .entry-actions button { display: inline-flex; align-items: center; }
+  :root { --line: #69716d; --line-strong: var(--ink); }
 }

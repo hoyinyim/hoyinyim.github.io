@@ -10,8 +10,10 @@ await mkdir(out, { recursive: true });
 const htmlFiles = [...routes.map((route) => route.href), '404.html'];
 for (const file of [...htmlFiles, 'robots.txt', 'sitemap.xml', 'rss.xml']) await cp(resolve(root, file), resolve(out, file));
 await cp(resolve(root, 'assets'), resolve(out, 'assets'), { recursive: true });
+await cp(resolve(root, 'downloads'), resolve(out, 'downloads'), { recursive: true });
 await mkdir(resolve(out, 'images'), { recursive: true });
 const localImages = new Set();
+localImages.add('images/og-default.png');
 for (const file of htmlFiles) {
   const html = await readFile(resolve(root, file), 'utf8');
   for (const match of html.matchAll(/(?:src|content|href)="(images\/[^"]+)"/g)) localImages.add(match[1]);

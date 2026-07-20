@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile, rm, stat } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 import { layout } from '../src/build/components.mjs';
 import {
   aboutPage, certificatesPage, conferencePage, contactPage, cvPage, homePage,
@@ -22,6 +23,7 @@ const data = {
   credentials: await readJson('credentials.json'),
   pageIntros: await readJson('page-intros.json')
 };
+const buildCommit = process.env.BUILD_COMMIT || execFileSync('git', ['rev-parse', '--short=12', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
 
 const route = (id) => data.routes.find((item) => item.id === id);
 const description = (label) => `嚴浩然個人學術網站的${label}頁面。`;
@@ -38,13 +40,17 @@ const journalJsonLd = {
   '@context': 'https://schema.org', '@type': 'ItemList',
   itemListElement: data.publications.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.title, url: `https://hoyinyim.github.io/journal-papers.html#year-${item.year}` }))
 };
+const conferenceJsonLd = {
+  '@context': 'https://schema.org', '@type': 'ItemList',
+  itemListElement: [...data.conferences.published, ...data.conferences.presentations].map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.title, url: item.link || 'https://hoyinyim.github.io/conference-papers.html' }))
+};
 
 const pages = [
   { id: 'home', title: '嚴浩然 YIM HO YIN｜個人學術網站', body: homePage(data), jsonLd: personJsonLd },
   { id: 'about', title: '關於｜嚴浩然 YIM HO YIN', body: aboutPage(data) },
   { id: 'research', title: '研究｜嚴浩然 YIM HO YIN', body: researchPage(data) },
   { id: 'journal', title: '期刊論文｜嚴浩然 YIM HO YIN', body: journalPage(data), jsonLd: journalJsonLd },
-  { id: 'conference', title: '研討會論文｜嚴浩然 YIM HO YIN', body: conferencePage(data) },
+  { id: 'conference', title: '研討會論文｜嚴浩然 YIM HO YIN', body: conferencePage(data), jsonLd: conferenceJsonLd },
   { id: 'translations', title: '譯著／哲學普及作品｜嚴浩然 YIM HO YIN', body: translationsPage(data) },
   { id: 'certificates', title: '證照／證書／獎項｜嚴浩然 YIM HO YIN', body: certificatesPage(data) },
   { id: 'teaching', title: '教學｜嚴浩然 YIM HO YIN', body: teachingPage(data) },
@@ -55,10 +61,10 @@ const pages = [
 await mkdir(resolve(root, 'assets'), { recursive: true });
 for (const page of pages) {
   const currentRoute = route(page.id);
-  await writeFile(resolve(root, currentRoute.href), layout({ route: currentRoute, routes: data.routes, profile: data.profile, title: page.title, description: description(currentRoute.labelZh), body: page.body, jsonLd: page.jsonLd, bodyClass: page.bodyClass }), 'utf8');
+  await writeFile(resolve(root, currentRoute.href), layout({ route: currentRoute, routes: data.routes, profile: data.profile, title: page.title, description: description(currentRoute.labelZh), body: page.body, jsonLd: page.jsonLd, bodyClass: page.bodyClass, buildCommit }), 'utf8');
 }
 const notFoundRoute = { id: 'not-found', href: '404.html', labelZh: '找不到頁面', labelEn: 'Not Found' };
-await writeFile(resolve(root, '404.html'), layout({ route: notFoundRoute, routes: data.routes, profile: data.profile, title: '找不到頁面｜嚴浩然 YIM HO YIN', description: '找不到指定頁面，可返回首頁或搜尋嚴浩然個人學術網站。', body: notFoundPage() }), 'utf8');
+await writeFile(resolve(root, '404.html'), layout({ route: notFoundRoute, routes: data.routes, profile: data.profile, title: '找不到頁面｜嚴浩然 YIM HO YIN', description: '找不到指定頁面，可返回首頁或搜尋嚴浩然個人學術網站。', body: notFoundPage(), buildCommit }), 'utf8');
 
 const styleFiles = ['tokens.css', 'reset.css', 'typography.css', 'layout.css', 'navigation.css', 'pages.css', 'responsive.css', 'accessibility.css', 'print.css'];
 const css = (await Promise.all(styleFiles.map((file) => readFile(resolve(root, 'src/styles', file), 'utf8')))).map((content, index) => `/* ${styleFiles[index]} */\n${content.trim()}`).join('\n\n');

@@ -1,17 +1,24 @@
 # 字體與可讀性系統
 
-## 基準
+## 授權策略
 
-- 正文：`clamp(1.0625rem, .25vw + 1rem, 1.1875rem)`，約 17–19px；行高 1.72。
-- Metadata：最小 14px；主要狀態與卷期頁碼不以顏色作唯一訊息。
-- Desktop 主導覽：16px。
-- Mobile Menu 頁名：最小 28px。
-- 頁面標題：`clamp(2.8rem, 6vw + 1rem, 7.5rem)`；只讓首頁姓名使用品牌事件級比例。
+不使用 AXIS Font：官方資料顯示其為購買／訂閱制商業字型，Webfont 與嵌入用途另有授權，而專案沒有授權證明。網站不載入外部字型、不熱連任何參照網站資源，改以使用者裝置既有字族提供完整中日英文字形。
 
-## 字型策略
+## 字族
 
-網站不依賴外部網路字型。中文 Serif 優先使用系統可用的 `Noto Serif TC`／`Source Han Serif TC`／`PMingLiU`，中文 Sans 優先使用 `Noto Sans TC`／`PingFang TC`／`Microsoft JhengHei`。字型失敗時仍由本機中文字型完整顯示。
+- Sans：`Arial Narrow`、`Aptos Narrow`、`Noto Sans TC`、`PingFang TC`、`Microsoft JhengHei`、sans-serif。
+- Serif：`Noto Serif TC`、`Source Han Serif TC`、`PMingLiU`、serif。
+- Mono：`Cascadia Mono`、`SFMono-Regular`、`Consolas`、monospace。
 
-## 長題名
+## 比例
 
-所有正式題名均採自然換行與 `text-wrap: pretty`，不使用單行 Ellipsis、不截斷、不以極小字體塞入固定高度。Grid 子項均允許收縮，320px 與高倍率縮放由自動測試檢查溢出與裁切。
+- 正文：`clamp(1rem, .22vw + .96rem, 1.125rem)`，行高 1.72。
+- 書目題名：`clamp(1.18rem, .7vw + 1rem, 1.75rem)`，行高 1.38。
+- Metadata：最小 14px，行高 1.5。
+- 導覽：15–16px。
+- 頁名：`clamp(3rem, 7vw, 7.5rem)`；只在頁面開場使用。
+- 首頁姓名：桌機上限 12rem，手機依視窗縮放但不得遮蔽身分資料。
+
+## 中文斷行
+
+題名使用 `text-wrap: pretty`、`word-break: normal`、`overflow-wrap: break-word`；姓名、學校、學位與固定書名可用 `word-break: keep-all`。不得用單行省略號、極小字級或固定高度隱藏內容。

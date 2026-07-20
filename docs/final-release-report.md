@@ -1,37 +1,53 @@
-# 最終發布報告
+# AXIS Scholarly Poster System 最終發布報告
 
-發布日期：2026-07-19。公開網址：`https://hoyinyim.github.io/`。
+製作日期：2026-07-21。儲存庫：`https://github.com/hoyinyim/hoyinyim.github.io`。公開網站：`https://hoyinyim.github.io/`。
 
-## 發布狀態
+## 完成範圍
 
-- 全站 11 個 HTML 頁面已由單一資料層、單一生成器、單一 Header／Menu／Search／Footer 與單一互動控制器重建。
-- PR #9 完成主重構；PR #10、#11、#12 分別修正公開資源／標題階層、字體比例／對比、820px 研討會溢出。
-- GitHub Pages `pages-build-deployment` 第 64 次執行成功，公開 CDN 已驗證最新 CSS 與頁面。
-- P0 發布阻斷問題：0。
+- 七個參照來源的桌機、手機、詳頁、載入、滾動與互動研究證據已保存。
+- 五個高擬真原型與「軸線式當代學術平面系統」已定稿。
+- 11 個 HTML、Grouped Menu、Search、Theme、Filter、Citation Copy、CV Print／PDF、404、SEO 與結構化資料已完成。
+- 10 篇期刊、2 篇已出版研討會論文、17 筆發表、1 筆譯著、11 篇公共寫作、5 筆證照／證書與 4 筆獎項逐筆保留。
+- AXIS Font 未使用；網站沒有外部字型或圖片熱連。
 
-## 最終實測
+## 最終驗收
 
 | 項目 | 結果 |
-| --- | --- |
+| --- | ---: |
 | 內容完整性 | 158／158 |
-| 靜態 HTML／連結／SEO／結構 | 533／533 |
-| 公開 E2E | 68／68 |
-| Axe WCAG 2.2 AA | 22 次掃描，0 violations |
+| 技術檢查 | 490／490 |
+| E2E | 67／67 |
 | 響應式 | 120／120 |
-| 改造前截圖 | 3 張既有真實截圖 |
-| 改造後正式截圖 | 22 張公開部署截圖 |
-| Lighthouse | 93／100／100／100 |
-| 操作錄影 | 桌機 36.36 秒；手機 8.68 秒 |
+| Axe WCAG 2.2 AA | 44 次，0 violations |
+| Lighthouse | 99／100／100／100 |
+| CSS／JavaScript | 35,465／8,436 bytes |
+| 履歷 PDF | A4，8 頁，已逐頁渲染 |
 
-## 驗收產物
+## 完整參照網址
 
-- 機器可讀結果：`docs/qa/professional-rebuild/*.json`。
-- 截圖：`docs/qa/professional-rebuild/screenshots/`。
-- 改造前截圖：`docs/qa/third-stage/before/`。
-- 桌機錄影：`docs/qa/professional-rebuild/videos/desktop-walkthrough.webm`。
-- 手機錄影：`docs/qa/professional-rebuild/videos/mobile-walkthrough.webm`。
-- 可重現錄影腳本：`tests/record-walkthrough.mjs`。
+1. `https://www.details.co.jp/`
+2. `https://www.details.co.jp/projects/vermicular/`
+3. `https://junni.co.jp/`
+4. `https://junni.co.jp/works/basica/`
+5. `https://typeproject.com/en/fonts/axisfont/`
+6. `https://www.typographicposters.com/100besteplakate`
+7. `https://www.543life.com/?srsltid=AfmBOoofsD9hqjoaTlYu6luQURNC89SWUBwhIw57DLSIuHs2hAgyfBhd`
+8. `https://www.543life.com/`
+9. `https://www.kohfukuji.com/`
+10. `https://www.nakagawa-masashichi.jp/shop/default.aspx?srsltid=AfmBOooNsk65crP3EtKreqrP8Z288VMEK-Bq9N0sQfMBv976YpWoK-4H`
+11. `https://www.nakagawa-masashichi.jp/shop/default.aspx`
 
-## 已知發布限制
+## 必須研討會連結
 
-連線憑證缺少 GitHub OAuth `workflow` scope，因此本次無法提交本機準備的自訂 GitHub Actions 工作流程檔；儲存庫既有的 `pages-build-deployment` 已正常完成正式發布。所有自訂測試均已在本機對公開網址實際執行並保存結果。
+- `https://chinese.nccu.edu.tw/PageDoc/Detail?fid=8363&id=20873`
+- `https://www.airitilibrary.com/Article/Detail/18172903-N202305110002-00020`
+
+## 可核對產物
+
+- 參照證據：`docs/qa/axis-reference-study/`
+- 原型證據：`docs/qa/axis-prototypes/`
+- 正式 QA：`docs/qa/professional-rebuild/`
+- 桌機／手機錄影：`docs/qa/professional-rebuild/videos/`
+- 履歷 PDF：`downloads/yim-ho-yin-cv.pdf`
+
+公開部署 SHA、PR 與 GitHub Pages workflow 將在實際發布複驗後記入本報告的發布提交。

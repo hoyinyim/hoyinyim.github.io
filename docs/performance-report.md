@@ -1,19 +1,18 @@
 # 效能驗收報告
 
-驗收日期：2026-07-19。測試網址：`https://hoyinyim.github.io/index.html`。
+驗收日期：2026-07-21。測試網址：本機正式靜態建置。
 
-| 指標 | 實測值 | 結果 |
-| --- | ---: | --- |
-| Lighthouse Performance | 93 | 通過 |
-| Accessibility | 100 | 通過 |
-| Best Practices | 100 | 通過 |
-| SEO | 100 | 通過 |
-| LCP | 2283ms | 低於 2500ms |
-| CLS | 0 | 低於 0.1 |
-| TBT | 227ms | 作為本次可取得的 INP 實驗室替代指標 |
-| Speed Index | 2747ms | 記錄值 |
-| JavaScript | 9681 bytes | 低於 30KB 預算 |
-| CSS | 36876 bytes | 低於 60KB 預算 |
-| 發布圖片 | 3 個／171296 bytes | 最小化發布包 |
+| 指標 | 實測值 | 門檻 |
+| --- | ---: | ---: |
+| Lighthouse Performance | 99 | ≥ 90 |
+| Accessibility | 100 | ≥ 90 |
+| Best Practices | 100 | ≥ 90 |
+| SEO | 100 | ≥ 90 |
+| LCP | 1802ms | ≤ 2500ms |
+| CLS | 0 | ≤ 0.1 |
+| TBT | 100ms | 記錄值 |
+| Speed Index | 1118ms | 記錄值 |
+| JavaScript | 8436 bytes | < 30KB |
+| CSS | 35465 bytes | < 60KB |
 
-完整 Lighthouse JSON 位於 `docs/qa/professional-rebuild/lighthouse-report.json`，摘要位於 `docs/qa/professional-rebuild/performance-results.json`。
+發布包內含 4 個本機圖像資產，共 1,600,675 bytes；頁面沒有外部字型、外部圖片熱連或執行期 HTML 抓取。完整資料位於 `docs/qa/professional-rebuild/lighthouse-report.json` 與 `performance-results.json`。
