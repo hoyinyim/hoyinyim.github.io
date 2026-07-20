@@ -79,4 +79,7 @@
 - 主 Menu 固定為「關於、研究、著作、教學、履歷、聯絡」六項，並保留期刊論文、研討會論文、譯著與公共寫作、證照與獎項等既有入口。
 - 六個古文字圖形均有逐字來源、原始記錄、授權與查核紀錄；圖形只作視覺索引，不宣稱現代分類與古文字本義完全相等。
 - 參考研究網址為 `https://prj-foodecon.w.waseda.jp/`；正式實作沒有載入或複製該站資產、DOM、CSS、品牌色盤或程式。
-- 本輪版本、GitHub Pages workflow、公開站測試數字與實際瀏覽器複驗結果，於正式部署完成後填入本節。
+- 功能發布版本：`8c9f3caa79018b850083d8556e3a327fe9522bdd`；GitHub Pages workflow：`https://github.com/hoyinyim/hoyinyim.github.io/actions/runs/29768669944`，結論為 `success`。
+- 公開站 E2E 83／83；古文字 Menu／繁體中文／失敗模式 110／110；11 個 HTML、CSS、JavaScript 與六個本地古文字 SVG 共 19 個關鍵資源均回應 HTTP 200，SVG MIME 均為 `image/svg+xml`。
+- 已以公開網址在實際瀏覽器開啟 Menu，核對六項繁體中文主導覽、六個古文字圖形、著作子導覽、搜尋、明暗模式、關閉與鍵盤焦點狀態；桌機畫面比例正常。320／390／768／1024／1440／1920 與 200％ Zoom 另由公開站自動瀏覽器測試逐項通過。
+- 公開 HTML 不含 Food Economics 參考站資產或熱連；正式頁只載入 `images/ancient-script/` 下的本地字形檔。

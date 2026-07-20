@@ -16,4 +16,6 @@
 | JavaScript 關閉 | 六項繁中備援導覽可見 | 通過 |
 | 字形載入失敗 | 視覺層隱藏，導覽仍可用 | 通過 |
 
-本機正式建置機讀結果：110／110，見 `docs/qa/ancient-script-menu/menu-language-results.json`。全站 12 種寬度乘 10 頁的響應式量測為 120／120；桌機、390px 與 320px Menu 截圖均已人工檢查，檔案位於 `docs/qa/professional-rebuild/screenshots/`。正式公開版將在 GitHub Pages 部署後以同一套 Menu 與 E2E 測試再次複驗。
+本機正式建置機讀結果：110／110。全站 12 種寬度乘 10 頁的響應式量測為 120／120；桌機、390px 與 320px Menu 截圖均已人工檢查，檔案位於 `docs/qa/professional-rebuild/screenshots/`。
+
+公開站部署後再次以 `https://hoyinyim.github.io` 執行：E2E 83／83、Menu／繁體中文／失敗模式 110／110。公開版機讀結果見 `docs/qa/ancient-script-menu/menu-language-results.json` 與 `docs/qa/professional-rebuild/e2e-results.json`；並已在實際公開瀏覽器開啟 Menu 作桌面視覺核對。
