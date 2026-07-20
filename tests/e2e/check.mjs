@@ -38,6 +38,7 @@ try {
   for (let index = 0; index < 14; index += 1) await page.keyboard.press('Tab');
   check(await page.evaluate(() => document.querySelector('[data-menu-dialog]').contains(document.activeElement)), 'Menu Focus Trap 失效');
   await page.keyboard.press('Escape');
+  await page.waitForFunction(() => !document.querySelector('[data-menu-dialog]').open);
   check(!await page.locator('[data-menu-dialog]').evaluate((dialog) => dialog.open), 'Escape 未關閉 Menu');
   check(await page.evaluate(() => document.activeElement.matches('[data-menu-open]')), 'Menu 關閉後焦點未返回');
 

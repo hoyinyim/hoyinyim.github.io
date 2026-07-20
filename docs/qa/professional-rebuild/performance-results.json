@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-20T17:53:23.480Z",
-  "url": "http://127.0.0.1:4173/index.html",
+  "generatedAt": "2026-07-20T18:36:24.845Z",
+  "url": "http://127.0.0.1:4175/index.html",
   "scores": {
     "performance": 100,
     "accessibility": 100,
@@ -8,16 +8,16 @@
     "seo": 100
   },
   "metrics": {
-    "lcpMs": 1801.5227,
+    "lcpMs": 1576.8799,
     "cls": 0,
     "tbtMs": 0,
-    "speedIndexMs": 901.5227
+    "speedIndexMs": 1051.8799
   },
   "assets": {
-    "javascriptBytes": 9859,
-    "cssBytes": 42044,
-    "deployedImageFiles": 4,
-    "deployedImageBytes": 1600675
+    "javascriptBytes": 12083,
+    "cssBytes": 49047,
+    "deployedImageFiles": 10,
+    "deployedImageBytes": 1627593
   },
   "passed": true,
   "errors": []

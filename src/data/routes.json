@@ -4,6 +4,8 @@
     "href": "index.html",
     "labelZh": "首頁",
     "labelEn": "Home",
+    "locale": "zh-Hant",
+    "futureLocaleHref": null,
     "order": 1
   },
   {
@@ -11,6 +13,8 @@
     "href": "about.html",
     "labelZh": "關於",
     "labelEn": "About",
+    "locale": "zh-Hant",
+    "futureLocaleHref": null,
     "order": 2
   },
   {
@@ -18,6 +22,8 @@
     "href": "research.html",
     "labelZh": "研究",
     "labelEn": "Research",
+    "locale": "zh-Hant",
+    "futureLocaleHref": null,
     "order": 3
   },
   {
@@ -25,6 +31,8 @@
     "href": "journal-papers.html",
     "labelZh": "期刊論文",
     "labelEn": "Journal Articles",
+    "locale": "zh-Hant",
+    "futureLocaleHref": null,
     "order": 4
   },
   {
@@ -32,6 +40,8 @@
     "href": "conference-papers.html",
     "labelZh": "研討會論文",
     "labelEn": "Conference Papers",
+    "locale": "zh-Hant",
+    "futureLocaleHref": null,
     "order": 5
   },
   {
@@ -39,6 +49,8 @@
     "href": "translations.html",
     "labelZh": "譯著／哲學普及作品",
     "labelEn": "Translations",
+    "locale": "zh-Hant",
+    "futureLocaleHref": null,
     "order": 6
   },
   {
@@ -46,6 +58,8 @@
     "href": "certificates.html",
     "labelZh": "證照／證書／獎項",
     "labelEn": "Credentials",
+    "locale": "zh-Hant",
+    "futureLocaleHref": null,
     "order": 7
   },
   {
@@ -53,6 +67,8 @@
     "href": "teaching.html",
     "labelZh": "教學",
     "labelEn": "Teaching",
+    "locale": "zh-Hant",
+    "futureLocaleHref": null,
     "order": 8
   },
   {
@@ -60,6 +76,8 @@
     "href": "cv.html",
     "labelZh": "履歷",
     "labelEn": "CV",
+    "locale": "zh-Hant",
+    "futureLocaleHref": null,
     "order": 9
   },
   {
@@ -67,6 +85,8 @@
     "href": "contact.html",
     "labelZh": "聯絡",
     "labelEn": "Contact",
+    "locale": "zh-Hant",
+    "futureLocaleHref": null,
     "order": 10
   }
 ]

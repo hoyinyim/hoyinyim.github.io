@@ -21,7 +21,8 @@ const data = {
   conferences: await readJson('conferences.json'),
   translations: await readJson('translations.json'),
   credentials: await readJson('credentials.json'),
-  pageIntros: await readJson('page-intros.json')
+  pageIntros: await readJson('page-intros.json'),
+  menuGlyphs: await readJson('ancient-script-menu-glyphs.json')
 };
 const buildCommit = process.env.BUILD_COMMIT || execFileSync('git', ['rev-parse', '--short=12', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
 
@@ -61,10 +62,10 @@ const pages = [
 await mkdir(resolve(root, 'assets'), { recursive: true });
 for (const page of pages) {
   const currentRoute = route(page.id);
-  await writeFile(resolve(root, currentRoute.href), layout({ route: currentRoute, routes: data.routes, profile: data.profile, title: page.title, description: description(currentRoute.labelZh), body: page.body, jsonLd: page.jsonLd, bodyClass: page.bodyClass, buildCommit }), 'utf8');
+  await writeFile(resolve(root, currentRoute.href), layout({ route: currentRoute, routes: data.routes, profile: data.profile, menuGlyphs: data.menuGlyphs, title: page.title, description: description(currentRoute.labelZh), body: page.body, jsonLd: page.jsonLd, bodyClass: page.bodyClass, buildCommit }), 'utf8');
 }
 const notFoundRoute = { id: 'not-found', href: '404.html', labelZh: '找不到頁面', labelEn: 'Not Found' };
-await writeFile(resolve(root, '404.html'), layout({ route: notFoundRoute, routes: data.routes, profile: data.profile, title: '找不到頁面｜嚴浩然 YIM HO YIN', description: '找不到指定頁面，可返回首頁或搜尋嚴浩然個人學術網站。', body: notFoundPage(), buildCommit }), 'utf8');
+await writeFile(resolve(root, '404.html'), layout({ route: notFoundRoute, routes: data.routes, profile: data.profile, menuGlyphs: data.menuGlyphs, title: '找不到頁面｜嚴浩然 YIM HO YIN', description: '找不到指定頁面，可返回首頁或搜尋嚴浩然個人學術網站。', body: notFoundPage(), buildCommit }), 'utf8');
 
 const styleFiles = ['tokens.css', 'reset.css', 'typography.css', 'layout.css', 'navigation.css', 'pages.css', 'responsive.css', 'accessibility.css', 'print.css'];
 const css = (await Promise.all(styleFiles.map((file) => readFile(resolve(root, 'src/styles', file), 'utf8')))).map((content, index) => `/* ${styleFiles[index]} */\n${content.trim()}`).join('\n\n');

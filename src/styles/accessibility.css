@@ -6,6 +6,9 @@
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .domain-link::before, .domain-link::after, .domain-label strong, .domain-label small { animation: none !important; opacity: 1; transform: none; }
+  .menu-shell::before, .menu-glyph-stage, .menu-glyph-axis, .menu-glyph-stage img, .menu-groups li, .menu-utility { animation: none; opacity: 1; transform: none; transition: none; }
+  .menu-glyph-stage img { opacity: 0; clip-path: none; }
+  .menu-glyph-stage img[data-active="true"] { opacity: .92; }
 }
 @media (prefers-contrast: more) {
   :root { --line: #69716d; --line-strong: var(--ink); }
@@ -14,4 +17,8 @@
   .domain-link { border-color: CanvasText; forced-color-adjust: auto; }
   .domain-link::before { border-color: CanvasText; }
   .topology-axis { background: CanvasText; }
+  .menu-shell::before { background: Canvas; }
+  .menu-dialog { color: CanvasText; }
+  .menu-glyph-stage, .menu-groups li a, .menu-subnav a, .menu-utility { border-color: CanvasText; forced-color-adjust: auto; }
+  .menu-glyph-stage img, .menu-groups img { filter: none; }
 }

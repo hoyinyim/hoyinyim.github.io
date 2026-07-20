@@ -13,9 +13,12 @@
 | 興福寺 | `https://www.kohfukuji.com/` | 首頁、寺寶・文化財頁 | `docs/qa/axis-reference-study/kohfukuji/` |
 | 中川政七商店（查詢網址） | `https://www.nakagawa-masashichi.jp/shop/default.aspx?srsltid=AfmBOooNsk65crP3EtKreqrP8Z288VMEK-Bq9N0sQfMBv976YpWoK-4H` | 與 Canonical 商店首頁共同登錄 | `docs/qa/axis-reference-study/nakagawa/` |
 | 中川政七商店 | `https://www.nakagawa-masashichi.jp/shop/default.aspx` | 商店首頁、特集詳頁 | `docs/qa/axis-reference-study/nakagawa/` |
+| 早稻田大學 Food Economics | `https://prj-foodecon.w.waseda.jp/` | 首頁關閉、Hover、開啟過程、開啟完成、手機與 Reduced Motion 狀態 | `docs/qa/waseda-foodecon/` |
 
 每一站皆保存：`hero-1920x1080.png`、`desktop-1440-full.png`、`mobile-390-full.png`、桌面及手機互動畫面、Hover 畫面、詳頁全頁畫面、載入錄影、約 20 秒滾動錄影及約 15 秒互動錄影。完整執行結果見 `docs/qa/axis-reference-study/reference-capture-results.json`。
 
+Food Economics 為此次 Menu 專項研究，另保存 1440px 關閉、Hover、開啟 120ms、開啟 700ms、關閉後、390px 關閉／開啟、Reduced Motion 與開關錄影；量測與可及性觀察見 `docs/qa/waseda-foodecon/reference-observations.json`。
+
 ## 版權界線
 
-本專案只研究排印比例、信息層級、網格、留白、動效節奏與操作方法。參考站的圖片、影片、商標、插畫、程式碼、字體檔及文案一律不下載、不重製、不提交。所有最終元件均以本站既有資料及本地合法資產重新設計。
+本專案只研究排印比例、信息層級、網格、留白、動效節奏與操作方法。參考站的圖片、影片、商標、插畫、程式碼、字體檔及文案一律不下載、不重製、不提交。Food Economics 的筷形觸發器只作動態節奏參照，未複製其 DOM、CSS 或資產。所有最終元件均以本站既有資料及本地合法資產重新設計。

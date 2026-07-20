@@ -20,7 +20,8 @@
       button.setAttribute('aria-pressed', String(dark));
       button.setAttribute('aria-label', dark ? '目前為深色模式；切換為淺色模式' : '目前為淺色模式；切換為深色模式');
     });
-    doc.querySelectorAll('[data-theme-label]').forEach((label) => { label.textContent = dark ? 'Dark' : 'Light'; });
+    doc.querySelectorAll('[data-theme-label]').forEach((label) => { label.textContent = dark ? '深色' : '淺色'; });
+    doc.querySelectorAll('[data-theme-action]').forEach((label) => { label.textContent = dark ? '淺色' : '深色'; });
     doc.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0e1110' : '#f4f5f3');
   };
   updateThemeControls();
@@ -49,12 +50,53 @@
       if (dialog._restoreFocus !== false) dialog._returnFocus?.focus();
       dialog._restoreFocus = true;
     });
-    dialog.addEventListener('click', (event) => { if (event.target === dialog) closeDialog(dialog); });
+    dialog.addEventListener('click', (event) => { if (event.target === dialog && !dialog.matches('[data-menu-dialog]')) closeDialog(dialog); });
   });
 
   const menu = doc.querySelector('[data-menu-dialog]');
-  doc.querySelectorAll('[data-menu-open]').forEach((button) => button.addEventListener('click', () => openDialog(menu, button)));
-  doc.querySelector('[data-menu-close]')?.addEventListener('click', () => closeDialog(menu));
+  const menuTriggers = [...doc.querySelectorAll('[data-menu-open]')];
+  const menuGlyphs = [...doc.querySelectorAll('[data-menu-glyph]')];
+  let menuCloseTimer;
+  const setMenuGlyph = (menuId) => {
+    if (!menuId) return;
+    menu.dataset.activeGlyph = menuId;
+    menuGlyphs.forEach((glyph) => {
+      if (glyph.dataset.menuGlyph === menuId && !glyph.dataset.loadFailed) glyph.dataset.active = 'true';
+      else delete glyph.dataset.active;
+    });
+  };
+  const openMenu = (button) => {
+    clearTimeout(menuCloseTimer);
+    menu.classList.remove('is-closing');
+    openDialog(menu, button, menu.querySelector('[data-menu-target][aria-current="page"]') || menu.querySelector('[data-menu-target]'));
+    menuTriggers.forEach((trigger) => trigger.setAttribute('aria-expanded', 'true'));
+    setMenuGlyph(menu.dataset.initialGlyph);
+  };
+  const closeMenu = (restore = true) => {
+    if (!menu?.open || menu.classList.contains('is-closing')) return;
+    if (reducedMotion) { closeDialog(menu, restore); return; }
+    menu._restoreFocus = restore;
+    menu.classList.add('is-closing');
+    menuCloseTimer = setTimeout(() => closeDialog(menu, restore), 410);
+  };
+  menuTriggers.forEach((button) => button.addEventListener('click', () => openMenu(button)));
+  doc.querySelector('[data-menu-close]')?.addEventListener('click', () => closeMenu());
+  menu?.addEventListener('cancel', (event) => { event.preventDefault(); closeMenu(); });
+  menu?.addEventListener('click', (event) => { if (event.target === menu) closeMenu(); });
+  menu?.addEventListener('close', () => {
+    clearTimeout(menuCloseTimer);
+    menu.classList.remove('is-closing');
+    menuTriggers.forEach((trigger) => trigger.setAttribute('aria-expanded', 'false'));
+  });
+  doc.querySelectorAll('[data-menu-target]').forEach((link) => {
+    link.addEventListener('focus', () => setMenuGlyph(link.dataset.menuTarget));
+    link.addEventListener('pointerenter', () => setMenuGlyph(link.dataset.menuTarget));
+  });
+  menuGlyphs.forEach((glyph) => glyph.addEventListener('error', () => {
+    glyph.dataset.loadFailed = 'true';
+    glyph.hidden = true;
+    if (glyph.dataset.active === 'true') menu.classList.add('glyph-unavailable');
+  }));
 
   const search = doc.querySelector('[data-search-dialog]');
   const searchInput = doc.querySelector('[data-search-input]');
@@ -76,8 +118,9 @@
     return searchIndex;
   };
   const openSearch = async (button) => {
+    const returnButton = menu?.open ? doc.querySelector('[data-search-open]') : button;
     if (menu?.open) closeDialog(menu, false);
-    openDialog(search, button, searchInput);
+    openDialog(search, returnButton, searchInput);
     await loadSearch();
   };
   doc.querySelectorAll('[data-search-open]').forEach((button) => button.addEventListener('click', () => openSearch(button)));

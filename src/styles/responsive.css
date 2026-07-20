@@ -14,6 +14,13 @@
   .entry-actions, .publication-entry details { grid-column: 2; }
 }
 
+@media (max-width: 900px) {
+  .menu-composition { grid-template-columns: minmax(180px, 5fr) minmax(0, 7fr); gap: 24px; }
+  .menu-glyph-stage { width: min(42vw, 360px); }
+  .menu-groups li a { min-height: 62px; }
+  .menu-item-label { font-size: clamp(2.1rem, 6vw, 3.2rem); }
+}
+
 @media (max-width: 760px) {
   :root { --header-h: 64px; --gutter: 18px; --gap: 8px; }
   .axis-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -21,7 +28,7 @@
   .primary-nav, .search-trigger { display: none; }
   .header-actions { grid-column: 2; }
   .header-control { padding-inline: 10px; }
-  .theme-control span::before { content: "Theme: "; }
+  .theme-control span::before { content: "主題："; }
   .breadcrumb { padding-top: 12px; }
   .section-index { grid-template-columns: 1fr; gap: 4px; padding-bottom: 18px; }
   .section-index h2 { font-size: 2.4rem; }
@@ -120,13 +127,19 @@
   .not-found .overline, .not-found h1, .not-found > p:not(.overline), .not-found > div { grid-column: 1 / -1; }
   .not-found h1 { font-size: 4.2rem; }
   .menu-dialog { padding: 0; }
-  .menu-shell { padding-top: 18px; }
-  .dialog-topline { padding-bottom: 32px; }
+  .menu-shell { padding: 14px var(--gutter) 24px; }
+  .dialog-topline { padding-bottom: 18px; }
   .dialog-topline h2 { font-size: 4rem; }
-  .menu-groups { grid-template-columns: 1fr; gap: 30px; }
-  .menu-groups a { padding: 6px 0; }
-  .menu-groups a span { font-size: 1.8rem; }
-  .menu-utility { flex-direction: column; align-items: flex-start; }
+  .menu-composition { grid-template-columns: 1fr; gap: 12px; overflow-y: auto; }
+  .menu-glyph-stage { width: min(48vw, 190px); margin: 0 auto; }
+  .menu-groups { padding-bottom: 18px; }
+  .menu-groups ol { gap: 0; }
+  .menu-groups li a { grid-template-columns: 2.3rem 1fr 38px; min-height: 52px; padding: 4px 0; }
+  .menu-item-label { font-size: clamp(2rem, 10vw, 2.7rem); }
+  .menu-subnav { gap: 0 14px; margin-top: 12px; }
+  .menu-subnav a { min-height: 44px; }
+  .menu-utility { flex-wrap: wrap; align-items: center; margin-top: 12px; padding-top: 12px; }
+  .menu-utility a { flex-basis: 100%; }
   .search-field { grid-template-columns: 1fr; }
   .search-results a { grid-template-columns: 1fr; gap: 5px; }
   .site-footer { grid-template-columns: 1fr; margin-top: 92px; }

@@ -35,21 +35,22 @@
 - Motion Storyboard：肖像不濾色，只以 280ms 透明度進場；時間線在進入視窗時線條延展。
 - 未採用：灰黃濾鏡、圓形肖像、Tab Panel、巨大頁碼。
 
-### 5. Grouped Menu
+### 5. 古文字 Menu
 
-- 來源：興福寺的層級、JUNNI 的明確入口、Details 的固定定位、中川的高密度導航。
-- 群組：PROFILE（About、CV、Credentials）；RESEARCH & WORK（Research、Journal、Conference、Translations）；PRACTICE（Teaching、Contact）。
-- 1440：原生 Dialog，三組跨 16 欄，右側提供搜尋及 Theme 狀態。
-- 390：整頁可捲動，Theme Toggle 永遠可見，Close 固定但不遮住內容。
-- Motion Storyboard：背景 160ms 淡入，群組 40ms 錯開、總長不超過 360ms；Reduced Motion 立即開啟。
-- 未採用：十個同級巨大編號、循環字、圖片選單。
+- 主要來源：`https://prj-foodecon.w.waseda.jp/` 的雙線觸發、全畫面轉場與圓形視覺重心；輔以興福寺的層級與中川的高密度導航。
+- 主項目：關於、研究、著作、教學、履歷、聯絡；著作下保留期刊論文、研討會論文、譯著與公共寫作，另保留證照與獎項入口。
+- 1440：原生 Dialog，左側古文字舞台、右側六項繁體中文主導覽；焦點移動時切換相應古文字，右下提供搜尋及明暗模式。
+- 390：轉為單欄可捲動，古文字舞台縮小但保留，關閉鈕固定且不遮擋內容。
+- Motion Storyboard：面板 620ms、古文字 680ms、主項目依序錯開；關閉 410ms；Reduced Motion 立即顯示所有狀態。
+- 觸發圖形：三段由古文字輪廓抽象出的細長標記，在 Hover、開啟與關閉時作短距旋轉／位移，不複製參考站筷形圖檔。
+- 未採用：原站色盤、品牌圖形、DOM／CSS、無語意 `div` 按鈕、焦點留在頁面背景及缺少 Reduced Motion 的做法。
 
 ## 主要元件映射表
 
 | 元件 | 參考網址 | 學習原理 | 最終應用 | 未採用／風險 |
 | --- | --- | --- | --- | --- |
 | Site Header | `https://www.details.co.jp/` | 固定、稀疏、位置穩定 | Research／Publications／About／CV＋Search／Theme／Menu | 不用影像背景及 Contact 抽屜 |
-| Menu Dialog | `https://junni.co.jp/`、`https://www.kohfukuji.com/` | 明確入口、分層 | 三組 Menu、手機完整可用 | 不拆字、不用垂直寺院導覽 |
+| Menu Dialog | `https://prj-foodecon.w.waseda.jp/`、`https://www.kohfukuji.com/` | 雙線觸發、全畫面狀態、圓形重心、文化層級 | 六項繁體中文主導覽、古文字焦點索引、手機完整可用 | 不複製原站資產／程式，不犧牲鍵盤、Reduced Motion 或焦點管理 |
 | Search | `https://www.nakagawa-masashichi.jp/shop/default.aspx` | 高密度資料可發現 | 靜態索引、鍵盤、結果類型 | 不提交搜尋資料至外站 |
 | Home Poster Moment | `https://www.typographicposters.com/100besteplakate` | 非對稱與字級張力 | 姓名／身分／主要路徑 | 每頁最多一處、無海報圖 |
 | Timeline | `https://www.543life.com/` | 日期作內容骨架 | Education、Conference、Awards | 不用節氣、插畫、商品卡 |

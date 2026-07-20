@@ -8,12 +8,47 @@ import { HtmlValidate } from 'html-validate';
 const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const routes = JSON.parse(await readFile(resolve(root, 'src/data/routes.json'), 'utf8'));
 const htmlFiles = [...routes.map((route) => route.href), '404.html'];
+const referenceUrl = 'https://prj-foodecon.w.waseda.jp/';
+const requiredMenuDocs = [
+  'docs/reference-study-waseda-foodecon.md',
+  'docs/traditional-chinese-site-policy.md',
+  'docs/future-english-site-plan.md',
+  'docs/ancient-script-menu-design.md',
+  'docs/ancient-script-menu-glyph-map.md',
+  'docs/ancient-script-menu-animation-map.md',
+  'docs/ancient-script-menu-accessibility.md',
+  'docs/ancient-script-menu-responsive-qa.md',
+  'docs/reference-url-registry.md',
+  'docs/reference-synthesis-matrix.md',
+  'docs/reference-to-component-mapping.md',
+  'docs/reference-fidelity-report.md',
+  'docs/final-release-report.md'
+];
+const referenceRegistryDocs = [
+  'docs/reference-study-waseda-foodecon.md',
+  'docs/reference-url-registry.md',
+  'docs/reference-synthesis-matrix.md',
+  'docs/reference-to-component-mapping.md',
+  'docs/reference-fidelity-report.md',
+  'docs/final-release-report.md'
+];
 const errors = [];
 let checks = 0;
 const check = (condition, message) => { checks += 1; if (!condition) errors.push(message); };
 const validator = new HtmlValidate({ extends: ['html-validate:recommended'], rules: { 'no-inline-style': 'error', 'wcag/h30': 'off' } });
 
 for (const required of ['robots.txt', 'sitemap.xml', 'rss.xml', 'assets/site.css', 'assets/site.js', 'assets/search-index.json']) await access(resolve(root, required));
+for (const required of requiredMenuDocs) {
+  await access(resolve(root, required));
+  check((await stat(resolve(root, required))).size > 0, `${required} 為空白文件`);
+}
+for (const required of referenceRegistryDocs) {
+  const content = await readFile(resolve(root, required), 'utf8');
+  check(content.includes(referenceUrl), `${required} 遺漏 Food Economics 完整網址`);
+}
+check(routes.every((route) => route.locale === 'zh-Hant'), '並非所有路由均明確標記 zh-Hant');
+check(routes.every((route) => route.futureLocaleHref === null), '未完成的英文路由不應公開');
+check(routes.every((route) => !route.href.startsWith('en/')), '正式路由意外包含 /en/');
 check(!(await readdir(resolve(root, 'assets'))).includes('archive-pages.css'), 'archive-pages.css 尚未移除');
 check(!(await readdir(resolve(root, 'assets'))).includes('third-stage.css'), 'third-stage.css 尚未移除');
 
@@ -29,6 +64,11 @@ for (const file of htmlFiles) {
   check($('h1').length === 1, `${file} 必須只有一個 H1，目前 ${$('h1').length}`);
   check($('.site-header').length === 1 && $('.site-footer').length === 1, `${file} Header／Footer 不是唯一共用元件`);
   check($('[data-menu-dialog]').length === 1 && $('[data-search-dialog]').length === 1, `${file} Menu／Search Dialog 不是唯一元件`);
+  const menuLabels = $('[data-menu-dialog] .menu-item-label').map((_, node) => $(node).text().trim()).get();
+  check(JSON.stringify(menuLabels) === JSON.stringify(['關於', '研究', '著作', '教學', '履歷', '聯絡']), `${file} 六項繁體中文主 Menu 順序錯誤：${menuLabels.join('、')}`);
+  check($('[data-menu-open][aria-controls="site-menu"]').length === 1, `${file} Menu 觸發器語意不完整`);
+  const noscriptMenu = html.match(/<noscript><nav class="noscript-menu"[\s\S]*?<\/nav><\/noscript>/)?.[0] ?? '';
+  check((noscriptMenu.match(/<a\s/g) || []).length === 6, `${file} 無 JavaScript 六項後備導覽不完整`);
   check($('link[rel="stylesheet"][href="assets/site.css"]').length === 1 && $('script[src="assets/site.js"]').length === 1, `${file} 共用資產引用錯誤`);
   check($('style').length === 0 && $('[style]').length === 0, `${file} 仍有內嵌 CSS`);
   check($('script:not([src]):not([type="application/ld+json"])').length === 0, `${file} 仍有內嵌 JavaScript`);
@@ -71,6 +111,15 @@ const sitemap = await readFile(resolve(root, 'sitemap.xml'), 'utf8');
 for (const route of routes) check(sitemap.includes(`https://hoyinyim.github.io/${route.href}`), `Sitemap 遺漏 ${route.href}`);
 const searchIndex = JSON.parse(await readFile(resolve(root, 'assets/search-index.json'), 'utf8'));
 check(searchIndex.length >= 70, `搜尋索引筆數異常：${searchIndex.length}`);
+
+const glyphs = JSON.parse(await readFile(resolve(root, 'src/data/ancient-script-menu-glyphs.json'), 'utf8'));
+check(glyphs.length === 6, `古文字 Menu 必須恰有六筆字形，目前 ${glyphs.length}`);
+check(glyphs.every((glyph) => glyph.verified === true), '古文字 Menu 含未核實字形');
+check(glyphs.every((glyph) => glyph.sourceUrl && glyph.assetSourceUrl && glyph.license && glyph.licenseUrl && glyph.checkedAt), '古文字字形來源或授權欄位不完整');
+check(new Set(glyphs.map((glyph) => glyph.assetPath)).size === 6, '古文字資產路徑重複');
+for (const glyph of glyphs) {
+  check(existsSync(resolve(root, glyph.assetPath)), `古文字資產不存在：${glyph.assetPath}`);
+}
 
 if (errors.length) {
   console.error(`網站技術檢查失敗：${errors.length} 項／${checks} 項。`);

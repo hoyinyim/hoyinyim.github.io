@@ -1,12 +1,12 @@
-# AXIS Scholarly Poster System 最終發布報告
+# 嚴浩然個人學術網站最終發布報告
 
 製作日期：2026-07-21。儲存庫：`https://github.com/hoyinyim/hoyinyim.github.io`。公開網站：`https://hoyinyim.github.io/`。
 
 ## 完成範圍
 
-- 七個參照來源的桌機、手機、詳頁、載入、滾動與互動研究證據已保存。
+- 八個參照來源的桌機、手機、詳頁、載入、滾動或互動研究證據已保存。
 - 五個高擬真原型與「軸線式當代學術平面系統」已定稿。
-- 11 個 HTML、Research／Service／Teaching 三域拓樸、Grouped Menu、Search、Theme、Filter、Citation Copy、CV Print／PDF、404、SEO 與結構化資料已完成。
+- 11 個 HTML、Research／Service／Teaching 三域拓樸、古文字 Menu、搜尋、明暗模式、篩選、引用複製、履歷列印／PDF、404、SEO 與結構化資料已完成。
 - 10 篇期刊、2 篇已出版研討會論文、17 筆發表、1 筆譯著、11 篇公共寫作、5 筆證照／證書與 4 筆獎項逐筆保留。
 - AXIS Font 未使用；網站沒有外部字型或圖片熱連。
 
@@ -15,12 +15,13 @@
 | 項目 | 結果 |
 | --- | ---: |
 | 內容完整性 | 169／169 |
-| 技術檢查 | 492／492 |
+| 技術檢查 | 854／854 |
 | E2E | 83／83 |
+| 古文字 Menu／語言／失敗模式 | 110／110 |
 | 響應式 | 120／120 |
 | Axe WCAG 2.2 AA | 44 次，0 violations |
 | Lighthouse | 100／100／100／100 |
-| CSS／JavaScript | 42,044／9,859 bytes |
+| CSS／JavaScript | 49,047／12,083 bytes |
 | 履歷 PDF | A4，8 頁，已逐頁渲染 |
 
 ## 完整參照網址
@@ -36,6 +37,7 @@
 9. `https://www.kohfukuji.com/`
 10. `https://www.nakagawa-masashichi.jp/shop/default.aspx?srsltid=AfmBOooNsk65crP3EtKreqrP8Z288VMEK-Bq9N0sQfMBv976YpWoK-4H`
 11. `https://www.nakagawa-masashichi.jp/shop/default.aspx`
+12. `https://prj-foodecon.w.waseda.jp/`
 
 ## 必須研討會連結
 
@@ -51,6 +53,8 @@
 - 履歷 PDF：`downloads/yim-ho-yin-cv.pdf`
 - 三域拓樸映射與設計：`docs/research-service-teaching-content-map.md`、`docs/homepage-topology-design.md`
 - 三域拓樸截圖與錄影：`docs/qa/homepage-topology/`
+- Food Economics Menu 參照證據：`docs/qa/waseda-foodecon/`
+- 古文字 Menu 設計、字形、動效、可及性與響應式文件：`docs/ancient-script-menu-design.md`、`docs/ancient-script-menu-glyph-map.md`、`docs/ancient-script-menu-animation-map.md`、`docs/ancient-script-menu-accessibility.md`、`docs/ancient-script-menu-responsive-qa.md`
 
 ## 正式發布與公開複驗
 
@@ -68,3 +72,11 @@
 - GitHub Pages workflow：`https://github.com/hoyinyim/hoyinyim.github.io/actions/runs/29765478982`，結論為 `success`。
 - 公開站 E2E 83／83；三個入口、鍵盤順序、Enter、Browser Back、手機觸控與 Reduced Motion 均通過。
 - 已使用公開瀏覽器實際檢視首頁及拓樸，並核對公開 HTML、CSS、JavaScript 與 GitHub `main` 雜湊一致。
+
+## 繁體中文與古文字 Menu 追加發布
+
+- 主要介面統一為繁體中文；英文姓名、職稱、機構名及論著題名等學術事實依原資料保留，不把專名誤當介面翻譯。
+- 主 Menu 固定為「關於、研究、著作、教學、履歷、聯絡」六項，並保留期刊論文、研討會論文、譯著與公共寫作、證照與獎項等既有入口。
+- 六個古文字圖形均有逐字來源、原始記錄、授權與查核紀錄；圖形只作視覺索引，不宣稱現代分類與古文字本義完全相等。
+- 參考研究網址為 `https://prj-foodecon.w.waseda.jp/`；正式實作沒有載入或複製該站資產、DOM、CSS、品牌色盤或程式。
+- 本輪版本、GitHub Pages workflow、公開站測試數字與實際瀏覽器複驗結果，於正式部署完成後填入本節。

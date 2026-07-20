@@ -1,0 +1,284 @@
+{
+  "capturedAt": "2026-07-20T18:24:56.718Z",
+  "url": "https://prj-foodecon.w.waseda.jp/",
+  "desktop": {
+    "httpStatus": 200,
+    "closed": {
+      "toggle": {
+        "tag": "DIV",
+        "className": "toggle",
+        "role": null,
+        "tabIndex": -1,
+        "transition": "0.3s ease-in-out"
+      },
+      "menu": {
+        "className": "",
+        "opacity": "0",
+        "pointerEvents": "none",
+        "transition": "0.6s ease-in-out"
+      },
+      "dish": {
+        "width": "1620px",
+        "height": "1620px",
+        "left": "396px",
+        "top": "450px"
+      },
+      "body": {
+        "className": "home blog wp-theme-shimokawa2025",
+        "overflow": "visible"
+      },
+      "links": [
+        "ホームHome",
+        "研究室についてAbout",
+        "教員略歴Myself",
+        "下川ゼミLaboratory",
+        "アクセスAccess",
+        "研究Research",
+        "研究概要Overview",
+        "プロジェクトProjects",
+        "研究業績Publications",
+        "ブログBlog"
+      ],
+      "activeElement": "BODY",
+      "reducedMotionRules": 0
+    },
+    "open120ms": {
+      "toggle": {
+        "tag": "DIV",
+        "className": "toggle active",
+        "role": null,
+        "tabIndex": -1,
+        "transition": "0.3s ease-in-out"
+      },
+      "menu": {
+        "className": "normal",
+        "opacity": "0.0561677",
+        "pointerEvents": "auto",
+        "transition": "0.6s ease-in-out"
+      },
+      "dish": {
+        "width": "1620px",
+        "height": "1620px",
+        "left": "396px",
+        "top": "450px"
+      },
+      "body": {
+        "className": "home blog wp-theme-shimokawa2025",
+        "overflow": "visible"
+      },
+      "links": [
+        "ホームHome",
+        "研究室についてAbout",
+        "教員略歴Myself",
+        "下川ゼミLaboratory",
+        "アクセスAccess",
+        "研究Research",
+        "研究概要Overview",
+        "プロジェクトProjects",
+        "研究業績Publications",
+        "ブログBlog"
+      ],
+      "activeElement": "BODY",
+      "reducedMotionRules": 0
+    },
+    "open700ms": {
+      "toggle": {
+        "tag": "DIV",
+        "className": "toggle active",
+        "role": null,
+        "tabIndex": -1,
+        "transition": "0.3s ease-in-out"
+      },
+      "menu": {
+        "className": "normal",
+        "opacity": "1",
+        "pointerEvents": "auto",
+        "transition": "0.6s ease-in-out"
+      },
+      "dish": {
+        "width": "1620px",
+        "height": "1620px",
+        "left": "396px",
+        "top": "450px"
+      },
+      "body": {
+        "className": "home blog wp-theme-shimokawa2025",
+        "overflow": "visible"
+      },
+      "links": [
+        "ホームHome",
+        "研究室についてAbout",
+        "教員略歴Myself",
+        "下川ゼミLaboratory",
+        "アクセスAccess",
+        "研究Research",
+        "研究概要Overview",
+        "プロジェクトProjects",
+        "研究業績Publications",
+        "ブログBlog"
+      ],
+      "activeElement": "BODY",
+      "reducedMotionRules": 0
+    },
+    "closedAfter": {
+      "toggle": {
+        "tag": "DIV",
+        "className": "toggle",
+        "role": null,
+        "tabIndex": -1,
+        "transition": "0.3s ease-in-out"
+      },
+      "menu": {
+        "className": "",
+        "opacity": "0",
+        "pointerEvents": "none",
+        "transition": "0.6s ease-in-out"
+      },
+      "dish": {
+        "width": "1620px",
+        "height": "1620px",
+        "left": "396px",
+        "top": "450px"
+      },
+      "body": {
+        "className": "home blog wp-theme-shimokawa2025",
+        "overflow": "visible"
+      },
+      "links": [
+        "ホームHome",
+        "研究室についてAbout",
+        "教員略歴Myself",
+        "下川ゼミLaboratory",
+        "アクセスAccess",
+        "研究Research",
+        "研究概要Overview",
+        "プロジェクトProjects",
+        "研究業績Publications",
+        "ブログBlog"
+      ],
+      "activeElement": "BODY",
+      "reducedMotionRules": 0
+    }
+  },
+  "mobile": {
+    "closed": {
+      "toggle": {
+        "tag": "DIV",
+        "className": "toggle",
+        "role": null,
+        "tabIndex": -1,
+        "transition": "0.3s ease-in-out"
+      },
+      "menu": {
+        "className": "",
+        "opacity": "0",
+        "pointerEvents": "none",
+        "transition": "0.6s ease-in-out"
+      },
+      "dish": {
+        "width": "1519.19px",
+        "height": "1519.19px",
+        "left": "195px",
+        "top": "80px"
+      },
+      "body": {
+        "className": "home blog wp-theme-shimokawa2025",
+        "overflow": "visible"
+      },
+      "links": [
+        "ホームHome",
+        "研究室についてAbout",
+        "教員略歴Myself",
+        "下川ゼミLaboratory",
+        "アクセスAccess",
+        "研究Research",
+        "研究概要Overview",
+        "プロジェクトProjects",
+        "研究業績Publications",
+        "ブログBlog"
+      ],
+      "activeElement": "BODY",
+      "reducedMotionRules": 0
+    },
+    "open": {
+      "toggle": {
+        "tag": "DIV",
+        "className": "toggle active",
+        "role": null,
+        "tabIndex": -1,
+        "transition": "0.3s ease-in-out"
+      },
+      "menu": {
+        "className": "normal",
+        "opacity": "1",
+        "pointerEvents": "auto",
+        "transition": "0.6s ease-in-out"
+      },
+      "dish": {
+        "width": "1519.19px",
+        "height": "1519.19px",
+        "left": "195px",
+        "top": "80px"
+      },
+      "body": {
+        "className": "home blog wp-theme-shimokawa2025",
+        "overflow": "visible"
+      },
+      "links": [
+        "ホームHome",
+        "研究室についてAbout",
+        "教員略歴Myself",
+        "下川ゼミLaboratory",
+        "アクセスAccess",
+        "研究Research",
+        "研究概要Overview",
+        "プロジェクトProjects",
+        "研究業績Publications",
+        "ブログBlog"
+      ],
+      "activeElement": "BODY",
+      "reducedMotionRules": 0
+    }
+  },
+  "reducedMotion": {
+    "open100ms": {
+      "toggle": {
+        "tag": "DIV",
+        "className": "toggle active",
+        "role": null,
+        "tabIndex": -1,
+        "transition": "0.3s ease-in-out"
+      },
+      "menu": {
+        "className": "normal",
+        "opacity": "0.0244923",
+        "pointerEvents": "auto",
+        "transition": "0.6s ease-in-out"
+      },
+      "dish": {
+        "width": "1620px",
+        "height": "1620px",
+        "left": "396px",
+        "top": "450px"
+      },
+      "body": {
+        "className": "home blog wp-theme-shimokawa2025",
+        "overflow": "visible"
+      },
+      "links": [
+        "ホームHome",
+        "研究室についてAbout",
+        "教員略歴Myself",
+        "下川ゼミLaboratory",
+        "アクセスAccess",
+        "研究Research",
+        "研究概要Overview",
+        "プロジェクトProjects",
+        "研究業績Publications",
+        "ブログBlog"
+      ],
+      "activeElement": "BODY",
+      "reducedMotionRules": 0
+    }
+  }
+}

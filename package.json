@@ -7,6 +7,7 @@
     "serve": "node scripts/serve.mjs",
     "test:content": "node tests/content-integrity/check.mjs",
     "test:e2e": "node tests/e2e/check.mjs",
+    "test:menu": "node tests/menu-language/check.mjs",
     "test:a11y": "node tests/accessibility/check.mjs",
     "test:performance": "node tests/performance/check.mjs",
     "test:visual": "node tests/visual-responsive/check.mjs",

@@ -89,7 +89,7 @@ try {
   await page.locator('[data-menu-open]').click();
   await page.waitForTimeout(400);
   await page.screenshot({ path: resolve(outDir, 'menu-desktop-1440.png') });
-  const desktopMenuFont = await page.locator('.menu-groups a span').first().evaluate((element) => parseFloat(getComputedStyle(element).fontSize));
+  const desktopMenuFont = await page.locator('.menu-item-label').first().evaluate((element) => parseFloat(getComputedStyle(element).fontSize));
   check(desktopMenuFont >= 32, '桌面 Menu 頁名小於 32px', { desktopMenuFont });
   await page.keyboard.press('Escape');
   await page.keyboard.press(process.platform === 'darwin' ? 'Meta+KeyK' : 'Control+KeyK');
@@ -110,7 +110,7 @@ try {
     await page.locator('[data-menu-open]').click();
     await page.waitForTimeout(400);
     await page.screenshot({ path: resolve(outDir, `menu-${width}.png`) });
-    const menuFont = await page.locator('.menu-groups a span').first().evaluate((element) => parseFloat(getComputedStyle(element).fontSize));
+    const menuFont = await page.locator('.menu-item-label').first().evaluate((element) => parseFloat(getComputedStyle(element).fontSize));
     check(menuFont >= 28, '手機 Menu 頁名小於 28px', { width, menuFont });
     await page.keyboard.press('Escape');
   }
