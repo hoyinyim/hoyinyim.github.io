@@ -23,3 +23,7 @@
 ## 不仿站判準
 
 最終網站不得同時複製任何來源的色盤、首屏圖像、Logo 位置、內容分類和動畫。若畫面只移除 Logo 仍能被辨認為某一參考站，視為不通過；若視覺判斷必須依本站姓名、學術內容、獨有網格與單一品牌色才能成立，才符合本次轉化。
+
+## 2026-07-21 原始碼研究補充
+
+本輪新增 Hashi、Kaitaksha、AA Design Rule 三站的 DOM、CSSOM、computed style、色彩與斷點研究。移植內容限於可抽象的比例與編排原理，包括字級比、行長、留白、資訊密度與響應式策略；未複製任何來源的 HTML 結構、CSS 選擇器、字體檔、圖片、品牌識別或互動程式。實測與本站 token 對照分別位於 `docs/source-study/`、`docs/reference-typography-comparison.md` 與 `docs/reference-style-token-map.md`。

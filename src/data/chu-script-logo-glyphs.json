@@ -1,0 +1,47 @@
+[
+  {
+    "modernCharacter": "嚴",
+    "representedConcept": "姓名字形候選",
+    "scriptSystem": "戰國楚系文字",
+    "sourceTitle": "",
+    "sourceVolume": "",
+    "sourcePage": "",
+    "sourceRecordId": "",
+    "sourceUrl": "https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/search.php?word=%E5%9A%B4",
+    "license": "未確認可作商標式重製",
+    "assetPath": "",
+    "verified": false,
+    "approvedForLogo": false,
+    "notes": "公開字頭頁可見金文與字義資料，但本輪未取得可明確定為戰國楚系、且具可重製授權的單字記錄。"
+  },
+  {
+    "modernCharacter": "浩",
+    "representedConcept": "姓名字形候選",
+    "scriptSystem": "戰國楚系文字",
+    "sourceTitle": "",
+    "sourceVolume": "",
+    "sourcePage": "",
+    "sourceRecordId": "",
+    "sourceUrl": "https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/search.php?word=%E6%B5%A9",
+    "license": "未確認可作商標式重製",
+    "assetPath": "",
+    "verified": false,
+    "approvedForLogo": false,
+    "notes": "字頭與典籍用例可查，但未取得可靠楚系簡帛單字記錄、器物／簡號及可重製授權。"
+  },
+  {
+    "modernCharacter": "然",
+    "representedConcept": "姓名字形候選",
+    "scriptSystem": "戰國楚系文字",
+    "sourceTitle": "",
+    "sourceVolume": "",
+    "sourcePage": "",
+    "sourceRecordId": "",
+    "sourceUrl": "https://xiaoxue.iis.sinica.edu.tw/",
+    "license": "未確認可作商標式重製",
+    "assetPath": "",
+    "verified": false,
+    "approvedForLogo": false,
+    "notes": "楚簡語例可見「然」的釋讀線索，但本輪未取得可獨立核對、可重製並適用 Logo 的字形記錄。"
+  }
+]

@@ -1,5 +1,9 @@
 # 字體與可讀性系統
 
+## 2026-07-21 原始碼層級重構
+
+繁中 UI、繁中長文、拉丁文字與技術字串已分為 `--font-zh-ui`、`--font-zh-reading`、`--font-latin`、`--font-mono` 四個角色。正文基準字級、標題 scale、行高、字距、閱讀欄寬和 strict line break 均集中於 Token；Email／URL／DOI 才使用等寬技術字體。完整測試見 `docs/qa/typography-optical/typography-test-results.json`。
+
 ## 授權策略
 
 不使用 AXIS Font：官方資料顯示其為購買／訂閱制商業字型，Webfont 與嵌入用途另有授權，而專案沒有授權證明。網站不載入外部字型、不熱連任何參照網站資源，改以使用者裝置既有字族提供完整中日英文字形。

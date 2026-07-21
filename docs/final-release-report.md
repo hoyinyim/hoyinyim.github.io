@@ -21,8 +21,8 @@
 | 全站古文字設計系統 | 705／705 |
 | 響應式 | 132／132 |
 | Axe WCAG 2.2 AA | 48 次，0 violations |
-| Lighthouse | 100／100／100／100 |
-| CSS／JavaScript | 56,077／13,740 bytes |
+| Lighthouse | 99／100／100／100 |
+| CSS／JavaScript | 59,982／13,740 bytes |
 | 履歷 PDF | A4，8 頁，已逐頁渲染 |
 
 ## 完整參照網址
@@ -94,3 +94,11 @@
 - 公開站 E2E 86／86、古文字 Menu／繁體中文／失敗模式 110／110、Axe 48 次 0 violations；11 個主頁、CSS、JavaScript 與六個 SVG 共 19 個資源均回應 HTTP 200，SVG MIME 皆為 `image/svg+xml`。
 - 已在公開瀏覽器逐頁開啟 11 個主頁，核對 H1、18px 正文基準、唯一主字形、三個 Footer 微型字形與水平溢出；並實際檢視著作總覽深色首屏。未見遮擋、異常分行或比例失衡。
 - 系統規格、逐頁配置、來源、動態、無障礙、效能與響應式文件位於 `docs/ancient-script-*.md`；測試報告與模式截圖位於 `docs/qa/ancient-script-site/`。
+
+## 原始碼層級排印重構與楚系 Logo 候選（2026-07-21）
+
+- Hashi、Kaitaksha 與 AA Design Rule 已完成 DOM、CSSOM、computed style、配色、斷點與 10 種指定 viewport 的原始碼層級研究；共保存 126 個參照量測情境，原始資料位於 `docs/qa/typography-reference/`。
+- 正式站建立繁中 UI、繁中長文、拉丁字、Condensed 與 Mono 五種字體角色，正文最小 17px，Metadata 最小 14px；中文採 `line-break: strict` 與自然分行，只有 URL、Email、DOI 可任意斷行。
+- 11 個主頁已完成 before 198 組、first-pass 594 組、final 594 組光學檢查；Git 只保留每頁具代表性的桌機、手機、深色、200% Zoom 與 Reduced Motion 截圖，完整量測數記錄於各階段 JSON。
+- 最新驗收為內容 169／169、技術 1192／1192、E2E 86／86、古文字 Menu 110／110、全站古文字 705／705、響應式 132／132、排印 110／110、Axe 48 次 0 violations；Lighthouse 為 99／100／100／100。
+- 小學堂楚系簡帛文字資料庫已登錄 8 個可追溯候選：四個「心」與四個「文」，均記錄資料庫字形 ID、出處、索引與 CC0 授權。候選尚未經使用者看圖核准，因此全部保持 `productionEnabled: false`；正式站不以假字形或現代字體冒充楚系文字。

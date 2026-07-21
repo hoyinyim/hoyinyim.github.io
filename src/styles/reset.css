@@ -1,5 +1,5 @@
 *, *::before, *::after { box-sizing: border-box; }
-html { min-width: 320px; scroll-behavior: smooth; text-size-adjust: 100%; }
+html { scroll-behavior: smooth; text-size-adjust: 100%; }
 body { margin: 0; background: var(--paper); color: var(--ink); }
 img, svg { display: block; max-width: 100%; }
 button, input { color: inherit; font: inherit; }

@@ -1,0 +1,1877 @@
+{
+  "generatedAt": "2026-07-21T07:09:48.097Z",
+  "checks": 110,
+  "failures": [],
+  "records": [
+    {
+      "width": 320,
+      "route": "index.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "about.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "research.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "publications.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "journal-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "conference-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "translations.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "teaching.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "certificates.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "cv.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "contact.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 360,
+      "route": "index.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 360,
+      "route": "about.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 360,
+      "route": "research.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 360,
+      "route": "publications.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 360,
+      "route": "journal-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 360,
+      "route": "conference-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 360,
+      "route": "translations.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 360,
+      "route": "teaching.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 360,
+      "route": "certificates.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 360,
+      "route": "cv.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 360,
+      "route": "contact.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 390,
+      "route": "index.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.022px",
+        "lineHeight": "29.2778px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 390,
+      "route": "about.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.022px",
+        "lineHeight": "29.2778px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 390,
+      "route": "research.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.022px",
+        "lineHeight": "29.2778px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 390,
+      "route": "publications.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.022px",
+        "lineHeight": "29.2778px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 390,
+      "route": "journal-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.022px",
+        "lineHeight": "29.2778px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 390,
+      "route": "conference-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.022px",
+        "lineHeight": "29.2778px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 390,
+      "route": "translations.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.022px",
+        "lineHeight": "29.2778px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 390,
+      "route": "teaching.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.022px",
+        "lineHeight": "29.2778px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 390,
+      "route": "certificates.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.022px",
+        "lineHeight": "29.2778px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 390,
+      "route": "cv.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.022px",
+        "lineHeight": "29.2778px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 390,
+      "route": "contact.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.022px",
+        "lineHeight": "29.2778px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 430,
+      "route": "index.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.094px",
+        "lineHeight": "29.4017px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 430,
+      "route": "about.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.094px",
+        "lineHeight": "29.4017px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 430,
+      "route": "research.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.094px",
+        "lineHeight": "29.4017px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 430,
+      "route": "publications.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.094px",
+        "lineHeight": "29.4017px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 430,
+      "route": "journal-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.094px",
+        "lineHeight": "29.4017px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 430,
+      "route": "conference-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.094px",
+        "lineHeight": "29.4017px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 430,
+      "route": "translations.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.094px",
+        "lineHeight": "29.4017px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 430,
+      "route": "teaching.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.094px",
+        "lineHeight": "29.4017px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 430,
+      "route": "certificates.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.094px",
+        "lineHeight": "29.4017px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 430,
+      "route": "cv.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.094px",
+        "lineHeight": "29.4017px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 430,
+      "route": "contact.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.094px",
+        "lineHeight": "29.4017px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 768,
+      "route": "index.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.7024px",
+        "lineHeight": "30.4481px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 768,
+      "route": "about.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.7024px",
+        "lineHeight": "30.4481px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 768,
+      "route": "research.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.7024px",
+        "lineHeight": "30.4481px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 768,
+      "route": "publications.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.7024px",
+        "lineHeight": "30.4481px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 768,
+      "route": "journal-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.7024px",
+        "lineHeight": "30.4481px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 768,
+      "route": "conference-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.7024px",
+        "lineHeight": "30.4481px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 768,
+      "route": "translations.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.7024px",
+        "lineHeight": "30.4481px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 768,
+      "route": "teaching.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.7024px",
+        "lineHeight": "30.4481px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 768,
+      "route": "certificates.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.7024px",
+        "lineHeight": "30.4481px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 768,
+      "route": "cv.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.7024px",
+        "lineHeight": "30.4481px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 768,
+      "route": "contact.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17.7024px",
+        "lineHeight": "30.4481px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1024,
+      "route": "index.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1024,
+      "route": "about.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1024,
+      "route": "research.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1024,
+      "route": "publications.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1024,
+      "route": "journal-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1024,
+      "route": "conference-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1024,
+      "route": "translations.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1024,
+      "route": "teaching.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1024,
+      "route": "certificates.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1024,
+      "route": "cv.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1024,
+      "route": "contact.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1280,
+      "route": "index.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1280,
+      "route": "about.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1280,
+      "route": "research.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1280,
+      "route": "publications.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1280,
+      "route": "journal-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1280,
+      "route": "conference-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1280,
+      "route": "translations.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1280,
+      "route": "teaching.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1280,
+      "route": "certificates.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1280,
+      "route": "cv.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1280,
+      "route": "contact.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1440,
+      "route": "index.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1440,
+      "route": "about.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1440,
+      "route": "research.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1440,
+      "route": "publications.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1440,
+      "route": "journal-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1440,
+      "route": "conference-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1440,
+      "route": "translations.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1440,
+      "route": "teaching.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1440,
+      "route": "certificates.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1440,
+      "route": "cv.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1440,
+      "route": "contact.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1920,
+      "route": "index.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1920,
+      "route": "about.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1920,
+      "route": "research.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1920,
+      "route": "publications.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1920,
+      "route": "journal-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1920,
+      "route": "conference-papers.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1920,
+      "route": "translations.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1920,
+      "route": "teaching.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1920,
+      "route": "certificates.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1920,
+      "route": "cv.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 1920,
+      "route": "contact.html",
+      "zoom": 1,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "18.08px",
+        "lineHeight": "31.0976px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "index.html",
+      "zoom": 2,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "about.html",
+      "zoom": 2,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "research.html",
+      "zoom": 2,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "publications.html",
+      "zoom": 2,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "journal-papers.html",
+      "zoom": 2,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "conference-papers.html",
+      "zoom": 2,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "translations.html",
+      "zoom": 2,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "teaching.html",
+      "zoom": 2,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "certificates.html",
+      "zoom": 2,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "cv.html",
+      "zoom": 2,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    },
+    {
+      "width": 320,
+      "route": "contact.html",
+      "zoom": 2,
+      "overflow": 0,
+      "forbiddenNowrap": [],
+      "bibliographyBreaks": [],
+      "issues": [],
+      "body": {
+        "fontFamily": "\"Source Han Sans TC\", \"Noto Sans TC\", \"PingFang TC\", \"Microsoft JhengHei\", system-ui, sans-serif",
+        "fontSize": "17px",
+        "lineHeight": "29.24px",
+        "wordBreak": "normal",
+        "lineBreak": "strict"
+      },
+      "cssBytes": 0
+    }
+  ]
+}

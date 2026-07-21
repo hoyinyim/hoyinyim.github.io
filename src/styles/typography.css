@@ -1,11 +1,12 @@
-body { font-family: var(--sans); font-size: clamp(1.0625rem, .18vw + 1.02rem, 1.125rem); line-height: 1.7; -webkit-font-smoothing: antialiased; }
-h1, h2, h3, h4 { font-weight: 700; line-height: 1.12; text-wrap: pretty; word-break: normal; overflow-wrap: break-word; }
-h1 { letter-spacing: -.055em; }
-h2 { letter-spacing: -.035em; }
+body { font-family: var(--font-zh-ui); font-size: var(--text-base); line-height: 1.72; word-break: normal; overflow-wrap: normal; line-break: strict; }
+h1, h2, h3, h4 { margin-bottom: var(--space-3); font-family: var(--font-zh-ui); font-weight: 550; word-break: normal; overflow-wrap: normal; line-break: strict; text-wrap: balance; }
+h1 { line-height: 1.01; letter-spacing: -.012em; }
+h2 { line-height: 1.14; letter-spacing: -.008em; }
+h3, h4 { line-height: 1.48; letter-spacing: 0; }
 p { text-wrap: pretty; }
-.overline, .section-index > p, .publication-venue, .publication-meta, time, .status-list, .breadcrumb, .archive-toolbar, figcaption, .original-title, dt, .copyright {
-  font-family: var(--mono); font-size: .875rem; line-height: 1.55; letter-spacing: .035em;
-}
-.overline, .section-index > p { color: var(--accent); font-weight: 700; }
-.axis-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; border-bottom: 1px solid currentColor; font-weight: 700; text-decoration: none; }
+.overline, .section-index > p, .breadcrumb, .archive-toolbar, figcaption, dt, .copyright { font-family: var(--font-zh-ui); font-size: var(--text-sm); font-weight: 500; line-height: 1.5; letter-spacing: .035em; }
+.publication-venue, .publication-meta, time, .status-list, .original-title, .cv-list small { font-family: var(--font-latin), var(--font-zh-ui); font-size: var(--text-sm); font-weight: 500; line-height: 1.52; letter-spacing: .015em; }
+.overline, .section-index > p { color: var(--accent); font-weight: 600; }
+.doi, .url, .email, .contact-email, a[href^="mailto:"], .footer-contact a { overflow-wrap: anywhere; word-break: break-word; font-family: var(--font-mono); }
+.axis-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: var(--space-3); border-bottom: 1px solid currentColor; font-weight: 600; text-decoration: none; }
 .axis-link:hover { color: var(--accent); }

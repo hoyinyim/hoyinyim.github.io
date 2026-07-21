@@ -43,15 +43,15 @@
 
 .publications-opening { min-height: 72vh; align-content: end; padding-block: 80px 60px; border-bottom: 1px solid var(--line-strong); }
 .publications-opening > .overline { grid-column: 6 / span 5; }
-.publications-opening h1 { grid-column: 6 / -1; margin: 28px 0 0; font-size: clamp(5rem, 11vw, 12rem); }
+.publications-opening h1 { grid-column: 6 / -1; margin: var(--space-5) 0 0; font-size: var(--text-page); }
 .publications-opening > p:last-child { grid-column: 12 / -1; align-self: end; color: var(--muted); }
 .publications-index { margin-inline: var(--gutter); }
 .publications-index > a { position: relative; display: grid; grid-template-columns: 1fr 6fr 3fr 5fr; gap: var(--gap); align-items: baseline; min-height: 190px; padding: 32px 0 46px; overflow: visible; border-bottom: 1px solid var(--line-strong); color: inherit; text-decoration: none; }
 .publications-index > a::after { position: absolute; inset: auto 0 0; height: 3px; background: var(--accent); content: ""; transform: scaleX(0); transform-origin: left; transition: transform var(--glyph-motion-duration) var(--ease); }
 .publications-index > a:hover::after, .publications-index > a:focus-visible::after { transform: scaleX(1); }
-.publications-index strong { font-size: clamp(2rem, 4.8vw, 5.6rem); font-weight: 500; }
+.publications-index strong { max-inline-size: 12ch; font-size: var(--text-section); font-weight: 500; line-height: 1.12; }
 .publications-index p { max-width: 32rem; color: var(--muted); }
-.publication-kind-number, .publications-index > a > span:nth-of-type(3) { font-family: var(--mono); }
+.publication-kind-number, .publications-index > a > span:nth-of-type(3) { font-family: var(--font-condensed), var(--font-zh-ui); font-weight: 500; }
 .publications-index .mini-glyph { position: absolute; top: 16px; right: 1%; width: clamp(6rem, 12vw, 12rem); height: auto; aspect-ratio: 1; opacity: .08; transform: translateX(18%); }
 .publications-index > a:hover .mini-glyph, .publications-index > a:focus-visible .mini-glyph { opacity: .22; transform: none; }
 
