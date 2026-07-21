@@ -13,7 +13,7 @@ const errors = [];
 let checks = 0;
 const check = (condition, message) => { checks += 1; if (!condition) errors.push(message); };
 const routes = [
-  ['index.html', '嚴浩然'], ['about.html', '嚴浩然'], ['research.html', '研究'], ['journal-papers.html', '期刊論文'],
+  ['index.html', '嚴浩然'], ['about.html', '嚴浩然'], ['research.html', '研究'], ['publications.html', '著作'], ['journal-papers.html', '期刊論文'],
   ['conference-papers.html', '研討會論文'], ['translations.html', '譯著／'], ['certificates.html', '證照、證書'],
   ['teaching.html', '教學'], ['cv.html', '嚴浩然'], ['contact.html', '聯絡'], ['404.html', '找不到頁面']
 ];
@@ -154,4 +154,4 @@ if (errors.length) {
   console.error(`E2E 測試失敗：${errors.length} 項／${checks} 項。`);
   errors.forEach((error) => console.error(`- ${error}`));
   process.exitCode = 1;
-} else console.log(`E2E 測試通過：${checks} 項，涵蓋 11 頁、三域拓樸、Menu、Search、Theme、Filter、Education、CV、Contact 與 320px Reduced Motion。`);
+} else console.log(`E2E 測試通過：${checks} 項，涵蓋 12 頁、三域拓樸、Menu、Search、Theme、Filter、Education、CV、Contact 與 320px Reduced Motion。`);

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-20T18:34:49.978Z",
-  "baseUrl": "http://127.0.0.1:4175",
-  "scans": 44,
+  "generatedAt": "2026-07-21T05:14:09.111Z",
+  "baseUrl": "http://127.0.0.1:4180",
+  "scans": 48,
   "passed": true,
   "violations": []
 }

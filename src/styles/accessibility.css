@@ -9,6 +9,9 @@
   .menu-shell::before, .menu-glyph-stage, .menu-glyph-axis, .menu-glyph-stage img, .menu-groups li, .menu-utility { animation: none; opacity: 1; transform: none; transition: none; }
   .menu-glyph-stage img { opacity: 0; clip-path: none; }
   .menu-glyph-stage img[data-active="true"] { opacity: .92; }
+  .site-glyph, .site-glyph-axis, .glyph-transition { animation: none !important; transition: none; transform: none; }
+  .section-glyph { opacity: var(--glyph-soft-opacity); }
+  body.is-leaving .glyph-transition { display: none; }
 }
 @media (prefers-contrast: more) {
   :root { --line: #69716d; --line-strong: var(--ink); }
@@ -21,4 +24,6 @@
   .menu-dialog { color: CanvasText; }
   .menu-glyph-stage, .menu-groups li a, .menu-subnav a, .menu-utility { border-color: CanvasText; forced-color-adjust: auto; }
   .menu-glyph-stage img, .menu-groups img { filter: none; }
+  .page-glyph, .section-glyph, .glyph-transition { display: none; }
+  .mini-glyph { opacity: 1; }
 }

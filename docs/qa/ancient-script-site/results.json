@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-07-21T05:16:38.860Z",
+  "baseUrl": "http://127.0.0.1:4174",
+  "pages": {
+    "index.html": "study-oracle",
+    "about.html": "person-oracle",
+    "research.html": "study-oracle",
+    "publications.html": "book-oracle",
+    "journal-papers.html": "book-oracle",
+    "conference-papers.html": "speech-oracle",
+    "translations.html": "speech-oracle",
+    "certificates.html": "journey-oracle",
+    "teaching.html": "teach-oracle",
+    "cv.html": "journey-oracle",
+    "contact.html": "speech-oracle"
+  },
+  "widths": [
+    320,
+    360,
+    390,
+    430,
+    768,
+    1024,
+    1440,
+    1920
+  ],
+  "checks": 705,
+  "passed": true,
+  "errors": []
+}

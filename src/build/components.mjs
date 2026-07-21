@@ -1,10 +1,11 @@
 import { escapeHtml } from './html.mjs';
+import { miniGlyph } from './glyphs.mjs';
 
 const SITE_URL = 'https://hoyinyim.github.io';
 
 export function header(routes, current) {
-  const labels = { research: '研究', journal: '著作', about: '關於', cv: '履歷' };
-  const primary = ['research', 'journal', 'about', 'cv'].map((id) => routes.find((route) => route.id === id));
+  const labels = { research: '研究', publications: '著作', about: '關於', cv: '履歷' };
+  const primary = ['research', 'publications', 'about', 'cv'].map((id) => routes.find((route) => route.id === id));
   return `<header class="site-header" data-header>
     <a class="brand" href="index.html" aria-label="嚴浩然首頁"><strong>嚴浩然</strong><span>YIM HO YIN</span></a>
     <nav class="primary-nav" aria-label="主要導覽">${primary.map((route) => `<a href="${route.href}"${route.id === current ? ' aria-current="page"' : ''}>${labels[route.id]}</a>`).join('')}</nav>
@@ -21,12 +22,12 @@ export function menu(routes, profile, current, menuGlyphs = []) {
   const items = [
     ['about', '關於', 'about'],
     ['research', '研究', 'research'],
-    ['publications', '著作', 'journal'],
+    ['publications', '著作', 'publications'],
     ['teaching', '教學', 'teaching'],
     ['cv', '履歷', 'cv'],
     ['contact', '聯絡', 'contact']
   ];
-  const currentMenuId = current === 'about' ? 'about' : current === 'research' ? 'research' : ['journal', 'conference', 'translations', 'certificates'].includes(current) ? 'publications' : ['teaching', 'cv', 'contact'].includes(current) ? current : 'research';
+  const currentMenuId = current === 'about' ? 'about' : current === 'research' ? 'research' : ['publications', 'journal', 'conference', 'translations', 'certificates'].includes(current) ? 'publications' : ['teaching', 'cv', 'contact'].includes(current) ? current : 'research';
   const verifiedGlyphs = menuGlyphs.filter((glyph) => glyph.verified === true);
   const glyphById = Object.fromEntries(verifiedGlyphs.map((glyph) => [glyph.menuId, glyph]));
   const primaryLinks = items.map(([menuId, label, routeId], index) => {
@@ -59,10 +60,10 @@ export function searchDialog() {
   </dialog>`;
 }
 
-export function footer(routes, profile) {
+export function footer(routes, profile, siteGlyphs = []) {
   const links = routes.filter((route) => route.id !== 'home').map((route) => `<a href="${route.href}">${escapeHtml(route.labelZh)}</a>`).join('');
   return `<footer class="site-footer">
-    <div class="footer-identity"><strong>${escapeHtml(profile.nameZh)}</strong><span>${escapeHtml(profile.nameEn)}</span><p>${escapeHtml(profile.roleZh)}</p></div>
+    <div class="footer-identity"><div class="footer-glyphs">${miniGlyph(siteGlyphs, 'study-oracle', 'footer-research')}${miniGlyph(siteGlyphs, 'speech-oracle', 'footer-service')}${miniGlyph(siteGlyphs, 'teach-oracle', 'footer-teaching')}</div><strong>${escapeHtml(profile.nameZh)}</strong><span>${escapeHtml(profile.nameEn)}</span><p>${escapeHtml(profile.roleZh)}</p></div>
     <nav aria-label="頁尾導覽">${links}</nav>
     <div class="footer-contact"><a href="mailto:${escapeHtml(profile.email)}">${escapeHtml(profile.email)}</a><button type="button" data-back-top>返回頁首 ↑</button></div>
     <p class="copyright">© <span data-year></span> YIM HO YIN</p>
@@ -74,7 +75,7 @@ export function breadcrumb(route) {
   return `<nav class="breadcrumb" aria-label="麵包屑"><a href="index.html">首頁</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(route.labelZh)}</span></nav>`;
 }
 
-export function layout({ route, routes, profile, menuGlyphs, title, description, body, jsonLd = null, bodyClass = '', buildCommit = 'local' }) {
+export function layout({ route, routes, profile, menuGlyphs, siteGlyphs, title, description, body, jsonLd = null, bodyClass = '', buildCommit = 'local' }) {
   const canonical = `${SITE_URL}/${route.href}`;
   const image = `${SITE_URL}/images/og-default.png`;
   const schemas = Array.isArray(jsonLd) ? jsonLd : (jsonLd ? [jsonLd] : []);
@@ -108,14 +109,15 @@ export function layout({ route, routes, profile, menuGlyphs, title, description,
   <script src="assets/site.js" defer></script>
   ${schemas.map((schema) => `<script type="application/ld+json">${JSON.stringify(schema).replaceAll('<', '\\u003c')}</script>`).join('\n  ')}
 </head>
-<body class="page-${route.id} ${bodyClass}" data-page="${route.id}">
+<body class="page-${route.id} ${bodyClass}" data-page="${route.id}" data-route="${route.id}">
   <a class="skip-link" href="#main-content">跳至主要內容</a>
   <div class="scroll-progress" aria-hidden="true"><i data-scroll-progress></i></div>
   ${header(routes, route.id)}
   ${menu(routes, profile, route.id, menuGlyphs)}
   ${searchDialog()}
+  <div class="glyph-transition" data-glyph-transition aria-hidden="true">${miniGlyph(siteGlyphs, 'study-oracle', 'transition-mark')}</div>
   <main id="main-content" tabindex="-1">${breadcrumb(route)}${body}</main>
-  ${footer(routes, profile)}
+  ${footer(routes, profile, siteGlyphs)}
   <div class="live-region" data-live-region aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>\n`.replace(/[ \t]+$/gm, '');

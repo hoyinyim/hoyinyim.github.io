@@ -24,6 +24,29 @@ const requiredMenuDocs = [
   'docs/reference-fidelity-report.md',
   'docs/final-release-report.md'
 ];
+const requiredAncientScriptDocs = [
+  'docs/ancient-script-design-system.md',
+  'docs/ancient-script-site-map.md',
+  'docs/ancient-script-page-compositions.md',
+  'docs/ancient-script-source-registry.md',
+  'docs/ancient-script-animation-system.md',
+  'docs/ancient-script-accessibility-audit.md',
+  'docs/ancient-script-performance-report.md',
+  'docs/ancient-script-responsive-qa.md'
+];
+const primaryGlyphMap = {
+  'index.html': 'study-oracle',
+  'about.html': 'person-oracle',
+  'research.html': 'study-oracle',
+  'publications.html': 'book-oracle',
+  'journal-papers.html': 'book-oracle',
+  'conference-papers.html': 'speech-oracle',
+  'translations.html': 'speech-oracle',
+  'certificates.html': 'journey-oracle',
+  'teaching.html': 'teach-oracle',
+  'cv.html': 'journey-oracle',
+  'contact.html': 'speech-oracle'
+};
 const referenceRegistryDocs = [
   'docs/reference-study-waseda-foodecon.md',
   'docs/reference-url-registry.md',
@@ -39,6 +62,10 @@ const validator = new HtmlValidate({ extends: ['html-validate:recommended'], rul
 
 for (const required of ['robots.txt', 'sitemap.xml', 'rss.xml', 'assets/site.css', 'assets/site.js', 'assets/search-index.json']) await access(resolve(root, required));
 for (const required of requiredMenuDocs) {
+  await access(resolve(root, required));
+  check((await stat(resolve(root, required))).size > 0, `${required} 為空白文件`);
+}
+for (const required of requiredAncientScriptDocs) {
   await access(resolve(root, required));
   check((await stat(resolve(root, required))).size > 0, `${required} 為空白文件`);
 }
@@ -74,6 +101,13 @@ for (const file of htmlFiles) {
   check($('script:not([src]):not([type="application/ld+json"])').length === 0, `${file} 仍有內嵌 JavaScript`);
   check($('a[href^="javascript:"]').length === 0, `${file} 仍有 javascript: URL`);
   check($('.skip-link[href="#main-content"]').length === 1 && $('#main-content').length === 1, `${file} Skip Link 不完整`);
+  if (primaryGlyphMap[file]) {
+    const primary = $('main .page-glyph');
+    check(primary.length === 1, `${file} A 級主字形不是唯一`);
+    check(primary.attr('data-site-glyph') === primaryGlyphMap[file], `${file} A 級主字形映射錯誤`);
+    check(primary.attr('aria-hidden') === 'true' && primary.find('img').attr('alt') === '', `${file} A 級主字形無障礙屬性錯誤`);
+  }
+  check($('.site-footer .mini-glyph').length === 3, `${file} Footer 微型字形必須為三個`);
   $('img').each((_, node) => {
     const image = $(node);
     check(image.attr('alt') !== undefined, `${file} 圖片缺少 alt`);
@@ -120,6 +154,18 @@ check(new Set(glyphs.map((glyph) => glyph.assetPath)).size === 6, '古文字資�
 for (const glyph of glyphs) {
   check(existsSync(resolve(root, glyph.assetPath)), `古文字資產不存在：${glyph.assetPath}`);
 }
+
+const siteGlyphs = JSON.parse(await readFile(resolve(root, 'src/data/ancient-script-glyphs.json'), 'utf8'));
+const requiredGlyphFields = ['id', 'modernCharacter', 'representedConcept', 'scriptType', 'period', 'sourceTitle', 'sourceVolume', 'sourcePage', 'sourceRecordId', 'sourceUrl', 'assetSourceUrl', 'license', 'licenseUrl', 'assetPath', 'checkedAt', 'allowedUses', 'prohibitedContexts', 'copyrightRestrictions', 'animationParts'];
+check(siteGlyphs.length === 6, `全站古文字登錄必須恰有六筆，目前 ${siteGlyphs.length}`);
+check(siteGlyphs.every((glyph) => glyph.verified === true && glyph.aiGenerated === false), '全站古文字含未核實或 AI 生成字形');
+check(siteGlyphs.every((glyph) => requiredGlyphFields.every((field) => glyph[field] !== undefined && glyph[field] !== '')), '全站古文字來源、授權或用途欄位不完整');
+check(siteGlyphs.every((glyph) => Array.isArray(glyph.allowedUses) && glyph.allowedUses.length > 0 && Array.isArray(glyph.prohibitedContexts) && glyph.prohibitedContexts.length > 0), '全站古文字允許／禁止情境不完整');
+check(siteGlyphs.every((glyph) => glyph.assetPath.startsWith('images/ancient-script/') && !/^https?:/.test(glyph.assetPath)), '全站古文字必須使用本地資產');
+check(new Set(siteGlyphs.map((glyph) => glyph.id)).size === 6 && new Set(siteGlyphs.map((glyph) => glyph.assetPath)).size === 6, '全站古文字 ID 或資產路徑重複');
+for (const glyph of siteGlyphs) check(existsSync(resolve(root, glyph.assetPath)), `全站古文字資產不存在：${glyph.assetPath}`);
+check(siteGlyphs.every((glyph) => ['人', '學', '冊', '教', '行', '言'].includes(glyph.modernCharacter)), '全站古文字登錄出現未核定字形');
+check(!/aged-paper|parchment|gold|red-seal|crack-texture|museum-card/i.test(css), '古文字 CSS 出現禁用仿古視覺語彙');
 
 if (errors.length) {
   console.error(`網站技術檢查失敗：${errors.length} 項／${checks} 項。`);

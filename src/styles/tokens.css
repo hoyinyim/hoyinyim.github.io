@@ -14,6 +14,16 @@
   --serif: "Noto Serif TC", "Source Han Serif TC", PMingLiU, serif;
   --mono: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   --ease: cubic-bezier(.22, 1, .36, 1);
+  --glyph-color: currentColor;
+  --glyph-muted-opacity: .08;
+  --glyph-soft-opacity: .16;
+  --glyph-active-opacity: .78;
+  --glyph-line-width: 1px;
+  --glyph-motion-duration: 560ms;
+  --glyph-motion-slow: 900ms;
+  --glyph-scale-large: clamp(14rem, 34vw, 40rem);
+  --glyph-scale-section: clamp(5rem, 11vw, 12rem);
+  --glyph-scale-inline: 1.25rem;
 }
 
 :root[data-theme="dark"] {

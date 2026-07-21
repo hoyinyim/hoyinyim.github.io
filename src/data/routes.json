@@ -27,13 +27,22 @@
     "order": 3
   },
   {
+    "id": "publications",
+    "href": "publications.html",
+    "labelZh": "著作總覽",
+    "labelEn": "Publications",
+    "locale": "zh-Hant",
+    "futureLocaleHref": null,
+    "order": 4
+  },
+  {
     "id": "journal",
     "href": "journal-papers.html",
     "labelZh": "期刊論文",
     "labelEn": "Journal Articles",
     "locale": "zh-Hant",
     "futureLocaleHref": null,
-    "order": 4
+    "order": 5
   },
   {
     "id": "conference",
@@ -42,7 +51,7 @@
     "labelEn": "Conference Papers",
     "locale": "zh-Hant",
     "futureLocaleHref": null,
-    "order": 5
+    "order": 6
   },
   {
     "id": "translations",
@@ -51,7 +60,7 @@
     "labelEn": "Translations",
     "locale": "zh-Hant",
     "futureLocaleHref": null,
-    "order": 6
+    "order": 7
   },
   {
     "id": "certificates",
@@ -60,7 +69,7 @@
     "labelEn": "Credentials",
     "locale": "zh-Hant",
     "futureLocaleHref": null,
-    "order": 7
+    "order": 8
   },
   {
     "id": "teaching",
@@ -69,7 +78,7 @@
     "labelEn": "Teaching",
     "locale": "zh-Hant",
     "futureLocaleHref": null,
-    "order": 8
+    "order": 9
   },
   {
     "id": "cv",
@@ -78,7 +87,7 @@
     "labelEn": "CV",
     "locale": "zh-Hant",
     "futureLocaleHref": null,
-    "order": 9
+    "order": 10
   },
   {
     "id": "contact",
@@ -87,6 +96,6 @@
     "labelEn": "Contact",
     "locale": "zh-Hant",
     "futureLocaleHref": null,
-    "order": 10
+    "order": 11
   }
 ]

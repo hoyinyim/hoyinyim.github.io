@@ -98,6 +98,22 @@
     if (glyph.dataset.active === 'true') menu.classList.add('glyph-unavailable');
   }));
 
+  const siteGlyphs = [...doc.querySelectorAll('[data-site-glyph]')];
+  siteGlyphs.forEach((glyph) => {
+    const image = glyph.querySelector('img');
+    const markFailed = () => { glyph.dataset.loadFailed = 'true'; };
+    image?.addEventListener('error', markFailed);
+    if (image?.complete && image.naturalWidth === 0) markFailed();
+  });
+  if ('IntersectionObserver' in window) {
+    const glyphObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.dataset.revealed = 'true';
+      glyphObserver.unobserve(entry.target);
+    }), { rootMargin: '0px 0px -12% 0px' });
+    doc.querySelectorAll('.section-glyph').forEach((glyph) => glyphObserver.observe(glyph));
+  } else doc.querySelectorAll('.section-glyph').forEach((glyph) => { glyph.dataset.revealed = 'true'; });
+
   const search = doc.querySelector('[data-search-dialog]');
   const searchInput = doc.querySelector('[data-search-input]');
   const searchResults = doc.querySelector('[data-search-results]');
@@ -175,7 +191,9 @@
       const original = button.textContent;
       button.textContent = '已複製';
       announce('已複製到剪貼簿');
-      setTimeout(() => { button.textContent = original; }, 1600);
+      const contactScene = button.dataset.glyphCopy !== undefined ? button.closest('.contact-scene') : null;
+      contactScene?.classList.add('is-copy-confirmed');
+      setTimeout(() => { button.textContent = original; contactScene?.classList.remove('is-copy-confirmed'); }, 1600);
     } catch { announce('無法自動複製，請手動選取文字。'); }
   }));
 
@@ -222,4 +240,14 @@
 
   doc.querySelector('[data-print-cv]')?.addEventListener('click', () => print());
   doc.querySelector('[data-back-top]')?.addEventListener('click', () => scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' }));
+
+  doc.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href]');
+    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target === '_blank' || link.hasAttribute('download')) return;
+    const url = new URL(link.href, location.href);
+    if (url.origin !== location.origin || url.protocol !== location.protocol || url.hash || reducedMotion) return;
+    event.preventDefault();
+    doc.body.classList.add('is-leaving');
+    setTimeout(() => location.assign(url.href), 220);
+  });
 })();

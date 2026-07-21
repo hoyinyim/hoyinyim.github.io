@@ -11,7 +11,7 @@ const topologyOutDir = resolve(root, 'docs/qa/homepage-topology/screenshots');
 await mkdir(outDir, { recursive: true });
 await mkdir(topologyOutDir, { recursive: true });
 const widths = [320, 360, 375, 390, 430, 540, 768, 820, 1024, 1280, 1440, 1920];
-const pages = ['index.html', 'about.html', 'research.html', 'journal-papers.html', 'conference-papers.html', 'translations.html', 'certificates.html', 'teaching.html', 'cv.html', 'contact.html'];
+const pages = ['index.html', 'about.html', 'research.html', 'publications.html', 'journal-papers.html', 'conference-papers.html', 'translations.html', 'certificates.html', 'teaching.html', 'cv.html', 'contact.html'];
 const browser = await chromium.launch({ executablePath, headless: true });
 const context = await browser.newContext({ locale: 'zh-TW', colorScheme: 'light', reducedMotion: 'reduce' });
 const page = await context.newPage();
@@ -113,6 +113,10 @@ try {
     const menuFont = await page.locator('.menu-item-label').first().evaluate((element) => parseFloat(getComputedStyle(element).fontSize));
     check(menuFont >= 28, '手機 Menu 頁名小於 28px', { width, menuFont });
     await page.keyboard.press('Escape');
+    if (width === 390) {
+      await page.goto(`${baseUrl}/publications.html`, { waitUntil: 'networkidle' });
+      await page.screenshot({ path: resolve(outDir, 'publications-390-full.png'), fullPage: true });
+    }
   }
 
   const darkContext = await browser.newContext({ viewport: { width: 1440, height: 1000 }, colorScheme: 'dark' });
@@ -149,14 +153,16 @@ try {
   const topologyZoom = await page.evaluate(() => ({ overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - innerWidth, links: [...document.querySelectorAll('[data-topology-domain]')].map((element) => { const box = element.getBoundingClientRect(); return { width: box.width, height: box.height, visibleWidth: Math.min(box.right, innerWidth) - Math.max(box.left, 0), visibleHeight: Math.min(box.bottom, innerHeight) - Math.max(box.top, 0) }; }) }));
   check(topologyZoom.overflow <= 1 && topologyZoom.links.every((link) => link.width >= 44 && link.height >= 44 && link.visibleWidth >= 44), '三域拓樸 200% Zoom 溢出或觸控區失效', topologyZoom);
   await page.locator('[data-topology]').screenshot({ path: resolve(topologyOutDir, 'topology-200-percent.png') });
+} catch (error) {
+  errors.push({ message: '視覺測試執行階段錯誤', error: String(error), stack: error?.stack || '' });
 } finally {
+  const report = { generatedAt: new Date().toISOString(), baseUrl, widths, pages, checks: measurements.length, passed: errors.length === 0, errors, measurements };
+  await writeFile(resolve(root, 'docs/qa/professional-rebuild/visual-responsive-results.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
+  if (errors.length) process.exitCode = 1;
   await browser.close();
 }
 
-const report = { generatedAt: new Date().toISOString(), baseUrl, widths, pages, checks: measurements.length, passed: errors.length === 0, errors, measurements };
-await writeFile(resolve(root, 'docs/qa/professional-rebuild/visual-responsive-results.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
 if (errors.length) {
   console.error(`響應式／視覺測試失敗：${errors.length} 項。`);
   errors.slice(0, 30).forEach((error) => console.error(`- ${JSON.stringify(error)}`));
-  process.exitCode = 1;
 } else console.log(`響應式／視覺測試通過：${measurements.length} 個頁面／尺寸組合，並產生全站與三域拓樸驗收截圖。`);

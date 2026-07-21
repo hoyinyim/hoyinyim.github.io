@@ -25,7 +25,7 @@ const run = (script) => new Promise((resolve, reject) => {
 
 try {
   await waitForServer();
-  for (const script of ['scripts/package-site.mjs', 'tests/e2e/check.mjs', 'tests/menu-language/check.mjs', 'tests/accessibility/check.mjs', 'tests/visual-responsive/check.mjs', 'tests/performance/check.mjs']) await run(script);
+  for (const script of ['scripts/package-site.mjs', 'tests/e2e/check.mjs', 'tests/menu-language/check.mjs', 'tests/accessibility/check.mjs', 'tests/visual-responsive/check.mjs', 'tests/ancient-script-site/check.mjs', 'tests/performance/check.mjs']) await run(script);
 } finally {
   server?.kill('SIGTERM');
 }

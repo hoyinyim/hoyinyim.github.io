@@ -56,7 +56,7 @@ exact(credentials.awards.map(({ id, image, ...item }) => item), credentialSource
 const idGroups = [education, experience, research.current, research.expertise, publications, conferences.published, conferences.presentations, translations.publicWriting, credentials.credentials, credentials.awards];
 const allIds = idGroups.flat().map((item) => item.id);
 check(allIds.length === new Set(allIds).size, '穩定 ID 有重複');
-check(routes.length === 10 && new Set(routes.map((item) => item.href)).size === 10, '主要路由不是十個唯一頁面');
+check(routes.length === 11 && new Set(routes.map((item) => item.href)).size === 11, '主要路由不是十一個唯一頁面');
 
 const publicHtml = {
   index: await readFile(resolve(root, 'index.html'), 'utf8'),

@@ -2,7 +2,7 @@
 @media print {
   :root { --paper: #fff; --ink: #000; --muted: #333; --line: #bbb; --line-strong: #000; }
   body { background: #fff; color: #000; font-size: 9.4pt; line-height: 1.55; }
-  .site-header, .site-footer, .breadcrumb, .scroll-progress, .skip-link, .live-region, dialog, .cv-index, .cv-header button, .cv-header a[download] { display: none !important; }
+  .site-header, .site-footer, .breadcrumb, .scroll-progress, .skip-link, .live-region, dialog, .cv-index, .cv-header button, .cv-header a[download], .site-glyph, .glyph-transition { display: none !important; }
   .cv-header { padding: 0 0 8mm; }
   .cv-header h1 { margin: 3mm 0; font-size: 28pt; }
   .cv-layout { display: block; padding: 0; }
