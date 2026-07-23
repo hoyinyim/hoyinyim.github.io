@@ -47,7 +47,7 @@
   .home-identity { grid-column: 1 / -1; margin-top: 52px; }
   .home-axis { margin-top: 30px; }
   .home-topology { padding-top: 24px; }
-  .topology-kicker { font-size: .7rem; }
+  .topology-kicker { font-size: 1rem; }
   .topology-canvas { width: calc(100vw + 40px); height: clamp(430px, 128vw, 560px); margin-left: calc(-1 * (var(--gutter) + 20px)); }
   .topology-axis { inset: 47% 6% auto; }
   .domain-research { top: 2%; left: 15%; width: 82vw; }
@@ -57,8 +57,8 @@
   .domain-service .domain-label { bottom: 17%; left: 14%; }
   .domain-teaching .domain-label { right: 12%; bottom: 20%; }
   .domain-label strong { font-size: clamp(1.6rem, 8vw, 2.4rem); }
-  .domain-label small { margin-top: 6px; font-size: .72rem; }
-  .domain-label em { margin-top: 17px; font-size: .875rem; opacity: 1; transform: none; }
+  .domain-label small { margin-top: 6px; font-size: 1rem; }
+  .domain-label em { margin-top: 17px; font-size: 1rem; opacity: 1; transform: none; }
   .domain-link .mini-glyph { width: 3rem; opacity: .1; }
   .home-domain-index { grid-template-columns: 1fr; }
   .home-domain-index article { min-height: 350px; padding-block: 28px 38px; }
@@ -79,6 +79,8 @@
   .education-ledger { margin-top: 26px; }
   .education-school > header { grid-template-columns: 54px 1fr; gap: 14px; }
   .education-school > header img { width: 48px; height: 48px; }
+  .education-school--utaipei > header { grid-template-columns: 90px 1fr; }
+  .education-school--utaipei > header img { width: 84px; }
   .education-school li { grid-template-columns: 1fr; gap: 7px; }
   .about-opening { padding-top: 28px; }
   .about-opening figure, .about-opening > div { grid-column: 1 / -1; }
@@ -175,8 +177,8 @@
   .header-control { padding-inline: 7px; }
   .home-intro h1 { font-size: 4.35rem; }
   .domain-label strong { font-size: 1.55rem; }
-  .domain-label small { font-size: .67rem; }
-  .domain-label em { margin-top: 12px; font-size: .8rem; }
+  .domain-label small { font-size: 1rem; }
+  .domain-label em { margin-top: 12px; font-size: 1rem; }
   .translations-opening h1, .credentials-opening h1 { font-size: 3.1rem; }
   .contact-actions { flex-direction: column; align-items: stretch; }
 }

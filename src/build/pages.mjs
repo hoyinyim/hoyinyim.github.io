@@ -5,7 +5,7 @@ const tags = (items = []) => items.length ? `<ul class="status-list">${items.map
 
 const educationLedger = (education) => Object.values(groupBy(education, 'schoolId')).map((items) => {
   const school = items[0];
-  return `<section class="education-school"><header><img src="${escapeHtml(school.logo)}" alt="${escapeHtml(school.logoAlt)}" width="72" height="72"><div><p class="overline">${escapeHtml(school.schoolName)}</p><h3>${escapeHtml(school.schoolName)}</h3></div></header><ol>${items.map((item) => `<li><time>${escapeHtml(item.period)}</time><div><h4>${escapeHtml(item.degree)}</h4><p>${escapeHtml(item.institution)}</p></div></li>`).join('')}</ol></section>`;
+  return `<section class="education-school education-school--${escapeHtml(school.schoolId)}"><header><img src="${escapeHtml(school.logo)}" alt="${escapeHtml(school.logoAlt)}" width="108" height="72"><div><p class="overline">${escapeHtml(school.schoolName)}</p><h3>${escapeHtml(school.schoolName)}</h3></div></header><ol>${items.map((item) => `<li><time>${escapeHtml(item.period)}</time><div><h4>${escapeHtml(item.degree)}</h4><p>${escapeHtml(item.institution)}</p></div></li>`).join('')}</ol></section>`;
 }).join('');
 
 export function homePage({ profile, research, experience, translations, credentials, siteGlyphs }) {

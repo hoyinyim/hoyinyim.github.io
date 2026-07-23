@@ -41,13 +41,13 @@
   --measure-entry: 27em;
   --ease: cubic-bezier(.22, 1, .36, 1);
   --glyph-color: currentColor;
-  --glyph-muted-opacity: .08;
-  --glyph-soft-opacity: .16;
+  --glyph-muted-opacity: .06;
+  --glyph-soft-opacity: .12;
   --glyph-active-opacity: .78;
   --glyph-line-width: 1px;
   --glyph-motion-duration: 560ms;
   --glyph-motion-slow: 900ms;
-  --glyph-scale-large: clamp(14rem, 34vw, 40rem);
+  --glyph-scale-large: clamp(12rem, 28vw, 32rem);
   --glyph-scale-section: clamp(5rem, 11vw, 12rem);
   --glyph-scale-inline: 1.25rem;
 }

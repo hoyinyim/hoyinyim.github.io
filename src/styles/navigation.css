@@ -1,13 +1,13 @@
 .site-header { position: sticky; z-index: 60; top: 0; display: grid; grid-template-columns: 5fr 7fr 4fr; align-items: center; min-height: var(--header-h); padding: 0 var(--gutter); border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter: blur(14px); }
 .brand { display: inline-flex; align-items: baseline; gap: 12px; width: max-content; text-decoration: none; }
 .brand strong { font-size: 1rem; font-weight: 600; white-space: nowrap; }
-.brand span { color: var(--muted); font-family: var(--font-latin); font-size: .72rem; letter-spacing: .04em; }
+.brand span { color: var(--muted); font-family: var(--font-latin); font-size: 1rem; letter-spacing: .04em; }
 .primary-nav { display: flex; justify-content: center; gap: clamp(22px, 3vw, 52px); }
 .primary-nav a { position: relative; padding: 22px 0 18px; text-decoration: none; }
 .primary-nav a::after { position: absolute; right: 0; bottom: 15px; left: 0; height: 1px; transform: scaleX(0); background: currentColor; content: ""; transition: transform 180ms var(--ease); }
 .primary-nav a:hover::after, .primary-nav a[aria-current="page"]::after { transform: scaleX(1); }
 .header-actions { display: flex; justify-content: flex-end; gap: 7px; }
-.header-control { min-height: 44px; padding: 7px 11px; border: 1px solid var(--line); background: transparent; font-size: .85rem; }
+.header-control { min-height: 44px; padding: 7px 11px; border: 1px solid var(--line); background: transparent; font-size: 1rem; }
 .header-control:hover { border-color: var(--ink); }
 .menu-trigger { display: inline-flex; align-items: center; gap: 10px; }
 .menu-trigger-glyph { position: relative; display: block; width: 27px; height: 23px; overflow: hidden; }
@@ -32,7 +32,7 @@ body.dialog-open { overflow: hidden; }
 .dialog-topline h2 { margin: 0; font-size: var(--text-page); letter-spacing: -.012em; }
 .dialog-close { min-height: 48px; padding: 8px 14px; border: 1px solid currentColor; background: transparent; }
 .menu-composition { display: grid; grid-template-columns: minmax(300px, 7fr) minmax(420px, 9fr); gap: clamp(30px, 6vw, 110px); align-items: center; min-height: 0; }
-.menu-glyph-stage { position: relative; width: min(54vh, 38vw); aspect-ratio: 1; margin: 0 auto; overflow: hidden; border: 1px solid color-mix(in srgb, currentColor 28%, transparent); border-radius: 50%; background: color-mix(in srgb, var(--paper) 7%, transparent); transform-origin: 100% 0; }
+.menu-glyph-stage { position: relative; width: min(46vh, 31vw); aspect-ratio: 1; margin: 0 auto; overflow: hidden; border: 1px solid color-mix(in srgb, currentColor 28%, transparent); border-radius: 50%; background: color-mix(in srgb, var(--paper) 7%, transparent); transform-origin: 100% 0; }
 .menu-dialog[open] .menu-glyph-stage { animation: menu-glyph-expand 680ms var(--ease) both; }
 .menu-glyph-stage::before, .menu-glyph-stage::after { position: absolute; z-index: 2; content: ""; background: color-mix(in srgb, currentColor 20%, transparent); pointer-events: none; }
 .menu-glyph-stage::before { inset: 50% 8% auto; height: 1px; }
@@ -40,7 +40,7 @@ body.dialog-open { overflow: hidden; }
 .menu-glyph-axis { position: absolute; z-index: 3; top: 12%; left: 50%; width: 1px; height: 76%; transform: scaleY(0); transform-origin: top; background: var(--accent); transition: transform 480ms var(--ease); }
 .menu-dialog[open] .menu-glyph-axis { transform: scaleY(1); transition-delay: 180ms; }
 .menu-glyph-stage img { position: absolute; z-index: 1; inset: 14%; width: 72%; height: 72%; object-fit: contain; opacity: 0; transform: translateY(16px) scale(.94); transition: opacity 220ms ease, transform 360ms var(--ease), clip-path 420ms var(--ease); clip-path: inset(12% 0 12% 0); }
-.menu-glyph-stage img[data-active="true"] { opacity: .92; transform: translateY(0) scale(1); clip-path: inset(0); }
+.menu-glyph-stage img[data-active="true"] { opacity: .78; transform: translateY(0) scale(1); clip-path: inset(0); }
 :root[data-theme="light"] .menu-glyph-stage img, :root[data-theme="light"] .menu-groups img { filter: invert(1); }
 .menu-groups { min-width: 0; }
 .menu-groups ol { display: grid; gap: 2px; margin: 0; padding: 0; list-style: none; }
@@ -54,7 +54,7 @@ body.dialog-open { overflow: hidden; }
 .menu-dialog[open] .menu-groups li:nth-child(6) { animation-delay: 375ms; }
 .menu-groups li a { display: grid; grid-template-columns: 2rem minmax(0, 1fr) 52px; gap: var(--space-3); align-items: center; min-height: 68px; padding: var(--space-1) 0; border-bottom: 1px solid color-mix(in srgb, currentColor 24%, transparent); text-decoration: none; }
 .menu-item-number { color: color-mix(in srgb, currentColor 56%, transparent); font-family: var(--mono); font-size: .8rem; }
-.menu-item-label { font-family: var(--font-zh-ui); font-size: clamp(2.8rem, 5.8vw, 6.8rem); font-weight: 500; line-height: 1.02; letter-spacing: -.012em; text-wrap: balance; }
+.menu-item-label { font-family: var(--font-zh-ui); font-size: clamp(2.6rem, 5vw, 5.8rem); font-weight: 500; line-height: 1.02; letter-spacing: -.012em; text-wrap: balance; }
 .menu-groups li a > img { width: 44px; height: 44px; object-fit: contain; opacity: .35; transition: opacity 180ms ease, transform 220ms var(--ease); }
 .menu-groups li a:hover .menu-item-label, .menu-groups li a:focus-visible .menu-item-label, .menu-groups li a[aria-current="page"] .menu-item-label { color: var(--accent); }
 .menu-groups li a:hover > img, .menu-groups li a:focus-visible > img, .menu-groups li a[aria-current="page"] > img { opacity: 1; transform: translateX(-4px); }
@@ -64,7 +64,7 @@ body.dialog-open { overflow: hidden; }
 .menu-utility { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 18px; padding-top: 16px; border-top: 1px solid color-mix(in srgb, currentColor 35%, transparent); opacity: 0; }
 .menu-dialog[open] .menu-utility { animation: menu-item-in 320ms var(--ease) 420ms forwards; }
 .menu-utility button { min-height: 44px; border: 0; border-bottom: 1px solid currentColor; background: none; }
-.menu-utility a { min-height: 44px; overflow-wrap: anywhere; font-family: var(--mono); font-size: .875rem; }
+.menu-utility a { min-height: 44px; overflow-wrap: anywhere; font-family: var(--mono); font-size: 1rem; }
 .menu-dialog.is-closing .menu-shell::before { transform: scaleX(0); transition: transform 380ms var(--ease); }
 .menu-dialog.is-closing .menu-glyph-stage { opacity: 0; transform: translate(42vw, -34vh) scale(.08); transition: opacity 220ms ease, transform 400ms var(--ease); }
 .menu-dialog.is-closing .menu-groups, .menu-dialog.is-closing .menu-utility { opacity: 0; transform: translateX(20px); transition: opacity 180ms ease, transform 280ms var(--ease); }
