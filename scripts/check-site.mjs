@@ -96,7 +96,7 @@ for (const file of htmlFiles) {
   check($('[data-menu-open][aria-controls="site-menu"]').length === 1, `${file} Menu 觸發器語意不完整`);
   const noscriptMenu = html.match(/<noscript><nav class="noscript-menu"[\s\S]*?<\/nav><\/noscript>/)?.[0] ?? '';
   check((noscriptMenu.match(/<a\s/g) || []).length === 6, `${file} 無 JavaScript 六項後備導覽不完整`);
-  check($('link[rel="stylesheet"][href="assets/site.css"]').length === 1 && $('script[src="assets/site.js"]').length === 1, `${file} 共用資產引用錯誤`);
+  check($('link[rel="stylesheet"]').filter((_, node) => /^assets\/site\.css\?v=/.test($(node).attr('href') || '')).length === 1 && $('script').filter((_, node) => /^assets\/site\.js\?v=/.test($(node).attr('src') || '')).length === 1, `${file} 共用資產引用錯誤`);
   check($('style').length === 0 && $('[style]').length === 0, `${file} 仍有內嵌 CSS`);
   check($('script:not([src]):not([type="application/ld+json"])').length === 0, `${file} 仍有內嵌 JavaScript`);
   check($('a[href^="javascript:"]').length === 0, `${file} 仍有 javascript: URL`);
