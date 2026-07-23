@@ -3,7 +3,10 @@ import { miniGlyph, pageGlyph, sectionGlyph } from './glyphs.mjs';
 
 const tags = (items = []) => items.length ? `<ul class="status-list">${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : '';
 
-const educationLedger = (education) => `<ol class="education-ledger">${education.map((item) => `<li><time>${escapeHtml(item.period)}</time><div><h3>${escapeHtml(item.degree)}</h3><p>${escapeHtml(item.institution)}</p></div></li>`).join('')}</ol>`;
+const educationLedger = (education) => Object.values(groupBy(education, 'schoolId')).map((items) => {
+  const school = items[0];
+  return `<section class="education-school"><header><img src="${escapeHtml(school.logo)}" alt="${escapeHtml(school.logoAlt)}" width="72" height="72"><div><p class="overline">${escapeHtml(school.schoolName)}</p><h3>${escapeHtml(school.schoolName)}</h3></div></header><ol>${items.map((item) => `<li><time>${escapeHtml(item.period)}</time><div><h4>${escapeHtml(item.degree)}</h4><p>${escapeHtml(item.institution)}</p></div></li>`).join('')}</ol></section>`;
+}).join('');
 
 export function homePage({ profile, research, experience, translations, credentials, siteGlyphs }) {
   const serviceItems = [
@@ -17,26 +20,27 @@ export function homePage({ profile, research, experience, translations, credenti
     credentials.credentials.find((item) => item.id === 'credential-02').title
   ];
   return `<section class="home-intro axis-grid" aria-labelledby="home-title">
-    ${pageGlyph(siteGlyphs, 'study-oracle', 'home')}
+    ${pageGlyph(siteGlyphs, 'chu-study', 'home')}
     <p class="overline">個人學術網站／中國思想研究</p>
     <h1 id="home-title"><span>${escapeHtml(profile.nameZh)}</span><small>${escapeHtml(profile.nameEn)}</small></h1>
-    <div class="home-identity"><strong>${escapeHtml(profile.roleZh)}</strong><p>${escapeHtml(profile.roleEn)}</p><a class="axis-link" href="publications.html">查看學術著作</a></div>
+    <div class="home-identity"><strong>${escapeHtml(profile.roleZh)}</strong><p>${escapeHtml(profile.roleEn)}</p><div class="hero-actions"><a class="axis-link axis-link--primary" href="publications.html">查看學術著作 <span>→</span></a><a class="axis-link" href="research.html">查看研究 <span>→</span></a></div></div>
     <i class="home-axis" aria-hidden="true"></i>
   </section>
+  <section class="home-profile axis-grid" aria-labelledby="home-profile-title">${sectionGlyph(siteGlyphs, 'chu-person', 'home-profile')}<figure><img src="${profile.portrait}" width="523" height="648" decoding="async" alt="${escapeHtml(profile.portraitAlt)}"><figcaption>${escapeHtml(profile.institutionEn)}</figcaption></figure><div><p class="overline">學術簡介</p><h2 id="home-profile-title">中國思想研究</h2>${profile.bio.slice(0, 3).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}<a class="axis-link" href="about.html">完整個人資料 <span>→</span></a></div></section>
   <section class="home-topology" aria-labelledby="topology-title" data-topology>
     <h2 id="topology-title" class="visually-hidden">學術實踐拓樸：研究、服務與教學</h2>
     <p class="topology-kicker" aria-hidden="true">學術實踐／三域拓樸</p>
     <nav class="topology-canvas" aria-label="學術實踐領域">
       <a class="domain-link domain-research" href="research.html" data-topology-domain="research" aria-label="研究：前往研究頁">
-        ${miniGlyph(siteGlyphs, 'study-oracle', 'topology-research')}
+        ${miniGlyph(siteGlyphs, 'chu-study', 'topology-research')}
         <span class="domain-label"><strong>研究</strong><small>思想與文獻</small><em>查看研究</em></span>
       </a>
       <a class="domain-link domain-service" href="translations.html" data-topology-domain="service" aria-label="服務：前往譯著與哲學普及作品頁">
-        ${miniGlyph(siteGlyphs, 'speech-oracle', 'topology-service')}
+        ${miniGlyph(siteGlyphs, 'chu-speech', 'topology-service')}
         <span class="domain-label"><strong>服務</strong><small>翻譯與公共寫作</small><em>查看服務</em></span>
       </a>
       <a class="domain-link domain-teaching" href="teaching.html" data-topology-domain="teaching" aria-label="教學：前往教學頁">
-        ${miniGlyph(siteGlyphs, 'teach-oracle', 'topology-teaching')}
+        ${miniGlyph(siteGlyphs, 'chu-teaching', 'topology-teaching')}
         <span class="domain-label"><strong>教學</strong><small>課程與實踐</small><em>查看教學</em></span>
       </a>
       <i class="topology-axis" aria-hidden="true"></i>
@@ -44,17 +48,17 @@ export function homePage({ profile, research, experience, translations, credenti
   </section>
   <section class="home-domain-index" aria-labelledby="home-domain-index-title">
     <h2 id="home-domain-index-title" class="visually-hidden">研究、服務與教學內容索引</h2>
-    <article data-domain-summary="research"><header>${miniGlyph(siteGlyphs, 'study-oracle', 'domain-index')}<p>01／研究</p><h3>研究</h3></header><ol>${research.current.map((item) => `<li>${escapeHtml(item.title)}</li>`).join('')}</ol><a class="axis-link" href="research.html">完整研究資料 ↗</a></article>
-    <article data-domain-summary="service"><header>${miniGlyph(siteGlyphs, 'speech-oracle', 'domain-index')}<p>02／服務</p><h3>服務</h3></header><ol>${serviceItems.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ol><a class="axis-link" href="translations.html">譯著與哲學普及作品 ↗</a></article>
-    <article data-domain-summary="teaching"><header>${miniGlyph(siteGlyphs, 'teach-oracle', 'domain-index')}<p>03／教學</p><h3>教學</h3></header><ol>${teachingItems.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ol><a class="axis-link" href="teaching.html">完整教學資料 ↗</a></article>
+    <article data-domain-summary="research"><header>${miniGlyph(siteGlyphs, 'chu-thinking', 'domain-index')}<p>01／研究</p><h3>研究</h3></header><ol>${research.current.map((item) => `<li>${escapeHtml(item.title)}</li>`).join('')}</ol><a class="axis-link" href="research.html">完整研究資料 ↗</a></article>
+    <article data-domain-summary="service"><header>${miniGlyph(siteGlyphs, 'chu-transmission', 'domain-index')}<p>02／服務</p><h3>服務</h3></header><ol>${serviceItems.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ol><a class="axis-link" href="translations.html">譯著與哲學普及作品 ↗</a></article>
+    <article data-domain-summary="teaching"><header>${miniGlyph(siteGlyphs, 'chu-teaching', 'domain-index')}<p>03／教學</p><h3>教學</h3></header><ol>${teachingItems.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ol><a class="axis-link" href="teaching.html">完整教學資料 ↗</a></article>
   </section>
-  <section class="home-profile axis-grid" aria-labelledby="home-profile-title">${sectionGlyph(siteGlyphs, 'person-oracle', 'home-profile')}<figure><img src="${profile.portrait}" width="523" height="648" decoding="async" alt="${escapeHtml(profile.portraitAlt)}"><figcaption>${escapeHtml(profile.institutionEn)}</figcaption></figure><div><p class="overline">學術簡介</p><h2 id="home-profile-title">中國思想研究</h2>${profile.bio.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}<a class="axis-link" href="about.html">完整個人資料</a></div></section>`;
+  `;
 }
 
 export function aboutPage({ profile, education, siteGlyphs }) {
-  return `<section class="about-opening axis-grid" aria-labelledby="about-title">${pageGlyph(siteGlyphs, 'person-oracle', 'about')}<figure><img src="${profile.portrait}" width="523" height="648" decoding="async" alt="${escapeHtml(profile.portraitAlt)}"><figcaption>${escapeHtml(profile.nameEn)}／${escapeHtml(profile.institutionZh)}</figcaption></figure><div><p class="overline">關於／學術簡介</p><h1 id="about-title">${escapeHtml(profile.nameZh)}</h1><p class="about-role">${escapeHtml(profile.roleZh)}</p><p class="about-role-en">${escapeHtml(profile.roleEn)}</p></div></section>
+  return `<section class="about-opening axis-grid" aria-labelledby="about-title">${pageGlyph(siteGlyphs, 'chu-person', 'about')}<figure><img src="${profile.portrait}" width="523" height="648" decoding="async" alt="${escapeHtml(profile.portraitAlt)}"><figcaption>${escapeHtml(profile.nameEn)}／${escapeHtml(profile.institutionZh)}</figcaption></figure><div><p class="overline">關於／學術簡介</p><h1 id="about-title">${escapeHtml(profile.nameZh)}</h1><p class="about-role">${escapeHtml(profile.roleZh)}</p><p class="about-role-en">${escapeHtml(profile.roleEn)}</p></div></section>
   <section class="about-biography axis-grid" aria-labelledby="biography-title"><h2 id="biography-title">學術簡介</h2><div>${profile.bio.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div></section>
-  <section class="about-education axis-grid" id="education" aria-labelledby="about-education-title">${sectionGlyph(siteGlyphs, 'journey-oracle', 'education')}<header><p class="overline">教育背景／2016年至今</p><h2 id="about-education-title">教育背景</h2></header>${educationLedger(education)}</section>
+  <section class="about-education axis-grid" id="education" aria-labelledby="about-education-title">${sectionGlyph(siteGlyphs, 'chu-path', 'education')}<header><p class="overline">教育背景／2016年至今</p><h2 id="about-education-title">教育背景</h2></header><div class="education-ledger">${educationLedger(education)}</div></section>
   <nav class="next-links" aria-label="延伸閱讀"><a href="research.html">研究 <span>研究方向</span></a><a href="cv.html">履歷 <span>完整經歷</span></a><a href="contact.html">聯絡 <span>學術通信</span></a></nav>`;
 }
 
@@ -67,12 +71,12 @@ export function researchPage({ research, siteGlyphs }) {
 
 export function publicationsPage({ publications, conferences, translations, siteGlyphs }) {
   const categories = [
-    { id: 'journal', href: 'journal-papers.html', number: '01', label: '期刊論文', count: `${publications.length} 筆`, detail: '經同儕審查與正式刊載之期刊研究成果' },
-    { id: 'conference', href: 'conference-papers.html', number: '02', label: '研討會論文', count: `${conferences.published.length} 篇出版／${conferences.presentations.length} 次發表`, detail: '已出版論文集與學術會議發表紀錄' },
-    { id: 'translations', href: 'translations.html', number: '03', label: '譯著與公共寫作', count: `1 筆譯著／${translations.publicWriting.length} 篇文章`, detail: '翻譯作品及面向公共讀者的哲學寫作' }
+    { id: 'journal', href: 'journal-papers.html', number: '01', label: ['期刊論文'], glyph: 'chu-writing', count: `${publications.length} 筆`, detail: '經同儕審查與正式刊載之期刊研究成果' },
+    { id: 'conference', href: 'conference-papers.html', number: '02', label: ['研討會論文'], glyph: 'chu-meeting', count: `${conferences.published.length} 篇出版／${conferences.presentations.length} 次發表`, detail: '已出版論文集與學術會議發表紀錄' },
+    { id: 'translations', href: 'translations.html', number: '03', label: ['譯著與', '公共寫作'], glyph: 'chu-translation', count: `1 筆譯著／${translations.publicWriting.length} 篇文章`, detail: '翻譯作品及面向公共讀者的哲學寫作' }
   ];
-  return `<header class="publications-opening axis-grid">${pageGlyph(siteGlyphs, 'book-oracle', 'publications')}<p class="overline">著作／書目與公共寫作</p><h1>著作</h1><p>以書目類型建立可核對、可閱讀的學術成果入口。</p></header>
-  <nav class="publications-index" aria-label="著作分類">${categories.map((item) => `<a href="${item.href}" data-publication-kind="${item.id}">${miniGlyph(siteGlyphs, 'book-oracle', `publication-kind-${item.id}`)}<span class="publication-kind-number">${item.number}</span><strong>${item.label}</strong><span>${item.count}</span><p>${item.detail}</p></a>`).join('')}</nav>`;
+  return `<header class="publications-opening axis-grid">${pageGlyph(siteGlyphs, 'chu-register', 'publications')}<p class="overline">著作／書目與公共寫作</p><h1>著作</h1><p>以書目類型建立可核對、可閱讀的學術成果入口。</p></header>
+  <nav class="publications-index" aria-label="著作分類">${categories.map((item) => `<a href="${item.href}" data-publication-kind="${item.id}">${miniGlyph(siteGlyphs, item.glyph, `publication-kind-${item.id}`)}<span class="publication-kind-number">${item.number}</span><strong>${item.label.map((line) => `<span class="title-line">${line}</span>`).join('')}</strong><span>${item.count}</span><p>${item.detail}</p></a>`).join('')}</nav>`;
 }
 
 export function journalPage({ publications, pageIntros, siteGlyphs }) {

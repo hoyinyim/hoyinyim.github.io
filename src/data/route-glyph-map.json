@@ -1,0 +1,13 @@
+{
+  "index.html": "chu-study",
+  "about.html": "chu-person",
+  "research.html": "chu-study",
+  "publications.html": "chu-register",
+  "journal-papers.html": "chu-writing",
+  "conference-papers.html": "chu-meeting",
+  "translations.html": "chu-translation",
+  "certificates.html": "chu-notice",
+  "teaching.html": "chu-teaching",
+  "cv.html": "chu-cv",
+  "contact.html": "chu-contact"
+}

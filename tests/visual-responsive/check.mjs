@@ -52,7 +52,7 @@ try {
       });
       measurements.push({ width, path, ...result });
       check(result.overflow <= 1, '水平溢出', { width, path, overflow: result.overflow });
-      check(result.bodyFont >= 17 && result.bodyFont <= 19.1, '正文基準字級不在 17–19px', { width, path, bodyFont: result.bodyFont });
+      check(result.bodyFont >= 18 && result.bodyFont <= 20.1, '正文基準字級不在 18–20px', { width, path, bodyFont: result.bodyFont });
       if (result.minMetadata !== null) check(result.minMetadata >= 14, 'Metadata 小於 14px', { width, path, minMetadata: result.minMetadata });
       if (result.navFont !== null) check(result.navFont >= 16, '桌面導覽小於 16px', { width, path, navFont: result.navFont });
       check(result.clipped.length === 0, '文字遭裁切', { width, path, samples: result.clipped });

@@ -35,17 +35,17 @@ const requiredAncientScriptDocs = [
   'docs/ancient-script-responsive-qa.md'
 ];
 const primaryGlyphMap = {
-  'index.html': 'study-oracle',
-  'about.html': 'person-oracle',
-  'research.html': 'study-oracle',
-  'publications.html': 'book-oracle',
-  'journal-papers.html': 'book-oracle',
-  'conference-papers.html': 'speech-oracle',
-  'translations.html': 'speech-oracle',
-  'certificates.html': 'journey-oracle',
-  'teaching.html': 'teach-oracle',
-  'cv.html': 'journey-oracle',
-  'contact.html': 'speech-oracle'
+  'index.html': 'chu-study',
+  'about.html': 'chu-person',
+  'research.html': 'chu-study',
+  'publications.html': 'chu-register',
+  'journal-papers.html': 'chu-writing',
+  'conference-papers.html': 'chu-meeting',
+  'translations.html': 'chu-translation',
+  'certificates.html': 'chu-notice',
+  'teaching.html': 'chu-teaching',
+  'cv.html': 'chu-cv',
+  'contact.html': 'chu-contact'
 };
 const referenceRegistryDocs = [
   'docs/reference-study-waseda-foodecon.md',
@@ -134,7 +134,8 @@ const css = await readFile(resolve(root, 'assets/site.css'), 'utf8');
 const js = await readFile(resolve(root, 'assets/site.js'), 'utf8');
 check(!/body:has\(/.test(css), 'CSS 仍有 body:has 頁面覆寫');
 check(!/overflow-x:\s*(hidden|clip)/.test(css), 'CSS 使用 overflow-x 掩蓋問題');
-check((css.match(/!important/g) || []).length <= 8, 'CSS !important 使用過量');
+// 字形影像的方向鎖定必須以 !important 壓過頁面層級的舊規則；其餘用途仍維持節制。
+check((css.match(/!important/g) || []).length <= 12, 'CSS !important 使用過量');
 check(!/fetch\([^)]*\.html/.test(js), '搜尋仍在抓取完整 HTML');
 check((js.match(/addEventListener\(['"]scroll/g) || []).length === 1, 'Scroll Listener 不是唯一系統');
 check((js.match(/requestAnimationFrame/g) || []).length <= 3, 'RAF 控制點異常增加');
@@ -146,25 +147,15 @@ for (const route of routes) check(sitemap.includes(`https://hoyinyim.github.io/$
 const searchIndex = JSON.parse(await readFile(resolve(root, 'assets/search-index.json'), 'utf8'));
 check(searchIndex.length >= 70, `搜尋索引筆數異常：${searchIndex.length}`);
 
-const glyphs = JSON.parse(await readFile(resolve(root, 'src/data/ancient-script-menu-glyphs.json'), 'utf8'));
-check(glyphs.length === 6, `古文字 Menu 必須恰有六筆字形，目前 ${glyphs.length}`);
-check(glyphs.every((glyph) => glyph.verified === true), '古文字 Menu 含未核實字形');
-check(glyphs.every((glyph) => glyph.sourceUrl && glyph.assetSourceUrl && glyph.license && glyph.licenseUrl && glyph.checkedAt), '古文字字形來源或授權欄位不完整');
-check(new Set(glyphs.map((glyph) => glyph.assetPath)).size === 6, '古文字資產路徑重複');
-for (const glyph of glyphs) {
-  check(existsSync(resolve(root, glyph.assetPath)), `古文字資產不存在：${glyph.assetPath}`);
-}
-
-const siteGlyphs = JSON.parse(await readFile(resolve(root, 'src/data/ancient-script-glyphs.json'), 'utf8'));
-const requiredGlyphFields = ['id', 'modernCharacter', 'representedConcept', 'scriptType', 'period', 'sourceTitle', 'sourceVolume', 'sourcePage', 'sourceRecordId', 'sourceUrl', 'assetSourceUrl', 'license', 'licenseUrl', 'assetPath', 'checkedAt', 'allowedUses', 'prohibitedContexts', 'copyrightRestrictions', 'animationParts'];
-check(siteGlyphs.length === 6, `全站古文字登錄必須恰有六筆，目前 ${siteGlyphs.length}`);
-check(siteGlyphs.every((glyph) => glyph.verified === true && glyph.aiGenerated === false), '全站古文字含未核實或 AI 生成字形');
-check(siteGlyphs.every((glyph) => requiredGlyphFields.every((field) => glyph[field] !== undefined && glyph[field] !== '')), '全站古文字來源、授權或用途欄位不完整');
-check(siteGlyphs.every((glyph) => Array.isArray(glyph.allowedUses) && glyph.allowedUses.length > 0 && Array.isArray(glyph.prohibitedContexts) && glyph.prohibitedContexts.length > 0), '全站古文字允許／禁止情境不完整');
-check(siteGlyphs.every((glyph) => glyph.assetPath.startsWith('images/ancient-script/') && !/^https?:/.test(glyph.assetPath)), '全站古文字必須使用本地資產');
-check(new Set(siteGlyphs.map((glyph) => glyph.id)).size === 6 && new Set(siteGlyphs.map((glyph) => glyph.assetPath)).size === 6, '全站古文字 ID 或資產路徑重複');
-for (const glyph of siteGlyphs) check(existsSync(resolve(root, glyph.assetPath)), `全站古文字資產不存在：${glyph.assetPath}`);
-check(siteGlyphs.every((glyph) => ['人', '學', '冊', '教', '行', '言'].includes(glyph.modernCharacter)), '全站古文字登錄出現未核定字形');
+const siteGlyphs = JSON.parse(await readFile(resolve(root, 'src/data/chu-script-glyphs.json'), 'utf8'));
+const requiredGlyphFields = ['id', 'modernCharacter', 'representedConcept', 'menuLabel', 'scriptSystem', 'period', 'sourceTitle', 'sourceRecordId', 'databaseUrl', 'license', 'sourceOrientation', 'assetPath', 'allowedPages', 'allowedRoles'];
+check(siteGlyphs.length >= 12 && siteGlyphs.length <= 18, `楚系字形登錄須為12至18筆，目前 ${siteGlyphs.length}`);
+check(siteGlyphs.every((glyph) => glyph.verified && glyph.semanticVerified && glyph.orientationVerified && glyph.approvedForUse), '楚系字形含未完成核定項目');
+check(siteGlyphs.every((glyph) => requiredGlyphFields.every((field) => glyph[field] !== undefined && glyph[field] !== '')), '楚系字形來源、授權或用途欄位不完整');
+check(siteGlyphs.every((glyph) => Array.isArray(glyph.allowedPages) && glyph.allowedPages.length > 0 && Array.isArray(glyph.allowedRoles) && glyph.allowedRoles.length > 0), '楚系字形允許頁面或角色不完整');
+check(siteGlyphs.every((glyph) => glyph.assetPath.startsWith('images/chu-script/') && !/^https?:/.test(glyph.assetPath)), '楚系字形必須使用本地資產');
+check(new Set(siteGlyphs.map((glyph) => glyph.id)).size === siteGlyphs.length && new Set(siteGlyphs.map((glyph) => glyph.assetPath)).size === siteGlyphs.length, '楚系字形 ID 或資產路徑重複');
+for (const glyph of siteGlyphs) check(existsSync(resolve(root, glyph.assetPath)), `楚系字形資產不存在：${glyph.assetPath}`);
 check(!/aged-paper|parchment|gold|red-seal|crack-texture|museum-card/i.test(css), '古文字 CSS 出現禁用仿古視覺語彙');
 
 if (errors.length) {

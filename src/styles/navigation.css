@@ -11,14 +11,13 @@
 .header-control:hover { border-color: var(--ink); }
 .menu-trigger { display: inline-flex; align-items: center; gap: 10px; }
 .menu-trigger-glyph { position: relative; display: block; width: 27px; height: 23px; overflow: hidden; }
-.menu-trigger-glyph img { position: absolute; inset: -5px 0 0; width: 27px; height: 27px; object-fit: contain; opacity: .42; mask: repeating-linear-gradient(to bottom, #000 0 2px, transparent 2px 7px); }
-.menu-trigger-glyph i { position: absolute; right: 1px; width: 25px; height: 1px; transform-origin: center; background: currentColor; transition: transform 220ms var(--ease); }
-.menu-trigger-glyph i:nth-of-type(1) { top: 5px; transform: rotate(-8deg); }
-.menu-trigger-glyph i:nth-of-type(2) { top: 11px; width: 21px; transform: rotate(-8deg); }
-.menu-trigger-glyph i:nth-of-type(3) { top: 17px; width: 16px; transform: rotate(-8deg); }
-.menu-trigger:hover .menu-trigger-glyph i:nth-of-type(1) { transform: translateX(-2px) rotate(-11deg); }
-.menu-trigger:hover .menu-trigger-glyph i:nth-of-type(2) { transform: translateX(2px) rotate(-5deg); }
-.menu-trigger:hover .menu-trigger-glyph i:nth-of-type(3) { transform: translateX(-1px) rotate(-10deg); }
+.menu-trigger-glyph i { position: absolute; right: 1px; width: 25px; height: 1px; background: currentColor; transition: transform 220ms var(--ease); }
+.menu-trigger-glyph i:nth-of-type(1) { top: 5px; }
+.menu-trigger-glyph i:nth-of-type(2) { top: 11px; width: 21px; }
+.menu-trigger-glyph i:nth-of-type(3) { top: 17px; width: 16px; }
+.menu-trigger:hover .menu-trigger-glyph i:nth-of-type(1) { transform: translateX(-2px); }
+.menu-trigger:hover .menu-trigger-glyph i:nth-of-type(2) { transform: translateX(2px); }
+.menu-trigger:hover .menu-trigger-glyph i:nth-of-type(3) { transform: translateX(-1px); }
 body.dialog-open { overflow: hidden; }
 .menu-dialog, .search-dialog { width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; border: 0; background: var(--ink); color: var(--paper); }
 .menu-dialog { overflow: hidden; padding: 0; background: transparent; }

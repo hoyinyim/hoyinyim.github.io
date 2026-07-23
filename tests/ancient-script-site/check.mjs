@@ -6,21 +6,21 @@ import { fileURLToPath } from 'node:url';
 const root = resolve(fileURLToPath(new URL('../..', import.meta.url)));
 const baseUrl = (process.env.SITE_URL || 'http://127.0.0.1:4173').replace(/\/$/, '');
 const executablePath = process.env.CHROME_PATH || (process.platform === 'win32' ? 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe' : '/usr/bin/google-chrome');
-const outDir = resolve(root, 'docs/qa/ancient-script-site');
+const outDir = resolve(root, 'docs/qa/chu-script-site');
 await mkdir(resolve(outDir, 'screenshots'), { recursive: true });
 
 const pages = {
-  'index.html': 'study-oracle',
-  'about.html': 'person-oracle',
-  'research.html': 'study-oracle',
-  'publications.html': 'book-oracle',
-  'journal-papers.html': 'book-oracle',
-  'conference-papers.html': 'speech-oracle',
-  'translations.html': 'speech-oracle',
-  'certificates.html': 'journey-oracle',
-  'teaching.html': 'teach-oracle',
-  'cv.html': 'journey-oracle',
-  'contact.html': 'speech-oracle'
+  'index.html': 'chu-study',
+  'about.html': 'chu-person',
+  'research.html': 'chu-study',
+  'publications.html': 'chu-register',
+  'journal-papers.html': 'chu-writing',
+  'conference-papers.html': 'chu-meeting',
+  'translations.html': 'chu-translation',
+  'certificates.html': 'chu-notice',
+  'teaching.html': 'chu-teaching',
+  'cv.html': 'chu-cv',
+  'contact.html': 'chu-contact'
 };
 const widths = [320, 360, 390, 430, 768, 1024, 1440, 1920];
 const errors = [];
@@ -59,7 +59,7 @@ try {
       check(result.hidden === 'true' && result.alt === '', '裝飾字形未正確排除於輔助科技', { width, path });
       check(result.pointerEvents === 'none', '主字形不應攔截操作', { width, path, pointerEvents: result.pointerEvents });
       check(Boolean(result.h1), '現代繁體中文 H1 遺漏', { width, path });
-      check(result.overflow <= 1, '古文字構圖造成水平溢出', { width, path, overflow: result.overflow });
+      check(result.overflow <= 1, '楚系文字構圖造成水平溢出', { width, path, overflow: result.overflow });
       check(result.footerGlyphs === 3, 'Footer 微型字形數量錯誤', { width, path, footerGlyphs: result.footerGlyphs });
     }
   }
@@ -112,7 +112,7 @@ try {
   }
 
   const missingContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
-  await missingContext.route('**/*', (route) => route.request().url().includes('/images/ancient-script/') ? route.abort() : route.continue());
+  await missingContext.route('**/*', (route) => route.request().url().includes('/images/chu-script/') ? route.abort() : route.continue());
   const missingPage = await missingContext.newPage();
   for (const path of Object.keys(pages)) {
     await missingPage.goto(`${baseUrl}/${path}`, { waitUntil: 'networkidle' });
@@ -136,7 +136,7 @@ try {
     glyphsVisible: [...document.querySelectorAll('.site-glyph')].filter((node) => getComputedStyle(node).display !== 'none').length,
     h1: document.querySelector('h1')?.textContent.trim() || ''
   }));
-  check(printState.glyphsVisible === 0 && Boolean(printState.h1), 'CV 列印模式仍顯示古文字或正文遺漏', printState);
+  check(printState.glyphsVisible === 0 && Boolean(printState.h1), 'CV 列印模式仍顯示楚系文字或正文遺漏', printState);
   await printContext.close();
 } catch (error) {
   errors.push({ message: '測試執行階段錯誤', error: String(error), stack: error?.stack || '' });
@@ -148,8 +148,8 @@ try {
 }
 
 if (errors.length) {
-  console.error(`古文字全站測試失敗：${errors.length} 項／${checks} 項。`);
+  console.error(`楚系文字全站測試失敗：${errors.length} 項／${checks} 項。`);
   errors.slice(0, 40).forEach((error) => console.error(`- ${JSON.stringify(error)}`));
 } else {
-  console.log(`古文字全站測試通過：${checks} 項，涵蓋 11 頁、8 種寬度、200％、深色、Reduced Motion、Forced Colors、缺圖與 CV 列印。`);
+  console.log(`楚系文字全站測試通過：${checks} 項，涵蓋 11 頁、8 種寬度、200％、深色、Reduced Motion、Forced Colors、缺圖與 CV 列印。`);
 }

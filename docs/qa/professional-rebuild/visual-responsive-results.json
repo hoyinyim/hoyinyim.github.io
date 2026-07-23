@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-21T07:22:54.859Z",
-  "baseUrl": "http://127.0.0.1:4174",
+  "generatedAt": "2026-07-23T14:12:40.317Z",
+  "baseUrl": "http://127.0.0.1:4173",
   "widths": [
     320,
     360,
@@ -35,9 +35,9 @@
     {
       "width": 320,
       "path": "index.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -53,9 +53,9 @@
     {
       "width": 320,
       "path": "about.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -71,9 +71,9 @@
     {
       "width": 320,
       "path": "research.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -89,9 +89,9 @@
     {
       "width": 320,
       "path": "publications.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -107,9 +107,9 @@
     {
       "width": 320,
       "path": "journal-papers.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -125,9 +125,9 @@
     {
       "width": 320,
       "path": "conference-papers.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -143,9 +143,9 @@
     {
       "width": 320,
       "path": "translations.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -161,9 +161,9 @@
     {
       "width": 320,
       "path": "certificates.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -179,9 +179,9 @@
     {
       "width": 320,
       "path": "teaching.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -197,9 +197,9 @@
     {
       "width": 320,
       "path": "cv.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -215,9 +215,9 @@
     {
       "width": 320,
       "path": "contact.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -233,9 +233,9 @@
     {
       "width": 360,
       "path": "index.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -251,9 +251,9 @@
     {
       "width": 360,
       "path": "about.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -269,9 +269,9 @@
     {
       "width": 360,
       "path": "research.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -287,9 +287,9 @@
     {
       "width": 360,
       "path": "publications.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -305,9 +305,9 @@
     {
       "width": 360,
       "path": "journal-papers.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -323,9 +323,9 @@
     {
       "width": 360,
       "path": "conference-papers.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -341,9 +341,9 @@
     {
       "width": 360,
       "path": "translations.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -359,9 +359,9 @@
     {
       "width": 360,
       "path": "certificates.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -377,9 +377,9 @@
     {
       "width": 360,
       "path": "teaching.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -395,9 +395,9 @@
     {
       "width": 360,
       "path": "cv.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -413,9 +413,9 @@
     {
       "width": 360,
       "path": "contact.html",
-      "bodyFont": 17,
+      "bodyFont": 18,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -431,9 +431,9 @@
     {
       "width": 375,
       "path": "index.html",
-      "bodyFont": 17,
+      "bodyFont": 18.03,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -449,9 +449,9 @@
     {
       "width": 375,
       "path": "about.html",
-      "bodyFont": 17,
+      "bodyFont": 18.03,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -467,9 +467,9 @@
     {
       "width": 375,
       "path": "research.html",
-      "bodyFont": 17,
+      "bodyFont": 18.03,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -485,9 +485,9 @@
     {
       "width": 375,
       "path": "publications.html",
-      "bodyFont": 17,
+      "bodyFont": 18.03,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -503,9 +503,9 @@
     {
       "width": 375,
       "path": "journal-papers.html",
-      "bodyFont": 17,
+      "bodyFont": 18.03,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -521,9 +521,9 @@
     {
       "width": 375,
       "path": "conference-papers.html",
-      "bodyFont": 17,
+      "bodyFont": 18.03,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -539,9 +539,9 @@
     {
       "width": 375,
       "path": "translations.html",
-      "bodyFont": 17,
+      "bodyFont": 18.03,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -557,9 +557,9 @@
     {
       "width": 375,
       "path": "certificates.html",
-      "bodyFont": 17,
+      "bodyFont": 18.03,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -575,9 +575,9 @@
     {
       "width": 375,
       "path": "teaching.html",
-      "bodyFont": 17,
+      "bodyFont": 18.03,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -593,9 +593,9 @@
     {
       "width": 375,
       "path": "cv.html",
-      "bodyFont": 17,
+      "bodyFont": 18.03,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -611,9 +611,9 @@
     {
       "width": 375,
       "path": "contact.html",
-      "bodyFont": 17,
+      "bodyFont": 18.03,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -629,9 +629,9 @@
     {
       "width": 390,
       "path": "index.html",
-      "bodyFont": 17.022,
+      "bodyFont": 18.06,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -647,9 +647,9 @@
     {
       "width": 390,
       "path": "about.html",
-      "bodyFont": 17.022,
+      "bodyFont": 18.06,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -665,9 +665,9 @@
     {
       "width": 390,
       "path": "research.html",
-      "bodyFont": 17.022,
+      "bodyFont": 18.06,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -683,9 +683,9 @@
     {
       "width": 390,
       "path": "publications.html",
-      "bodyFont": 17.022,
+      "bodyFont": 18.06,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -701,9 +701,9 @@
     {
       "width": 390,
       "path": "journal-papers.html",
-      "bodyFont": 17.022,
+      "bodyFont": 18.06,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -719,9 +719,9 @@
     {
       "width": 390,
       "path": "conference-papers.html",
-      "bodyFont": 17.022,
+      "bodyFont": 18.06,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -737,9 +737,9 @@
     {
       "width": 390,
       "path": "translations.html",
-      "bodyFont": 17.022,
+      "bodyFont": 18.06,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -755,9 +755,9 @@
     {
       "width": 390,
       "path": "certificates.html",
-      "bodyFont": 17.022,
+      "bodyFont": 18.06,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -773,9 +773,9 @@
     {
       "width": 390,
       "path": "teaching.html",
-      "bodyFont": 17.022,
+      "bodyFont": 18.06,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -791,9 +791,9 @@
     {
       "width": 390,
       "path": "cv.html",
-      "bodyFont": 17.022,
+      "bodyFont": 18.06,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -809,9 +809,9 @@
     {
       "width": 390,
       "path": "contact.html",
-      "bodyFont": 17.022,
+      "bodyFont": 18.06,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -827,9 +827,9 @@
     {
       "width": 430,
       "path": "index.html",
-      "bodyFont": 17.094,
+      "bodyFont": 18.14,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -845,9 +845,9 @@
     {
       "width": 430,
       "path": "about.html",
-      "bodyFont": 17.094,
+      "bodyFont": 18.14,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -863,9 +863,9 @@
     {
       "width": 430,
       "path": "research.html",
-      "bodyFont": 17.094,
+      "bodyFont": 18.14,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -881,9 +881,9 @@
     {
       "width": 430,
       "path": "publications.html",
-      "bodyFont": 17.094,
+      "bodyFont": 18.14,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -899,9 +899,9 @@
     {
       "width": 430,
       "path": "journal-papers.html",
-      "bodyFont": 17.094,
+      "bodyFont": 18.14,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -917,9 +917,9 @@
     {
       "width": 430,
       "path": "conference-papers.html",
-      "bodyFont": 17.094,
+      "bodyFont": 18.14,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -935,9 +935,9 @@
     {
       "width": 430,
       "path": "translations.html",
-      "bodyFont": 17.094,
+      "bodyFont": 18.14,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -953,9 +953,9 @@
     {
       "width": 430,
       "path": "certificates.html",
-      "bodyFont": 17.094,
+      "bodyFont": 18.14,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -971,9 +971,9 @@
     {
       "width": 430,
       "path": "teaching.html",
-      "bodyFont": 17.094,
+      "bodyFont": 18.14,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -989,9 +989,9 @@
     {
       "width": 430,
       "path": "cv.html",
-      "bodyFont": 17.094,
+      "bodyFont": 18.14,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -1007,9 +1007,9 @@
     {
       "width": 430,
       "path": "contact.html",
-      "bodyFont": 17.094,
+      "bodyFont": 18.14,
       "navFont": null,
-      "minMetadata": 14.08,
+      "minMetadata": 16,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -1025,9 +1025,9 @@
     {
       "width": 540,
       "path": "index.html",
-      "bodyFont": 17.292,
+      "bodyFont": 18.36,
       "navFont": null,
-      "minMetadata": 14.088,
+      "minMetadata": 16.116,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -1043,9 +1043,9 @@
     {
       "width": 540,
       "path": "about.html",
-      "bodyFont": 17.292,
+      "bodyFont": 18.36,
       "navFont": null,
-      "minMetadata": 14.088,
+      "minMetadata": 16.116,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -1061,9 +1061,9 @@
     {
       "width": 540,
       "path": "research.html",
-      "bodyFont": 17.292,
+      "bodyFont": 18.36,
       "navFont": null,
-      "minMetadata": 14.088,
+      "minMetadata": 16.116,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -1079,9 +1079,9 @@
     {
       "width": 540,
       "path": "publications.html",
-      "bodyFont": 17.292,
+      "bodyFont": 18.36,
       "navFont": null,
-      "minMetadata": 14.088,
+      "minMetadata": 16.116,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -1097,9 +1097,9 @@
     {
       "width": 540,
       "path": "journal-papers.html",
-      "bodyFont": 17.292,
+      "bodyFont": 18.36,
       "navFont": null,
-      "minMetadata": 14.088,
+      "minMetadata": 16.116,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -1115,9 +1115,9 @@
     {
       "width": 540,
       "path": "conference-papers.html",
-      "bodyFont": 17.292,
+      "bodyFont": 18.36,
       "navFont": null,
-      "minMetadata": 14.088,
+      "minMetadata": 16.116,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -1133,9 +1133,9 @@
     {
       "width": 540,
       "path": "translations.html",
-      "bodyFont": 17.292,
+      "bodyFont": 18.36,
       "navFont": null,
-      "minMetadata": 14.088,
+      "minMetadata": 16.116,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -1151,9 +1151,9 @@
     {
       "width": 540,
       "path": "certificates.html",
-      "bodyFont": 17.292,
+      "bodyFont": 18.36,
       "navFont": null,
-      "minMetadata": 14.088,
+      "minMetadata": 16.116,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -1169,9 +1169,9 @@
     {
       "width": 540,
       "path": "teaching.html",
-      "bodyFont": 17.292,
+      "bodyFont": 18.36,
       "navFont": null,
-      "minMetadata": 14.088,
+      "minMetadata": 16.116,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -1187,9 +1187,9 @@
     {
       "width": 540,
       "path": "cv.html",
-      "bodyFont": 17.292,
+      "bodyFont": 18.36,
       "navFont": null,
-      "minMetadata": 14.088,
+      "minMetadata": 16.116,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -1205,9 +1205,9 @@
     {
       "width": 540,
       "path": "contact.html",
-      "bodyFont": 17.292,
+      "bodyFont": 18.36,
       "navFont": null,
-      "minMetadata": 14.088,
+      "minMetadata": 16.116,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [
@@ -1223,9 +1223,9 @@
     {
       "width": 768,
       "path": "index.html",
-      "bodyFont": 17.7024,
-      "navFont": 17.7024,
-      "minMetadata": 14.3616,
+      "bodyFont": 18.816,
+      "navFont": 18.816,
+      "minMetadata": 16.4352,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1235,9 +1235,9 @@
     {
       "width": 768,
       "path": "about.html",
-      "bodyFont": 17.7024,
-      "navFont": 17.7024,
-      "minMetadata": 14.3616,
+      "bodyFont": 18.816,
+      "navFont": 18.816,
+      "minMetadata": 16.4352,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1247,9 +1247,9 @@
     {
       "width": 768,
       "path": "research.html",
-      "bodyFont": 17.7024,
-      "navFont": 17.7024,
-      "minMetadata": 14.3616,
+      "bodyFont": 18.816,
+      "navFont": 18.816,
+      "minMetadata": 16.4352,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1259,9 +1259,9 @@
     {
       "width": 768,
       "path": "publications.html",
-      "bodyFont": 17.7024,
-      "navFont": 17.7024,
-      "minMetadata": 14.3616,
+      "bodyFont": 18.816,
+      "navFont": 18.816,
+      "minMetadata": 16.4352,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1271,9 +1271,9 @@
     {
       "width": 768,
       "path": "journal-papers.html",
-      "bodyFont": 17.7024,
-      "navFont": 17.7024,
-      "minMetadata": 14.3616,
+      "bodyFont": 18.816,
+      "navFont": 18.816,
+      "minMetadata": 16.4352,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1283,9 +1283,9 @@
     {
       "width": 768,
       "path": "conference-papers.html",
-      "bodyFont": 17.7024,
-      "navFont": 17.7024,
-      "minMetadata": 14.3616,
+      "bodyFont": 18.816,
+      "navFont": 18.816,
+      "minMetadata": 16.4352,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1295,9 +1295,9 @@
     {
       "width": 768,
       "path": "translations.html",
-      "bodyFont": 17.7024,
-      "navFont": 17.7024,
-      "minMetadata": 14.3616,
+      "bodyFont": 18.816,
+      "navFont": 18.816,
+      "minMetadata": 16.4352,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1307,9 +1307,9 @@
     {
       "width": 768,
       "path": "certificates.html",
-      "bodyFont": 17.7024,
-      "navFont": 17.7024,
-      "minMetadata": 14.3616,
+      "bodyFont": 18.816,
+      "navFont": 18.816,
+      "minMetadata": 16.4352,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1319,9 +1319,9 @@
     {
       "width": 768,
       "path": "teaching.html",
-      "bodyFont": 17.7024,
-      "navFont": 17.7024,
-      "minMetadata": 14.3616,
+      "bodyFont": 18.816,
+      "navFont": 18.816,
+      "minMetadata": 16.4352,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1331,9 +1331,9 @@
     {
       "width": 768,
       "path": "cv.html",
-      "bodyFont": 17.7024,
-      "navFont": 17.7024,
-      "minMetadata": 14.3616,
+      "bodyFont": 18.816,
+      "navFont": 18.816,
+      "minMetadata": 16.4352,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1343,9 +1343,9 @@
     {
       "width": 768,
       "path": "contact.html",
-      "bodyFont": 17.7024,
-      "navFont": 17.7024,
-      "minMetadata": 14.3616,
+      "bodyFont": 18.816,
+      "navFont": 18.816,
+      "minMetadata": 16.4352,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1355,9 +1355,9 @@
     {
       "width": 820,
       "path": "index.html",
-      "bodyFont": 17.796,
-      "navFont": 17.796,
-      "minMetadata": 14.424,
+      "bodyFont": 18.92,
+      "navFont": 18.92,
+      "minMetadata": 16.508,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1367,9 +1367,9 @@
     {
       "width": 820,
       "path": "about.html",
-      "bodyFont": 17.796,
-      "navFont": 17.796,
-      "minMetadata": 14.424,
+      "bodyFont": 18.92,
+      "navFont": 18.92,
+      "minMetadata": 16.508,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1379,9 +1379,9 @@
     {
       "width": 820,
       "path": "research.html",
-      "bodyFont": 17.796,
-      "navFont": 17.796,
-      "minMetadata": 14.424,
+      "bodyFont": 18.92,
+      "navFont": 18.92,
+      "minMetadata": 16.508,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1391,9 +1391,9 @@
     {
       "width": 820,
       "path": "publications.html",
-      "bodyFont": 17.796,
-      "navFont": 17.796,
-      "minMetadata": 14.424,
+      "bodyFont": 18.92,
+      "navFont": 18.92,
+      "minMetadata": 16.508,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1403,9 +1403,9 @@
     {
       "width": 820,
       "path": "journal-papers.html",
-      "bodyFont": 17.796,
-      "navFont": 17.796,
-      "minMetadata": 14.424,
+      "bodyFont": 18.92,
+      "navFont": 18.92,
+      "minMetadata": 16.508,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1415,9 +1415,9 @@
     {
       "width": 820,
       "path": "conference-papers.html",
-      "bodyFont": 17.796,
-      "navFont": 17.796,
-      "minMetadata": 14.424,
+      "bodyFont": 18.92,
+      "navFont": 18.92,
+      "minMetadata": 16.508,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1427,9 +1427,9 @@
     {
       "width": 820,
       "path": "translations.html",
-      "bodyFont": 17.796,
-      "navFont": 17.796,
-      "minMetadata": 14.424,
+      "bodyFont": 18.92,
+      "navFont": 18.92,
+      "minMetadata": 16.508,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1439,9 +1439,9 @@
     {
       "width": 820,
       "path": "certificates.html",
-      "bodyFont": 17.796,
-      "navFont": 17.796,
-      "minMetadata": 14.424,
+      "bodyFont": 18.92,
+      "navFont": 18.92,
+      "minMetadata": 16.508,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1451,9 +1451,9 @@
     {
       "width": 820,
       "path": "teaching.html",
-      "bodyFont": 17.796,
-      "navFont": 17.796,
-      "minMetadata": 14.424,
+      "bodyFont": 18.92,
+      "navFont": 18.92,
+      "minMetadata": 16.508,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1463,9 +1463,9 @@
     {
       "width": 820,
       "path": "cv.html",
-      "bodyFont": 17.796,
-      "navFont": 17.796,
-      "minMetadata": 14.424,
+      "bodyFont": 18.92,
+      "navFont": 18.92,
+      "minMetadata": 16.508,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1475,9 +1475,9 @@
     {
       "width": 820,
       "path": "contact.html",
-      "bodyFont": 17.796,
-      "navFont": 17.796,
-      "minMetadata": 14.424,
+      "bodyFont": 18.92,
+      "navFont": 18.92,
+      "minMetadata": 16.508,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1487,9 +1487,9 @@
     {
       "width": 1024,
       "path": "index.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.6688,
+      "bodyFont": 19.328,
+      "navFont": 19.328,
+      "minMetadata": 16.7936,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1499,9 +1499,9 @@
     {
       "width": 1024,
       "path": "about.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.6688,
+      "bodyFont": 19.328,
+      "navFont": 19.328,
+      "minMetadata": 16.7936,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1511,9 +1511,9 @@
     {
       "width": 1024,
       "path": "research.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.6688,
+      "bodyFont": 19.328,
+      "navFont": 19.328,
+      "minMetadata": 16.7936,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1523,9 +1523,9 @@
     {
       "width": 1024,
       "path": "publications.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.6688,
+      "bodyFont": 19.328,
+      "navFont": 19.328,
+      "minMetadata": 16.7936,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1535,9 +1535,9 @@
     {
       "width": 1024,
       "path": "journal-papers.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.6688,
+      "bodyFont": 19.328,
+      "navFont": 19.328,
+      "minMetadata": 16.7936,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1547,9 +1547,9 @@
     {
       "width": 1024,
       "path": "conference-papers.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.6688,
+      "bodyFont": 19.328,
+      "navFont": 19.328,
+      "minMetadata": 16.7936,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1559,9 +1559,9 @@
     {
       "width": 1024,
       "path": "translations.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.6688,
+      "bodyFont": 19.328,
+      "navFont": 19.328,
+      "minMetadata": 16.7936,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1571,9 +1571,9 @@
     {
       "width": 1024,
       "path": "certificates.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.6688,
+      "bodyFont": 19.328,
+      "navFont": 19.328,
+      "minMetadata": 16.7936,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1583,9 +1583,9 @@
     {
       "width": 1024,
       "path": "teaching.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.6688,
+      "bodyFont": 19.328,
+      "navFont": 19.328,
+      "minMetadata": 16.7936,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1595,9 +1595,9 @@
     {
       "width": 1024,
       "path": "cv.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.6688,
+      "bodyFont": 19.328,
+      "navFont": 19.328,
+      "minMetadata": 16.7936,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1607,9 +1607,9 @@
     {
       "width": 1024,
       "path": "contact.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.6688,
+      "bodyFont": 19.328,
+      "navFont": 19.328,
+      "minMetadata": 16.7936,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1619,9 +1619,9 @@
     {
       "width": 1280,
       "path": "index.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.976,
+      "bodyFont": 19.84,
+      "navFont": 19.84,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1631,9 +1631,9 @@
     {
       "width": 1280,
       "path": "about.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.976,
+      "bodyFont": 19.84,
+      "navFont": 19.84,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1643,9 +1643,9 @@
     {
       "width": 1280,
       "path": "research.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.976,
+      "bodyFont": 19.84,
+      "navFont": 19.84,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1655,9 +1655,9 @@
     {
       "width": 1280,
       "path": "publications.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.976,
+      "bodyFont": 19.84,
+      "navFont": 19.84,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1667,9 +1667,9 @@
     {
       "width": 1280,
       "path": "journal-papers.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.976,
+      "bodyFont": 19.84,
+      "navFont": 19.84,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1679,9 +1679,9 @@
     {
       "width": 1280,
       "path": "conference-papers.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.976,
+      "bodyFont": 19.84,
+      "navFont": 19.84,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1691,9 +1691,9 @@
     {
       "width": 1280,
       "path": "translations.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.976,
+      "bodyFont": 19.84,
+      "navFont": 19.84,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1703,9 +1703,9 @@
     {
       "width": 1280,
       "path": "certificates.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.976,
+      "bodyFont": 19.84,
+      "navFont": 19.84,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1715,9 +1715,9 @@
     {
       "width": 1280,
       "path": "teaching.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.976,
+      "bodyFont": 19.84,
+      "navFont": 19.84,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1727,9 +1727,9 @@
     {
       "width": 1280,
       "path": "cv.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.976,
+      "bodyFont": 19.84,
+      "navFont": 19.84,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1739,9 +1739,9 @@
     {
       "width": 1280,
       "path": "contact.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 14.976,
+      "bodyFont": 19.84,
+      "navFont": 19.84,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1751,9 +1751,9 @@
     {
       "width": 1440,
       "path": "index.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.168,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1763,9 +1763,9 @@
     {
       "width": 1440,
       "path": "about.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.168,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1775,9 +1775,9 @@
     {
       "width": 1440,
       "path": "research.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.168,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1787,9 +1787,9 @@
     {
       "width": 1440,
       "path": "publications.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.168,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1799,9 +1799,9 @@
     {
       "width": 1440,
       "path": "journal-papers.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.168,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1811,9 +1811,9 @@
     {
       "width": 1440,
       "path": "conference-papers.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.168,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1823,9 +1823,9 @@
     {
       "width": 1440,
       "path": "translations.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.168,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1835,9 +1835,9 @@
     {
       "width": 1440,
       "path": "certificates.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.168,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1847,9 +1847,9 @@
     {
       "width": 1440,
       "path": "teaching.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.168,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1859,9 +1859,9 @@
     {
       "width": 1440,
       "path": "cv.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.168,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1871,9 +1871,9 @@
     {
       "width": 1440,
       "path": "contact.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.168,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1883,9 +1883,9 @@
     {
       "width": 1920,
       "path": "index.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.36,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1895,9 +1895,9 @@
     {
       "width": 1920,
       "path": "about.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.36,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1907,9 +1907,9 @@
     {
       "width": 1920,
       "path": "research.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.36,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1919,9 +1919,9 @@
     {
       "width": 1920,
       "path": "publications.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.36,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1931,9 +1931,9 @@
     {
       "width": 1920,
       "path": "journal-papers.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.36,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1943,9 +1943,9 @@
     {
       "width": 1920,
       "path": "conference-papers.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.36,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1955,9 +1955,9 @@
     {
       "width": 1920,
       "path": "translations.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.36,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1967,9 +1967,9 @@
     {
       "width": 1920,
       "path": "certificates.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.36,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1979,9 +1979,9 @@
     {
       "width": 1920,
       "path": "teaching.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.36,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -1991,9 +1991,9 @@
     {
       "width": 1920,
       "path": "cv.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.36,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],
@@ -2003,9 +2003,9 @@
     {
       "width": 1920,
       "path": "contact.html",
-      "bodyFont": 18.08,
-      "navFont": 18.08,
-      "minMetadata": 15.36,
+      "bodyFont": 20,
+      "navFont": 20,
+      "minMetadata": 17,
       "overflow": 0,
       "clipped": [],
       "touchTargets": [],

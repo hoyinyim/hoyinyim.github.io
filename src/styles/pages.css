@@ -45,7 +45,7 @@
 .home-domain-index .axis-link { align-self: flex-start; margin-top: auto; }
 .home-profile { align-items: start; padding-top: var(--space-9); }
 .home-profile figure { grid-column: 1 / span 6; margin: 0; }
-.home-profile figure img { width: 100%; max-height: 720px; object-fit: cover; filter: saturate(.88); }
+.home-profile figure img { width: 100%; height: auto; max-height: none; object-fit: contain; object-position: center top; filter: saturate(.88); }
 .home-profile figcaption { margin-top: 10px; color: var(--muted); }
 .home-profile > div { grid-column: 8 / span 8; }
 .home-profile h2 { margin: var(--space-3) 0 var(--space-5); font-size: var(--text-section); }
@@ -69,15 +69,21 @@
 .expertise-matrix p { max-width: 34rem; color: var(--muted); }
 .about-education { margin-top: var(--space-9); padding-top: var(--space-5); border-top: 1px solid var(--line-strong); }
 .about-education > header { grid-column: 1 / span 4; }
-.education-ledger { grid-column: 6 / -1; list-style: none; }
-.education-ledger li { display: grid; grid-template-columns: 3fr 8fr; gap: var(--gap); padding: 24px 0 34px; border-top: 1px solid var(--line); }
-.education-ledger li:first-child { border-top: 0; }
-.education-ledger h3 { margin-bottom: var(--space-2); font-size: var(--text-entry); font-weight: 500; }
-.education-ledger p { margin: 0; color: var(--muted); }
+.education-ledger { grid-column: 6 / -1; }
+.education-school { padding: 0 0 34px; border-top: 1px solid var(--line); }
+.education-school + .education-school { margin-top: 10px; }
+.education-school > header { display: grid; grid-template-columns: 74px 1fr; gap: 18px; align-items: center; padding: 24px 0; }
+.education-school > header img { width: 62px; height: 62px; object-fit: contain; object-position: left center; }
+.education-school > header h3 { margin: 0; font-size: var(--text-entry); font-weight: 500; }
+.education-school > header .overline { margin: 0 0 4px; }
+.education-school ol { list-style: none; }
+.education-school li { display: grid; grid-template-columns: 3fr 8fr; gap: var(--gap); padding: 18px 0 0; }
+.education-school h4 { margin: 0 0 var(--space-2); font-size: var(--text-base); font-weight: 550; }
+.education-school p { margin: 0; color: var(--muted); }
 
 .about-opening { align-items: end; padding-top: 44px; }
 .about-opening figure { grid-column: 1 / span 7; margin: 0; }
-.about-opening figure img { width: 100%; max-height: 760px; object-fit: cover; filter: saturate(.88); }
+.about-opening figure img { width: 100%; height: auto; max-height: none; object-fit: contain; object-position: center top; filter: saturate(.88); }
 .about-opening figcaption { margin-top: 10px; color: var(--muted); }
 .about-opening > div { grid-column: 9 / -1; padding-bottom: 36px; }
 .about-opening h1 { margin: var(--space-3) 0 var(--space-5); font-size: var(--text-page); }

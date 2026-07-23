@@ -12,6 +12,7 @@
     "test:performance": "node tests/performance/check.mjs",
     "test:visual": "node tests/visual-responsive/check.mjs",
     "test:glyphs": "node tests/ancient-script-site/check.mjs",
+    "test:glyph-orientation": "node scripts/audit-glyph-orientation.mjs",
     "test:typography": "node tests/typography/check.mjs",
     "trim:typography-evidence": "node scripts/trim-optical-evidence.mjs",
     "record:topology": "node tests/record-topology.mjs",

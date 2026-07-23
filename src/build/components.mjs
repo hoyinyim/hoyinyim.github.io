@@ -12,12 +12,12 @@ export function header(routes, current) {
     <div class="header-actions">
       <button class="header-control search-trigger" type="button" data-search-open aria-haspopup="dialog">搜尋</button>
       <button class="header-control theme-control" type="button" data-theme-toggle aria-label="目前為淺色模式；切換為深色模式" aria-pressed="false"><span data-theme-label>淺色</span></button>
-      <button class="header-control menu-trigger" type="button" data-menu-open aria-haspopup="dialog" aria-expanded="false" aria-controls="site-menu"><span>選單</span><span class="menu-trigger-glyph" aria-hidden="true"><img src="images/ancient-script/study-oracle.svg" width="300" height="300" alt=""><i></i><i></i><i></i></span></button>
+      <button class="header-control menu-trigger" type="button" data-menu-open aria-haspopup="dialog" aria-expanded="false" aria-controls="site-menu"><span>選單</span><span class="menu-trigger-glyph" aria-hidden="true"><i></i><i></i><i></i></span></button>
     </div>
   </header>`;
 }
 
-export function menu(routes, profile, current, menuGlyphs = []) {
+export function menu(routes, profile, current, routeGlyphMap = {}, siteGlyphs = []) {
   const byId = Object.fromEntries(routes.map((route) => [route.id, route]));
   const items = [
     ['about', '關於', 'about'],
@@ -28,15 +28,14 @@ export function menu(routes, profile, current, menuGlyphs = []) {
     ['contact', '聯絡', 'contact']
   ];
   const currentMenuId = current === 'about' ? 'about' : current === 'research' ? 'research' : ['publications', 'journal', 'conference', 'translations', 'certificates'].includes(current) ? 'publications' : ['teaching', 'cv', 'contact'].includes(current) ? current : 'research';
-  const verifiedGlyphs = menuGlyphs.filter((glyph) => glyph.verified === true);
-  const glyphById = Object.fromEntries(verifiedGlyphs.map((glyph) => [glyph.menuId, glyph]));
+  const glyphById = Object.fromEntries(siteGlyphs.filter((glyph) => glyph.verified && glyph.semanticVerified && glyph.orientationVerified && glyph.approvedForUse).map((glyph) => [glyph.id, glyph]));
   const primaryLinks = items.map(([menuId, label, routeId], index) => {
     const route = byId[routeId];
-    const glyph = glyphById[menuId];
+    const glyph = glyphById[routeGlyphMap[route.href]];
     const isCurrent = currentMenuId === menuId && current !== 'home' && current !== 'not-found';
     return `<li><a href="${route.href}" data-menu-target="${menuId}"${isCurrent ? ' aria-current="page"' : ''}><span class="menu-item-number">0${index + 1}</span><span class="menu-item-label">${label}</span>${glyph ? `<img src="${glyph.assetPath}" width="300" height="300" alt="" aria-hidden="true">` : ''}</a></li>`;
   }).join('');
-  const glyphStage = verifiedGlyphs.map((glyph) => `<img src="${glyph.assetPath}" width="300" height="300" alt="" aria-hidden="true" data-menu-glyph="${glyph.menuId}"${glyph.menuId === currentMenuId ? ' data-active="true"' : ''}>`).join('');
+  const glyphStage = items.map(([, , routeId]) => byId[routeId]).map((route) => ({ menuId: route.id, glyph: glyphById[routeGlyphMap[route.href]] })).filter(({ glyph }) => glyph).map(({ menuId, glyph }) => `<img src="${glyph.assetPath}" width="300" height="300" alt="" aria-hidden="true" data-menu-glyph="${menuId}"${menuId === currentMenuId ? ' data-active="true"' : ''}>`).join('');
   return `<noscript><nav class="noscript-menu" aria-label="網站導覽"><a href="about.html">關於</a><a href="research.html">研究</a><a href="journal-papers.html">著作</a><a href="teaching.html">教學</a><a href="cv.html">履歷</a><a href="contact.html">聯絡</a></nav></noscript>
   <dialog class="menu-dialog" id="site-menu" data-menu-dialog data-initial-glyph="${currentMenuId}" aria-labelledby="menu-title">
     <div class="menu-shell">
@@ -63,7 +62,7 @@ export function searchDialog() {
 export function footer(routes, profile, siteGlyphs = []) {
   const links = routes.filter((route) => route.id !== 'home').map((route) => `<a href="${route.href}">${escapeHtml(route.labelZh)}</a>`).join('');
   return `<footer class="site-footer">
-    <div class="footer-identity"><div class="footer-glyphs">${miniGlyph(siteGlyphs, 'study-oracle', 'footer-research')}${miniGlyph(siteGlyphs, 'speech-oracle', 'footer-service')}${miniGlyph(siteGlyphs, 'teach-oracle', 'footer-teaching')}</div><strong>${escapeHtml(profile.nameZh)}</strong><span>${escapeHtml(profile.nameEn)}</span><p>${escapeHtml(profile.roleZh)}</p></div>
+    <div class="footer-identity"><div class="footer-glyphs">${miniGlyph(siteGlyphs, 'chu-study', 'footer-research')}${miniGlyph(siteGlyphs, 'chu-speech', 'footer-service')}${miniGlyph(siteGlyphs, 'chu-teaching', 'footer-teaching')}</div><strong>${escapeHtml(profile.nameZh)}</strong><span>${escapeHtml(profile.nameEn)}</span><p>${escapeHtml(profile.roleZh)}</p></div>
     <nav aria-label="頁尾導覽">${links}</nav>
     <div class="footer-contact"><a href="mailto:${escapeHtml(profile.email)}">${escapeHtml(profile.email)}</a><button type="button" data-back-top>返回頁首 ↑</button></div>
     <p class="copyright">© <span data-year></span> YIM HO YIN</p>
@@ -75,7 +74,7 @@ export function breadcrumb(route) {
   return `<nav class="breadcrumb" aria-label="麵包屑"><a href="index.html">首頁</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(route.labelZh)}</span></nav>`;
 }
 
-export function layout({ route, routes, profile, menuGlyphs, siteGlyphs, title, description, body, jsonLd = null, bodyClass = '', buildCommit = 'local' }) {
+export function layout({ route, routes, profile, routeGlyphMap, siteGlyphs, title, description, body, jsonLd = null, bodyClass = '', buildCommit = 'local' }) {
   const canonical = `${SITE_URL}/${route.href}`;
   const image = `${SITE_URL}/images/og-default.png`;
   const schemas = Array.isArray(jsonLd) ? jsonLd : (jsonLd ? [jsonLd] : []);
@@ -113,9 +112,9 @@ export function layout({ route, routes, profile, menuGlyphs, siteGlyphs, title, 
   <a class="skip-link" href="#main-content">跳至主要內容</a>
   <div class="scroll-progress" aria-hidden="true"><i data-scroll-progress></i></div>
   ${header(routes, route.id)}
-  ${menu(routes, profile, route.id, menuGlyphs)}
+  ${menu(routes, profile, route.id, routeGlyphMap, siteGlyphs)}
   ${searchDialog()}
-  <div class="glyph-transition" data-glyph-transition aria-hidden="true">${miniGlyph(siteGlyphs, 'study-oracle', 'transition-mark')}</div>
+  <div class="glyph-transition" data-glyph-transition aria-hidden="true">${miniGlyph(siteGlyphs, routeGlyphMap[route.href] || 'chu-study', 'transition-mark')}</div>
   <main id="main-content" tabindex="-1">${breadcrumb(route)}${body}</main>
   ${footer(routes, profile, siteGlyphs)}
   <div class="live-region" data-live-region aria-live="polite" aria-atomic="true"></div>

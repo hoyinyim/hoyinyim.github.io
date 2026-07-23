@@ -77,7 +77,9 @@
   .about-education { margin-top: 92px; }
   .about-education > header, .education-ledger { grid-column: 1 / -1; }
   .education-ledger { margin-top: 26px; }
-  .education-ledger li { grid-template-columns: 1fr; gap: 7px; }
+  .education-school > header { grid-template-columns: 54px 1fr; gap: 14px; }
+  .education-school > header img { width: 48px; height: 48px; }
+  .education-school li { grid-template-columns: 1fr; gap: 7px; }
   .about-opening { padding-top: 28px; }
   .about-opening figure, .about-opening > div { grid-column: 1 / -1; }
   .about-opening > div { padding: 32px 0 0; }

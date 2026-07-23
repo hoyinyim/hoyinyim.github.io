@@ -31,14 +31,14 @@ try {
     check(await trigger.getAttribute('aria-expanded') === 'true', '選單按鈕未宣告展開狀態', { width });
     check(await page.locator('body').evaluate((node) => node.classList.contains('dialog-open') && getComputedStyle(node).overflow === 'hidden'), '選單開啟時背景未鎖定', { width });
     check(JSON.stringify(await page.locator('[data-menu-target] .menu-item-label').allTextContents()) === JSON.stringify(expectedLabels), '主要選單不是六項繁體中文導覽', { width });
-    check(await page.locator('[data-menu-glyph]').count() === 6, '古文字主圖不是六個已核定資產', { width });
-    check(await page.locator('[data-menu-glyph][data-active="true"]:visible').count() === 1, '選單開啟後沒有單一有效古文字主圖', { width });
+    check(await page.locator('[data-menu-glyph]').count() === 6, '楚系文字主圖不是六個已核定資產', { width });
+    check(await page.locator('[data-menu-glyph][data-active="true"]:visible').count() === 1, '選單開啟後沒有單一有效楚系文字主圖', { width });
     check(await dialog.evaluate((node) => node.scrollWidth <= innerWidth + 1), '選單水平溢出', { width });
     check(await dialog.locator('.dialog-close').isVisible(), '關閉按鈕不可見', { width });
 
     const publications = page.locator('[data-menu-target="publications"]');
     await publications.focus();
-    check(await dialog.getAttribute('data-active-glyph') === 'publications', '鍵盤聚焦著作後古文字未切換', { width });
+    check(await dialog.getAttribute('data-active-glyph') === 'publications', '鍵盤聚焦著作後楚系文字未切換', { width });
     check(await page.locator('[data-menu-glyph="publications"][data-active="true"]').count() === 1, '著作未對應「冊」字形', { width });
 
     await page.keyboard.press('Escape');
@@ -72,10 +72,10 @@ try {
   await page.goBack({ waitUntil: 'networkidle' });
   check(page.url().endsWith('/index.html'), '選單導航後 Browser Back 未回首頁');
 
-  await page.locator('[data-menu-glyph="research"]').evaluate((node) => { node.src = 'images/ancient-script/missing-test.svg'; });
+  await page.locator('[data-menu-glyph="research"]').evaluate((node) => { node.src = 'images/chu-script/missing-test.png'; });
   await page.locator('[data-menu-open]').click();
   await page.locator('[data-menu-glyph="research"]').waitFor({ state: 'hidden' });
-  check(await page.locator('[data-menu-target]').count() === 6 && await page.locator('[data-menu-dialog]').evaluate((node) => node.open), '古文字載入失敗導致選單失效');
+  check(await page.locator('[data-menu-target]').count() === 6 && await page.locator('[data-menu-dialog]').evaluate((node) => node.open), '楚系文字載入失敗導致選單失效');
   await page.keyboard.press('Escape');
   await page.waitForFunction(() => !document.querySelector('[data-menu-dialog]').open);
   await context.close();
@@ -94,7 +94,7 @@ try {
   const darkPage = await darkContext.newPage();
   await darkPage.goto(`${baseUrl}/index.html`, { waitUntil: 'networkidle' });
   await darkPage.locator('[data-menu-open]').click();
-  check(await darkPage.locator('[data-menu-glyph][data-active="true"]').isVisible(), '深色模式古文字不可見');
+  check(await darkPage.locator('[data-menu-glyph][data-active="true"]').isVisible(), '深色模式楚系文字不可見');
   await darkContext.close();
 
   const contrastContext = await browser.newContext({ locale: 'zh-TW', viewport: { width: 1440, height: 900 }, forcedColors: 'active' });
@@ -115,10 +115,10 @@ try {
 }
 
 const report = { generatedAt: new Date().toISOString(), baseUrl, widths, checks, passed: errors.length === 0, errors };
-await mkdir(resolve(root, 'docs/qa/ancient-script-menu'), { recursive: true });
-await writeFile(resolve(root, 'docs/qa/ancient-script-menu/menu-language-results.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
+await mkdir(resolve(root, 'docs/qa/chu-script-menu'), { recursive: true });
+await writeFile(resolve(root, 'docs/qa/chu-script-menu/menu-language-results.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
 if (errors.length) {
-  console.error(`古文字選單／語言測試失敗：${errors.length} 項／${checks} 項。`);
+  console.error(`楚系文字選單／語言測試失敗：${errors.length} 項／${checks} 項。`);
   errors.forEach((error) => console.error(`- ${JSON.stringify(error)}`));
   process.exitCode = 1;
-} else console.log(`古文字選單／語言測試通過：${checks} 項，涵蓋六種寬度、200％ Zoom、繁體中文、字形失敗、無 JavaScript、Reduced Motion、深色與高對比模式。`);
+} else console.log(`楚系文字選單／語言測試通過：${checks} 項，涵蓋六種寬度、200％ Zoom、繁體中文、字形失敗、無 JavaScript、Reduced Motion、深色與高對比模式。`);

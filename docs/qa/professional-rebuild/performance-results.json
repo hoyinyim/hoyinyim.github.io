@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-07-21T07:24:28.642Z",
-  "url": "http://127.0.0.1:4174/index.html",
+  "generatedAt": "2026-07-23T14:12:56.365Z",
+  "url": "http://127.0.0.1:4173/index.html",
   "scores": {
-    "performance": 99,
+    "performance": 95,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 100
   },
   "metrics": {
-    "lcpMs": 1801.6947,
+    "lcpMs": 2326.9093,
     "cls": 0,
-    "tbtMs": 0,
-    "speedIndexMs": 1201.6947
+    "tbtMs": 194,
+    "speedIndexMs": 1351.9093
   },
   "assets": {
-    "javascriptBytes": 13740,
-    "cssBytes": 59982,
-    "deployedImageFiles": 10,
-    "deployedImageBytes": 1627593
+    "javascriptBytes": 13603,
+    "cssBytes": 59689,
+    "deployedImageFiles": 20,
+    "deployedImageBytes": 1667570
   },
   "passed": true,
   "errors": []

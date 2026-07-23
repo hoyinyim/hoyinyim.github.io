@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-07-23T14:14:34.571Z",
+  "baseUrl": "http://127.0.0.1:4173",
+  "pages": {
+    "index.html": "chu-study",
+    "about.html": "chu-person",
+    "research.html": "chu-study",
+    "publications.html": "chu-register",
+    "journal-papers.html": "chu-writing",
+    "conference-papers.html": "chu-meeting",
+    "translations.html": "chu-translation",
+    "certificates.html": "chu-notice",
+    "teaching.html": "chu-teaching",
+    "cv.html": "chu-cv",
+    "contact.html": "chu-contact"
+  },
+  "widths": [
+    320,
+    360,
+    390,
+    430,
+    768,
+    1024,
+    1440,
+    1920
+  ],
+  "checks": 705,
+  "passed": true,
+  "errors": []
+}

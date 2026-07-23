@@ -8,5 +8,6 @@ p { text-wrap: pretty; }
 .publication-venue, .publication-meta, time, .status-list, .original-title, .cv-list small { font-family: var(--font-latin), var(--font-zh-ui); font-size: var(--text-sm); font-weight: 500; line-height: 1.52; letter-spacing: .015em; }
 .overline, .section-index > p { color: var(--accent); font-weight: 600; }
 .doi, .url, .email, .contact-email, a[href^="mailto:"], .footer-contact a { overflow-wrap: anywhere; word-break: break-word; font-family: var(--font-mono); }
-.axis-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: var(--space-3); border-bottom: 1px solid currentColor; font-weight: 600; text-decoration: none; }
+.axis-link { display: inline-flex; align-items: center; justify-content: space-between; gap: .85rem; min-height: 44px; margin-top: var(--space-3); border-bottom: 1px solid currentColor; font-size: 1rem; font-weight: 600; text-decoration: none; }
+.axis-link--primary { padding: .2rem .1rem .3rem; border-top: 1px solid currentColor; }
 .axis-link:hover { color: var(--accent); }

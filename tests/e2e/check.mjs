@@ -109,9 +109,13 @@ try {
   check((await context.pages())[0] === page, '複製引用意外開啟頁面');
 
   await page.goto(`${baseUrl}/about.html`, { waitUntil: 'networkidle' });
-  const educationRows = page.locator('.about-education .education-ledger > li');
-  check(await educationRows.count() === 4, '教育時間線節點數錯誤');
-  check(await educationRows.nth(3).isVisible(), '教育時間線未完整展開');
+  const educationSchools = page.locator('.about-education .education-school');
+  const educationRows = page.locator('.about-education .education-school > ol > li');
+  const educationLogos = page.locator('.about-education .education-school > header > img');
+  check(await educationSchools.count() === 2, '教育背景校級分組數錯誤');
+  check(await educationRows.count() === 4, '教育背景學位與學程紀錄數錯誤');
+  check(await educationLogos.count() === 2, '教育背景官方校徽數錯誤');
+  check(await educationLogos.evaluateAll((logos) => logos.every((logo) => logo.getAttribute('src')?.startsWith('images/education-source/') && logo.naturalWidth > 0)), '教育背景官方校徽未正確載入');
 
   await page.goto(`${baseUrl}/certificates.html`, { waitUntil: 'networkidle' });
   check(await page.locator('.credential-ledger > ol > li').count() === 5, '證照檔案筆數錯誤');

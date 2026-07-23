@@ -1,30 +1,42 @@
 [
   {
     "id": "education-01",
+    "schoolId": "ncku",
+    "schoolName": "國立成功大學",
     "period": "2022－迄今",
     "degree": "博士候選人｜PhD Candidate",
     "institution": "國立成功大學 文學院 中國文學系｜中國思想專攻",
-    "logo": "images/Bprofile.png"
+    "logo": "images/education-source/ncku-nav-official.png",
+    "logoAlt": "國立成功大學官方識別標誌"
   },
   {
     "id": "education-02",
+    "schoolId": "ncku",
+    "schoolName": "國立成功大學",
     "period": "2020－2022",
     "degree": "文學碩士｜M.A.",
     "institution": "國立成功大學 文學院 中國文學系",
-    "logo": "images/Bprofile.png"
+    "logo": "images/education-source/ncku-nav-official.png",
+    "logoAlt": "國立成功大學官方識別標誌"
   },
   {
     "id": "education-03",
+    "schoolId": "ncku",
+    "schoolName": "國立成功大學",
     "period": "2020/09－2022/06",
     "degree": "應用哲學學程｜Interdisciplinary Program in Applied Philosophy",
     "institution": "國立成功大學跨領域學分學程",
-    "logo": "images/Bprofile.png"
+    "logo": "images/education-source/ncku-nav-official.png",
+    "logoAlt": "國立成功大學官方識別標誌"
   },
   {
     "id": "education-04",
+    "schoolId": "utaipei",
+    "schoolName": "臺北市立大學",
     "period": "2016－2020",
     "degree": "文學學士｜B.A.",
     "institution": "臺北市立大學 人文藝術學院 中國語文學系",
-    "logo": null
+    "logo": "images/education-source/official-4.png",
+    "logoAlt": "臺北市立大學官方校徽與中英文校名"
   }
 ]

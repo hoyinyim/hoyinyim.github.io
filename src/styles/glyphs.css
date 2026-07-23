@@ -1,5 +1,5 @@
 .site-glyph { display: block; color: var(--glyph-color); pointer-events: none; user-select: none; }
-.site-glyph img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.site-glyph img { display: block; width: 100%; height: 100%; object-fit: contain; transform: none !important; }
 :root[data-theme="dark"] .site-glyph img { filter: invert(1) brightness(.84); }
 .site-glyph-axis { position: absolute; inset: 50% 8% auto; height: var(--glyph-line-width); background: currentColor; opacity: .34; transform: scaleX(0); transform-origin: left; animation: glyph-axis var(--glyph-motion-duration) var(--ease) 180ms forwards; }
 .page-glyph { position: absolute; z-index: 0; width: var(--glyph-scale-large); aspect-ratio: 1; opacity: var(--glyph-muted-opacity); animation: glyph-arrival var(--glyph-motion-slow) var(--ease) both; }
@@ -12,34 +12,34 @@
 .home-profile, .about-education, .research-focus-list article, .research-matrix-section, .conference-published, .conference-ledger, .translation-feature, .latest-writing, .credential-ledger, .award-timeline, .teaching-primary, .practice-ledger { position: relative; overflow: clip; isolation: isolate; }
 .home-intro > :not(.page-glyph), .about-opening > :not(.page-glyph), .research-opening > :not(.page-glyph), .publications-opening > :not(.page-glyph), .journal-opening > :not(.page-glyph), .conference-opening > :not(.page-glyph), .translations-opening > :not(.page-glyph), .credentials-opening > :not(.page-glyph), .teaching-opening > :not(.page-glyph), .cv-header > :not(.page-glyph), .contact-scene > :not(.page-glyph) { position: relative; z-index: 1; }
 
-.page-glyph--home { top: 4%; right: -2%; transform: rotate(-8deg); }
-.page-glyph--about { right: 2%; bottom: -10%; width: clamp(17rem, 39vw, 42rem); transform: rotate(5deg); }
-.page-glyph--research { right: -6%; bottom: -18%; transform: rotate(-4deg); }
-.page-glyph--publications { top: -8%; left: -5%; width: clamp(18rem, 42vw, 46rem); transform: rotate(2deg); }
-.page-glyph--journal { top: -4%; right: 1%; transform: rotate(90deg); }
-.page-glyph--conference { top: 0; right: -2%; transform: rotate(-6deg); }
-.page-glyph--translations { top: -12%; right: 3%; transform: rotate(8deg); }
-.page-glyph--credentials { right: 3%; bottom: -20%; transform: rotate(45deg); }
-.page-glyph--teaching { top: -3%; right: -1%; transform: rotate(-5deg); }
-.page-glyph--cv { top: -44%; right: 4%; width: clamp(12rem, 23vw, 25rem); transform: rotate(45deg); opacity: .07; }
-.page-glyph--contact { right: 5%; bottom: -11%; width: clamp(18rem, 42vw, 45rem); transform: rotate(7deg); }
+.page-glyph--home { top: 4%; right: -2%; }
+.page-glyph--about { right: 2%; bottom: -10%; width: clamp(17rem, 39vw, 42rem); }
+.page-glyph--research { right: -6%; bottom: -18%; }
+.page-glyph--publications { top: -8%; left: -5%; width: clamp(18rem, 42vw, 46rem); }
+.page-glyph--journal { top: -4%; right: 1%; }
+.page-glyph--conference { top: 0; right: -2%; }
+.page-glyph--translations { top: -12%; right: 3%; }
+.page-glyph--credentials { right: 3%; bottom: -20%; }
+.page-glyph--teaching { top: -3%; right: -1%; }
+.page-glyph--cv { top: -44%; right: 4%; width: clamp(12rem, 23vw, 25rem); opacity: .07; }
+.page-glyph--contact { right: 5%; bottom: -11%; width: clamp(18rem, 42vw, 45rem); }
 
 .domain-link .mini-glyph { position: absolute; z-index: 1; width: clamp(2.5rem, 5vw, 5.5rem); height: auto; aspect-ratio: 1; opacity: .12; }
-.domain-research .mini-glyph { top: 13%; right: 18%; transform: rotate(-8deg); }
-.domain-service .mini-glyph { top: 22%; left: 17%; transform: rotate(8deg); }
-.domain-teaching .mini-glyph { top: 18%; right: 17%; transform: rotate(-5deg); }
+.domain-research .mini-glyph { top: 13%; right: 18%; }
+.domain-service .mini-glyph { top: 22%; left: 17%; }
+.domain-teaching .mini-glyph { top: 18%; right: 17%; }
 .domain-link:hover .mini-glyph, .domain-link:focus-visible .mini-glyph { opacity: .42; transform: translateY(-2px); }
 .home-domain-index header { position: relative; }
 .home-domain-index .mini-glyph { position: absolute; top: 0; right: 0; width: 3rem; height: 3rem; opacity: .14; }
 .section-glyph--home-profile { top: 12%; left: 41%; }
-.section-glyph--education { top: 25px; left: 24%; transform: rotate(45deg); }
+.section-glyph--education { top: 25px; left: 24%; }
 .about-education::after, .conference-ledger::after, .award-timeline::after { position: absolute; z-index: 0; top: 7rem; bottom: 0; left: calc(var(--gutter) + 12.5%); width: 1px; background: var(--line); content: ""; }
 
 .research-focus-list .section-glyph { top: 12%; right: 8%; width: clamp(7rem, 16vw, 15rem); }
-.research-focus-list .focus-2 .section-glyph { right: auto; left: 9%; transform: rotate(90deg); }
-.research-focus-list .focus-3 .section-glyph { top: auto; right: 12%; bottom: -8%; transform: rotate(-8deg); }
+.research-focus-list .focus-2 .section-glyph { right: auto; left: 9%; }
+.research-focus-list .focus-3 .section-glyph { top: auto; right: 12%; bottom: -8%; }
 .research-focus-list article:hover .section-glyph, .research-focus-list article:focus-within .section-glyph { opacity: .24; transform: translateY(0); }
-.section-glyph--research-matrix { top: 5.5rem; right: var(--gutter); transform: rotate(90deg); }
+.section-glyph--research-matrix { top: 5.5rem; right: var(--gutter); }
 
 .publications-opening { min-height: 72vh; align-content: end; padding-block: 80px 60px; border-bottom: 1px solid var(--line-strong); }
 .publications-opening > .overline { grid-column: 6 / span 5; }
@@ -58,26 +58,26 @@
 .archive-toolbar > p:first-child { display: flex; align-items: center; gap: 8px; }
 .archive-toolbar .mini-glyph { flex: 0 0 auto; }
 .publication-year > header { z-index: 1; }
-.publication-year .mini-glyph { width: 2.6rem; height: 2.6rem; margin-bottom: 10px; opacity: .14; transform: rotate(90deg); }
+.publication-year .mini-glyph { width: 2.6rem; height: 2.6rem; margin-bottom: 10px; opacity: .14; }
 .publication-entry article { position: relative; }
 .publication-entry article::after { position: absolute; inset: auto 0 0; height: 1px; background: var(--accent); content: ""; transform: scaleX(0); transform-origin: left; transition: transform var(--glyph-motion-duration) var(--ease); }
 .publication-entry:hover article::after, .publication-entry:focus-within article::after { transform: scaleX(1); }
 
-.section-glyph--conference-published { top: 5rem; right: var(--gutter); transform: rotate(90deg); }
-.section-glyph--conference-timeline { top: 7rem; left: 1%; transform: rotate(45deg); }
+.section-glyph--conference-published { top: 5rem; right: var(--gutter); }
+.section-glyph--conference-timeline { top: 7rem; left: 1%; }
 .conference-year { position: relative; }
-.conference-year .mini-glyph { position: absolute; top: 48px; left: .2rem; width: 2.5rem; height: 2.5rem; opacity: .12; transform: rotate(45deg); }
+.conference-year .mini-glyph { position: absolute; top: 48px; left: .2rem; width: 2.5rem; height: 2.5rem; opacity: .12; }
 .conference-year > h3 { padding-top: 3.2rem; }
-.section-glyph--translation-book { top: 4%; left: 34%; transform: rotate(90deg); }
-.section-glyph--public-writing { top: 5rem; right: var(--gutter); transform: rotate(8deg); }
-.section-glyph--credentials-record { top: 5rem; right: var(--gutter); transform: rotate(90deg); }
-.section-glyph--recognition-timeline { top: 7rem; left: 3%; transform: rotate(45deg); }
-.section-glyph--teaching-study { top: 1rem; left: 48%; transform: rotate(-7deg); }
-.section-glyph--practice-path { top: 5rem; right: var(--gutter); transform: rotate(45deg); }
-.cv-index .mini-glyph { width: 3rem; height: 3rem; margin-bottom: 18px; opacity: .15; transform: rotate(45deg); }
+.section-glyph--translation-book { top: 4%; left: 34%; }
+.section-glyph--public-writing { top: 5rem; right: var(--gutter); }
+.section-glyph--credentials-record { top: 5rem; right: var(--gutter); }
+.section-glyph--recognition-timeline { top: 7rem; left: 3%; }
+.section-glyph--teaching-study { top: 1rem; left: 48%; }
+.section-glyph--practice-path { top: 5rem; right: var(--gutter); }
+.cv-index .mini-glyph { width: 3rem; height: 3rem; margin-bottom: 18px; opacity: .15; }
 .contact-email { position: relative; }
 .contact-email::before { position: absolute; right: 100%; bottom: -10px; width: 25vw; height: 1px; background: var(--accent); content: ""; transform-origin: right; }
-.contact-scene.is-copy-confirmed .page-glyph--contact { opacity: .22; transform: translateX(-3px) rotate(7deg); transition: opacity 180ms var(--ease), transform 180ms var(--ease); }
+.contact-scene.is-copy-confirmed .page-glyph--contact { opacity: .22; transform: translateX(-3px); transition: opacity 180ms var(--ease), transform 180ms var(--ease); }
 
 .footer-glyphs { display: flex; gap: 8px; margin-bottom: 22px; }
 .footer-glyphs .mini-glyph { width: 1.6rem; height: 1.6rem; opacity: .64; }
