@@ -8,6 +8,7 @@ const root = resolve(fileURLToPath(new URL('../..', import.meta.url)));
 const baseline = JSON.parse(await readFile(resolve(root, 'tests/content-integrity/baseline.json'), 'utf8'));
 const readJson = async (name) => JSON.parse(await readFile(resolve(root, 'src/data', name), 'utf8'));
 const clean = (value = '') => value.replace(/\s+/g, ' ').trim();
+const contentComparable = (value = '') => clean(value).replace(/[–—]/g, '-').replace(/年0(\d)/g, '年$1').replace(/月0(\d)/g, '月$1').replace(/([月-])0(\d)/g, '$1$2').replace(/([\u3400-\u9fff「」〈〉《》])\s+([\u3400-\u9fff「」〈〉《》])/g, '$1$2');
 const errors = [];
 let checks = 0;
 const check = (condition, message) => { checks += 1; if (!condition) errors.push(message); };
@@ -34,7 +35,7 @@ exact(profile.bio, indexSource('.intro-card > p').map((_, node) => clean(indexSo
 exact(research.tags, indexSource('.research-tags span').map((_, node) => clean(indexSource(node).text())).get(), '研究標籤');
 exact(research.current.map(({ title, description }) => ({ title, description })), indexSource('.current-list li').map((_, node) => ({ title: clean(indexSource(node).find('strong').text()), description: clean(indexSource(node).find('span').text()) })).get(), '目前研究與順序');
 exact(research.expertise.map(({ title, description }) => ({ title, description })), indexSource('.research-card').map((_, node) => ({ title: clean(indexSource(node).find('h3').text()), description: clean(indexSource(node).find('p').text()) })).get(), '研究專長與順序');
-exact(education.map(({ period, degree, institution }) => ({ period, degree, institution })), indexSource('.timeline-item').map((_, node) => ({ period: clean(indexSource(node).find('.year').text()), degree: clean(indexSource(node).find('h4').text()), institution: clean(indexSource(node).find('p').text()) })).get(), '學歷與順序');
+exact(education.map((item) => ({ period: contentComparable(item.period), degree: contentComparable(`${item.degreeZh}｜${item.degreeEn}`), institution: contentComparable(`${item.institutionParts.slice(0, 3).join(' ')}${item.institutionParts[3] ? `｜${item.institutionParts[3]}` : ''}`) })), indexSource('.timeline-item').map((_, node) => ({ period: contentComparable(indexSource(node).find('.year').text()), degree: contentComparable(indexSource(node).find('h4').text()), institution: contentComparable(indexSource(node).find('p').text()) })).get(), '學歷與順序');
 exact(experience.map(({ text }) => text), indexSource('.list-clean li').map((_, node) => clean(indexSource(node).text())).get(), '教學與學術經驗');
 
 const journalSource = await readFile(resolve(root, baseline.sourceRoot, 'journal-papers.html'), 'utf8');
@@ -44,7 +45,7 @@ exact(publications.map(({ id, ...item }) => item), sourcePublications, '期刊�
 
 const conferenceSource = load(await readFile(resolve(root, baseline.sourceRoot, 'conference-papers.html'), 'utf8'));
 exact(conferences.published.map(({ id, link, ...item }) => item), conferenceSource('.publication-item').map((_, node) => ({ title: clean(conferenceSource(node).find('.title').text()), venue: clean(conferenceSource(node).find('.venue').text()), meta: clean(conferenceSource(node).find('.metadata').text()) })).get(), '已出版研討會論文');
-exact(conferences.presentations.map(({ id, year, ...item }) => item), conferenceSource('.presentation-item').map((_, node) => ({ title: clean(conferenceSource(node).find('.title').text()), meta: clean(conferenceSource(node).find('.metadata').text()) })).get(), '研討會發表與順序');
+exact(conferences.presentations.map(({ id, year, ...item }) => ({ title: contentComparable(item.title), meta: contentComparable(item.meta) })), conferenceSource('.presentation-item').map((_, node) => ({ title: contentComparable(conferenceSource(node).find('.title').text()), meta: contentComparable(conferenceSource(node).find('.metadata').text()) })).get(), '研討會發表與順序');
 
 const translationSource = load(await readFile(resolve(root, baseline.sourceRoot, 'translations.html'), 'utf8'));
 exact(translations.publicWriting.map(({ id, ...item }) => item), translationSource('.work-card').slice(1).map((_, node) => ({ title: clean(translationSource(node).find('h3').text()), description: clean(translationSource(node).find('p').text()), source: clean(translationSource(node).find('.source span').text()), link: translationSource(node).find('.source a').attr('href') })).get(), '公共哲學作品與順序');

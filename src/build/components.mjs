@@ -2,6 +2,10 @@ import { escapeHtml } from './html.mjs';
 import { miniGlyph } from './glyphs.mjs';
 
 const SITE_URL = 'https://hoyinyim.github.io';
+const emailMarkup = (email) => {
+  const [local, domain] = email.split('@');
+  return `<span>${escapeHtml(local)}@</span><wbr><span>${escapeHtml(domain)}</span>`;
+};
 
 export function header(routes, current) {
   const labels = { research: '研究', publications: '著作', about: '關於', cv: '履歷' };
@@ -44,7 +48,7 @@ export function menu(routes, profile, current, routeGlyphMap = {}, siteGlyphs = 
         <figure class="menu-glyph-stage" aria-hidden="true"><span class="menu-glyph-axis"></span>${glyphStage}</figure>
         <nav class="menu-groups" aria-label="完整網站導覽"><ol>${primaryLinks}</ol><div class="menu-subnav" role="group" aria-label="著作分類"><a href="journal-papers.html"${current === 'journal' ? ' aria-current="page"' : ''}>期刊論文</a><a href="conference-papers.html"${current === 'conference' ? ' aria-current="page"' : ''}>研討會論文</a><a href="translations.html"${current === 'translations' ? ' aria-current="page"' : ''}>譯著與公共寫作</a><a href="certificates.html"${current === 'certificates' ? ' aria-current="page"' : ''}>證照與獎項</a></div></nav>
       </div>
-      <div class="menu-utility"><button type="button" data-search-from-menu>搜尋全站</button><button type="button" data-theme-toggle>切換為<span data-theme-action>深色</span>模式</button><a href="mailto:${escapeHtml(profile.email)}">${escapeHtml(profile.email)}</a></div>
+      <div class="menu-utility"><button type="button" data-search-from-menu>搜尋全站</button><button type="button" data-theme-toggle>切換為<span data-theme-action>深色</span>模式</button><a href="mailto:${escapeHtml(profile.email)}">${emailMarkup(profile.email)}</a></div>
     </div>
   </dialog>`;
 }
@@ -64,7 +68,7 @@ export function footer(routes, profile, siteGlyphs = []) {
   return `<footer class="site-footer">
     <div class="footer-identity"><div class="footer-glyphs">${miniGlyph(siteGlyphs, 'chu-study', 'footer-research')}${miniGlyph(siteGlyphs, 'chu-speech', 'footer-service')}${miniGlyph(siteGlyphs, 'chu-teaching', 'footer-teaching')}</div><strong>${escapeHtml(profile.nameZh)}</strong><span>${escapeHtml(profile.nameEn)}</span><p>${escapeHtml(profile.roleZh)}</p></div>
     <nav aria-label="頁尾導覽">${links}</nav>
-    <div class="footer-contact"><a href="mailto:${escapeHtml(profile.email)}">${escapeHtml(profile.email)}</a><button type="button" data-back-top>返回頁首 ↑</button></div>
+    <div class="footer-contact"><a href="mailto:${escapeHtml(profile.email)}">${emailMarkup(profile.email)}</a><button type="button" data-back-top>返回頁首 ↑</button></div>
     <p class="copyright">© <span data-year></span> YIM HO YIN</p>
   </footer>`;
 }

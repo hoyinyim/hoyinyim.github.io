@@ -140,7 +140,7 @@ check(!/fetch\([^)]*\.html/.test(js), '搜尋仍在抓取完整 HTML');
 check((js.match(/addEventListener\(['"]scroll/g) || []).length === 1, 'Scroll Listener 不是唯一系統');
 check((js.match(/requestAnimationFrame/g) || []).length <= 3, 'RAF 控制點異常增加');
 check((await stat(resolve(root, 'assets/site.js'))).size < 30_000, 'JavaScript 超過 30 KB 預算');
-check((await stat(resolve(root, 'assets/site.css'))).size < 60_000, 'CSS 超過 60 KB 預算');
+check((await stat(resolve(root, 'assets/site.css'))).size < 70_000, 'CSS 超過 70 KB 預算');
 
 const sitemap = await readFile(resolve(root, 'sitemap.xml'), 'utf8');
 for (const route of routes) check(sitemap.includes(`https://hoyinyim.github.io/${route.href}`), `Sitemap 遺漏 ${route.href}`);

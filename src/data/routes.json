@@ -56,7 +56,7 @@
   {
     "id": "translations",
     "href": "translations.html",
-    "labelZh": "譯著／哲學普及作品",
+    "labelZh": "譯著與公共寫作",
     "labelEn": "Translations",
     "locale": "zh-Hant",
     "futureLocaleHref": null,
@@ -65,7 +65,7 @@
   {
     "id": "certificates",
     "href": "certificates.html",
-    "labelZh": "證照／證書／獎項",
+    "labelZh": "證照與獎項",
     "labelEn": "Credentials",
     "locale": "zh-Hant",
     "futureLocaleHref": null,

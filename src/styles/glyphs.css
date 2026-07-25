@@ -49,9 +49,9 @@
 .publications-index > a { position: relative; display: grid; grid-template-columns: 1fr 6fr 3fr 5fr; gap: var(--gap); align-items: baseline; min-height: 190px; padding: 32px 0 46px; overflow: visible; border-bottom: 1px solid var(--line-strong); color: inherit; text-decoration: none; }
 .publications-index > a::after { position: absolute; inset: auto 0 0; height: 3px; background: var(--accent); content: ""; transform: scaleX(0); transform-origin: left; transition: transform var(--glyph-motion-duration) var(--ease); }
 .publications-index > a:hover::after, .publications-index > a:focus-visible::after { transform: scaleX(1); }
-.publications-index strong { max-inline-size: 12ch; font-size: var(--text-section); font-weight: 500; line-height: 1.12; }
+.publications-index strong { max-inline-size: 14ch; font-size: var(--text-section); font-weight: 500; line-height: 1.12; }
 .publications-index p { max-width: 32rem; color: var(--muted); }
-.publication-kind-number, .publications-index > a > span:nth-of-type(3) { font-family: var(--font-condensed), var(--font-zh-ui); font-weight: 500; }
+.publication-kind-number, .publication-count { font-family: var(--font-condensed), var(--font-zh-ui); font-weight: 500; }
 .publications-index .mini-glyph { position: absolute; top: 16px; right: 1%; width: clamp(6rem, 12vw, 12rem); height: auto; aspect-ratio: 1; opacity: .08; transform: translateX(18%); }
 .publications-index > a:hover .mini-glyph, .publications-index > a:focus-visible .mini-glyph { opacity: .22; transform: none; }
 

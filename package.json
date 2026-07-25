@@ -14,6 +14,7 @@
     "test:glyphs": "node tests/ancient-script-site/check.mjs",
     "test:glyph-orientation": "node scripts/audit-glyph-orientation.mjs",
     "test:typography": "node tests/typography/check.mjs",
+    "audit:line-breaks": "node scripts/optical-line-break-audit.mjs",
     "trim:typography-evidence": "node scripts/trim-optical-evidence.mjs",
     "record:topology": "node tests/record-topology.mjs",
     "test:browser": "node tests/run-browser-suite.mjs",
