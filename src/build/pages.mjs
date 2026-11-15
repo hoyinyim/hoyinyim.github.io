@@ -22,7 +22,7 @@ const educationLedger = (education) => Object.values(groupBy(education, 'schoolI
   return `<section class="education-school education-school--${escapeHtml(school.schoolId)}"><header><img src="${escapeHtml(school.logo)}" alt="${escapeHtml(school.logoAlt)}" width="108" height="72"><div><p class="overline">${escapeHtml(school.schoolName)}</p><h3>${escapeHtml(school.schoolName)}</h3></div></header><ol>${items.map((item) => `<li><time class="nowrap-token">${escapeHtml(item.period)}</time><div>${degreeTitle(item)}${institutionPath(item)}</div></li>`).join('')}</ol></section>`;
 }).join('');
 
-export function homePage({ profile, research, experience, translations, credentials, siteGlyphs }) {
+export function homePage({ profile, research, experience, translations, credentials, publications, conferences, siteGlyphs }) {
   const serviceItems = [
     translations.publicWriting[0].title,
     credentials.credentials.find((item) => item.id === 'credential-03').title,
@@ -33,39 +33,40 @@ export function homePage({ profile, research, experience, translations, credenti
     credentials.credentials.find((item) => item.id === 'credential-01').title,
     credentials.credentials.find((item) => item.id === 'credential-02').title
   ];
+  const recentPublications = publications.slice(0, 4);
   return `<section class="home-intro axis-grid" aria-labelledby="home-title">
     ${pageGlyph(siteGlyphs, 'chu-study', 'home')}
-    <p class="overline">個人學術網站／中國思想研究</p>
-    <h1 id="home-title"><span>${escapeHtml(profile.nameZh)}</span><small>${escapeHtml(profile.nameEn)}</small></h1>
-    <div class="home-identity"><strong>${escapeHtml(profile.roleZh)}</strong>${roleEn(profile.roleEn)}<div class="hero-actions"><a class="axis-link axis-link--primary" href="publications.html">查看學術著作 <span>→</span></a><a class="axis-link" href="research.html">查看研究 <span>→</span></a></div></div>
-    <i class="home-axis" aria-hidden="true"></i>
+    <div class="home-heading"><p class="overline">中國思想／先秦哲學／出土文獻</p><h1 id="home-title"><span>${escapeHtml(profile.nameZh)}</span><small>${escapeHtml(profile.nameEn)}</small></h1></div>
+    <div class="home-identity"><strong>${escapeHtml(profile.roleZh)}</strong>${roleEn(profile.roleEn)}<div class="hero-actions"><a class="axis-link axis-link--primary" href="research.html">研究方向 <span>→</span></a><a class="axis-link" href="publications.html">學術著作 <span>→</span></a></div></div>
+    <figure class="home-portrait"><img src="${profile.portrait}" width="523" height="648" decoding="async" alt="${escapeHtml(profile.portraitAlt)}"><figcaption lang="en"><span>National Cheng Kung University</span><span>Department of Chinese Literature</span></figcaption></figure>
+    <dl class="home-facts"><div><dt>期刊著作</dt><dd>${publications.length}</dd></div><div><dt>研討會發表</dt><dd>${conferences.presentations.length}</dd></div><div><dt>研究重點</dt><dd>${research.current.length}</dd></div></dl>
   </section>
-  <section class="home-profile axis-grid" aria-labelledby="home-profile-title">${sectionGlyph(siteGlyphs, 'chu-person', 'home-profile')}<figure><img src="${profile.portrait}" width="523" height="648" decoding="async" alt="${escapeHtml(profile.portraitAlt)}"><figcaption lang="en"><span>National Cheng Kung University</span><span>Department of Chinese Literature</span></figcaption></figure><div><p class="overline">學術簡介</p><h2 id="home-profile-title">中國思想研究</h2>${profile.bio.slice(0, 3).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}<a class="axis-link" href="about.html">完整個人資料 <span>→</span></a></div></section>
+  <section class="home-profile axis-grid" aria-labelledby="home-profile-title">${sectionGlyph(siteGlyphs, 'chu-person', 'home-profile')}<div class="home-profile-heading"><p class="overline">學術簡介</p><h2 id="home-profile-title">以思想史與文獻研究，考察中國早期觀念的形成與轉變</h2></div><div class="home-profile-copy">${profile.bio.slice(0, 3).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}<a class="axis-link" href="about.html">完整個人資料 <span>→</span></a></div></section>
+  <section class="home-publications" aria-labelledby="home-publications-title"><header class="section-index"><p>近期成果</p><h2 id="home-publications-title">期刊論文</h2><a class="axis-link" href="journal-papers.html">查看全部 ${publications.length} 筆 <span>→</span></a></header><ol>${recentPublications.map((item) => `<li><time>${escapeHtml(item.year)}</time><div><h3><a href="journal-papers.html#year-${escapeHtml(item.year)}">${escapeHtml(item.title)}</a></h3><p>${escapeHtml(item.venue)}　${metaTokens(item.meta)}</p></div></li>`).join('')}</ol></section>
   <section class="home-topology" aria-labelledby="topology-title" data-topology>
     <h2 id="topology-title" class="visually-hidden">學術實踐拓樸：研究、服務與教學</h2>
-    <p class="topology-kicker" aria-hidden="true">學術實踐／三域拓樸</p>
+    <p class="topology-kicker">學術實踐／研究・服務・教學</p>
     <nav class="topology-canvas" aria-label="學術實踐領域">
       <a class="domain-link domain-research" href="research.html" data-topology-domain="research" aria-label="研究：前往研究頁">
         ${miniGlyph(siteGlyphs, 'chu-study', 'topology-research')}
-        <span class="domain-label"><strong>研究</strong><small>思想與文獻</small><em>查看研究</em></span>
+        <span class="domain-label"><strong>研究</strong><small>思想史、概念史與出土文獻</small><em>查看研究</em></span>
       </a>
       <a class="domain-link domain-service" href="translations.html" data-topology-domain="service" aria-label="服務：前往譯著與公共寫作頁">
         ${miniGlyph(siteGlyphs, 'chu-speech', 'topology-service')}
-        <span class="domain-label"><strong>服務</strong><small><span>翻譯與</span><span>公共寫作</span></small><em>查看服務</em></span>
+        <span class="domain-label"><strong>服務</strong><small>翻譯、編輯與公共寫作</small><em>查看服務</em></span>
       </a>
       <a class="domain-link domain-teaching" href="teaching.html" data-topology-domain="teaching" aria-label="教學：前往教學頁">
         ${miniGlyph(siteGlyphs, 'chu-teaching', 'topology-teaching')}
-        <span class="domain-label"><strong>教學</strong><small>課程與實踐</small><em>查看教學</em></span>
+        <span class="domain-label"><strong>教學</strong><small>課程設計與教學實踐</small><em>查看教學</em></span>
       </a>
       <i class="topology-axis" aria-hidden="true"></i>
     </nav>
-  </section>
-  <section class="home-domain-index" aria-labelledby="home-domain-index-title">
+  <div class="home-domain-index" role="group" aria-labelledby="home-domain-index-title">
     <h2 id="home-domain-index-title" class="visually-hidden">研究、服務與教學內容索引</h2>
-    <article data-domain-summary="research"><header>${miniGlyph(siteGlyphs, 'chu-thinking', 'domain-index')}<p>01／研究</p><h3>研究</h3></header><ol>${research.current.map((item) => `<li>${escapeHtml(item.title)}</li>`).join('')}</ol><a class="axis-link" href="research.html">完整研究資料 ↗</a></article>
-    <article data-domain-summary="service"><header>${miniGlyph(siteGlyphs, 'chu-transmission', 'domain-index')}<p>02／服務</p><h3>服務</h3></header><ol>${serviceItems.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ol><a class="axis-link" href="translations.html">譯著與公共寫作 ↗</a></article>
-    <article data-domain-summary="teaching"><header>${miniGlyph(siteGlyphs, 'chu-teaching', 'domain-index')}<p>03／教學</p><h3>教學</h3></header><ol>${teachingItems.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ol><a class="axis-link" href="teaching.html">完整教學資料 ↗</a></article>
-  </section>
+    <article data-domain-summary="research"><header>${miniGlyph(siteGlyphs, 'chu-thinking', 'domain-index')}<p>01／研究</p><h3>研究重點</h3></header><ol>${research.current.map((item) => `<li>${escapeHtml(item.title)}</li>`).join('')}</ol><a class="axis-link" href="research.html">完整研究資料 <span>→</span></a></article>
+    <article data-domain-summary="service"><header>${miniGlyph(siteGlyphs, 'chu-transmission', 'domain-index')}<p>02／學術服務</p><h3>公共成果</h3></header><ol>${serviceItems.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ol><a class="axis-link" href="translations.html">譯著與公共寫作 <span>→</span></a></article>
+    <article data-domain-summary="teaching"><header>${miniGlyph(siteGlyphs, 'chu-teaching', 'domain-index')}<p>03／教學</p><h3>教學實踐</h3></header><ol>${teachingItems.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ol><a class="axis-link" href="teaching.html">完整教學資料 <span>→</span></a></article>
+  </div></section>
   `;
 }
 

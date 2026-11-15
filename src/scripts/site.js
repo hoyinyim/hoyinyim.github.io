@@ -113,6 +113,19 @@
     }), { rootMargin: '0px 0px -12% 0px' });
     doc.querySelectorAll('.section-glyph').forEach((glyph) => glyphObserver.observe(glyph));
   } else doc.querySelectorAll('.section-glyph').forEach((glyph) => { glyph.dataset.revealed = 'true'; });
+  const revealItems = [...doc.querySelectorAll('.home-profile, .home-publications, .home-topology, .home-domain-index article, .research-focus-list article, .publication-entry')];
+  if (!reducedMotion && 'IntersectionObserver' in window && revealItems.length) {
+    root.classList.add('has-motion');
+    const contentObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.dataset.contentRevealed = 'true';
+      contentObserver.unobserve(entry.target);
+    }), { rootMargin: '0px 0px -8% 0px' });
+    revealItems.forEach((item, index) => {
+      item.style.transitionDelay = `${Math.min(index % 3, 2) * 70}ms`;
+      contentObserver.observe(item);
+    });
+  } else revealItems.forEach((item) => { item.dataset.contentRevealed = 'true'; });
 
   const search = doc.querySelector('[data-search-dialog]');
   const searchInput = doc.querySelector('[data-search-input]');

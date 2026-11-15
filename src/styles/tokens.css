@@ -7,14 +7,16 @@
   --line-strong: #85796c;
   --accent: #7d4234;
   --accent-soft: #eadbd0;
+  --seal: #9b4234;
   --header-h: 72px;
   --gutter: clamp(1.125rem, 3vw, 3rem);
   --gap: clamp(.625rem, 1.25vw, 1.5rem);
-  --font-zh-ui: "Source Han Sans TC", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
-  --font-zh-reading: "Source Han Serif TC", "Noto Serif TC", "Songti TC", PMingLiU, serif;
-  --font-latin: "Inter Tight", "IBM Plex Sans", "Aptos", system-ui, sans-serif;
-  --font-condensed: "IBM Plex Sans Condensed", "Archivo SemiCondensed", "Aptos Narrow", sans-serif;
-  --font-mono: "IBM Plex Mono", "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  --font-zh-ui: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-zh-reading: "I.Ming", "Noto Serif TC", "Songti TC", PMingLiU, serif;
+  --font-latin: Baskerville, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-latin-ui: "Aptos", "Segoe UI", system-ui, sans-serif;
+  --font-condensed: "Aptos Narrow", "Arial Narrow", sans-serif;
+  --font-mono: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   --sans: var(--font-zh-ui);
   --serif: var(--font-zh-reading);
   --mono: var(--font-mono);
@@ -61,4 +63,5 @@
   --line-strong: #7d8782;
   --accent: #9bc3ca;
   --accent-soft: #1b3033;
+  --seal: #d47b68;
 }

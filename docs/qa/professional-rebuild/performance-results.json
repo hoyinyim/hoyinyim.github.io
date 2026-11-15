@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T14:12:56.365Z",
+  "generatedAt": "2026-11-15T17:08:28.386Z",
   "url": "http://127.0.0.1:4173/index.html",
   "scores": {
     "performance": 95,
@@ -8,16 +8,16 @@
     "seo": 100
   },
   "metrics": {
-    "lcpMs": 2326.9093,
+    "lcpMs": 2327.215,
     "cls": 0,
-    "tbtMs": 194,
-    "speedIndexMs": 1351.9093
+    "tbtMs": 202,
+    "speedIndexMs": 1454.215
   },
   "assets": {
-    "javascriptBytes": 13603,
-    "cssBytes": 59689,
+    "javascriptBytes": 14692,
+    "cssBytes": 67986,
     "deployedImageFiles": 20,
-    "deployedImageBytes": 1667570
+    "deployedImageBytes": 1667575
   },
   "passed": true,
   "errors": []

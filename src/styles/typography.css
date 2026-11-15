@@ -1,11 +1,12 @@
-body { font-family: var(--font-zh-ui); font-size: var(--text-base); line-height: 1.72; word-break: normal; overflow-wrap: normal; line-break: strict; }
-h1, h2, h3, h4 { margin-bottom: var(--space-3); font-family: var(--font-zh-ui); font-weight: 550; word-break: normal; overflow-wrap: normal; line-break: strict; }
-h1 { line-height: 1.01; letter-spacing: -.012em; }
-h2 { line-height: 1.14; letter-spacing: -.008em; }
+body { font-family: var(--font-zh-reading); font-size: var(--text-base); line-height: 1.82; word-break: normal; overflow-wrap: normal; line-break: strict; }
+button, input, nav { font-family: var(--font-zh-ui); }
+h1, h2, h3, h4 { margin-bottom: var(--space-3); font-family: var(--font-zh-reading); font-weight: 500; word-break: normal; overflow-wrap: normal; line-break: strict; }
+h1 { line-height: 1.04; letter-spacing: .015em; }
+h2 { line-height: 1.22; letter-spacing: .01em; }
 h3, h4 { line-height: 1.48; letter-spacing: 0; }
 p { text-wrap: pretty; }
 .overline, .section-index > p, .breadcrumb, .archive-toolbar, figcaption, dt, .copyright { font-family: var(--font-zh-ui); font-size: var(--text-sm); font-weight: 500; line-height: 1.5; letter-spacing: .035em; }
-.publication-venue, .publication-meta, time, .status-list, .original-title, .cv-list small { font-family: var(--font-latin), var(--font-zh-ui); font-size: var(--text-sm); font-weight: 500; line-height: 1.52; letter-spacing: .015em; }
+.publication-venue, .publication-meta, time, .status-list, .original-title, .cv-list small { font-family: var(--font-latin-ui), var(--font-zh-ui); font-size: var(--text-sm); font-weight: 500; line-height: 1.52; letter-spacing: .015em; }
 .overline, .section-index > p { color: var(--accent); font-weight: 600; }
 .display-heading { text-wrap: balance; }
 .section-heading { text-wrap: pretty; }

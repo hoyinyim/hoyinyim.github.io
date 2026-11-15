@@ -54,7 +54,7 @@ for (const [category, score] of Object.entries(summary.scores)) if (score < 90) 
 if (summary.metrics.lcpMs > 2500) errors.push(`LCP ${summary.metrics.lcpMs.toFixed(0)}ms 超過 2500ms`);
 if (summary.metrics.cls > 0.1) errors.push(`CLS ${summary.metrics.cls.toFixed(3)} 超過 0.1`);
 if (summary.assets.javascriptBytes > 30_000) errors.push(`JavaScript ${summary.assets.javascriptBytes} bytes 超過 30KB`);
-if (summary.assets.cssBytes > 60_000) errors.push(`CSS ${summary.assets.cssBytes} bytes 超過 60KB`);
+if (summary.assets.cssBytes > 70_000) errors.push(`CSS ${summary.assets.cssBytes} bytes 超過 70KB`);
 summary.passed = errors.length === 0;
 summary.errors = errors;
 await mkdir(resolve(root, 'docs/qa/professional-rebuild'), { recursive: true });

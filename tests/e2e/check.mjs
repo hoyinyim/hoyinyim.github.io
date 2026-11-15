@@ -14,7 +14,7 @@ let checks = 0;
 const check = (condition, message) => { checks += 1; if (!condition) errors.push(message); };
 const routes = [
   ['index.html', '嚴浩然'], ['about.html', '嚴浩然'], ['research.html', '研究'], ['publications.html', '著作'], ['journal-papers.html', '期刊論文'],
-  ['conference-papers.html', '研討會論文'], ['translations.html', '譯著／'], ['certificates.html', '證照、證書'],
+  ['conference-papers.html', '研討會論文'], ['translations.html', '譯著與'], ['certificates.html', '證照與獎項'],
   ['teaching.html', '教學'], ['cv.html', '嚴浩然'], ['contact.html', '聯絡'], ['404.html', '找不到頁面']
 ];
 const consoleErrors = [];
@@ -85,7 +85,7 @@ try {
   check((await page.locator('h1').innerText()) === '研究', 'Research 拓樸入口導向錯誤');
   await page.goBack({ waitUntil: 'networkidle' });
   await Promise.all([page.waitForURL('**/translations.html'), page.locator('[data-topology-domain="service"]').click()]);
-  check((await page.locator('h1').innerText()).includes('譯著／'), 'Service 拓樸入口導向錯誤');
+  check((await page.locator('h1').innerText()).includes('譯著與'), 'Service 拓樸入口導向錯誤');
   await page.goBack({ waitUntil: 'networkidle' });
   check(page.url().endsWith('/index.html'), '拓樸 Browser Back 未回首頁');
 
