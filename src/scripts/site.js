@@ -254,6 +254,13 @@
   doc.querySelector('[data-print-cv]')?.addEventListener('click', () => print());
   doc.querySelector('[data-back-top]')?.addEventListener('click', () => scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' }));
 
+  addEventListener('load', () => {
+    const webfonts = doc.createElement('link');
+    webfonts.rel = 'stylesheet';
+    webfonts.href = `assets/webfonts.css?v=${doc.querySelector('meta[name="build-commit"]')?.content || 'local'}`;
+    doc.head.append(webfonts);
+  }, { once: true });
+
   doc.addEventListener('click', (event) => {
     const link = event.target.closest('a[href]');
     if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target === '_blank' || link.hasAttribute('download')) return;

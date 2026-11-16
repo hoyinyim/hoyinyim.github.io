@@ -57,3 +57,15 @@ AXIS Font 為商業字體，官方提供購買、訂閱、Web Font 與個別授�
 - Mono：`IBM Plex Mono`、`Cascadia Mono`、`SFMono-Regular`、`Consolas`；限 Email、URL、DOI 與機器識別碼。
 
 網站不下載或熱連上述字體；字體名稱只構成本機 fallback 鏈。楚系 Logo 候選另見 `src/data/chu-script-glyphs.json`，未核准候選不得進入公開頁。
+
+## 2026-11-16 正式自託管字體更新
+
+本輪排印重構改用三套合法自託管、依本站實際字符子集化的 WOFF2 字體，不再依賴訪客電腦是否安裝中文字體，也不在瀏覽時連線至第三方字體服務：
+
+| 排印角色 | 字體 | 字重 | 子集檔案 | 授權 |
+| --- | --- | ---: | --- | --- |
+| 大標題、品牌姓名、全站 Menu | LXGW WenKai TC | 400 | `assets/fonts/lxgw-wenkai-tc-400.woff2` | SIL Open Font License 1.1；附加許可允許純網頁傳送用途之子集化 WOFF2 |
+| 正文、論文題名、學術敘述 | Noto Serif TC | 400 | `assets/fonts/noto-serif-tc-400.woff2` | SIL Open Font License 1.1 |
+| 導覽、年份、狀態與介面文字 | Noto Sans TC | 400 | `assets/fonts/noto-sans-tc-400.woff2` | SIL Open Font License 1.1 |
+
+完整授權文字保存在 `assets/fonts/OFL-*.txt`。字體檔只包含網站公開頁面所需字符，不作桌面字體散布。字體樣式於主要圖片完成載入後啟用，以免字體下載與首頁最大內容元素互相競爭；無 JavaScript 環境仍由 `<noscript>` 載入。正式驗收須同時檢查 `document.fonts` 的繁體中文字串覆蓋與實際畫面，不得只檢查 CSS `font-family` 名稱。

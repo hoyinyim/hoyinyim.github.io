@@ -107,8 +107,11 @@ export function layout({ route, routes, profile, routeGlyphMap, siteGlyphs, titl
   <meta name="twitter:image" content="${image}">
   <meta name="theme-color" content="#f4f5f3">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  ${route.id === 'home' ? `<link rel="preload" href="${escapeHtml(profile.portrait)}" as="image" fetchpriority="high">` : ''}
   <link rel="preload" href="assets/site.css?v=${escapeHtml(buildCommit)}" as="style">
   <link rel="stylesheet" href="assets/site.css?v=${escapeHtml(buildCommit)}">
+  <link rel="stylesheet" href="assets/fonts.css?v=${escapeHtml(buildCommit)}">
+  <noscript><link rel="stylesheet" href="assets/webfonts.css?v=${escapeHtml(buildCommit)}"></noscript>
   <script src="assets/site.js?v=${escapeHtml(buildCommit)}" defer></script>
   ${schemas.map((schema) => `<script type="application/ld+json">${JSON.stringify(schema).replaceAll('<', '\\u003c')}</script>`).join('\n  ')}
 </head>
