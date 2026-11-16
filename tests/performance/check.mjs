@@ -33,6 +33,8 @@ const walkFiles = async (directory, relative = '') => {
 };
 const imageFiles = await walkFiles(resolve(root, '_site/images'));
 const imageBytes = (await Promise.all(imageFiles.map((file) => assetSize(`_site/images/${file}`)))).reduce((sum, value) => sum + value, 0);
+const cssFiles = ['assets/site.css', 'assets/fonts.css', 'assets/effects.css', 'assets/webfonts.css'];
+const cssBytes = (await Promise.all(cssFiles.map((file) => assetSize(file)))).reduce((sum, value) => sum + value, 0);
 const summary = {
   generatedAt: new Date().toISOString(), url: lhr.finalDisplayedUrl,
   scores: Object.fromEntries(Object.entries(lhr.categories).map(([key, category]) => [key, Math.round(category.score * 100)])),
@@ -44,7 +46,7 @@ const summary = {
   },
   assets: {
     javascriptBytes: await assetSize('assets/site.js'),
-    cssBytes: await assetSize('assets/site.css'),
+    cssBytes,
     deployedImageFiles: imageFiles.length,
     deployedImageBytes: imageBytes
   }
@@ -54,7 +56,7 @@ for (const [category, score] of Object.entries(summary.scores)) if (score < 90) 
 if (summary.metrics.lcpMs > 2500) errors.push(`LCP ${summary.metrics.lcpMs.toFixed(0)}ms 超過 2500ms`);
 if (summary.metrics.cls > 0.1) errors.push(`CLS ${summary.metrics.cls.toFixed(3)} 超過 0.1`);
 if (summary.assets.javascriptBytes > 30_000) errors.push(`JavaScript ${summary.assets.javascriptBytes} bytes 超過 30KB`);
-if (summary.assets.cssBytes > 70_000) errors.push(`CSS ${summary.assets.cssBytes} bytes 超過 70KB`);
+if (summary.assets.cssBytes > 90_000) errors.push(`CSS ${summary.assets.cssBytes} bytes 超過 90KB`);
 summary.passed = errors.length === 0;
 summary.errors = errors;
 await mkdir(resolve(root, 'docs/qa/professional-rebuild'), { recursive: true });

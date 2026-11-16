@@ -1,7 +1,10 @@
 :root {
-  --font-zh-display: "LXGW WenKai TC", "DFKai-SB", KaiTi, serif;
+  --font-zh-display: "GenWan Min TC", "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --font-zh-hand: "LXGW WenKai TC", "DFKai-SB", KaiTi, serif;
   --font-zh-reading: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
   --font-zh-ui: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-latin: "Cormorant Garamond", Garamond, "Times New Roman", serif;
+  --font-latin-ui: "Inter", "Aptos", "Segoe UI", system-ui, sans-serif;
   --text-sm: clamp(.9375rem, .1vw + .92rem, 1rem);
   --text-base: clamp(1.125rem, .12vw + 1.09rem, 1.1875rem);
   --text-lead: clamp(1.22rem, .32vw + 1.15rem, 1.45rem);
@@ -17,7 +20,7 @@ html {
 }
 
 body {
-  font-family: var(--font-zh-reading);
+  font-family: var(--font-zh-ui);
   font-weight: 400;
   line-height: 1.74;
   letter-spacing: .006em;
@@ -86,6 +89,29 @@ h4,
 .credentials-opening p,
 .teaching-opening p {
   max-inline-size: 34em;
+  font-family: var(--font-zh-reading);
+}
+
+.home-intro h1 small,
+.brand span,
+[lang="en"],
+.original-title {
+  font-family: var(--font-latin);
+}
+
+.publication-meta,
+.publication-venue,
+time,
+.status-list,
+.copyright,
+.menu-item-number {
+  font-family: var(--font-latin-ui), var(--font-zh-ui);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.archive-note,
+.topology-kicker {
+  font-family: var(--font-zh-hand);
 }
 
 @media (max-width: 760px) {

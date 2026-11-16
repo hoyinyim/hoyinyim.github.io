@@ -60,12 +60,17 @@ AXIS Font 為商業字體，官方提供購買、訂閱、Web Font 與個別授�
 
 ## 2026-11-16 正式自託管字體更新
 
-本輪排印重構改用三套合法自託管、依本站實際字符子集化的 WOFF2 字體，不再依賴訪客電腦是否安裝中文字體，也不在瀏覽時連線至第三方字體服務：
+本輪排印重構改用合法自託管、依本站實際字符子集化的 WOFF2 字體，不再依賴訪客電腦是否安裝中文字體，也不在瀏覽時連線至第三方字體服務：
 
 | 排印角色 | 字體 | 字重 | 子集檔案 | 授權 |
 | --- | --- | ---: | --- | --- |
-| 大標題、品牌姓名、全站 Menu | LXGW WenKai TC | 400 | `assets/fonts/lxgw-wenkai-tc-400.woff2` | SIL Open Font License 1.1；附加許可允許純網頁傳送用途之子集化 WOFF2 |
+| 中文大標題、品牌姓名、全站 Menu | GenWan Min TC（源雲明體丹版） | 400 | `assets/fonts/genwan-min-tc-400.woff2` | SIL Open Font License 1.1 |
+| 札記式小標與少量手寫語氣 | LXGW WenKai TC | 400 | `assets/fonts/lxgw-wenkai-tc-400.woff2` | SIL Open Font License 1.1；附加許可允許純網頁傳送用途之子集化 WOFF2 |
 | 正文、論文題名、學術敘述 | Noto Serif TC | 400 | `assets/fonts/noto-serif-tc-400.woff2` | SIL Open Font License 1.1 |
 | 導覽、年份、狀態與介面文字 | Noto Sans TC | 400 | `assets/fonts/noto-sans-tc-400.woff2` | SIL Open Font License 1.1 |
+| 英文姓名與人文標題 | Cormorant Garamond | 400 | `assets/fonts/cormorant-garamond-400.woff2` | SIL Open Font License 1.1 |
+| 英文年份、卷期與介面資料 | Inter | 400 | `assets/fonts/inter-400.woff2` | SIL Open Font License 1.1 |
 
 完整授權文字保存在 `assets/fonts/OFL-*.txt`。字體檔只包含網站公開頁面所需字符，不作桌面字體散布。字體樣式於主要圖片完成載入後啟用，以免字體下載與首頁最大內容元素互相競爭；無 JavaScript 環境仍由 `<noscript>` 載入。正式驗收須同時檢查 `document.fonts` 的繁體中文字串覆蓋與實際畫面，不得只檢查 CSS `font-family` 名稱。
+
+Shippori Mincho、Zen Old Mincho 等日文字體作為墨暈、字面比例與老明朝氣質的視覺參考，不直接套用於繁體中文主標題。正式中文標題使用源雲明體 TC「丹版」：其保留傳統鉛字印刷字形與墨水暈染感，同時避免日文字體在「學、體、獎、會、議」等字出現缺字、日文新字體或逐字 fallback 混排。

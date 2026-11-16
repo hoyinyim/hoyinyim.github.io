@@ -12,7 +12,7 @@ export function header(routes, current) {
   const primary = ['research', 'publications', 'about', 'cv'].map((id) => routes.find((route) => route.id === id));
   return `<header class="site-header" data-header>
     <a class="brand" href="index.html" aria-label="嚴浩然首頁"><strong>嚴浩然</strong><span>YIM HO YIN</span></a>
-    <nav class="primary-nav" aria-label="主要導覽">${primary.map((route) => `<a href="${route.href}"${route.id === current ? ' aria-current="page"' : ''}>${labels[route.id]}</a>`).join('')}</nav>
+    <nav class="primary-nav" aria-label="主要導覽">${primary.map((route) => `<a href="${route.href}" data-label="${labels[route.id]}"${route.id === current ? ' aria-current="page"' : ''}><span class="nav-label">${labels[route.id]}</span><span class="nav-echo" aria-hidden="true">${labels[route.id]}</span></a>`).join('')}</nav>
     <div class="header-actions">
       <button class="header-control search-trigger" type="button" data-search-open aria-haspopup="dialog">搜尋</button>
       <button class="header-control theme-control" type="button" data-theme-toggle aria-label="目前為淺色模式；切換為深色模式" aria-pressed="false"><span data-theme-label>淺色</span></button>
@@ -111,11 +111,13 @@ export function layout({ route, routes, profile, routeGlyphMap, siteGlyphs, titl
   <link rel="preload" href="assets/site.css?v=${escapeHtml(buildCommit)}" as="style">
   <link rel="stylesheet" href="assets/site.css?v=${escapeHtml(buildCommit)}">
   <link rel="stylesheet" href="assets/fonts.css?v=${escapeHtml(buildCommit)}">
+  <link rel="stylesheet" href="assets/effects.css?v=${escapeHtml(buildCommit)}">
   <noscript><link rel="stylesheet" href="assets/webfonts.css?v=${escapeHtml(buildCommit)}"></noscript>
   <script src="assets/site.js?v=${escapeHtml(buildCommit)}" defer></script>
   ${schemas.map((schema) => `<script type="application/ld+json">${JSON.stringify(schema).replaceAll('<', '\\u003c')}</script>`).join('\n  ')}
 </head>
 <body class="page-${route.id} ${bodyClass}" data-page="${route.id}" data-route="${route.id}">
+  <div class="page-curtain" aria-hidden="true"></div>
   <a class="skip-link" href="#main-content">跳至主要內容</a>
   <div class="scroll-progress" aria-hidden="true"><i data-scroll-progress></i></div>
   ${header(routes, route.id)}

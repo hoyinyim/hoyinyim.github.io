@@ -127,6 +127,24 @@
     });
   } else revealItems.forEach((item) => { item.dataset.contentRevealed = 'true'; });
 
+  const kineticItems = [...doc.querySelectorAll('h1, .section-index h2, .home-profile h2, .research-focus-list h3, .overline')];
+  const lineItems = [...doc.querySelectorAll('.publication-entry article, .conference-year li, .writing-index li, .credential-ledger li, .award-timeline li')];
+  kineticItems.forEach((item) => { item.dataset.kinetic = ''; });
+  lineItems.forEach((item) => { item.dataset.drawLine = ''; });
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    root.classList.add('has-kinetic');
+    const kineticObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      if (entry.target.dataset.kinetic !== undefined) entry.target.dataset.kineticRevealed = 'true';
+      if (entry.target.dataset.drawLine !== undefined) entry.target.dataset.lineRevealed = 'true';
+      kineticObserver.unobserve(entry.target);
+    }), { rootMargin: '0px 0px -6% 0px', threshold: .08 });
+    [...kineticItems, ...lineItems].forEach((item) => kineticObserver.observe(item));
+  } else {
+    kineticItems.forEach((item) => { item.dataset.kineticRevealed = 'true'; });
+    lineItems.forEach((item) => { item.dataset.lineRevealed = 'true'; });
+  }
+
   const search = doc.querySelector('[data-search-dialog]');
   const searchInput = doc.querySelector('[data-search-input]');
   const searchResults = doc.querySelector('[data-search-results]');
@@ -187,7 +205,10 @@
   const progress = doc.querySelector('[data-scroll-progress]');
   const updateScroll = () => {
     const max = doc.documentElement.scrollHeight - innerHeight;
-    progress?.style.setProperty('--progress', String(max > 0 ? scrollY / max : 0));
+    const ratio = max > 0 ? scrollY / max : 0;
+    progress?.style.setProperty('--progress', String(ratio));
+    root.style.setProperty('--scroll-letter', `${Math.min(ratio * .035, .035).toFixed(4)}em`);
+    root.style.setProperty('--glyph-shift', `${Math.max(-18, -scrollY * .025).toFixed(2)}px`);
     doc.querySelector('[data-header]')?.classList.toggle('is-scrolled', scrollY > 24);
   };
   let queued = false;
@@ -197,6 +218,13 @@
     requestAnimationFrame(() => { updateScroll(); queued = false; });
   }, { passive: true });
   updateScroll();
+
+  const ambientHero = doc.querySelector('.home-intro, .about-opening, .research-opening, .publications-opening, .journal-opening, .conference-opening, .translations-opening, .credentials-opening, .teaching-opening');
+  if (!reducedMotion && ambientHero && matchMedia('(pointer: fine)').matches) ambientHero.addEventListener('pointermove', (event) => {
+    const box = ambientHero.getBoundingClientRect();
+    root.style.setProperty('--ambient-x', `${Math.round(((event.clientX - box.left) / box.width) * 100)}%`);
+    root.style.setProperty('--ambient-y', `${Math.round(((event.clientY - box.top) / box.height) * 100)}%`);
+  }, { passive: true });
 
   doc.querySelectorAll('[data-copy]').forEach((button) => button.addEventListener('click', async () => {
     try {
@@ -268,6 +296,6 @@
     if (url.origin !== location.origin || url.protocol !== location.protocol || url.hash || reducedMotion) return;
     event.preventDefault();
     doc.body.classList.add('is-leaving');
-    setTimeout(() => location.assign(url.href), 220);
+    setTimeout(() => location.assign(url.href), 500);
   });
 })();

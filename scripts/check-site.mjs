@@ -60,7 +60,12 @@ let checks = 0;
 const check = (condition, message) => { checks += 1; if (!condition) errors.push(message); };
 const validator = new HtmlValidate({ extends: ['html-validate:recommended'], rules: { 'no-inline-style': 'error', 'wcag/h30': 'off' } });
 
-for (const required of ['robots.txt', 'sitemap.xml', 'rss.xml', 'assets/site.css', 'assets/site.js', 'assets/search-index.json']) await access(resolve(root, required));
+for (const required of [
+  'robots.txt', 'sitemap.xml', 'rss.xml', 'assets/site.css', 'assets/fonts.css', 'assets/effects.css', 'assets/webfonts.css',
+  'assets/site.js', 'assets/search-index.json',
+  'assets/fonts/genwan-min-tc-400.woff2', 'assets/fonts/noto-serif-tc-400.woff2', 'assets/fonts/noto-sans-tc-400.woff2',
+  'assets/fonts/lxgw-wenkai-tc-400.woff2', 'assets/fonts/cormorant-garamond-400.woff2', 'assets/fonts/inter-400.woff2'
+]) await access(resolve(root, required));
 for (const required of requiredMenuDocs) {
   await access(resolve(root, required));
   check((await stat(resolve(root, required))).size > 0, `${required} 為空白文件`);

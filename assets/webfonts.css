@@ -7,6 +7,30 @@
 }
 
 @font-face {
+  font-family: "GenWan Min TC";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/genwan-min-tc-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/inter-400.woff2") format("woff2");
+}
+
+@font-face {
   font-family: "Noto Serif TC";
   font-style: normal;
   font-weight: 400;

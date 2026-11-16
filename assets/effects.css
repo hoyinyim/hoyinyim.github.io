@@ -1,0 +1,245 @@
+:root {
+  --motion-ease: cubic-bezier(.22, 1, .36, 1);
+  --scroll-letter: 0em;
+  --glyph-shift: 0px;
+  --ambient-x: 68%;
+  --ambient-y: 22%;
+}
+
+body::before {
+  position: fixed;
+  z-index: 190;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 25%, rgb(64 50 38 / 8%) 0 .55px, transparent .7px),
+    radial-gradient(circle at 78% 62%, rgb(255 255 255 / 30%) 0 .55px, transparent .75px);
+  background-size: 5px 5px, 7px 7px;
+  content: "";
+  opacity: .18;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+:root[data-theme="dark"] body::before {
+  opacity: .07;
+  mix-blend-mode: screen;
+}
+
+.page-curtain {
+  position: fixed;
+  z-index: 300;
+  inset: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  background: var(--ink);
+  pointer-events: none;
+  animation: curtain-enter 720ms var(--motion-ease) both;
+}
+
+body.is-leaving .page-curtain {
+  transform: scaleY(1);
+  transform-origin: bottom;
+  transition: transform 480ms var(--motion-ease);
+}
+
+@keyframes curtain-enter {
+  from { transform: scaleY(1); transform-origin: top; }
+  to { transform: scaleY(0); transform-origin: top; }
+}
+
+.home-intro::after,
+.about-opening::after,
+.research-opening::after,
+.publications-opening::after,
+.journal-opening::after,
+.conference-opening::after,
+.translations-opening::after,
+.credentials-opening::after,
+.teaching-opening::after {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background:
+    radial-gradient(circle at var(--ambient-x) var(--ambient-y), color-mix(in srgb, var(--accent) 8%, transparent), transparent 24%),
+    radial-gradient(circle at 82% 74%, color-mix(in srgb, var(--ink) 4%, transparent), transparent 28%);
+  content: "";
+  pointer-events: none;
+  transition: background-position 500ms ease-out;
+}
+
+.home-intro > :not(.page-glyph),
+.about-opening > :not(.page-glyph),
+.research-opening > :not(.page-glyph),
+.publications-opening > :not(.page-glyph),
+.journal-opening > :not(.page-glyph),
+.conference-opening > :not(.page-glyph),
+.translations-opening > :not(.page-glyph),
+.credentials-opening > :not(.page-glyph),
+.teaching-opening > :not(.page-glyph) {
+  position: relative;
+  z-index: 2;
+}
+
+.page-glyph,
+.section-glyph {
+  translate: 0 var(--glyph-shift);
+}
+
+h1,
+.section-index h2,
+.home-profile h2,
+.research-focus-list h3 {
+  letter-spacing: calc(.025em + var(--scroll-letter));
+}
+
+.has-kinetic [data-kinetic] {
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(.8em);
+  transition:
+    opacity 180ms ease,
+    clip-path 760ms var(--motion-ease),
+    transform 760ms var(--motion-ease);
+}
+
+.has-kinetic [data-kinetic][data-kinetic-revealed="true"] {
+  opacity: 1;
+  clip-path: inset(0);
+  transform: none;
+}
+
+.has-kinetic [data-draw-line] {
+  position: relative;
+  border-color: transparent !important;
+}
+
+.has-kinetic [data-draw-line]::before {
+  position: absolute;
+  z-index: 2;
+  inset: 0 0 auto;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--line);
+  content: "";
+  transition: transform 820ms var(--motion-ease);
+}
+
+.has-kinetic [data-draw-line][data-line-revealed="true"]::before {
+  transform: scaleX(1);
+}
+
+.primary-nav a[data-label] {
+  overflow: hidden;
+}
+
+.primary-nav a[data-label] .nav-label,
+.primary-nav a[data-label] .nav-echo {
+  display: block;
+  transition: transform 360ms var(--motion-ease);
+}
+
+.primary-nav a[data-label] .nav-echo {
+  position: absolute;
+  top: 22px;
+  left: 0;
+  transform: translateY(145%);
+  color: var(--accent);
+  font-family: var(--font-zh-display);
+  font-style: italic;
+}
+
+.primary-nav a[data-label]:hover .nav-label,
+.primary-nav a[data-label]:focus-visible .nav-label {
+  transform: translateY(-145%);
+}
+
+.primary-nav a[data-label]:hover .nav-echo,
+.primary-nav a[data-label]:focus-visible .nav-echo {
+  transform: translateY(0);
+}
+
+.publication-year ol:has(.publication-entry:hover) .publication-entry:not(:hover),
+.conference-year ol:has(li:hover) li:not(:hover),
+.writing-index ol:has(li:hover) li:not(:hover),
+.credential-ledger ol:has(li:hover) li:not(:hover) {
+  opacity: .34;
+}
+
+.publication-entry,
+.conference-year li,
+.writing-index li,
+.credential-ledger li {
+  transition: opacity 260ms ease, transform 320ms var(--motion-ease);
+}
+
+.publication-entry:hover,
+.conference-year li:hover,
+.writing-index li:hover,
+.credential-ledger li:hover {
+  transform: translateX(8px);
+}
+
+@media (min-width: 901px) {
+  .section-index > p,
+  .publication-year > header,
+  .conference-year > h3,
+  .about-biography > h2 {
+    position: sticky;
+    top: calc(var(--header-h) + 28px);
+    align-self: start;
+  }
+
+  .about-biography,
+  .publication-year,
+  .conference-year {
+    column-gap: clamp(2rem, 5vw, 6rem);
+  }
+}
+
+@media (max-width: 760px) {
+  body::before { opacity: .12; }
+  .publication-entry:hover,
+  .conference-year li:hover,
+  .writing-index li:hover,
+  .credential-ledger li:hover { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --scroll-letter: 0em;
+    --glyph-shift: 0px;
+  }
+
+  .page-curtain { display: none; }
+
+  .has-kinetic [data-kinetic],
+  .has-kinetic [data-draw-line]::before,
+  .primary-nav a[data-label] .nav-label,
+  .primary-nav a[data-label] .nav-echo,
+  .publication-entry,
+  .conference-year li,
+  .writing-index li,
+  .credential-ledger li {
+    opacity: 1;
+    clip-path: none;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media print {
+  body::before,
+  .page-curtain,
+  .home-intro::after,
+  .about-opening::after,
+  .research-opening::after,
+  .publications-opening::after,
+  .journal-opening::after,
+  .conference-opening::after,
+  .translations-opening::after,
+  .credentials-opening::after,
+  .teaching-opening::after {
+    display: none !important;
+  }
+}
