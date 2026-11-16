@@ -1,5 +1,6 @@
 import { escapeHtml } from './html.mjs';
 import { miniGlyph } from './glyphs.mjs';
+import { nameGlyphSequence } from './identity.mjs';
 
 const SITE_URL = 'https://hoyinyim.github.io';
 const emailMarkup = (email) => {
@@ -21,7 +22,7 @@ export function header(routes, current) {
   </header>`;
 }
 
-export function menu(routes, profile, current, routeGlyphMap = {}, siteGlyphs = []) {
+export function menu(routes, profile, current, routeGlyphMap = {}, siteGlyphs = [], nameGlyphs = []) {
   const byId = Object.fromEntries(routes.map((route) => [route.id, route]));
   const items = [
     ['about', '關於', 'about'],
@@ -43,7 +44,7 @@ export function menu(routes, profile, current, routeGlyphMap = {}, siteGlyphs = 
   return `<noscript><nav class="noscript-menu" aria-label="網站導覽"><a href="about.html">關於</a><a href="research.html">研究</a><a href="journal-papers.html">著作</a><a href="teaching.html">教學</a><a href="cv.html">履歷</a><a href="contact.html">聯絡</a></nav></noscript>
   <dialog class="menu-dialog" id="site-menu" data-menu-dialog data-initial-glyph="${currentMenuId}" aria-labelledby="menu-title">
     <div class="menu-shell">
-      <div class="dialog-topline"><p id="menu-title">網站導覽</p><button class="dialog-close" type="button" data-menu-close>關閉</button></div>
+      <div class="dialog-topline"><p id="menu-title">網站導覽</p>${nameGlyphSequence(nameGlyphs, 'menu')}<button class="dialog-close" type="button" data-menu-close>關閉</button></div>
       <div class="menu-composition">
         <figure class="menu-glyph-stage" aria-hidden="true"><span class="menu-glyph-axis"></span>${glyphStage}</figure>
         <nav class="menu-groups" aria-label="完整網站導覽"><ol>${primaryLinks}</ol><div class="menu-subnav" role="group" aria-label="著作分類"><a href="journal-papers.html"${current === 'journal' ? ' aria-current="page"' : ''}>期刊論文</a><a href="conference-papers.html"${current === 'conference' ? ' aria-current="page"' : ''}>研討會論文</a><a href="translations.html"${current === 'translations' ? ' aria-current="page"' : ''}>譯著與公共寫作</a><a href="certificates.html"${current === 'certificates' ? ' aria-current="page"' : ''}>證照與獎項</a></div></nav>
@@ -63,10 +64,10 @@ export function searchDialog() {
   </dialog>`;
 }
 
-export function footer(routes, profile, siteGlyphs = []) {
+export function footer(routes, profile, siteGlyphs = [], nameGlyphs = []) {
   const links = routes.filter((route) => route.id !== 'home').map((route) => `<a href="${route.href}">${escapeHtml(route.labelZh)}</a>`).join('');
   return `<footer class="site-footer">
-    <div class="footer-identity"><div class="footer-glyphs">${miniGlyph(siteGlyphs, 'chu-study', 'footer-research')}${miniGlyph(siteGlyphs, 'chu-speech', 'footer-service')}${miniGlyph(siteGlyphs, 'chu-teaching', 'footer-teaching')}</div><strong>${escapeHtml(profile.nameZh)}</strong><span>${escapeHtml(profile.nameEn)}</span><p>${escapeHtml(profile.roleZh)}</p></div>
+    <div class="footer-identity">${nameGlyphSequence(nameGlyphs, 'footer')}<strong>${escapeHtml(profile.nameZh)}</strong><span>${escapeHtml(profile.nameEn)}</span><p>${escapeHtml(profile.roleZh)}</p></div>
     <nav aria-label="頁尾導覽">${links}</nav>
     <div class="footer-contact"><a href="mailto:${escapeHtml(profile.email)}">${emailMarkup(profile.email)}</a><button type="button" data-back-top>返回頁首 ↑</button></div>
     <p class="copyright">© <span data-year></span> YIM HO YIN</p>
@@ -78,7 +79,7 @@ export function breadcrumb(route) {
   return `<nav class="breadcrumb" aria-label="麵包屑"><a href="index.html">首頁</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(route.labelZh)}</span></nav>`;
 }
 
-export function layout({ route, routes, profile, routeGlyphMap, siteGlyphs, title, description, body, jsonLd = null, bodyClass = '', buildCommit = 'local' }) {
+export function layout({ route, routes, profile, routeGlyphMap, siteGlyphs, nameGlyphs, title, description, body, jsonLd = null, bodyClass = '', buildCommit = 'local' }) {
   const canonical = `${SITE_URL}/${route.href}`;
   const image = `${SITE_URL}/images/og-default.png`;
   const schemas = Array.isArray(jsonLd) ? jsonLd : (jsonLd ? [jsonLd] : []);
@@ -117,15 +118,16 @@ export function layout({ route, routes, profile, routeGlyphMap, siteGlyphs, titl
   ${schemas.map((schema) => `<script type="application/ld+json">${JSON.stringify(schema).replaceAll('<', '\\u003c')}</script>`).join('\n  ')}
 </head>
 <body class="page-${route.id} ${bodyClass}" data-page="${route.id}" data-route="${route.id}">
-  <div class="page-curtain" aria-hidden="true"></div>
+  <div class="page-curtain" aria-hidden="true">${nameGlyphSequence(nameGlyphs, 'curtain')}</div>
   <a class="skip-link" href="#main-content">跳至主要內容</a>
   <div class="scroll-progress" aria-hidden="true"><i data-scroll-progress></i></div>
   ${header(routes, route.id)}
-  ${menu(routes, profile, route.id, routeGlyphMap, siteGlyphs)}
+  ${menu(routes, profile, route.id, routeGlyphMap, siteGlyphs, nameGlyphs)}
   ${searchDialog()}
   <div class="glyph-transition" data-glyph-transition aria-hidden="true">${miniGlyph(siteGlyphs, routeGlyphMap[route.href] || 'chu-study', 'transition-mark')}</div>
+  <div class="identity-watermark" aria-hidden="true">${nameGlyphSequence(nameGlyphs, 'watermark')}</div>
   <main id="main-content" tabindex="-1">${breadcrumb(route)}${body}</main>
-  ${footer(routes, profile, siteGlyphs)}
+  ${footer(routes, profile, siteGlyphs, nameGlyphs)}
   <div class="live-region" data-live-region aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>\n`.replace(/[ \t]+$/gm, '');

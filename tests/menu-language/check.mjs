@@ -21,7 +21,7 @@ try {
     await page.setViewportSize({ width, height: width <= 390 ? 844 : 900 });
     await page.goto(`${baseUrl}/index.html`, { waitUntil: 'networkidle' });
     check(await page.locator('html').getAttribute('lang') === 'zh-Hant', 'HTML 主要語言不是繁體中文', { width });
-    check(await page.locator('.primary-nav a').evaluateAll((nodes) => nodes.every((node) => ['研究', '著作', '關於', '履歷'].includes(node.textContent.trim()))), '桌面主導覽含非繁中介面標籤', { width });
+    check(await page.locator('.primary-nav .nav-label').evaluateAll((nodes) => nodes.every((node) => ['研究', '著作', '關於', '履歷'].includes(node.textContent.trim()))), '桌面主導覽含非繁中介面標籤', { width });
     check(await page.locator('a[href^="en/"],a[href*="/en/"]').count() === 0, '正式介面輸出尚未完成的英文路由', { width });
 
     const trigger = page.locator('[data-menu-open]');

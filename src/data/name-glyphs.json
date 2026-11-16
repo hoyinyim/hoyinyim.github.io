@@ -1,0 +1,35 @@
+[
+  {
+    "id": "name-yan",
+    "character": "嚴",
+    "order": 1,
+    "assetPath": "images/identity/name-01-yan.png",
+    "sourceType": "user-supplied",
+    "sourceDate": "2026-11-17",
+    "originalAttachment": "codex-clipboard-eb765518-6791-420a-9b60-87fae6cb5012.png",
+    "independentVerification": false,
+    "usage": "decorative-personal-identity"
+  },
+  {
+    "id": "name-hao",
+    "character": "浩",
+    "order": 2,
+    "assetPath": "images/identity/name-02-hao.png",
+    "sourceType": "user-supplied",
+    "sourceDate": "2026-11-17",
+    "originalAttachment": "codex-clipboard-4d51cd63-825b-4f97-880d-461439e9e875.png",
+    "independentVerification": false,
+    "usage": "decorative-personal-identity"
+  },
+  {
+    "id": "name-ran",
+    "character": "然",
+    "order": 3,
+    "assetPath": "images/identity/name-03-ran.png",
+    "sourceType": "user-supplied",
+    "sourceDate": "2026-11-17",
+    "originalAttachment": "codex-clipboard-b0a4936d-7052-427d-8844-2cbd20a293ff.png",
+    "independentVerification": false,
+    "usage": "decorative-personal-identity"
+  }
+]

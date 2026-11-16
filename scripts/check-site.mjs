@@ -63,6 +63,7 @@ const validator = new HtmlValidate({ extends: ['html-validate:recommended'], rul
 for (const required of [
   'robots.txt', 'sitemap.xml', 'rss.xml', 'assets/site.css', 'assets/fonts.css', 'assets/effects.css', 'assets/webfonts.css',
   'assets/site.js', 'assets/search-index.json',
+  'images/identity/name-01-yan.png', 'images/identity/name-02-hao.png', 'images/identity/name-03-ran.png',
   'assets/fonts/genwan-min-tc-400.woff2', 'assets/fonts/noto-serif-tc-400.woff2', 'assets/fonts/noto-sans-tc-400.woff2',
   'assets/fonts/lxgw-wenkai-tc-400.woff2', 'assets/fonts/cormorant-garamond-400.woff2', 'assets/fonts/inter-400.woff2'
 ]) await access(resolve(root, required));
@@ -112,7 +113,9 @@ for (const file of htmlFiles) {
     check(primary.attr('data-site-glyph') === primaryGlyphMap[file], `${file} A 級主字形映射錯誤`);
     check(primary.attr('aria-hidden') === 'true' && primary.find('img').attr('alt') === '', `${file} A 級主字形無障礙屬性錯誤`);
   }
-  check($('.site-footer .mini-glyph').length === 3, `${file} Footer 微型字形必須為三個`);
+  check($('.site-footer .name-glyph-sequence--footer img').length === 3, `${file} Footer 姓名字形必須為三個`);
+  check($('.page-curtain .name-glyph-sequence--curtain img').length === 3, `${file} 轉場姓名字形必須為三個`);
+  check($('.identity-watermark .name-glyph-sequence--watermark img').length === 3, `${file} 背景姓名字形必須為三個`);
   $('img').each((_, node) => {
     const image = $(node);
     check(image.attr('alt') !== undefined, `${file} 圖片缺少 alt`);
@@ -153,6 +156,12 @@ const searchIndex = JSON.parse(await readFile(resolve(root, 'assets/search-index
 check(searchIndex.length >= 70, `搜尋索引筆數異常：${searchIndex.length}`);
 
 const siteGlyphs = JSON.parse(await readFile(resolve(root, 'src/data/chu-script-glyphs.json'), 'utf8'));
+const nameGlyphs = JSON.parse(await readFile(resolve(root, 'src/data/name-glyphs.json'), 'utf8'));
+check(nameGlyphs.length === 3, `姓名古文字字形必須為三個，目前 ${nameGlyphs.length}`);
+check(nameGlyphs.map((glyph) => glyph.character).join('') === '嚴浩然', '姓名古文字字形順序不是「嚴浩然」');
+check(nameGlyphs.every((glyph) => glyph.sourceType === 'user-supplied' && glyph.independentVerification === false), '姓名古文字來源狀態不得冒充獨立核定');
+check(nameGlyphs.every((glyph) => glyph.usage === 'decorative-personal-identity' && glyph.assetPath.startsWith('images/identity/')), '姓名古文字用途或本地路徑錯誤');
+for (const glyph of nameGlyphs) check(existsSync(resolve(root, glyph.assetPath)), `姓名古文字資產不存在：${glyph.assetPath}`);
 const requiredGlyphFields = ['id', 'modernCharacter', 'representedConcept', 'menuLabel', 'scriptSystem', 'period', 'sourceTitle', 'sourceRecordId', 'databaseUrl', 'license', 'sourceOrientation', 'assetPath', 'allowedPages', 'allowedRoles'];
 check(siteGlyphs.length >= 12 && siteGlyphs.length <= 18, `楚系字形登錄須為12至18筆，目前 ${siteGlyphs.length}`);
 check(siteGlyphs.every((glyph) => glyph.verified && glyph.semanticVerified && glyph.orientationVerified && glyph.approvedForUse), '楚系字形含未完成核定項目');

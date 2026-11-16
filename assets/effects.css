@@ -36,6 +36,106 @@ body::before {
   animation: curtain-enter 720ms var(--motion-ease) both;
 }
 
+.name-glyph-sequence {
+  display: flex;
+  align-items: center;
+  gap: clamp(.22rem, .65vw, .55rem);
+}
+
+.name-glyph-sequence img {
+  display: block;
+  flex: 1 1 0;
+  width: 0;
+  min-width: 0;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+:root[data-theme="dark"] .name-glyph-sequence:not(.name-glyph-sequence--curtain):not(.name-glyph-sequence--footer) img {
+  filter: invert(1);
+}
+
+.name-glyph-sequence--hero {
+  width: clamp(16rem, 28vw, 23rem);
+  margin-top: clamp(1rem, 2vw, 1.65rem);
+  padding-top: .7rem;
+  border-top: 1px solid var(--line);
+}
+
+.name-glyph-sequence--hero img,
+.name-glyph-sequence--about img {
+  padding: .16rem;
+  opacity: .72;
+  transition: opacity 320ms ease, transform 480ms var(--motion-ease);
+}
+
+.name-glyph-sequence--hero:hover img,
+.name-glyph-sequence--about:hover img {
+  opacity: .94;
+  transform: translateY(-3px);
+}
+
+.name-glyph-sequence--about {
+  width: clamp(8.5rem, 14vw, 11rem);
+  margin: 1rem 0 1.15rem;
+}
+
+.name-glyph-sequence--menu {
+  width: clamp(6rem, 9vw, 8rem);
+  filter: invert(1);
+  opacity: .48;
+}
+
+.name-glyph-sequence--curtain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(46vw, 18rem);
+  transform: translate(-50%, -50%);
+  filter: invert(1);
+  opacity: .72;
+}
+
+.name-glyph-sequence--curtain img {
+  animation: identity-curtain-mark 620ms var(--motion-ease) both;
+}
+
+.name-glyph-sequence--curtain img:nth-child(2) { animation-delay: 50ms; }
+.name-glyph-sequence--curtain img:nth-child(3) { animation-delay: 100ms; }
+
+@keyframes identity-curtain-mark {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+.identity-watermark {
+  position: fixed;
+  z-index: 0;
+  right: clamp(.8rem, 2.4vw, 2.2rem);
+  bottom: clamp(1rem, 2.4vw, 2.2rem);
+  width: clamp(6rem, 9vw, 8rem);
+  pointer-events: none;
+  opacity: .025;
+}
+
+.name-glyph-sequence--watermark {
+  flex-direction: column;
+  gap: 0;
+}
+
+.name-glyph-sequence--watermark img {
+  flex: none;
+  width: 100%;
+}
+
+.name-glyph-sequence--footer {
+  width: clamp(6.5rem, 10vw, 8.5rem);
+  margin-bottom: 1.1rem;
+  filter: invert(1);
+  opacity: .66;
+}
+
 body.is-leaving .page-curtain {
   transform: scaleY(1);
   transform-origin: bottom;
@@ -199,6 +299,9 @@ h1,
 
 @media (max-width: 760px) {
   body::before { opacity: .12; }
+  .identity-watermark { display: none; }
+  .name-glyph-sequence--hero { width: min(100%, 20rem); }
+  .name-glyph-sequence--menu { width: 5.8rem; }
   .publication-entry:hover,
   .conference-year li:hover,
   .writing-index li:hover,
@@ -212,6 +315,8 @@ h1,
   }
 
   .page-curtain { display: none; }
+
+  .name-glyph-sequence img { animation: none; transition: none; }
 
   .has-kinetic [data-kinetic],
   .has-kinetic [data-draw-line]::before,
@@ -231,6 +336,8 @@ h1,
 @media print {
   body::before,
   .page-curtain,
+  .identity-watermark,
+  .name-glyph-sequence,
   .home-intro::after,
   .about-opening::after,
   .research-opening::after,

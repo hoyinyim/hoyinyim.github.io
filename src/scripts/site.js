@@ -127,7 +127,7 @@
     });
   } else revealItems.forEach((item) => { item.dataset.contentRevealed = 'true'; });
 
-  const kineticItems = [...doc.querySelectorAll('h1, .section-index h2, .home-profile h2, .research-focus-list h3, .overline')];
+  const kineticItems = [...doc.querySelectorAll('h1:not(#home-title), .section-index h2, .home-profile h2, .research-focus-list h3, .overline')];
   const lineItems = [...doc.querySelectorAll('.publication-entry article, .conference-year li, .writing-index li, .credential-ledger li, .award-timeline li')];
   kineticItems.forEach((item) => { item.dataset.kinetic = ''; });
   lineItems.forEach((item) => { item.dataset.drawLine = ''; });

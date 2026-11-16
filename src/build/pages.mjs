@@ -1,5 +1,6 @@
 import { escapeHtml, externalAttrs, groupBy, unique } from './html.mjs';
 import { miniGlyph, pageGlyph, sectionGlyph } from './glyphs.mjs';
+import { nameGlyphSequence } from './identity.mjs';
 
 const tags = (items = []) => items.length ? `<ul class="status-list">${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : '';
 
@@ -22,7 +23,7 @@ const educationLedger = (education) => Object.values(groupBy(education, 'schoolI
   return `<section class="education-school education-school--${escapeHtml(school.schoolId)}"><header><img src="${escapeHtml(school.logo)}" alt="${escapeHtml(school.logoAlt)}" width="108" height="72"><div><p class="overline">${escapeHtml(school.schoolName)}</p><h3>${escapeHtml(school.schoolName)}</h3></div></header><ol>${items.map((item) => `<li><time class="nowrap-token">${escapeHtml(item.period)}</time><div>${degreeTitle(item)}${institutionPath(item)}</div></li>`).join('')}</ol></section>`;
 }).join('');
 
-export function homePage({ profile, research, experience, translations, credentials, publications, conferences, siteGlyphs }) {
+export function homePage({ profile, research, experience, translations, credentials, publications, conferences, siteGlyphs, nameGlyphs }) {
   const serviceItems = [
     translations.publicWriting[0].title,
     credentials.credentials.find((item) => item.id === 'credential-03').title,
@@ -36,7 +37,7 @@ export function homePage({ profile, research, experience, translations, credenti
   const recentPublications = publications.slice(0, 4);
   return `<section class="home-intro axis-grid" aria-labelledby="home-title">
     ${pageGlyph(siteGlyphs, 'chu-study', 'home')}
-    <div class="home-heading"><p class="overline">中國思想／先秦哲學／出土文獻</p><h1 id="home-title"><span>${escapeHtml(profile.nameZh)}</span><small>${escapeHtml(profile.nameEn)}</small></h1></div>
+    <div class="home-heading"><p class="overline">中國思想／先秦哲學／出土文獻</p><h1 id="home-title"><span>${escapeHtml(profile.nameZh)}</span><small>${escapeHtml(profile.nameEn)}</small></h1>${nameGlyphSequence(nameGlyphs, 'hero')}</div>
     <div class="home-identity"><strong>${escapeHtml(profile.roleZh)}</strong>${roleEn(profile.roleEn)}<div class="hero-actions"><a class="axis-link axis-link--primary" href="research.html">研究方向 <span>→</span></a><a class="axis-link" href="publications.html">學術著作 <span>→</span></a></div></div>
     <figure class="home-portrait"><img src="${profile.portrait}" width="523" height="648" decoding="async" fetchpriority="high" alt="${escapeHtml(profile.portraitAlt)}"><figcaption lang="en"><span>National Cheng Kung University</span><span>Department of Chinese Literature</span></figcaption></figure>
     <dl class="home-facts"><div><dt>期刊著作</dt><dd>${publications.length}</dd></div><div><dt>研討會發表</dt><dd>${conferences.presentations.length}</dd></div><div><dt>研究重點</dt><dd>${research.current.length}</dd></div></dl>
@@ -70,8 +71,8 @@ export function homePage({ profile, research, experience, translations, credenti
   `;
 }
 
-export function aboutPage({ profile, education, siteGlyphs }) {
-  return `<section class="about-opening axis-grid" aria-labelledby="about-title">${pageGlyph(siteGlyphs, 'chu-person', 'about')}<figure><img src="${profile.portrait}" width="523" height="648" decoding="async" alt="${escapeHtml(profile.portraitAlt)}"><figcaption><span lang="en">${escapeHtml(profile.nameEn)}</span><span>${escapeHtml(profile.institutionZh)}</span></figcaption></figure><div><p class="overline">關於／學術簡介</p><h1 id="about-title">${escapeHtml(profile.nameZh)}</h1><p class="about-role">${escapeHtml(profile.roleZh)}</p>${roleEn(profile.roleEn)}</div></section>
+export function aboutPage({ profile, education, siteGlyphs, nameGlyphs }) {
+  return `<section class="about-opening axis-grid" aria-labelledby="about-title">${pageGlyph(siteGlyphs, 'chu-person', 'about')}<figure><img src="${profile.portrait}" width="523" height="648" decoding="async" alt="${escapeHtml(profile.portraitAlt)}"><figcaption><span lang="en">${escapeHtml(profile.nameEn)}</span><span>${escapeHtml(profile.institutionZh)}</span></figcaption></figure><div><p class="overline">關於／學術簡介</p><h1 id="about-title">${escapeHtml(profile.nameZh)}</h1>${nameGlyphSequence(nameGlyphs, 'about')}<p class="about-role">${escapeHtml(profile.roleZh)}</p>${roleEn(profile.roleEn)}</div></section>
   <section class="about-biography axis-grid" aria-labelledby="biography-title"><h2 id="biography-title">學術簡介</h2><div>${profile.bio.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</div></section>
   <section class="about-education axis-grid" id="education" aria-labelledby="about-education-title">${sectionGlyph(siteGlyphs, 'chu-path', 'education')}<header><p class="overline">教育背景／2016年至今</p><h2 id="about-education-title">教育背景</h2></header><div class="education-ledger">${educationLedger(education)}</div></section>
   <nav class="next-links" aria-label="延伸閱讀"><a href="research.html">研究 <span>研究方向</span></a><a href="cv.html">履歷 <span>完整經歷</span></a><a href="contact.html">聯絡 <span>學術通信</span></a></nav>`;
