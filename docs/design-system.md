@@ -14,7 +14,7 @@
 8. `accessibility.css`：Reduced Motion、對比、強制色彩與觸控。
 9. `print.css`：A4 CV。
 
-建置後只發布 `assets/site.css`。不存在 `archive-pages.css`、`third-stage.css`、`body:has(...)` 頁面覆寫或頁面內嵌 `<style>`。
+正式學術網站使用既有的基礎樣式 `assets/site.css` 及獨立的字體與效果樣式。書畫示範的樣式與腳本只在示範載入，不疊到正式頁面；其他本機排版與期刊主題樣式不在本次發布範圍。
 
 ## 構圖原則
 
@@ -22,3 +22,52 @@
 - 資料類型決定容器：書目使用年份軌道，會議使用年份帳冊，證照使用文字檔案索引，公共寫作使用可水平操作的單一索引。
 - 頁面 Hero、章節標題與 Footer 不重複首頁姓名比例。
 - 深色模式重新指定紙材與墨色，不作機械反相。
+
+## 書畫與閱讀示範規格
+
+取捨及來源見 [十五站設計研究](design-research.md)。書畫示範限定在 `prototypes/ink-study/`，與正式首頁、導覽和學術書目分開運作。期刊「思／羣／玄」屬其他本機工作，不在此次書畫示範發布範圍內。
+
+| 層級 | 淺色／深色 | 用途 |
+| --- | --- | --- |
+| 紙底 | `#f6f3ea`／`#191d19` | 沿用主站的紙張基調 |
+| 頁面／圖版底 | `#fffdf8`／`#232b24` | 書畫框與近看區塊 |
+| 正文墨色 | `#202820`／`#edece0` | 標題、長文、操作名稱 |
+| 次要墨色 | `#56534b`／`#bfc1b6` | 題跋、來源、圖說 |
+| 細線 | `#dcd6c9`／`#484b42` | 依序分隔，不用以傳遞唯一狀態 |
+| 印色與聚焦 | `#8d4132`／`#efad96` | 操作狀態、焦點框與短底線 |
+
+- 字體：延用 GenWan Min TC 作展示級繁體明朝，Noto Serif TC 作長文，Noto Sans TC 與 Inter 作功能及書目；Cormorant Garamond 用於少量英文標題。字型缺字走本站繁中及系統字體後備。不新載第三方字型，不將全文用手寫體呈現。
+- 字級：主標 2.5–5.15rem，章名 1.75–3.1rem，正文 1.0625–1.1875rem，行高 1.8 左右，正文寬版 33em；註記與控制項至少 .9375rem。標題行高約 1.15–1.3；正文不擴大字距；日期、按鍵及集名不應因裝飾而變小。
+- 網格：桌面對頁式配置，寬版卷首橫向分欄，窄版以文件順序堆疊。容器上限 76rem，外側緩距 1.125–4rem；段落寬度與畫作寬度分開。章間 2.5–6.5rem，塊內 0.5–1.25rem；紙白為停頓。760px 以下不固定索引，520px 以下短題籤回橫排。
+- 動態：狀態 160–220ms，文字出場 280ms，墨圖揭示上限 560ms，頁面淡接 170–220ms。緩動採 `cubic-bezier(.22,1,.36,1)`；動畫幅度小，重要正文預設可讀。懸停有同等的鍵盤焦點回饋，不用位移拓展點擊區。
+- 互動：不用滾輪劫持、強制拖曳、播放門檻或自動聲音。按鈕及獨立導覽連結的觸控高度設計值 44px；[WCAG 2.2 目標尺寸最低要求](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)與本專案較寬鬆設計尺寸不可混稱。鍵盤不能被局部畫卷或圖片困住。
+- 後備：無 JavaScript 時導覽、原圖連結、橫卷與題跋仍可用，互動加強按鈕隱藏。減少動態關閉揭示與淡接；狀態切換仍直接可用。強制色彩、列印停用紙紋；圖片保有原枚，不用混色遮住實質文字。
+
+### 元件配置與效能界線
+
+| 元件 | 參數和基本技術 | 注意事項與延伸 |
+| --- | --- | --- |
+| CalligraphyHero | 名稱、英文附標、身分與字形；雙欄到單欄 | 姓名是真實 HTML；原圖不作考釋。未來如有別組有權字形，才增加可選版本 |
+| InkReveal | 圖、題跋、揭示時間；局部裁切 | 是圖像裁揭，不是真實筆順；避免多張同播 |
+| ScrollPainting | 圖組、起始視野、容器寬；原生橫向 scroll snap | 可按鍵、點方向控制或觸控滑動，不能接管頁面的垂直捲動 |
+| ScrollNarrative | 章名與錨點；sticky 側欄 | 正文自由閱讀。未來可加不干預導覽的章節狀態 |
+| VerticalTypography | 題籤文字、字距、方向；CSS writing-mode | 只用於短字串，窄版還原橫書 |
+| ArtworkGallery | 圖片清單、選作和題跋；原圖連結 | 不做自動輪播，圖說不靠滑鼠才顯示 |
+| ArtworkZoom | 原圖與縮放區間；range＋區域捲動 | 1440px 插畫不等同高解析掃描；可另連原圖，不虛增源解析度 |
+| TextReveal | 段落、位移、時間；opacity／transform | 靜態可讀，動畫可略過；不拆字、不把段落變成 SVG |
+| MinimalNavigation | 目的地清單與當前頁；原生連結 | 換行後仍可操作；不讓可用性依賴 JavaScript 選單 |
+| PageTransition | 時長與紙色；同源 View Transition | 無支援使用普通連結，保留返回鍵和新分頁 |
+| PaperTexture | 粒度與透明度；小型靜態 SVG | 不做逐幀噪點；圖像渲染成本按裝置另測 |
+| AnnotationPanel | 題跋、來源及對象；native details | 無 JavaScript 仍展開，可作為正式來源欄前須另核版本與權利 |
+
+示範使用已有的名字原圖與水墨插圖，見 [字形來源](name-glyph-provenance.md) 與 [山水插圖來源](ink-leaf-artwork.md)。所有章節文字需區分站方既有的學術簡介與示範性觀畫註記。沒有新增框架；靜態 HTML 可直接讀取，使用短小的 CSS、SVG 與原生 DOM。
+
+### 本機預覽與再使用
+
+從網站儲存庫執行 `node prototypes/ink-study/build.mjs` 重新產生 HTML，執行 `pnpm serve`，再開啟 [整合示範](http://127.0.0.1:4173/prototypes/ink-study/index.html) 或 [元件展示](http://127.0.0.1:4173/prototypes/ink-study/components.html)。可以直接開啟 HTML 檔預覽靜態內容；跨頁淡接須在同源 HTTP 頁面測試。
+
+組件輸出函式集中於 `components.mjs`；以同一份原型 CSS 提供樣式，用 `ink-study.js` 漸進加強互動。多個實例請用不同圖版、畫卷與縮放 ID。重播上限可由元件的 data-duration 參數設定；紙紋和轉場時間由 CSS 的 --grain-opacity、--page-duration 調整。
+
+自動驗收：預覽開啟後，用環境變數 SITE_URL 指向預覽根網址，再執行 `node tests/ink-study/check.mjs`。它不寫入正式頁面；成果與捕捉畫面放在被 Git 排除的 `tmp/ink-study-qa`。公開版使用 GitHub Pages 的獨立目錄：[整合示範](https://hoyinyim.github.io/prototypes/ink-study/)及[元件展示](https://hoyinyim.github.io/prototypes/ink-study/components.html)，不改動正式站路由。
+
+2026 年 11 月 20 日，本機 Chromium 取樣確認同源兩頁在一般動態開啟轉場、減少動態時改走無轉場導覽。單次墨圖重播在 1440px 無頭瀏覽器的 550ms 取樣，中位幀間距約 16.7ms，無超過 32ms 的記錄；這是主執行緒呈現節奏指標，並非 GPU 或實體手機的完整效能驗證。下輪可測較低階手機、減速 CPU 與不同圖片解碼路徑。

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="嚴浩然個人學術網站的書畫與閱讀設計示範。">
+  <meta name="robots" content="noindex">
+  <title>互動元件｜嚴浩然</title>
+  <link rel="stylesheet" href="../../assets/webfonts.css">
+  <link rel="stylesheet" href="ink-study.css">
+  <script src="ink-study.js" defer></script>
+</head>
+<body class="study-page study-lab">
+  <a class="study-skip" href="#study-main">跳至主要內容</a>
+  <header class="study-header"><div class="study-shell">
+    <a class="study-brand" href="index.html">書畫與閱讀</a>
+    <nav class="study-nav" aria-label="示範導覽"><a href="index.html">整合示範</a><a href="components.html" aria-current="page">互動元件</a><a href="../../index.html">學術網站</a></nav>
+  </div></header>
+  <main id="study-main" tabindex="-1"><section class="lab-intro study-shell"><p class="eyebrow">書畫設計系統</p><h1>互動元件</h1><p class="study-lead">先看一個元件如何工作，再回整合示範看圖、字與閱讀次序如何配合。十二項各有獨立錨點、操作和參數註記。</p>
+  <nav aria-label="元件目次" class="component-index"><a href="#calligraphy-hero">書法式卷首</a><a href="#ink-reveal">墨圖揭示</a><a href="#scroll-painting">可橫讀的畫卷</a><a href="#scroll-narrative">章節敘讀</a><a href="#vertical-typography">短題籤縱書</a><a href="#artwork-gallery">圖集與題跋</a><a href="#artwork-zoom">局部放大</a><a href="#text-reveal">段落呈現</a><a href="#minimal-navigation">輕量導覽</a><a href="#page-transition">紙面淡接</a><a href="#paper-texture">紙面紋理</a><a href="#annotation-panel">題跋與學術註解</a></nav></section>
+  <div class="sample-grid study-shell">
+  <section class="sample-card" id="calligraphy-hero" data-component="calligraphy-hero" aria-labelledby="calligraphy-hero-title"><header class="sample-heading"><p class="eyebrow" lang="en">CalligraphyHero</p><h2 id="calligraphy-hero-title">書法式卷首</h2><details class="sample-params"><summary>使用方式與參數</summary><p>輸入真實姓名、英文附標、身分、三枚字形與主圖；窄版改為上下配置，姓名仍是文字。</p></details></header><div class="sample-preview"><div class="study-hero study-hero--sample"><div class="hero-copy">
+    <p class="eyebrow">卷首示範</p>
+    <h3>嚴浩然</h3>
+    <p class="hero-roman" lang="en">YIM HO YIN</p>
+    <p class="study-lead">國立成功大學中國文學系博士候選人</p>
+    <div class="hero-signature" aria-hidden="true"><img src="../../images/identity/name-01-yan.png" alt="" width="401" height="401" decoding="async"><img src="../../images/identity/name-02-hao.png" alt="" width="401" height="401" decoding="async"><img src="../../images/identity/name-03-ran.png" alt="" width="401" height="401" decoding="async"></div>
+  </div><div class="hero-leaf" data-effect="ink" data-duration="500">
+    <figure class="art-frame"><img src="../../images/ink/mountains.jpg" width="1440" height="480" alt="淺墨遠山掩入霧中，松與較濃的山石留在右岸" decoding="async" loading="lazy" data-motion-item><figcaption><span>山間</span><span class="art-source">網站設計插圖</span></figcaption></figure>
+  </div></div></div></section>
+<section class="sample-card" id="ink-reveal" data-component="ink-reveal" aria-labelledby="ink-reveal-title"><header class="sample-heading"><p class="eyebrow" lang="en">InkReveal</p><h2 id="ink-reveal-title">墨圖揭示</h2><details class="sample-params"><summary>使用方式與參數</summary><p>依 data-duration 設定單次揭示時間，建議 420–560ms。這是原圖的裁切顯現，不是歷史筆順復原。</p></details></header><div class="sample-preview"><div data-effect="ink" data-duration="500"><figure class="art-frame"><img src="../../images/ink/bamboo.jpg" width="1440" height="480" alt="數枝疏竹立在右岸，淡色水面與遠山留在左側" decoding="async" loading="lazy" data-motion-item><figcaption><span>疏竹</span><span class="art-source">網站設計插圖</span></figcaption></figure><div class="study-actions"><button type="button" data-replay hidden>重看墨圖揭示</button></div></div></div></section>
+<section class="sample-card" id="scroll-painting" data-component="scroll-painting" aria-labelledby="scroll-painting-title"><header class="sample-heading"><p class="eyebrow" lang="en">ScrollPainting</p><h2 id="scroll-painting-title">可橫讀的畫卷</h2><details class="sample-params"><summary>使用方式與參數</summary><p>傳入圖組和唯一容器 ID。原生滑動、方向鍵及前後按鈕皆在圖版區域內作用。</p></details></header><div class="sample-preview"><div class="scroll-painting" data-painting>
+    <div class="study-actions painting-actions">
+      <button type="button" data-painting-step="-1" aria-controls="sample-painting" hidden>前一幅</button>
+      <button type="button" data-painting-step="1" aria-controls="sample-painting" hidden>後一幅</button>
+      <p data-painting-position role="status"></p>
+    </div>
+    <ol id="sample-painting" data-painting-track tabindex="0" aria-label="畫卷圖版，可橫向捲動"><li><figure class="art-frame"><img src="../../images/ink/mountains.jpg" width="1440" height="480" alt="淺墨遠山掩入霧中，松與較濃的山石留在右岸" decoding="async" loading="lazy"><figcaption><span>山間</span><span class="art-source">網站設計插圖</span></figcaption></figure></li><li><figure class="art-frame"><img src="../../images/ink/river.jpg" width="1440" height="511" alt="淺淡的江面與折轉的水岸，遠處有一座小亭" decoding="async" loading="lazy"><figcaption><span>江岸</span><span class="art-source">網站設計插圖</span></figcaption></figure></li><li><figure class="art-frame"><img src="../../images/ink/bamboo.jpg" width="1440" height="480" alt="數枝疏竹立在右岸，淡色水面與遠山留在左側" decoding="async" loading="lazy"><figcaption><span>疏竹</span><span class="art-source">網站設計插圖</span></figcaption></figure></li></ol>
+  </div></div></section>
+<section class="sample-card" id="scroll-narrative" data-component="scroll-narrative" aria-labelledby="scroll-narrative-title"><header class="sample-heading"><p class="eyebrow" lang="en">ScrollNarrative</p><h2 id="scroll-narrative-title">章節敘讀</h2><details class="sample-params"><summary>使用方式與參數</summary><p>傳入有錨點的章節與標題。寬版固定目次，窄版在正文上方；不固定正文或攔截滾輪。</p></details></header><div class="sample-preview"><div class="reading-grid" data-narrative>
+    <aside class="reading-index"><nav aria-label="本文目次"><p class="eyebrow">本文目次</p><ul><li><a href="#sample-reading-one" data-chapter-link>材料與題名</a></li><li><a href="#sample-reading-two" data-chapter-link>脈絡與說明</a></li></ul></nav></aside>
+    <div class="reading-body"><section class="reading-chapter" id="sample-reading-one" data-chapter tabindex="-1"><h3>材料與題名</h3><p>關注清華簡、安大簡等材料與傳世文獻之思想關聯。</p></section><section class="reading-chapter" id="sample-reading-two" data-chapter tabindex="-1"><h3>脈絡與說明</h3><p>博士論文主題，聚焦早期中國思想中的倫理判斷、政治秩序與修養實踐。</p></section></div>
+  </div></div></section>
+<section class="sample-card" id="vertical-typography" data-component="vertical-typography" aria-labelledby="vertical-typography-title"><header class="sample-heading"><p class="eyebrow" lang="en">VerticalTypography</p><h2 id="vertical-typography-title">短題籤縱書</h2><details class="sample-params"><summary>使用方式與參數</summary><p>輸入一至六個字的題籤與橫書說明，520px 以下回到橫排。</p></details></header><div class="sample-preview"><div class="vertical-sample"><p class="vertical-title">觀畫讀文</p><p>短題籤把圖與文字分開；註解、年份和長文維持橫排。</p></div></div></section>
+<section class="sample-card" id="artwork-gallery" data-component="artwork-gallery" aria-labelledby="artwork-gallery-title"><header class="sample-heading"><p class="eyebrow" lang="en">ArtworkGallery</p><h2 id="artwork-gallery-title">圖集與題跋</h2><details class="sample-params"><summary>使用方式與參數</summary><p>傳入圖組與 ID；選圖同步標題、題跋及原圖連結。無 JavaScript 時各縮圖仍可直接開啟。</p></details></header><div class="sample-preview"><div class="art-gallery" data-gallery>
+    <figure class="art-frame gallery-display" id="sample-gallery">
+      <img src="../../images/ink/mountains.jpg" width="1440" height="480" alt="淺墨遠山掩入霧中，松與較濃的山石留在右岸" decoding="async" data-gallery-image loading="lazy">
+      <figcaption><span data-gallery-title>山間</span><a href="../../images/ink/mountains.jpg" data-gallery-source>查看原圖</a></figcaption>
+    </figure>
+    <p class="art-description" data-gallery-caption aria-live="polite">山脊由淡轉濃；左側留下大段水面和霧氣。在這裡，空白給觀者時間辨認前後層次。</p>
+    <ul class="gallery-choices" aria-label="選擇圖版">
+      <li><a href="../../images/ink/mountains.jpg" aria-controls="sample-gallery" data-gallery-choice data-title="山間" data-caption="山脊由淡轉濃；左側留下大段水面和霧氣。在這裡，空白給觀者時間辨認前後層次。" aria-current="true"><img src="../../images/ink/mountains.jpg" width="1440" height="480" alt="淺墨遠山掩入霧中，松與較濃的山石留在右岸" decoding="async" loading="lazy"><span>山間</span></a></li><li><a href="../../images/ink/river.jpg" aria-controls="sample-gallery" data-gallery-choice data-title="江岸" data-caption="遠亭只佔畫面一角，從近岸望向遠處時，大片水面組成圖中的停頓。"><img src="../../images/ink/river.jpg" width="1440" height="511" alt="淺淡的江面與折轉的水岸，遠處有一座小亭" decoding="async" loading="lazy"><span>江岸</span></a></li><li><a href="../../images/ink/bamboo.jpg" aria-controls="sample-gallery" data-gallery-choice data-title="疏竹" data-caption="竹枝比遠山清晰，旁側留白讓視線先辨短筆，再及淺墨中的水岸。"><img src="../../images/ink/bamboo.jpg" width="1440" height="480" alt="數枝疏竹立在右岸，淡色水面與遠山留在左側" decoding="async" loading="lazy"><span>疏竹</span></a></li>
+    </ul>
+  </div></div></section>
+<section class="sample-card" id="artwork-zoom" data-component="artwork-zoom" aria-labelledby="artwork-zoom-title"><header class="sample-heading"><p class="eyebrow" lang="en">ArtworkZoom</p><h2 id="artwork-zoom-title">局部放大</h2><details class="sample-params"><summary>使用方式與參數</summary><p>傳入來源圖版和唯一控制 ID；可修改 range 的初始值與上下界。本例為 100–200%，可用鍵盤調整。</p></details></header><div class="sample-preview"><details class="art-zoom" data-zoom>
+    <summary>江岸：查看局部</summary>
+    <div class="zoom-controls" data-zoom-controls hidden><label for="sample-zoom">圖版比例</label><input id="sample-zoom" type="range" min="100" max="200" step="10" value="100" data-zoom-range><output for="sample-zoom" data-zoom-value>100%</output></div>
+    <section class="zoom-viewport" data-zoom-viewport tabindex="0" aria-label="圖版細節，可在區內捲動"><img src="../../images/ink/river.jpg" width="1440" height="511" alt="淺淡的江面與折轉的水岸，遠處有一座小亭" decoding="async" loading="lazy"></section>
+    <p class="art-description">這是網站圖版，不是古畫原件掃描。放大後可在圖框內捲動，或<a href="../../images/ink/river.jpg">直接開啟原圖</a>。</p>
+  </details></div></section>
+<section class="sample-card" id="text-reveal" data-component="text-reveal" aria-labelledby="text-reveal-title"><header class="sample-heading"><p class="eyebrow" lang="en">TextReveal</p><h2 id="text-reveal-title">段落呈現</h2><details class="sample-params"><summary>使用方式與參數</summary><p>每段保持完整，以 data-duration 設定淡入時間。沒有動畫時，所有字立即可見。</p></details></header><div class="sample-preview"><div class="text-reveal" data-effect="text" data-duration="280"><p data-motion-item>嚴浩然，國立成功大學中國文學系博士候選人，中國思想專攻。研究領域為先秦思想、荀子哲學、出土文獻思想與中國早期倫理與政治思想。</p><p data-motion-item>考察荀子思想中的倫理語彙、政治秩序與實踐問題。</p><div class="study-actions"><button type="button" data-replay hidden>重看段落呈現</button></div></div></div></section>
+<section class="sample-card" id="minimal-navigation" data-component="minimal-navigation" aria-labelledby="minimal-navigation-title"><header class="sample-heading"><p class="eyebrow" lang="en">MinimalNavigation</p><h2 id="minimal-navigation-title">輕量導覽</h2><details class="sample-params"><summary>使用方式與參數</summary><p>傳入連結和當前狀態。示範以下連結有獨立焦點，手機可以換行。</p></details></header><div class="sample-preview"><nav class="study-nav" aria-label="示範導覽連結"><a href="index.html#study-scroll">展卷</a><a href="index.html#study-reading">學術閱讀</a><a href="index.html#study-notes">題跋</a></nav></div></section>
+<section class="sample-card" id="page-transition" data-component="page-transition" aria-labelledby="page-transition-title"><header class="sample-heading"><p class="eyebrow" lang="en">PageTransition</p><h2 id="page-transition-title">紙面淡接</h2><details class="sample-params"><summary>使用方式與參數</summary><p>同源跨頁在支援 View Transition 時淡接，時間可在 CSS 設定；無支援仍直接開頁。請由本機 HTTP 預覽測試。</p></details></header><div class="sample-preview"><div class="study-actions"><a class="transition-link" href="index.html">回整合示範看轉場</a></div></div></section>
+<section class="sample-card" id="paper-texture" data-component="paper-texture" aria-labelledby="paper-texture-title"><header class="sample-heading"><p class="eyebrow" lang="en">PaperTexture</p><h2 id="paper-texture-title">紙面紋理</h2><details class="sample-params"><summary>使用方式與參數</summary><p>以 CSS 變數控制紋理透明度。靜態 SVG 不逐幀重畫，列印與強制色彩移除。</p></details></header><div class="sample-preview"><div class="paper-example"><p class="eyebrow">紙面樣本</p><p>紙面保留淡淡的紋理，題跋、書目和按鈕不靠紋理辨識。</p></div></div></section>
+<section class="sample-card" id="annotation-panel" data-component="annotation-panel" aria-labelledby="annotation-panel-title"><header class="sample-heading"><p class="eyebrow" lang="en">AnnotationPanel</p><h2 id="annotation-panel-title">題跋與學術註解</h2><details class="sample-params"><summary>使用方式與參數</summary><p>傳入標籤與文字。原生 details 可用鍵盤或觸控展合，也能在無 JavaScript 時工作。</p></details></header><div class="sample-preview"><div class="annotation-panel"><details><summary>題跋｜留白與視線</summary><p>留白在此用來分開近景與遠景。文字題跋置於圖框外，先呈現所見，再說明設計取捨；這是觀畫示例，不是對特定古畫的考釋。</p></details><details><summary>圖版來源</summary><p>三幅圖均是現有學術網站的設計插圖。原圖可獨立開啟，未使用本次參考站的作品、字型或聲音。</p></details><details><summary>姓名古文字</summary><p>此處嚴、浩、然三枚圖形依使用者提供的原圖顯示。圖形用於身分識別；年代、文字系統與歷史來源未作鑑定。</p></details></div></div></section>
+</div></main>
+  <footer class="study-footer"><div class="study-shell">
+    <p>嚴浩然 <span lang="en">YIM HO YIN</span></p>
+    <p>書畫設計示範・書目與研究資料以正式網站為準</p>
+    <nav class="study-nav" aria-label="研究與圖版來源"><a href="../../docs/design-research.md">設計研究</a><a href="../../docs/design-system.md">設計系統</a><a href="../../docs/ink-leaf-artwork.md">插圖來源</a></nav>
+  </div></footer>
+</body>
+</html>
