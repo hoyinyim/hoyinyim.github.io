@@ -41,7 +41,21 @@ exact(experience.map(({ text }) => text), indexSource('.list-clean li').map((_, 
 const journalSource = await readFile(resolve(root, baseline.sourceRoot, 'journal-papers.html'), 'utf8');
 const publicationMatch = journalSource.match(/const publications\s*=\s*(\[[\s\S]*?\n\]);/);
 const sourcePublications = Function(`"use strict";return (${publicationMatch[1]})`)();
-exact(publications.map(({ id, ...item }) => item), sourcePublications, '期刊論文逐筆欄位與順序');
+// 保留原始快照雜湊，僅疊加有來源的單筆書目更正。
+const journalAmendments = JSON.parse(await readFile(new URL('./journal-amendments.json', import.meta.url), 'utf8'));
+const amendableFields = new Set(['filter', 'meta', 'tags', 'tagTypes', 'link', 'linkLabel', 'cite']);
+const amendedIds = new Set();
+const expectedPublications = sourcePublications.map((item, index) => ({ id: `journal-${String(index + 1).padStart(2, '0')}`, ...item }));
+for (const { id, verifiedOn, sourceUrl, fields } of journalAmendments) {
+  const record = expectedPublications.find((item) => item.id === id);
+  const valid = record && !amendedIds.has(id) && /^\d{4}-\d{2}-\d{2}$/.test(verifiedOn) &&
+    sourceUrl.startsWith('https://') && fields.link === sourceUrl &&
+    Object.keys(fields).every((key) => amendableFields.has(key));
+  check(valid, `${id} 書目更正缺少來源或包含不允許的欄位`);
+  if (valid) { Object.assign(record, fields); amendedIds.add(id); }
+}
+const sortedFields = (records) => records.map((record) => Object.fromEntries(Object.entries(record).sort(([left], [right]) => left.localeCompare(right))));
+exact(sortedFields(publications), sortedFields(expectedPublications), '期刊論文逐筆欄位與順序（含已核更正）');
 
 const conferenceSource = load(await readFile(resolve(root, baseline.sourceRoot, 'conference-papers.html'), 'utf8'));
 exact(conferences.published.map(({ id, link, ...item }) => item), conferenceSource('.publication-item').map((_, node) => ({ title: clean(conferenceSource(node).find('.title').text()), venue: clean(conferenceSource(node).find('.venue').text()), meta: clean(conferenceSource(node).find('.metadata').text()) })).get(), '已出版研討會論文');
@@ -92,6 +106,18 @@ const $journalPublic = load(publicHtml.journal);
 check($journalPublic('.publication-entry').length === publications.length, '初始 HTML 期刊筆數不等於資料源');
 check(!$journalPublic('script:not([src]):not([type="application/ld+json"])').length, '期刊頁仍有內嵌 JavaScript');
 check(!$journalPublic('style').length, '期刊頁仍有內嵌 CSS');
+for (const { id, fields } of journalAmendments) {
+  const entry = $journalPublic(`[data-publication-id="${id}"]`);
+  const link = entry.find('.entry-actions a');
+  check(entry.length === 1 && link.attr('href') === fields.link && clean(link.text()).startsWith(fields.linkLabel), `${id} 期刊官網連結或標籤不同步`);
+  check(entry.find('[data-copy]').attr('data-copy') === fields.cite, `${id} 複製引用未套用更正`);
+  const item = publications.find((publication) => publication.id === id);
+  if (item) {
+    for (const [label, html] of [['首頁', publicHtml.index], ['履歷', publicHtml.cv]]) {
+      contains(html, `${item.venue}　${fields.meta}`, `${label}期刊卷期頁碼`);
+    }
+  }
+}
 const $conferencePublic = load(publicHtml.conference);
 for (const item of conferences.published) {
   const link = $conferencePublic(`a[href="${item.link}"]`);
@@ -102,8 +128,9 @@ const $translationsPublic = load(publicHtml.translations);
 for (const item of translations.publicWriting) check($translationsPublic('h3').filter((_, node) => clean($translationsPublic(node).text()) === item.title).length === 1, `公共寫作索引重複：${item.title}`);
 
 const report = { generatedAt: new Date().toISOString(), checks, passed: errors.length === 0, errors, counts: { publications: publications.length, conferencePublished: conferences.published.length, conferencePresentations: conferences.presentations.length, publicWriting: translations.publicWriting.length, credentials: credentials.credentials.length, awards: credentials.awards.length } };
-await mkdir(resolve(root, 'docs/qa/professional-rebuild'), { recursive: true });
-await writeFile(resolve(root, 'docs/qa/professional-rebuild/content-integrity-results.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
+const reportDir = resolve(root, process.env.CONTENT_QA_DIR || 'docs/qa/professional-rebuild');
+await mkdir(reportDir, { recursive: true });
+await writeFile(resolve(reportDir, 'content-integrity-results.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
 
 if (errors.length) {
   console.error(`內容完整性測試失敗：${errors.length} 項。`);

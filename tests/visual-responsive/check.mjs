@@ -6,8 +6,9 @@ import { fileURLToPath } from 'node:url';
 const root = resolve(fileURLToPath(new URL('../..', import.meta.url)));
 const baseUrl = (process.env.SITE_URL || 'http://127.0.0.1:4173').replace(/\/$/, '');
 const executablePath = process.env.CHROME_PATH || (process.platform === 'win32' ? 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe' : '/usr/bin/google-chrome');
-const outDir = resolve(root, 'docs/qa/professional-rebuild/screenshots');
-const topologyOutDir = resolve(root, 'docs/qa/homepage-topology/screenshots');
+const qaRoot = resolve(root, process.env.VISUAL_QA_DIR || 'docs/qa');
+const outDir = resolve(qaRoot, 'professional-rebuild/screenshots');
+const topologyOutDir = resolve(qaRoot, 'homepage-topology/screenshots');
 await mkdir(outDir, { recursive: true });
 await mkdir(topologyOutDir, { recursive: true });
 const widths = [320, 360, 375, 390, 430, 540, 768, 820, 1024, 1280, 1440, 1920];
@@ -157,7 +158,7 @@ try {
   errors.push({ message: '視覺測試執行階段錯誤', error: String(error), stack: error?.stack || '' });
 } finally {
   const report = { generatedAt: new Date().toISOString(), baseUrl, widths, pages, checks: measurements.length, passed: errors.length === 0, errors, measurements };
-  await writeFile(resolve(root, 'docs/qa/professional-rebuild/visual-responsive-results.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
+  await writeFile(resolve(qaRoot, 'professional-rebuild/visual-responsive-results.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
   if (errors.length) process.exitCode = 1;
   await browser.close();
 }

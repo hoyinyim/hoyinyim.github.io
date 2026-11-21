@@ -1,0 +1,68 @@
+/* Local ink gestures supplement the catalogue; the links themselves still navigate. */
+.home-intro .home-name-stamp { position: relative; display: block; }
+.home-name-stamp .name-glyph-sequence--stamp { width: 100%; }
+.home-stamp-trigger {
+  position: absolute;
+  z-index: 1;
+  inset: 50% 0 auto;
+  min-block-size: 44px;
+  block-size: 100%;
+  translate: 0 -50%;
+  border: 0;
+  border-bottom: 1px dotted var(--line-strong);
+  padding: 0;
+  background: transparent;
+  pointer-events: auto;
+}
+.home-stamp-trigger:focus-visible { outline-offset: -2px; }
+.home-stamp-trigger:active,
+.home-name-stamp[data-ink-pulse] .home-stamp-trigger { border-bottom-color: var(--accent); box-shadow: inset 0 -2px var(--accent); }
+.ink-local-glyph { position: relative; display: block; inline-size: 100%; aspect-ratio: 1; }
+.name-glyph-sequence--stamp .ink-local-glyph { flex: 1 1 0; min-inline-size: 0; }
+.home-name-stamp .ink-local-glyph > img { inline-size: 100%; block-size: auto; }
+.home-name-stamp[data-ink-ready] .ink-local-glyph { opacity: .66; }
+.home-name-stamp[data-ink-ready] .ink-local-glyph > img { opacity: 1; animation: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-intro:has([data-ink-pulse]) [data-home-ink-art] img { animation: academic-ink-unfold 460ms var(--ease); }
+  @keyframes academic-ink-unfold {
+    from { clip-path: inset(0 0 0 48%); opacity: .45; }
+    to { clip-path: inset(0); opacity: 1; }
+  }
+  .ink-local-glyph::before,
+  .ink-local-glyph::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+    background: var(--ink-local-source) center / contain no-repeat;
+    translate: calc(var(--ink-local-x, 0px) * var(--ink-local-sign)) calc(var(--ink-local-y, 0px) * var(--ink-local-sign));
+    transition: translate 280ms var(--ease);
+  }
+  .ink-local-glyph::before { --ink-local-sign: -1; clip-path: inset(0 0 66.66%); }
+  .ink-local-glyph::after { --ink-local-sign: 1; clip-path: inset(66.66% 0 0); }
+  .ink-local-glyph > img { clip-path: inset(33.33% 0 33.33%); }
+  :root[data-theme="dark"] .ink-local-glyph::before,
+  :root[data-theme="dark"] .ink-local-glyph::after { filter: invert(1); }
+  :root[data-theme="dark"] .site-glyph .ink-local-glyph::before,
+  :root[data-theme="dark"] .site-glyph .ink-local-glyph::after { filter: invert(1) brightness(.84); }
+
+  .home-name-stamp:has(.home-stamp-trigger:focus-visible) { --ink-local-x: 2px; --ink-local-y: 1.7px; }
+  :is(.domain-link, .publications-index a):focus-visible .ink-local-glyph { --ink-local-x: 3.5px; --ink-local-y: 2.5px; }
+  .home-name-stamp[data-ink-pulse] .ink-local-glyph::before,
+  .home-name-stamp[data-ink-pulse] .ink-local-glyph::after { animation: stamp-impression 460ms var(--ease); }
+  @keyframes stamp-impression {
+    0%, 100% { transform: none; }
+    42% { transform: translate(calc(4.5px * var(--ink-local-sign)), calc(3.5px * var(--ink-local-sign))); }
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .home-name-stamp:has(.home-stamp-trigger:hover) { --ink-local-x: 2px; --ink-local-y: 1.7px; }
+  :is(.domain-link, .publications-index a):hover .ink-local-glyph { --ink-local-x: 3.5px; --ink-local-y: 2.5px; }
+}
+@media (forced-colors: active) {
+  .home-name-stamp { visibility: hidden; }
+  .ink-local-glyph::before, .ink-local-glyph::after { display: none; }
+  .ink-local-glyph > img { clip-path: none; }
+}
+@media print { .home-name-stamp { display: none; } }

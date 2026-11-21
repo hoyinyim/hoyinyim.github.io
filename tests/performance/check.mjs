@@ -33,7 +33,7 @@ const walkFiles = async (directory, relative = '') => {
 };
 const imageFiles = await walkFiles(resolve(root, '_site/images'));
 const imageBytes = (await Promise.all(imageFiles.map((file) => assetSize(`_site/images/${file}`)))).reduce((sum, value) => sum + value, 0);
-const cssFiles = ['assets/site.css', 'assets/fonts.css', 'assets/effects.css', 'assets/webfonts.css'];
+const cssFiles = ['assets/site.css', 'assets/fonts.css', 'assets/effects.css', 'assets/editorial.css', 'assets/webfonts.css'];
 const cssBytes = (await Promise.all(cssFiles.map((file) => assetSize(file)))).reduce((sum, value) => sum + value, 0);
 const summary = {
   generatedAt: new Date().toISOString(), url: lhr.finalDisplayedUrl,

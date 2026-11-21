@@ -4,22 +4,21 @@
     "year": "2026",
     "group": "y2026",
     "filter": [
-      "forthcoming",
+      "2026",
       "thci"
     ],
     "title": "〈《荀子》「直」義的倫理與政治思想探微〉",
     "venue": "《中國學術年刊》",
-    "meta": "第48期（2026年秋季號），頁數待定。",
+    "meta": "第48期（2026年秋季號），頁27-56。",
     "tags": [
-      "THCI Core 第二級",
-      "已通過（待刊）"
+      "THCI Core 第二級"
     ],
     "tagTypes": [
-      "core",
-      "accepted"
+      "core"
     ],
-    "link": "",
-    "cite": "嚴浩然，〈《荀子》「直」義的倫理與政治思想探微〉，《中國學術年刊》第48期（2026年秋季號）：待刊。"
+    "link": "https://www.ch.ntnu.edu.tw/SIS/show_paper_detail.php?periodicalsOrder=Sorter_issue_ch&periodicalsDir=ASC&periodicalsPage=7&issue_id=70&paper_id=646",
+    "linkLabel": "期刊官網",
+    "cite": "嚴浩然，〈《荀子》「直」義的倫理與政治思想探微〉，《中國學術年刊》第48期（2026年秋季號）：27-56。"
   },
   {
     "id": "journal-02",

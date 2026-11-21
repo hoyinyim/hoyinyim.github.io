@@ -1,6 +1,6 @@
 import { escapeHtml } from './html.mjs';
-import { miniGlyph } from './glyphs.mjs';
-import { nameGlyphSequence } from './identity.mjs';
+import { nameGlyphSequence, nameStrokeTransition } from './identity.mjs';
+import { glyphMap } from './glyphs.mjs';
 
 const SITE_URL = 'https://hoyinyim.github.io';
 const emailMarkup = (email) => {
@@ -11,13 +11,16 @@ const emailMarkup = (email) => {
 export function header(routes, current) {
   const labels = { research: '研究', publications: '著作', about: '關於', cv: '履歷' };
   const primary = ['research', 'publications', 'about', 'cv'].map((id) => routes.find((route) => route.id === id));
+  const worksSubpage = ['journal', 'conference', 'translations'].includes(current);
   return `<header class="site-header" data-header>
-    <a class="brand" href="index.html" aria-label="嚴浩然首頁"><strong>嚴浩然</strong><span>YIM HO YIN</span></a>
-    <nav class="primary-nav" aria-label="主要導覽">${primary.map((route) => `<a href="${route.href}" data-label="${labels[route.id]}"${route.id === current ? ' aria-current="page"' : ''}><span class="nav-label">${labels[route.id]}</span><span class="nav-echo" aria-hidden="true">${labels[route.id]}</span></a>`).join('')}</nav>
-    <div class="header-actions">
-      <button class="header-control search-trigger" type="button" data-search-open aria-haspopup="dialog">搜尋</button>
-      <button class="header-control theme-control" type="button" data-theme-toggle aria-label="目前為淺色模式；切換為深色模式" aria-pressed="false"><span data-theme-label>淺色</span></button>
-      <button class="header-control menu-trigger" type="button" data-menu-open aria-haspopup="dialog" aria-expanded="false" aria-controls="site-menu"><span>選單</span><span class="menu-trigger-glyph" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="嚴浩然首頁"><strong>嚴浩然</strong><span>YIM HO YIN</span></a>
+      <nav class="primary-nav" aria-label="主要導覽">${primary.map((route) => `<a href="${route.href}"${route.id === current ? ' aria-current="page"' : route.id === 'publications' && worksSubpage ? ' aria-current="location"' : ''}><span class="nav-label">${labels[route.id]}</span></a>`).join('')}</nav>
+      <div class="header-actions">
+        <button class="header-control search-trigger" type="button" data-search-open aria-haspopup="dialog">搜尋</button>
+        <button class="header-control theme-control" type="button" data-theme-toggle aria-label="目前為淺色模式；切換為深色模式" aria-pressed="false"><span data-theme-label>淺色</span></button>
+        <button class="header-control menu-trigger" type="button" data-menu-open aria-haspopup="dialog" aria-expanded="false" aria-controls="site-menu"><span>選單</span><span class="menu-trigger-glyph" aria-hidden="true"><i></i><i></i><i></i></span></button>
+      </div>
     </div>
   </header>`;
 }
@@ -40,7 +43,12 @@ export function menu(routes, profile, current, routeGlyphMap = {}, siteGlyphs = 
     const isCurrent = currentMenuId === menuId && current !== 'home' && current !== 'not-found';
     return `<li><a href="${route.href}" data-menu-target="${menuId}"${isCurrent ? ' aria-current="page"' : ''}><span class="menu-item-number">0${index + 1}</span><span class="menu-item-label">${label}</span>${glyph ? `<img src="${glyph.assetPath}" width="300" height="300" alt="" aria-hidden="true">` : ''}</a></li>`;
   }).join('');
-  const glyphStage = items.map(([, , routeId]) => byId[routeId]).map((route) => ({ menuId: route.id, glyph: glyphById[routeGlyphMap[route.href]] })).filter(({ glyph }) => glyph).map(({ menuId, glyph }) => `<img src="${glyph.assetPath}" width="300" height="300" alt="" aria-hidden="true" data-menu-glyph="${menuId}"${menuId === currentMenuId ? ' data-active="true"' : ''}>`).join('');
+  const glyphStage = items.map(([, , routeId]) => byId[routeId]).map((route) => ({ menuId: route.id, glyph: glyphById[routeGlyphMap[route.href]] })).filter(({ glyph }) => glyph).map(({ menuId, glyph }) => {
+    const asset = escapeHtml(glyph.assetPath);
+    const image = `src="${asset}" width="300" height="300" alt="" decoding="async" fetchpriority="low"`;
+    const fragments = ['upper', 'middle', 'lower'].map((part) => `<img ${image} class="menu-ink-fragment menu-ink-fragment--${part}">`).join('');
+    return `<img ${image} aria-hidden="true" data-menu-glyph="${menuId}"${menuId === currentMenuId ? ' data-active="true"' : ''}><span class="menu-ink-fragments" aria-hidden="true">${fragments}</span>`;
+  }).join('');
   return `<noscript><nav class="noscript-menu" aria-label="網站導覽"><a href="about.html">關於</a><a href="research.html">研究</a><a href="journal-papers.html">著作</a><a href="teaching.html">教學</a><a href="cv.html">履歷</a><a href="contact.html">聯絡</a></nav></noscript>
   <dialog class="menu-dialog" id="site-menu" data-menu-dialog data-initial-glyph="${currentMenuId}" aria-labelledby="menu-title">
     <div class="menu-shell">
@@ -59,6 +67,7 @@ export function searchDialog() {
     <div class="dialog-topline"><h2 id="search-title">搜尋</h2><button class="dialog-close" type="button" data-search-close>關閉</button></div>
     <div class="search-field"><label for="site-search">搜尋頁面、論文或作品</label><input id="site-search" type="search" autocomplete="off" spellcheck="false" data-search-input aria-controls="search-results" aria-describedby="search-status"></div>
     <p class="search-status" id="search-status" data-search-status aria-live="polite">輸入關鍵字，搜尋全站公開資料。</p>
+    <div class="search-shortcuts" data-search-shortcuts><p>常用入口</p><ul><li><a href="journal-papers.html">期刊論文</a></li><li><a href="conference-papers.html">研討會論文</a></li><li><a href="cv.html">學術履歷</a></li></ul></div>
     <ol class="search-results" id="search-results" data-search-results></ol>
     <p class="search-help"><kbd>↑</kbd><kbd>↓</kbd> 移動　<kbd>Enter</kbd> 開啟　<kbd>Esc</kbd> 關閉</p>
   </dialog>`;
@@ -83,6 +92,10 @@ export function layout({ route, routes, profile, routeGlyphMap, siteGlyphs, name
   const canonical = `${SITE_URL}/${route.href}`;
   const image = `${SITE_URL}/images/og-default.png`;
   const schemas = Array.isArray(jsonLd) ? jsonLd : (jsonLd ? [jsonLd] : []);
+  const additions = [ ...(['about', 'research', 'teaching'].includes(route.id) ? ['reading-enhancement'] : []),
+    ...(route.id === 'research' ? ['research-materials'] : []) ];
+  const routeGlyph = glyphMap(siteGlyphs)[routeGlyphMap[route.href]];
+  const chapterGlyph = route.id !== 'home' && routeGlyph?.allowedRoles.includes('transition') && routeGlyph.allowedPages.includes(route.href) ? routeGlyph : undefined;
   return `<!DOCTYPE html>
 <html lang="zh-Hant" data-theme="light">
 <head>
@@ -106,28 +119,29 @@ export function layout({ route, routes, profile, routeGlyphMap, siteGlyphs, name
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">
   <meta name="twitter:image" content="${image}">
-  <meta name="theme-color" content="#f4f5f3">
+  <meta name="theme-color" content="#f6f3ea">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-  ${route.id === 'home' ? `<link rel="preload" href="${escapeHtml(profile.portrait)}" as="image" fetchpriority="high">` : ''}
+  ${route.id === 'home' ? `<link rel="preload" href="${escapeHtml(profile.portraitWeb || profile.portrait)}" as="image" fetchpriority="high">` : ''}
   <link rel="preload" href="assets/site.css?v=${escapeHtml(buildCommit)}" as="style">
   <link rel="stylesheet" href="assets/site.css?v=${escapeHtml(buildCommit)}">
   <link rel="stylesheet" href="assets/fonts.css?v=${escapeHtml(buildCommit)}">
   <link rel="stylesheet" href="assets/effects.css?v=${escapeHtml(buildCommit)}">
+  <link rel="stylesheet" href="assets/editorial.css?v=${escapeHtml(buildCommit)}">${route.id === 'journal' ? `\n  <link rel="stylesheet" href="assets/journal.css?v=${escapeHtml(buildCommit)}">` : ''}${additions.map((asset) => `\n  <link rel="stylesheet" href="assets/${asset}.css?v=${escapeHtml(buildCommit)}">`).join('')}
+  <link rel="stylesheet" href="assets/webfonts.css?v=${escapeHtml(buildCommit)}" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="assets/webfonts.css?v=${escapeHtml(buildCommit)}"></noscript>
-  <script src="assets/site.js?v=${escapeHtml(buildCommit)}" defer></script>
+  <script src="assets/site.js?v=${escapeHtml(buildCommit)}" defer></script>${additions.map((asset) => `\n  <script src="assets/${asset}.js?v=${escapeHtml(buildCommit)}" defer></script>`).join('')}
   ${schemas.map((schema) => `<script type="application/ld+json">${JSON.stringify(schema).replaceAll('<', '\\u003c')}</script>`).join('\n  ')}
 </head>
 <body class="page-${route.id} ${bodyClass}" data-page="${route.id}" data-route="${route.id}">
-  <div class="page-curtain" aria-hidden="true">${nameGlyphSequence(nameGlyphs, 'curtain')}</div>
   <a class="skip-link" href="#main-content">跳至主要內容</a>
   <div class="scroll-progress" aria-hidden="true"><i data-scroll-progress></i></div>
   ${header(routes, route.id)}
   ${menu(routes, profile, route.id, routeGlyphMap, siteGlyphs, nameGlyphs)}
   ${searchDialog()}
-  <div class="glyph-transition" data-glyph-transition aria-hidden="true">${miniGlyph(siteGlyphs, routeGlyphMap[route.href] || 'chu-study', 'transition-mark')}</div>
   <div class="identity-watermark" aria-hidden="true">${nameGlyphSequence(nameGlyphs, 'watermark')}</div>
   <main id="main-content" tabindex="-1">${breadcrumb(route)}${body}</main>
   ${footer(routes, profile, siteGlyphs, nameGlyphs)}
+  ${nameStrokeTransition(nameGlyphs, chapterGlyph)}
   <div class="live-region" data-live-region aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>\n`.replace(/[ \t]+$/gm, '');

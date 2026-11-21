@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 const root = resolve(fileURLToPath(new URL('../..', import.meta.url)));
 const baseUrl = (process.env.SITE_URL || 'http://127.0.0.1:4173').replace(/\/$/, '');
 const executablePath = process.env.CHROME_PATH || (process.platform === 'win32' ? 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe' : '/usr/bin/google-chrome');
-const outDir = resolve(root, 'docs/qa/chu-script-site');
+const outDir = resolve(root, process.env.GLYPH_QA_DIR || 'docs/qa/chu-script-site');
 await mkdir(resolve(outDir, 'screenshots'), { recursive: true });
 
 const pages = {
@@ -51,7 +51,7 @@ try {
           opacity: style ? Number.parseFloat(style.opacity) : null,
           h1: h1?.textContent.trim() || '',
           overflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - innerWidth,
-          footerGlyphs: document.querySelectorAll('.site-footer .mini-glyph').length
+          footerGlyphs: document.querySelectorAll('.site-footer .name-glyph-sequence--footer img').length
         };
       });
       check(result.primaryCount === 1, '每頁必須只有一個 A 級主字形', { width, path, count: result.primaryCount });

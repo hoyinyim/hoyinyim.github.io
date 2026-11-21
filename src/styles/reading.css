@@ -1,0 +1,202 @@
+/* Reading paths: native chapter links and individual record fragments. */
+.reading-index {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .25rem clamp(1rem, 3vw, 3rem);
+  margin: clamp(1rem, 3vw, 2.5rem) var(--gutter) 0;
+  padding: .35rem 0;
+  border-block: 1px solid var(--line);
+  font-family: var(--font-zh-ui);
+  font-size: var(--type-nav);
+}
+.reading-index > p {
+  margin: 0;
+  padding-block: .6rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.reading-index ul {
+  display: flex;
+  flex: 1 1 23rem;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 clamp(.65rem, 2vw, 2rem);
+  min-width: 0;
+  list-style: none;
+}
+.reading-index a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .5em;
+  min-height: 2.75rem;
+  padding-block: .625rem;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .3em;
+  text-decoration-color: var(--line-strong);
+}
+.reading-index a:hover,
+.reading-index a:focus-visible {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+.reading-index-count {
+  color: var(--muted);
+  font-size: var(--type-caption);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+[data-reading-section],
+[data-reading-record] {
+  scroll-margin-block-start: calc(var(--header-h) + 1.25rem);
+}
+[data-reading-record]:target {
+  background-color: color-mix(in srgb, var(--accent) 7%, var(--paper));
+}
+.reading-index + [data-reading-section],
+.reading-index + .translation-feature {
+  margin-top: clamp(2.5rem, 5vw, 5rem);
+}
+.reading-index + .research-focus-list { margin-top: clamp(2rem, 4vw, 4rem); }
+
+/* Bibliographic pages: treat years, venues and titles as separate roles. */
+.archive-toolbar { grid-template-columns: max-content minmax(0, 1fr) max-content; }
+.filter-strip button { min-height: 2.75rem; }
+.publication-year[id] { scroll-margin-block-start: calc(var(--header-h) + 6rem); }
+.publication-year,
+.conference-year {
+  grid-template-columns: minmax(6rem, .8fr) minmax(0, 5fr);
+  column-gap: clamp(1.5rem, 5vw, 5rem);
+  padding-block-start: clamp(1.65rem, 3.8vw, 3.5rem);
+}
+.publication-year > header h2,
+.publication-year > header p,
+.conference-year > h3,
+.award-timeline time {
+  font-family: var(--font-latin-ui), var(--font-zh-ui);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.publication-year > header p { font-size: var(--type-caption); }
+.conference-year > h3 { padding: 0; font-size: var(--type-entry); }
+.conference-year > .mini-glyph { display: none; }
+.conference-ledger .reading-index { border-block-start: 0; margin-top: 0; }
+.conference-ledger [data-reading-section]:target > h3 { text-decoration: underline 1px; text-underline-offset: .25em; }
+.conference-ledger::after,
+.award-timeline::after { content: none; }
+.publication-entry article,
+.conference-year li {
+  grid-template-columns: minmax(0, 1fr);
+  gap: .35rem;
+  padding-block: clamp(1.15rem, 2.8vw, 2rem);
+}
+.publication-entry .publication-venue,
+.publication-entry h3,
+.publication-entry .publication-meta,
+.publication-entry .status-list,
+.publication-entry .entry-actions,
+.publication-entry details {
+  grid-column: 1;
+  grid-row: auto;
+}
+.publication-entry h3,
+.conference-published h3,
+.conference-year h4,
+.credential-ledger h3,
+.award-timeline h3 {
+  max-inline-size: 29em;
+  margin: .125rem 0 .2rem;
+  font-size: var(--type-entry);
+  line-height: var(--leading-entry);
+}
+.publication-entry .publication-venue,
+.publication-entry .publication-meta,
+.conference-published .publication-meta,
+.conference-published .publication-venue,
+.conference-year .conference-meta,
+.credential-ledger li > p,
+.award-timeline li p {
+  margin: 0;
+  font-size: var(--type-meta);
+  line-height: var(--leading-meta);
+}
+.entry-actions,
+.publication-entry details { font: var(--type-nav)/var(--leading-meta) var(--font-zh-ui); }
+.entry-actions { align-items: center; margin-block-start: .65rem; }
+.entry-actions a,
+.entry-actions button,
+.publication-entry details summary,
+.conference-published article a {
+  min-height: 2.75rem;
+  padding: .625rem .7rem;
+}
+.publication-entry details summary,
+.conference-published article a { padding-inline: 0; }
+.conference-published > article {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 4fr);
+  gap: .3rem clamp(1.5rem, 4vw, 4rem);
+  padding-block: clamp(1.15rem, 2.8vw, 2rem);
+}
+.conference-published .publication-venue { grid-row: 1 / span 3; }
+.conference-published h3,
+.conference-published .publication-meta,
+.conference-published article a { grid-column: 2; }
+.conference-published article a {
+  justify-self: start;
+  color: var(--accent);
+  font: var(--type-nav)/var(--leading-meta) var(--font-zh-ui);
+  text-underline-offset: .3em;
+}
+.conference-year .conference-meta {
+  max-inline-size: 43rem;
+  gap: .125rem;
+  font-family: var(--font-zh-ui);
+}
+.conference-event { color: var(--ink); }
+.credential-ledger li {
+  grid-template-columns: minmax(8.5rem, 1fr) minmax(0, 4fr);
+  gap: .25rem clamp(1.5rem, 4vw, 4rem);
+}
+.credential-ledger li > p:first-child { grid-row: 1 / span 2; }
+.credential-ledger h3,
+.credential-ledger li > p:last-child { grid-column: 2; }
+.award-timeline li {
+  grid-template-columns: minmax(8.5rem, 1fr) minmax(0, 4fr);
+  gap: .25rem clamp(1.5rem, 4vw, 4rem);
+}
+.archive-note {
+  max-inline-size: 42rem;
+  margin: 2rem var(--gutter) 0;
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 48rem) {
+  .reading-index ul { flex-basis: 100%; }
+  .reading-index > p { padding-block: .45rem 0; }
+  .archive-toolbar { position: static; grid-template-columns: minmax(0, 1fr); }
+  .archive-toolbar > p:last-child { text-align: start; }
+  .filter-strip { flex-wrap: wrap; overflow: visible; }
+  .publication-year[id] { scroll-margin-block-start: calc(var(--header-h) + 1.25rem); }
+  .publication-entry h3, .conference-published h3, .conference-year h4 { text-wrap: balance; }
+  .publication-year,
+  .conference-year,
+  .conference-published > article,
+  .credential-ledger li,
+  .award-timeline li { grid-template-columns: minmax(0, 1fr); }
+  .conference-year > h3 { margin-block-end: .5rem; }
+  .conference-published .publication-venue,
+  .credential-ledger li > p:first-child { grid-row: auto; }
+  .conference-published h3,
+  .conference-published .publication-meta,
+  .conference-published article a,
+  .credential-ledger h3,
+  .credential-ledger li > p:last-child { grid-column: 1; }
+}
+
+@media print {
+  .reading-index { display: none; }
+  [data-reading-record]:target { background: transparent; }
+}
+
+@media (forced-colors: active) {
+  [data-reading-record]:target { outline: 1px solid Highlight; outline-offset: -1px; }
+}

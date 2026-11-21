@@ -1,0 +1,5 @@
+[
+  { "id": "si", "character": "思", "label": "荀子／先秦思想", "width": 97, "height": 97, "papers": ["journal-01", "journal-03", "journal-04", "journal-05", "journal-06", "journal-09"] },
+  { "id": "qun", "character": "羣", "label": "《群書治要》", "width": 97, "height": 97, "papers": ["journal-02"] },
+  { "id": "xuan", "character": "玄", "label": "魏晉思想", "width": 403, "height": 401, "papers": [] }
+]

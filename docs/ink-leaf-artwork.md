@@ -6,7 +6,7 @@
 - `images/ink/river.jpg`：書畫示範畫卷、圖集及局部放大。
 - `images/ink/bamboo.jpg`：書畫示範畫卷、圖集及獨立墨圖揭示。
 
-此次於 [書畫與閱讀](https://hoyinyim.github.io/prototypes/ink-study/) 與 [互動元件](https://hoyinyim.github.io/prototypes/ink-study/components.html) 使用這些圖像，不替換學術主站各頁的現行圖片。
+插圖原先用於 [書畫示範](https://hoyinyim.github.io/prototypes/ink-study/) 與 [互動元件](https://hoyinyim.github.io/prototypes/ink-study/components.html)。2026 年 11 月 21 日整合版也在正式頁引入這三幅圖作為圖文區外的裝飾。它們不取代肖像、古文字原圖、書籍封面或學術材料。
 
 生成後等比例縮為 1440 像素寬並壓成網站用 JPEG。深色版用顯示樣式處理，不修改圖檔；圖片不承載文字，列印及高對比模式略去裝飾。
 

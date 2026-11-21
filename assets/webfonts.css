@@ -33,7 +33,8 @@
 @font-face {
   font-family: "Noto Serif TC";
   font-style: normal;
-  font-weight: 400;
+  /* The existing subset retains its wght variable axis. */
+  font-weight: 200 900;
   font-display: swap;
   src: url("fonts/noto-serif-tc-400.woff2") format("woff2");
 }

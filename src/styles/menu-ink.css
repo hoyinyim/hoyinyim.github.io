@@ -1,0 +1,45 @@
+/* Display the original raster after a brief, decorative assembly of its bands. */
+.menu-dialog[open] .menu-glyph-stage { animation: none; transform: none; }
+.menu-dialog.is-closing .menu-glyph-stage { transform: none; transition: opacity 150ms ease; }
+.menu-glyph-stage img[data-menu-glyph] { clip-path: none; transform: none; transition: none; }
+.menu-ink-fragments { display: none; }
+
+@media (prefers-reduced-motion: no-preference) and (forced-colors: none) {
+  @supports (clip-path: inset(0)) {
+    .menu-glyph-stage { --menu-ink-duration: 380ms; }
+    .menu-dialog[open]:not(.is-closing) img[data-menu-glyph][data-active="true"][data-ink-ready="true"]:not([hidden]) {
+      animation: menu-ink-original var(--menu-ink-duration) steps(1, end);
+    }
+    .menu-dialog[open]:not(.is-closing) img[data-menu-glyph][data-active="true"][data-ink-ready="true"]:not([hidden]) + .menu-ink-fragments {
+      position: absolute;
+      z-index: 1;
+      inset: 14%;
+      display: block;
+      opacity: .78;
+      pointer-events: none;
+      animation: menu-ink-preview var(--menu-ink-duration) steps(1, end) both;
+    }
+    .menu-glyph-stage .menu-ink-fragments > img {
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      clip-path: var(--menu-ink-crop);
+      filter: invert(1);
+      transform: none;
+      transition: none;
+      animation: menu-ink-rejoin var(--menu-ink-duration) var(--ease) both;
+    }
+    .menu-ink-fragment--upper { --menu-ink-crop: inset(0 0 66.5% 0); --menu-ink-x: -6%; --menu-ink-y: -5%; }
+    .menu-ink-fragment--middle { --menu-ink-crop: inset(33.2% 0 33.2% 0); --menu-ink-x: 7%; --menu-ink-y: 0%; }
+    .menu-ink-fragment--lower { --menu-ink-crop: inset(66.5% 0 0 0); --menu-ink-x: -3%; --menu-ink-y: 5%; }
+
+    @keyframes menu-ink-original { from { opacity: 0; } to { opacity: .78; } }
+    @keyframes menu-ink-preview { from { visibility: visible; } to { visibility: hidden; } }
+    @keyframes menu-ink-rejoin {
+      0% { opacity: .7; transform: translate(calc(var(--menu-ink-x) * .35), calc(var(--menu-ink-y) * .35)); }
+      27% { opacity: .94; transform: translate(var(--menu-ink-x), var(--menu-ink-y)); }
+      100% { opacity: 1; transform: translate(0, 0); }
+    }
+  }
+}

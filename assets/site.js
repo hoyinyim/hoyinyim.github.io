@@ -22,7 +22,7 @@
     });
     doc.querySelectorAll('[data-theme-label]').forEach((label) => { label.textContent = dark ? '深色' : '淺色'; });
     doc.querySelectorAll('[data-theme-action]').forEach((label) => { label.textContent = dark ? '淺色' : '深色'; });
-    doc.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0e1110' : '#f4f5f3');
+    doc.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#191d19' : '#f6f3ea');
   };
   updateThemeControls();
   doc.querySelectorAll('[data-theme-toggle]').forEach((button) => button.addEventListener('click', () => {
@@ -77,7 +77,7 @@
     if (reducedMotion) { closeDialog(menu, restore); return; }
     menu._restoreFocus = restore;
     menu.classList.add('is-closing');
-    menuCloseTimer = setTimeout(() => closeDialog(menu, restore), 410);
+    menuCloseTimer = setTimeout(() => closeDialog(menu, restore), 200);
   };
   menuTriggers.forEach((button) => button.addEventListener('click', () => openMenu(button)));
   doc.querySelector('[data-menu-close]')?.addEventListener('click', () => closeMenu());
@@ -92,11 +92,24 @@
     link.addEventListener('focus', () => setMenuGlyph(link.dataset.menuTarget));
     link.addEventListener('pointerenter', () => setMenuGlyph(link.dataset.menuTarget));
   });
-  menuGlyphs.forEach((glyph) => glyph.addEventListener('error', () => {
-    glyph.dataset.loadFailed = 'true';
-    glyph.hidden = true;
-    if (glyph.dataset.active === 'true') menu.classList.add('glyph-unavailable');
-  }));
+  menuGlyphs.forEach((glyph) => {
+    const layers = [...(glyph.nextElementSibling?.querySelectorAll('.menu-ink-fragment') || [])];
+    const markReady = () => {
+      if (layers.length === 3 && [glyph, ...layers].every((image) => image.complete && image.naturalWidth > 0 && image.src === glyph.src)) {
+        glyph.dataset.inkReady = 'true';
+      }
+    };
+    [glyph, ...layers].forEach((image) => image.addEventListener('load', markReady));
+    const markFailed = () => {
+      delete glyph.dataset.inkReady;
+      glyph.dataset.loadFailed = 'true';
+      glyph.hidden = true;
+      if (glyph.dataset.active === 'true') menu.classList.add('glyph-unavailable');
+    };
+    glyph.addEventListener('error', markFailed);
+    if (glyph.complete && glyph.naturalWidth === 0) markFailed();
+    else markReady();
+  });
 
   const siteGlyphs = [...doc.querySelectorAll('[data-site-glyph]')];
   siteGlyphs.forEach((glyph) => {
@@ -113,56 +126,29 @@
     }), { rootMargin: '0px 0px -12% 0px' });
     doc.querySelectorAll('.section-glyph').forEach((glyph) => glyphObserver.observe(glyph));
   } else doc.querySelectorAll('.section-glyph').forEach((glyph) => { glyph.dataset.revealed = 'true'; });
-  const revealItems = [...doc.querySelectorAll('.home-profile, .home-publications, .home-topology, .home-domain-index article, .research-focus-list article, .publication-entry')];
-  if (!reducedMotion && 'IntersectionObserver' in window && revealItems.length) {
-    root.classList.add('has-motion');
-    const contentObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.dataset.contentRevealed = 'true';
-      contentObserver.unobserve(entry.target);
-    }), { rootMargin: '0px 0px -8% 0px' });
-    revealItems.forEach((item, index) => {
-      item.style.transitionDelay = `${Math.min(index % 3, 2) * 70}ms`;
-      contentObserver.observe(item);
-    });
-  } else revealItems.forEach((item) => { item.dataset.contentRevealed = 'true'; });
-
-  const kineticItems = [...doc.querySelectorAll('h1:not(#home-title), .section-index h2, .home-profile h2, .research-focus-list h3, .overline')];
-  const lineItems = [...doc.querySelectorAll('.publication-entry article, .conference-year li, .writing-index li, .credential-ledger li, .award-timeline li')];
-  kineticItems.forEach((item) => { item.dataset.kinetic = ''; });
-  lineItems.forEach((item) => { item.dataset.drawLine = ''; });
-  if (!reducedMotion && 'IntersectionObserver' in window) {
-    root.classList.add('has-kinetic');
-    const kineticObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      if (entry.target.dataset.kinetic !== undefined) entry.target.dataset.kineticRevealed = 'true';
-      if (entry.target.dataset.drawLine !== undefined) entry.target.dataset.lineRevealed = 'true';
-      kineticObserver.unobserve(entry.target);
-    }), { rootMargin: '0px 0px -6% 0px', threshold: .08 });
-    [...kineticItems, ...lineItems].forEach((item) => kineticObserver.observe(item));
-  } else {
-    kineticItems.forEach((item) => { item.dataset.kineticRevealed = 'true'; });
-    lineItems.forEach((item) => { item.dataset.lineRevealed = 'true'; });
-  }
-
   const search = doc.querySelector('[data-search-dialog]');
   const searchInput = doc.querySelector('[data-search-input]');
   const searchResults = doc.querySelector('[data-search-results]');
   const searchStatus = doc.querySelector('[data-search-status]');
+  const searchShortcuts = doc.querySelector('[data-search-shortcuts]');
+  const normalizeQuery = (value) => value.normalize('NFKC').toLocaleLowerCase('zh-Hant');
   let searchIndex;
+  let searchRequest;
   const loadSearch = async () => {
     if (searchIndex) return searchIndex;
+    if (searchRequest) return searchRequest;
     searchStatus.textContent = '正在載入搜尋索引…';
-    try {
-      const response = await fetch('assets/search-index.json');
+    searchRequest = fetch('assets/search-index.json').then(async (response) => {
       if (!response.ok) throw new Error(String(response.status));
       searchIndex = await response.json();
       searchStatus.textContent = '輸入關鍵字，搜尋全站公開資料。';
-    } catch {
-      searchIndex = [];
-      searchStatus.textContent = '搜尋索引暫時無法載入，請使用網站選單。';
-    }
-    return searchIndex;
+      return searchIndex;
+    }).catch(() => {
+      searchStatus.textContent = '搜尋索引暫時無法載入，請使用常用入口或網站選單。';
+      if (searchShortcuts) searchShortcuts.hidden = false;
+      return null;
+    }).finally(() => { searchRequest = null; });
+    return searchRequest;
   };
   const openSearch = async (button) => {
     const returnButton = menu?.open ? doc.querySelector('[data-search-open]') : button;
@@ -179,12 +165,19 @@
 
   const renderSearch = async () => {
     const raw = searchInput.value.trim();
-    const query = raw.toLocaleLowerCase('zh-Hant');
+    const terms = normalizeQuery(raw).split(/\s+/).filter(Boolean);
+    if (searchShortcuts) searchShortcuts.hidden = terms.length > 0;
     const index = await loadSearch();
-    if (!query) { searchResults.innerHTML = ''; searchStatus.textContent = '輸入關鍵字，搜尋全站公開資料。'; return; }
-    const matches = index.filter((item) => `${item.title} ${item.text} ${item.type}`.toLocaleLowerCase('zh-Hant').includes(query)).slice(0, 12);
+    if (!index || raw !== searchInput.value.trim()) return;
+    if (!terms.length) { searchResults.innerHTML = ''; searchStatus.textContent = '輸入關鍵字，搜尋全站公開資料。'; return; }
+    const allMatches = index.map((item) => {
+      const title = normalizeQuery(item.title);
+      const searchable = normalizeQuery(`${item.title} ${item.text} ${item.type}`);
+      return { item, relevant: terms.every((term) => searchable.includes(term)), score: terms.filter((term) => title.includes(term)).length };
+    }).filter(({ relevant }) => relevant).sort((a, b) => b.score - a.score);
+    const matches = allMatches.slice(0, 12).map(({ item }) => item);
     searchResults.innerHTML = matches.map((item) => `<li><a href="${escapeHtml(item.href)}"><small>${escapeHtml(item.type)}</small><span><strong>${escapeHtml(item.title)}</strong><br>${escapeHtml(item.text)}</span></a></li>`).join('');
-    searchStatus.textContent = matches.length ? `找到 ${matches.length} 筆結果。` : `沒有符合「${raw}」的結果。`;
+    searchStatus.textContent = matches.length ? `找到 ${allMatches.length} 筆結果。${allMatches.length > matches.length ? `目前顯示最相關的 ${matches.length} 筆，可增加關鍵字縮小範圍。` : ''}` : `沒有符合「${raw}」的結果。可改用較短的關鍵字。`;
   };
   searchInput?.addEventListener('input', renderSearch);
   searchInput?.addEventListener('keydown', (event) => {
@@ -207,7 +200,6 @@
     const max = doc.documentElement.scrollHeight - innerHeight;
     const ratio = max > 0 ? scrollY / max : 0;
     progress?.style.setProperty('--progress', String(ratio));
-    root.style.setProperty('--scroll-letter', `${Math.min(ratio * .035, .035).toFixed(4)}em`);
     root.style.setProperty('--glyph-shift', `${Math.max(-18, -scrollY * .025).toFixed(2)}px`);
     doc.querySelector('[data-header]')?.classList.toggle('is-scrolled', scrollY > 24);
   };
@@ -218,13 +210,6 @@
     requestAnimationFrame(() => { updateScroll(); queued = false; });
   }, { passive: true });
   updateScroll();
-
-  const ambientHero = doc.querySelector('.home-intro, .about-opening, .research-opening, .publications-opening, .journal-opening, .conference-opening, .translations-opening, .credentials-opening, .teaching-opening');
-  if (!reducedMotion && ambientHero && matchMedia('(pointer: fine)').matches) ambientHero.addEventListener('pointermove', (event) => {
-    const box = ambientHero.getBoundingClientRect();
-    root.style.setProperty('--ambient-x', `${Math.round(((event.clientX - box.left) / box.width) * 100)}%`);
-    root.style.setProperty('--ambient-y', `${Math.round(((event.clientY - box.top) / box.height) * 100)}%`);
-  }, { passive: true });
 
   doc.querySelectorAll('[data-copy]').forEach((button) => button.addEventListener('click', async () => {
     try {
@@ -237,6 +222,44 @@
       setTimeout(() => { button.textContent = original; contactScene?.classList.remove('is-copy-confirmed'); }, 1600);
     } catch { announce('無法自動複製，請手動選取文字。'); }
   }));
+
+  // Local previews never intercept a link or alter the supplied source images.
+  const nameStamp = doc.querySelector('[data-name-stamp]');
+  const stampTrigger = nameStamp?.querySelector('[data-name-stamp-trigger]');
+  if (window.CSS?.supports('clip-path', 'inset(50%)')) {
+    const addInkFragments = (image) => {
+      const frame = doc.createElement('span');
+      frame.className = 'ink-local-glyph';
+      frame.style.setProperty('--ink-local-source', `url(${JSON.stringify(image.currentSrc || image.src)})`);
+      image.before(frame);
+      frame.append(image);
+    };
+    const isLoaded = (image) => image.complete && image.naturalWidth > 0;
+    if (stampTrigger) {
+      const stampImages = [...nameStamp.querySelectorAll('img')];
+      const revealStamp = () => {
+        if (nameStamp.hasAttribute('data-ink-ready') || stampImages.length !== 3 || !stampImages.every(isLoaded)) return;
+        stampImages.forEach(addInkFragments);
+        nameStamp.setAttribute('data-ink-ready', '');
+        stampTrigger.hidden = false;
+      };
+      stampImages.forEach((image) => image.addEventListener('load', revealStamp, { once: true }));
+      revealStamp();
+      stampTrigger.addEventListener('click', () => {
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) { announce('維持完整姓名字形。'); return; }
+        if (nameStamp.hasAttribute('data-ink-pulse')) return;
+        nameStamp.setAttribute('data-ink-pulse', '');
+        setTimeout(() => {
+          nameStamp.removeAttribute('data-ink-pulse');
+          announce('姓名古文字與墨圖預覽完成。');
+        }, 490);
+      });
+    }
+    doc.querySelectorAll('.domain-link .mini-glyph img, .publications-index a .mini-glyph img, .journal-topic-glyph img').forEach((image) => {
+      if (isLoaded(image)) addInkFragments(image);
+      else image.addEventListener('load', () => addInkFragments(image), { once: true });
+    });
+  }
 
   const topology = doc.querySelector('[data-topology]');
   const topologyDomains = [...doc.querySelectorAll('[data-topology-domain]')];
@@ -264,38 +287,75 @@
   });
 
   const archive = doc.querySelector('[data-publication-archive]');
-  doc.querySelectorAll('[data-publication-filter]').forEach((button) => button.addEventListener('click', () => {
-    const filter = button.dataset.publicationFilter;
-    doc.querySelectorAll('[data-publication-filter]').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
-    let visibleCount = 0;
-    archive?.querySelectorAll('[data-publication]').forEach((entry) => {
-      const visible = filter === 'all' || entry.dataset.filters.split(' ').includes(filter);
-      entry.hidden = !visible;
-      if (visible) visibleCount += 1;
-    });
-    archive?.querySelectorAll('[data-publication-year]').forEach((group) => { group.hidden = !group.querySelector('[data-publication]:not([hidden])'); });
+  if (archive) {
+    const topicIndex = doc.querySelector('[data-publication-topics]');
+    const filters = doc.querySelector('[data-publication-filters]');
+    const topics = [...topicIndex.querySelectorAll('[data-publication-topic]')];
+    const yearFilters = [...filters.querySelectorAll('[data-publication-filter]')];
+    const groups = [...archive.querySelectorAll('[data-publication-year]')];
+    const entries = [...archive.querySelectorAll('[data-publication]')];
     const count = doc.querySelector('[data-publication-count]');
-    if (count) count.textContent = String(visibleCount);
-    announce(`目前顯示 ${visibleCount} 筆期刊論文。`);
-  }));
+    const empty = archive.querySelector('[data-publication-empty]');
+    const emptyMessage = empty.querySelector('[data-publication-empty-message]');
+    let topic = 'all';
+    let filter = 'all';
+    const hasTopic = (entry) => topic === 'all' || entry.dataset.publicationTopicIds.split(' ').includes(topic);
+
+    const renderFilters = () => {
+      let visibleCount = 0;
+      const filterByYear = /^\d{4}$/.test(filter);
+      for (const group of groups) {
+        let groupCount = 0;
+        for (const entry of group.querySelectorAll('[data-publication]')) {
+          const matchesFilter = filter === 'all' || (filterByYear ? filter === group.dataset.publicationYear : entry.dataset.filters.split(' ').includes(filter));
+          entry.hidden = !(hasTopic(entry) && matchesFilter);
+          if (!entry.hidden) groupCount += 1;
+        }
+        group.hidden = groupCount === 0;
+        group.querySelector('[data-publication-year-count]').textContent = String(groupCount);
+        visibleCount += groupCount;
+      }
+      topics.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.publicationTopic === topic)));
+      yearFilters.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.publicationFilter === filter)));
+      count.textContent = String(visibleCount);
+      empty.hidden = visibleCount > 0;
+      if (empty.hidden) {
+        announce(`目前顯示 ${visibleCount} 筆期刊論文。`);
+      } else {
+        const label = topics.find((button) => button.dataset.publicationTopic === topic)?.querySelector('.journal-topic-label')?.textContent;
+        const message = label && !entries.some(hasTopic) ? `目前尚無「${label}」主題的期刊書目。` : '沒有符合目前篩選條件的期刊書目。';
+        emptyMessage.textContent = message;
+        announce(message);
+      }
+    };
+
+    topics.forEach((button) => button.addEventListener('click', () => {
+      topic = button.dataset.publicationTopic;
+      renderFilters();
+    }));
+    yearFilters.forEach((button) => button.addEventListener('click', () => {
+      filter = button.dataset.publicationFilter;
+      renderFilters();
+    }));
+    const resetFilters = () => {
+      topic = filter = 'all';
+      renderFilters();
+    };
+    empty.querySelector('[data-publication-reset]').addEventListener('click', () => {
+      resetFilters();
+      topics[0].focus();
+    });
+    addEventListener('hashchange', () => {
+      const target = doc.getElementById(location.hash.slice(1));
+      if (target?.matches('[data-publication-year][hidden]')) {
+        resetFilters();
+        target.scrollIntoView();
+      }
+    });
+    topicIndex.hidden = filters.hidden = false;
+  }
 
   doc.querySelector('[data-print-cv]')?.addEventListener('click', () => print());
   doc.querySelector('[data-back-top]')?.addEventListener('click', () => scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' }));
 
-  addEventListener('load', () => {
-    const webfonts = doc.createElement('link');
-    webfonts.rel = 'stylesheet';
-    webfonts.href = `assets/webfonts.css?v=${doc.querySelector('meta[name="build-commit"]')?.content || 'local'}`;
-    doc.head.append(webfonts);
-  }, { once: true });
-
-  doc.addEventListener('click', (event) => {
-    const link = event.target.closest('a[href]');
-    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target === '_blank' || link.hasAttribute('download')) return;
-    const url = new URL(link.href, location.href);
-    if (url.origin !== location.origin || url.protocol !== location.protocol || url.hash || reducedMotion) return;
-    event.preventDefault();
-    doc.body.classList.add('is-leaving');
-    setTimeout(() => location.assign(url.href), 500);
-  });
 })();

@@ -5,8 +5,8 @@ main { min-height: 65vh; }
 .breadcrumb a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .section-index { display: grid; grid-template-columns: 4fr 12fr; gap: var(--gap); align-items: end; padding: 0 var(--gutter) var(--space-4); border-bottom: 1px solid var(--line-strong); }
 .section-index > * { margin-bottom: 0; }
-.section-index h2 { max-inline-size: 18ch; font-size: var(--text-section); }
-.site-footer { display: grid; grid-template-columns: 5fr 7fr 4fr; gap: var(--gap); margin-top: var(--space-9); padding: var(--space-6) var(--gutter) var(--space-4); border-top: 1px solid var(--line-strong); background: var(--ink); color: var(--paper); }
+.section-index h2 { font-size: var(--text-section); text-wrap: balance; }
+.site-footer { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) minmax(0, 4fr); gap: var(--gap); margin-top: var(--space-9); padding: var(--space-6) var(--gutter) var(--space-4); border-top: 1px solid var(--line-strong); background: var(--ink); color: var(--paper); }
 .footer-identity strong, .footer-identity span { display: block; }
 .footer-identity strong { font-size: var(--text-entry); font-weight: 550; }
 .footer-identity p { max-width: 30rem; margin: var(--space-3) 0 0; color: color-mix(in srgb, currentColor 72%, transparent); line-height: 1.68; }
@@ -17,5 +17,11 @@ main { min-height: 65vh; }
 .footer-contact a { max-width: 100%; overflow-wrap: anywhere; font-family: var(--mono); font-size: 1rem; }
 .footer-contact button { border: 0; border-bottom: 1px solid currentColor; background: none; }
 .copyright { grid-column: 1 / -1; margin: var(--space-7) 0 0; padding-top: var(--space-3); border-top: 1px solid color-mix(in srgb, currentColor 30%, transparent); }
+@media screen and (max-width: 48rem) {
+  .site-footer { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+  .site-footer nav { grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); }
+  .footer-contact { align-items: flex-start; }
+  .copyright { margin-block-start: var(--space-3); }
+}
 .scroll-progress { position: fixed; z-index: 80; inset: 0 0 auto; height: 2px; pointer-events: none; }
 .scroll-progress i { display: block; width: 100%; height: 100%; transform: scaleX(var(--progress, 0)); transform-origin: left; background: var(--accent); }

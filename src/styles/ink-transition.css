@@ -1,0 +1,82 @@
+.ink-transition { display: none; }
+
+@media (prefers-reduced-motion: no-preference) and (forced-colors: none) {
+  @supports selector(:active-view-transition-type(ink-seal)) {
+    @view-transition { navigation: auto; types: ink-seal; }
+    html:active-view-transition-type(ink-seal) .ink-transition {
+      position: fixed;
+      z-index: 160;
+      top: 40%;
+      left: 50%;
+      display: grid;
+      grid-template-columns: repeat(var(--ink-columns, 3), minmax(0, 1fr));
+      gap: .5rem;
+      width: var(--ink-panel-width, clamp(10rem, 48vw, 14rem));
+      padding: .4rem .65rem;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .ink-transition--chapter { --ink-columns: 1; --ink-panel-width: clamp(4.9rem, 13vw, 6.25rem); }
+    .ink-paper {
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      box-shadow: 0 8px 28px rgb(16 25 17 / .13);
+      view-transition-name: ink-paper;
+      view-transition-class: ink-backdrop;
+    }
+    .ink-character { position: relative; aspect-ratio: 1; }
+    /* Cuts follow low-ink rows in the original square PNGs. */
+    .ink-character--1 { --cut-a: 38.65%; --cut-b: 56.1%; }
+    .ink-character--2 { --cut-a: 41.15%; --cut-b: 66.08%; }
+    .ink-character--3 { --cut-a: 38.65%; --cut-b: 59.85%; }
+    .ink-transition--chapter .ink-character { --cut-a: 34%; --cut-b: 66%; }
+    .ink-fragment, .ink-fragment img { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .ink-fragment img { object-fit: contain; }
+    :root[data-theme="dark"] .ink-fragment img { filter: invert(1); }
+    .ink-upper img { clip-path: inset(0 0 calc(100% - var(--cut-a)) 0); }
+    .ink-middle img { clip-path: inset(var(--cut-a) 0 calc(100% - var(--cut-b)) 0); }
+    .ink-lower img { clip-path: inset(var(--cut-b) 0 0 0); }
+    .ink-1-upper { view-transition-name: ink-1-upper; view-transition-class: ink-part upper; }
+    .ink-1-middle { view-transition-name: ink-1-middle; view-transition-class: ink-part middle; }
+    .ink-1-lower { view-transition-name: ink-1-lower; view-transition-class: ink-part lower; }
+    .ink-2-upper { view-transition-name: ink-2-upper; view-transition-class: ink-part upper ink-stagger-2; }
+    .ink-2-middle { view-transition-name: ink-2-middle; view-transition-class: ink-part middle ink-stagger-2; }
+    .ink-2-lower { view-transition-name: ink-2-lower; view-transition-class: ink-part lower ink-stagger-2; }
+    .ink-3-upper { view-transition-name: ink-3-upper; view-transition-class: ink-part upper ink-stagger-3; }
+    .ink-3-middle { view-transition-name: ink-3-middle; view-transition-class: ink-part middle ink-stagger-3; }
+    .ink-3-lower { view-transition-name: ink-3-lower; view-transition-class: ink-part lower ink-stagger-3; }
+    /* Do not interpolate a three-character panel into a single chapter seal. */
+    .ink-transition--chapter .ink-paper { view-transition-name: ink-chapter-paper; }
+    .ink-transition--chapter .ink-1-upper { view-transition-name: ink-chapter-upper; }
+    .ink-transition--chapter .ink-1-middle { view-transition-name: ink-chapter-middle; }
+    .ink-transition--chapter .ink-1-lower { view-transition-name: ink-chapter-lower; }
+
+    ::view-transition { pointer-events: none; }
+    ::view-transition-group(*) { animation-duration: 340ms; }
+    /* Never stack two pages of text behind the seal. */
+    ::view-transition-old(root) { animation: none; opacity: 0; }
+    ::view-transition-new(root) { animation: none; opacity: 1; mix-blend-mode: normal; }
+    ::view-transition-image-pair(*.ink-backdrop), ::view-transition-image-pair(*.ink-part) { isolation: auto; }
+    ::view-transition-old(*.ink-backdrop), ::view-transition-old(*.ink-part) { animation: none; opacity: 0; }
+    ::view-transition-new(*.ink-backdrop) { mix-blend-mode: normal; animation: ink-paper-in 340ms ease both; }
+    ::view-transition-new(*.ink-part) {
+      mix-blend-mode: normal;
+      animation: ink-fold 312ms cubic-bezier(.25, .74, .25, 1) var(--ink-delay, 0ms) both;
+    }
+    ::view-transition-new(*.upper) { --ink-x: -4px; --ink-y: -11px; }
+    ::view-transition-new(*.middle) { --ink-x: 6px; --ink-y: 0px; }
+    ::view-transition-new(*.lower) { --ink-x: -3px; --ink-y: 11px; }
+    ::view-transition-new(*.ink-stagger-2) { --ink-delay: 11ms; }
+    ::view-transition-new(*.ink-stagger-3) { --ink-delay: 22ms; }
+
+    @keyframes ink-fold {
+      0% { opacity: 0; transform: translate(0, 0); }
+      28% { opacity: .9; transform: translate(var(--ink-x), var(--ink-y)); }
+      65%, 79% { opacity: .98; transform: translate(0, 0); }
+      100% { opacity: 0; transform: translate(0, 0); }
+    }
+    @keyframes ink-paper-in { 0%, 100% { opacity: 0; } 24%, 78% { opacity: .98; } }
+  }
+}

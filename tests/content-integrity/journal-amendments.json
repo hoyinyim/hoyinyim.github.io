@@ -1,0 +1,19 @@
+[
+  {
+    "id": "journal-01",
+    "verifiedOn": "2026-11-20",
+    "sourceUrl": "https://www.ch.ntnu.edu.tw/SIS/show_paper_detail.php?periodicalsOrder=Sorter_issue_ch&periodicalsDir=ASC&periodicalsPage=7&issue_id=70&paper_id=646",
+    "issueUrl": "https://www.ch.ntnu.edu.tw/SIS/show_paper_list.php?issue_id=70",
+    "archiveUrl": "https://www.ch.ntnu.edu.tw/SIS/show_periodical.php",
+    "note": "官網核實第48期（2026年9月，秋季號），嚴浩然，頁27-56；連結為文章資料頁，另有檔案下載入口。",
+    "fields": {
+      "filter": ["2026", "thci"],
+      "meta": "第48期（2026年秋季號），頁27-56。",
+      "tags": ["THCI Core 第二級"],
+      "tagTypes": ["core"],
+      "link": "https://www.ch.ntnu.edu.tw/SIS/show_paper_detail.php?periodicalsOrder=Sorter_issue_ch&periodicalsDir=ASC&periodicalsPage=7&issue_id=70&paper_id=646",
+      "linkLabel": "期刊官網",
+      "cite": "嚴浩然，〈《荀子》「直」義的倫理與政治思想探微〉，《中國學術年刊》第48期（2026年秋季號）：27-56。"
+    }
+  }
+]

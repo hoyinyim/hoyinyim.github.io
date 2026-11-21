@@ -1,19 +1,36 @@
-body { font-family: var(--font-zh-reading); font-size: var(--text-base); line-height: 1.82; word-break: normal; overflow-wrap: normal; line-break: strict; }
+body {
+  font-family: var(--font-zh-ui);
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: var(--leading-body);
+  letter-spacing: .006em;
+  word-break: normal;
+  overflow-wrap: normal;
+  line-break: strict;
+}
 button, input, nav { font-family: var(--font-zh-ui); }
 h1, h2, h3, h4 { margin-bottom: var(--space-3); font-family: var(--font-zh-reading); font-weight: 500; word-break: normal; overflow-wrap: normal; line-break: strict; }
-h1 { line-height: 1.04; letter-spacing: .015em; }
-h2 { line-height: 1.22; letter-spacing: .01em; }
-h3, h4 { line-height: 1.48; letter-spacing: 0; }
+h1 { font-size: var(--type-page); line-height: var(--leading-page); letter-spacing: .015em; }
+h2 { font-size: var(--type-section); line-height: var(--leading-section); letter-spacing: .012em; }
+h3, h4 { font-size: var(--type-entry); line-height: var(--leading-entry); letter-spacing: 0; }
+.home-intro h1 { font-size: var(--type-hero); line-height: var(--leading-hero); }
+:is(.home-intro, .about-opening, .cv-header) h1 { font-family: var(--font-zh-display); }
+.home-intro h1 small, .cv-header h1 span { font-size: var(--type-latin-name); }
 p { text-wrap: pretty; }
-.overline, .section-index > p, .breadcrumb, .archive-toolbar, figcaption, dt, .copyright { font-family: var(--font-zh-ui); font-size: var(--text-sm); font-weight: 500; line-height: 1.5; letter-spacing: .035em; }
-.publication-venue, .publication-meta, time, .status-list, .original-title, .cv-list small { font-family: var(--font-latin-ui), var(--font-zh-ui); font-size: var(--text-sm); font-weight: 500; line-height: 1.52; letter-spacing: .015em; }
+.overline, .section-index > p, .breadcrumb, .archive-toolbar, figcaption, dt, .copyright { font-family: var(--font-zh-ui); font-size: var(--type-caption); font-weight: 400; line-height: var(--leading-meta); letter-spacing: .025em; }
+.publication-venue, .publication-meta, time, .status-list, .original-title, .cv-list small { font-family: var(--font-latin-ui), var(--font-zh-ui); font-size: var(--type-meta); font-weight: 400; line-height: var(--leading-meta); letter-spacing: .012em; font-variant-numeric: tabular-nums lining-nums; }
+.original-title { font-family: var(--font-zh-ui); }
 .overline, .section-index > p { color: var(--accent); font-weight: 600; }
 .display-heading { text-wrap: balance; }
 .section-heading { text-wrap: pretty; }
 .bibliographic-title, .publication-entry h3, .conference-published h3, .conference-year h4, .latest-writing h3, .writing-index h3, .credential-ledger h3, .award-timeline h3, .cv-list h3, .search-results strong { text-wrap: pretty; word-break: normal; overflow-wrap: normal; line-break: strict; }
 .nowrap-token { display: inline-block; white-space: nowrap; }
 .doi, .url, .email, a[href^="mailto:"], .footer-contact a { overflow-wrap: anywhere; word-break: break-word; font-family: var(--font-mono); }
-.contact-email { overflow-wrap: normal; word-break: normal; font-family: var(--font-mono); }
+.contact-email { overflow-wrap: anywhere; word-break: normal; font-family: var(--font-mono); }
 .axis-link { display: inline-flex; align-items: center; justify-content: space-between; gap: .85rem; min-height: 44px; margin-top: var(--space-3); border-bottom: 1px solid currentColor; font-size: 1rem; font-weight: 600; text-decoration: none; }
 .axis-link--primary { padding: .2rem .1rem .3rem; border-top: 1px solid currentColor; }
 .axis-link:hover { color: var(--accent); }
+
+@media screen and (max-width: 48rem) {
+  .home-publications h3, .cv-list h3, .writing-index h3 { text-wrap: balance; }
+}

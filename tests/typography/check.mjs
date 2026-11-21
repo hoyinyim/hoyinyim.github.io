@@ -18,6 +18,11 @@ const selectors = [
 const failures = [];
 const records = [];
 const hardIssues = new Set(['punctuation-at-line-start', 'opening-punctuation-at-line-end', 'split-date-range', 'email-break-outside-at', 'separator-at-line-start', 'narrow-column-waterfall']);
+const loadTypeset = async (page, route) => {
+  await page.goto(`${baseUrl}/${route}`, { waitUntil: 'load' });
+  await page.waitForFunction(() => document.querySelector('head > link[href^="assets/webfonts.css"]')?.sheet);
+  await page.evaluate(() => document.fonts.ready);
+};
 
 function browserAudit(selectorList) {
   const badStarts = new Set('，。：；）》】！？、」』〉》');
@@ -89,7 +94,7 @@ try {
     const context = await browser.newContext({ locale: 'zh-TW', viewport: { width, height: width <= 430 ? 844 : 1000 }, reducedMotion: 'reduce' });
     const page = await context.newPage();
     for (const route of routes) {
-      await page.goto(`${baseUrl}/${route}`, { waitUntil: 'networkidle' });
+      await loadTypeset(page, route);
       const audit = await page.evaluate(browserAudit, selectors);
       const result = { width, route, zoom: 100, ...audit };
       records.push(result);
@@ -104,7 +109,7 @@ try {
     const context = await browser.newContext({ locale: 'zh-TW', viewport: { width: 390, height: 844 }, reducedMotion: 'reduce', colorScheme: 'dark' });
     const page = await context.newPage();
     for (const route of routes) {
-      await page.goto(`${baseUrl}/${route}`, { waitUntil: 'networkidle' });
+      await loadTypeset(page, route);
       await page.evaluate((factor) => { document.documentElement.style.zoom = String(factor / 100); }, zoom);
       const audit = await page.evaluate(browserAudit, selectors);
       records.push({ width: 390, route, zoom, ...audit });
@@ -116,13 +121,13 @@ try {
   }
 } finally { await browser.close(); }
 
-const outDir = resolve(root, 'docs/qa/line-break-audit');
+const outDir = resolve(root, process.env.TYPOGRAPHY_REPORT_DIR || 'docs/qa/line-break-audit');
 await mkdir(outDir, { recursive: true });
 await writeFile(resolve(outDir, 'line-break-results.json'), `${JSON.stringify({ generatedAt: new Date().toISOString(), checks: records.length, failures, records }, null, 2)}\n`, 'utf8');
 const observations = records.flatMap((record) => record.issues.map((issue) => `${record.width}px ${record.route} ${issue.selector}: ${issue.issue} (${issue.lines.join(' / ')})`));
 const summary = `# 全站文字分行自動稽核\n\n- 產生時間：${new Date().toISOString()}\n- 檢查組合：${records.length}\n- 阻擋問題數：${failures.length}\n- 待肉眼覆核分行：${observations.length}\n\n## 阻擋問題\n\n${failures.length ? failures.map((item) => `- ${item}`).join('\n') : '未發現標點、日期範圍、Email 斷點、橫向溢出或窄欄瀑布等阻擋問題。'}\n\n## 待肉眼覆核\n\n${observations.length ? observations.map((item) => `- ${item}`).join('\n') : '無。'}\n`;
 await writeFile(resolve(outDir, 'line-break-summary.md'), summary, 'utf8');
 if (failures.length) {
-  console.error(`排印測試發現 ${failures.length} 項，詳見 docs/qa/line-break-audit/。`);
+  console.error(`排印測試發現 ${failures.length} 項，詳見 ${outDir}。`);
   process.exitCode = 1;
 } else console.log(`排印測試通過：${records.length} 組頁面、寬度與 Zoom。`);

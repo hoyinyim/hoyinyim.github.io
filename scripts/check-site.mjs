@@ -61,8 +61,9 @@ const check = (condition, message) => { checks += 1; if (!condition) errors.push
 const validator = new HtmlValidate({ extends: ['html-validate:recommended'], rules: { 'no-inline-style': 'error', 'wcag/h30': 'off' } });
 
 for (const required of [
-  'robots.txt', 'sitemap.xml', 'rss.xml', 'assets/site.css', 'assets/fonts.css', 'assets/effects.css', 'assets/webfonts.css',
+  'robots.txt', 'sitemap.xml', 'rss.xml', 'assets/site.css', 'assets/fonts.css', 'assets/effects.css', 'assets/editorial.css', 'assets/journal.css', 'assets/webfonts.css',
   'assets/site.js', 'assets/search-index.json',
+  'assets/reading-enhancement.css', 'assets/reading-enhancement.js', 'assets/research-materials.css', 'assets/research-materials.js',
   'images/identity/name-01-yan.png', 'images/identity/name-02-hao.png', 'images/identity/name-03-ran.png',
   'assets/fonts/genwan-min-tc-400.woff2', 'assets/fonts/noto-serif-tc-400.woff2', 'assets/fonts/noto-sans-tc-400.woff2',
   'assets/fonts/lxgw-wenkai-tc-400.woff2', 'assets/fonts/cormorant-garamond-400.woff2', 'assets/fonts/inter-400.woff2'
@@ -103,6 +104,14 @@ for (const file of htmlFiles) {
   const noscriptMenu = html.match(/<noscript><nav class="noscript-menu"[\s\S]*?<\/nav><\/noscript>/)?.[0] ?? '';
   check((noscriptMenu.match(/<a\s/g) || []).length === 6, `${file} 無 JavaScript 六項後備導覽不完整`);
   check($('link[rel="stylesheet"]').filter((_, node) => /^assets\/site\.css\?v=/.test($(node).attr('href') || '')).length === 1 && $('script').filter((_, node) => /^assets\/site\.js\?v=/.test($(node).attr('src') || '')).length === 1, `${file} 共用資產引用錯誤`);
+  for (const [feature, applicable] of [
+    ['reading-enhancement', ['about.html', 'research.html', 'teaching.html']],
+    ['research-materials', ['research.html']]
+  ]) {
+    const count = Number(applicable.includes(file));
+    check($(`link[href^="assets/${feature}.css?v="]`).length === count && $(`script[src^="assets/${feature}.js?v="]`).length === count, `${file} ${feature} 專頁資產引用錯誤`);
+  }
+  check(!$('a[href*="prototypes/ink-study"]').length, `${file} 正式頁不應新增示範入口`);
   check($('style').length === 0 && $('[style]').length === 0, `${file} 仍有內嵌 CSS`);
   check($('script:not([src]):not([type="application/ld+json"])').length === 0, `${file} 仍有內嵌 JavaScript`);
   check($('a[href^="javascript:"]').length === 0, `${file} 仍有 javascript: URL`);
@@ -114,8 +123,16 @@ for (const file of htmlFiles) {
     check(primary.attr('aria-hidden') === 'true' && primary.find('img').attr('alt') === '', `${file} A 級主字形無障礙屬性錯誤`);
   }
   check($('.site-footer .name-glyph-sequence--footer img').length === 3, `${file} Footer 姓名字形必須為三個`);
-  check($('.page-curtain .name-glyph-sequence--curtain img').length === 3, `${file} 轉場姓名字形必須為三個`);
+  check($('.menu-dialog .name-glyph-sequence--menu img').length === 3, `${file} 選單姓名字形必須為三個`);
   check($('.identity-watermark .name-glyph-sequence--watermark img').length === 3, `${file} 背景姓名字形必須為三個`);
+  const inkStage = $('.ink-transition[aria-hidden="true"]');
+  const chapterId = file === 'index.html' ? null : primaryGlyphMap[file];
+  const glyphCount = chapterId ? 1 : 3;
+  check(inkStage.length === 1 && inkStage.attr('data-ink-glyph') === (chapterId || 'name') && inkStage.find('.ink-character').length === glyphCount && inkStage.find('.ink-fragment img').length === glyphCount * 3, `${file} 轉場字形、數量或裝飾語意不符`);
+  if (chapterId) {
+    const primarySrc = $('main .page-glyph img').attr('src');
+    check(inkStage.find('img').toArray().every((image) => $(image).attr('src') === primarySrc && $(image).attr('alt') === ''), `${file} 轉場必須直接取自該頁原字形`);
+  }
   $('img').each((_, node) => {
     const image = $(node);
     check(image.attr('alt') !== undefined, `${file} 圖片缺少 alt`);

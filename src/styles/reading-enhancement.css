@@ -1,0 +1,57 @@
+/* Route-local chapter reading, independent of the general archive indexes. */
+.reading-index--chapter {
+  --chapter-row: 2.75rem;
+  align-items: center;
+  gap: 0 clamp(.7rem, 2.4vw, 2.2rem);
+}
+.reading-index--chapter > p { padding-block: .3rem; }
+.reading-index--chapter > ul { flex: 1 1 17rem; align-items: stretch; }
+.reading-index--chapter a { align-items: center; min-height: var(--chapter-row); padding: .4rem .2rem; }
+.reading-index--chapter a[aria-current="location"] {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 2px;
+}
+.reading-subtopics summary,
+.reading-annotation summary {
+  min-height: 2.75rem;
+  padding: .6rem .15rem;
+  cursor: pointer;
+  font: 500 .9375rem/1.65 var(--font-zh-ui);
+}
+.reading-subtopics summary:hover, .reading-annotation summary:hover { color: var(--accent); }
+.reading-subtopics[open] { flex-basis: 100%; border-top: 1px solid var(--line); }
+.reading-subtopics ul { padding-block-end: .45rem; }
+.reading-subtopics a { font-size: .9375rem; }
+.reading-annotation {
+  max-inline-size: 34em;
+  margin-block-start: 1.5rem;
+  border-block: 1px solid var(--line);
+  color: var(--muted);
+}
+.reading-annotation p { margin: 0 0 .85rem; font-size: .9375rem; line-height: 1.75; }
+:is(.page-about, .page-research, .page-teaching) :is([data-reading-section], [data-reading-record]) {
+  scroll-margin-block-start: calc(var(--header-h) + var(--chapter-gap, 1.25rem));
+}
+.page-about .about-education,
+.page-research .research-matrix-section,
+.page-teaching .practice-ledger { margin-block-start: clamp(3rem, 7vw, 6.5rem); }
+
+@media (min-width: 62rem) {
+  :is(.page-about, .page-research, .page-teaching) { --chapter-gap: 4.5rem; }
+  .page-research:has(.reading-subtopics[open]) { --chapter-gap: 1.25rem; }
+  .reading-index--chapter:not(:has(.reading-subtopics[open])) {
+    position: sticky;
+    top: var(--header-h);
+    z-index: 10;
+    background: var(--paper);
+  }
+}
+@media (max-width: 48rem) {
+  .reading-index--chapter > ul { flex-basis: 100%; }
+  .reading-index--chapter .reading-subtopics { width: 100%; }
+  .reading-index--chapter .reading-subtopics ul { display: block; }
+}
+@media print {
+  .reading-index--chapter { display: none; }
+}

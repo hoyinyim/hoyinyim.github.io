@@ -18,6 +18,7 @@ const data = {
   experience: await readJson('experience.json'),
   research: await readJson('research.json'),
   publications: await readJson('publications.json'),
+  journalTopics: await readJson('journal-topics.json'),
   conferences: await readJson('conferences.json'),
   translations: await readJson('translations.json'),
   credentials: await readJson('credentials.json'),
@@ -72,9 +73,17 @@ await writeFile(resolve(root, '404.html'), layout({ route: notFoundRoute, routes
 
 const styleFiles = ['tokens.css', 'reset.css', 'typography.css', 'layout.css', 'navigation.css', 'glyphs.css', 'pages.css', 'responsive.css', 'accessibility.css', 'print.css'];
 const cssSource = (await Promise.all(styleFiles.map((file) => readFile(resolve(root, 'src/styles', file), 'utf8')))).map((content, index) => `/* ${styleFiles[index]} */\n${content.trim()}`).join('\n\n');
-const css = cssSource.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ').replace(/\s*{\s*/g, '{').replace(/;\s*}/g, '}').replace(/\s*}\s*/g, '}').replace(/\s*,\s*/g, ',').trim();
+const compactCss = (source) => source.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ').replace(/\s*{\s*/g, '{').replace(/;\s*}/g, '}').replace(/\s*}\s*/g, '}').replace(/\s*,\s*/g, ',').replace(/([;{])\s*([-a-z][\w-]*):\s*/gi, '$1$2:').trim();
+const css = compactCss(cssSource);
 await writeFile(resolve(root, 'assets/site.css'), `${css}\n`, 'utf8');
+const editorialSources = await Promise.all(['editorial.css', 'reading.css', 'mobile.css', 'ink-transition.css', 'scroll-gallery.css', 'menu-ink.css', 'ink-interactive.css', 'academic-layout.css'].map((file) => readFile(resolve(root, 'src/styles', file), 'utf8')));
+await writeFile(resolve(root, 'assets/editorial.css'), `${compactCss(editorialSources.join('\n'))}\n`, 'utf8');
+await writeFile(resolve(root, 'assets/journal.css'), `${compactCss(await readFile(resolve(root, 'src/styles/journal.css'), 'utf8'))}\n`, 'utf8');
 await writeFile(resolve(root, 'assets/site.js'), await readFile(resolve(root, 'src/scripts/site.js'), 'utf8'), 'utf8');
+for (const feature of ['reading-enhancement', 'research-materials']) {
+  await writeFile(resolve(root, `assets/${feature}.css`), `${compactCss(await readFile(resolve(root, `src/styles/${feature}.css`), 'utf8'))}\n`, 'utf8');
+  await writeFile(resolve(root, `assets/${feature}.js`), await readFile(resolve(root, `src/scripts/${feature}.js`), 'utf8'), 'utf8');
+}
 await writeFile(resolve(root, 'assets/search-index.json'), `${JSON.stringify(searchIndex(data))}\n`, 'utf8');
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapRoutes(data.routes).filter((href) => href !== '404.html').map((href) => `  <url><loc>https://hoyinyim.github.io/${href}</loc></url>`).join('\n')}\n</urlset>\n`;

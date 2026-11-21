@@ -1,0 +1,59 @@
+/* Phone-first reading order: name, affiliation, primary actions, then the catalogue. */
+@media screen and (max-width: 760px) {
+  .home-intro {
+    grid-template-columns: minmax(0, 1fr) clamp(4.6rem, 23vw, 7.5rem);
+    align-items: start;
+    gap: .7rem clamp(.65rem, 3vw, 1.5rem);
+    padding-block: clamp(1.2rem, 4.5vw, 2.2rem) 1.2rem;
+  }
+  .home-intro .home-editorial-copy { display: contents; }
+  .home-intro :is(.home-heading, .home-identity, .hero-actions, .name-glyph-sequence--hero) { position: relative; z-index: 1; }
+  .home-intro .home-heading { grid-area: 1 / 1; min-inline-size: 0; }
+  .home-intro .home-heading .overline { margin-block-end: .62rem; }
+  .home-intro h1 > span { white-space: normal; }
+  .home-intro h1 small { margin-block-start: .28rem; white-space: normal; }
+  .home-intro .name-glyph-sequence--hero {
+    grid-area: 4 / 1;
+    align-self: center;
+    width: min(8.5rem, 100%);
+    margin: 0;
+    pointer-events: none;
+  }
+  .home-intro .home-identity {
+    grid-area: 2 / 1 / 3 / -1;
+    align-self: start;
+    min-inline-size: 0;
+    margin: 0;
+    padding-block-start: .6rem;
+  }
+  .home-role-title { white-space: nowrap; }
+  .home-intro .home-identity p { margin-block-start: .38rem; }
+  .home-intro .home-portrait {
+    grid-area: 1 / 2;
+    justify-self: end;
+    align-self: start;
+    width: 100%;
+    margin: 0;
+    padding: .2rem;
+  }
+  .home-intro .home-portrait img { height: auto; aspect-ratio: 523 / 648; object-position: center; }
+  /* The affiliation is already visible in the adjacent identity; keep the figure caption available. */
+  .home-intro .home-portrait figcaption {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .home-intro .hero-actions {
+    grid-area: 3 / 1 / 4 / -1;
+    justify-content: flex-start;
+    gap: .35rem .55rem;
+    margin: .1rem 0 0;
+  }
+  .home-intro .hero-actions .axis-link { justify-content: center; min-height: 2.75rem; min-inline-size: 0; padding-inline: .64rem; text-align: center; }
+  .home-archive-index a { min-height: 2.75rem; line-height: 1.4; }
+  .home-archive-index span { font-size: .875rem; }
+}

@@ -12,23 +12,44 @@
   --gutter: clamp(1.125rem, 3vw, 3rem);
   --gap: clamp(.625rem, 1.25vw, 1.5rem);
   --font-zh-ui: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
-  --font-zh-reading: "I.Ming", "Noto Serif TC", "Songti TC", PMingLiU, serif;
-  --font-latin: Baskerville, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-  --font-latin-ui: "Aptos", "Segoe UI", system-ui, sans-serif;
+  --font-zh-reading: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --font-zh-display: "GenWan Min TC", var(--font-zh-reading);
+  --font-zh-hand: "LXGW WenKai TC", "DFKai-SB", KaiTi, serif;
+  --font-latin: "Cormorant Garamond", Baskerville, Georgia, serif;
+  --font-latin-ui: "Inter", "Aptos", "Segoe UI", system-ui, sans-serif;
   --font-condensed: "Aptos Narrow", "Arial Narrow", sans-serif;
   --font-mono: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   --sans: var(--font-zh-ui);
   --serif: var(--font-zh-reading);
   --mono: var(--font-mono);
-  --text-xs: clamp(.9375rem, .12vw + .91rem, 1rem);
-  --text-sm: clamp(1rem, .14vw + .96rem, 1.0625rem);
-  --text-base: clamp(1.125rem, .2vw + 1.08rem, 1.25rem);
-  --text-lead: clamp(1.3rem, .4vw + 1.2rem, 1.55rem);
-  --text-entry: clamp(1.28rem, .85vw + 1.08rem, 1.82rem);
-  --text-subsection: clamp(1.7rem, 1.8vw + 1.2rem, 3rem);
-  --text-section: clamp(2.4rem, 3.5vw, 4.8rem);
-  --text-page: clamp(3.6rem, 6.6vw, 7.8rem);
-  --text-display: clamp(5rem, 10vw, 11rem);
+  /* Responsive reading roles, not component-specific scales. Rem bounds are
+     intentional: both the floor and ceiling grow with browser text settings. */
+  --type-hero: clamp(2.375rem, 2.0875rem + 1.5vw, 3.5rem);
+  --type-page: clamp(1.9375rem, 1.78125rem + .9375vw, 2.625rem);
+  --type-section: clamp(1.4375rem, 1.39rem + .47vw, 1.875rem);
+  --type-entry: clamp(1.1875rem, 1.12rem + .29vw, 1.4375rem);
+  --type-lead: clamp(1.0625rem, 1.03rem + .19vw, 1.25rem);
+  --type-body: clamp(1rem, 1rem + .115vw, 1.125rem);
+  --type-nav: .90625rem;
+  --type-meta: .90625rem;
+  --type-caption: .875rem;
+  --type-latin-name: clamp(1.125rem, 1.025rem + .42vw, 1.5rem);
+  --leading-hero: 1.13;
+  --leading-page: 1.2;
+  --leading-section: 1.35;
+  --leading-entry: 1.48;
+  --leading-body: 1.74;
+  --leading-meta: 1.55;
+  /* Existing components share the same roles, including route-local styles. */
+  --text-xs: var(--type-caption);
+  --text-sm: var(--type-meta);
+  --text-base: var(--type-body);
+  --text-lead: var(--type-lead);
+  --text-entry: var(--type-entry);
+  --text-subsection: var(--type-section);
+  --text-section: var(--type-section);
+  --text-page: var(--type-page);
+  --text-display: var(--type-hero);
   --space-1: .375rem;
   --space-2: .625rem;
   --space-3: 1rem;
@@ -38,7 +59,7 @@
   --space-7: 4.75rem;
   --space-8: 7rem;
   --space-9: 10rem;
-  --measure-long: 34em;
+  --measure-long: 37em;
   --measure-intro: 30em;
   --measure-entry: 27em;
   --ease: cubic-bezier(.22, 1, .36, 1);
@@ -52,6 +73,10 @@
   --glyph-scale-large: clamp(12rem, 28vw, 32rem);
   --glyph-scale-section: clamp(5rem, 11vw, 12rem);
   --glyph-scale-inline: 1.25rem;
+}
+
+@supports (width: 1ic) {
+  :root { --measure-long: 37ic; }
 }
 
 :root[data-theme="dark"] {

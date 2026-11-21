@@ -1,0 +1,101 @@
+/* Page compositions use the shared typography scale; only layout differs by role. */
+.identity-watermark { width: clamp(3.25rem, 5vw, 5rem); opacity: .012; }
+.home-portrait { width: min(100%, clamp(13rem, 26vw, 22rem)); }
+.home-portrait img { aspect-ratio: 523 / 648; object-fit: contain; }
+.home-profile { padding-block: clamp(2rem, 5.2vw, 5rem); }
+.home-profile > .section-glyph {
+  inset-inline-start: auto;
+  inset-inline-end: var(--gutter);
+  opacity: .035;
+}
+
+.about-opening > figure { max-inline-size: 21rem; }
+
+/* The title leads in document order; the cover and record occupy separate tracks. */
+.translation-feature {
+  grid-template-columns: minmax(0, min(29%, 17rem)) minmax(0, 42rem);
+  grid-template-areas:
+    "cover title"
+    "cover details";
+  gap: .8rem clamp(1.2rem, 4vw, 4.5rem);
+  align-content: start;
+}
+.translation-feature-heading { grid-area: title; }
+.translation-feature-heading > :is(p, h2) { margin-block: 0; }
+.translation-feature-heading h2 { margin-block: .3rem .42rem; }
+.translation-feature-heading .original-title { max-inline-size: 100%; }
+.translation-feature-details { grid-area: details; min-inline-size: 0; }
+.translation-feature-details dl { margin-block: .2rem 1.2rem; }
+.translation-feature > figure { grid-area: cover; min-inline-size: 0; }
+.translation-feature > .section-glyph {
+  inset: .25rem .35rem auto auto;
+  width: clamp(2.25rem, 6vw, 4.5rem);
+  opacity: .032;
+}
+.translation-feature > figure > img {
+  width: 100%;
+  height: auto;
+  max-block-size: none;
+}
+
+@media screen {
+  /* Utility pages have short reading paths; do not make them full-viewport posters. */
+  :is(.page-contact, .page-not-found) { background: var(--editorial-dark); }
+  :is(.page-contact, .page-not-found) > main { min-height: 0; background: var(--paper); }
+  :is(.page-contact, .page-not-found) > .site-footer { margin-block-start: 0; }
+  :is(.contact-scene, .not-found) {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: .75rem;
+    padding-block: clamp(1.65rem, 4.25vw, 4rem);
+  }
+  section:is(.contact-scene, .not-found) > :not(.ink-leaf, .page-glyph) {
+    grid-column: 1 / -1;
+    max-inline-size: min(100%, 35rem);
+    margin-block: 0;
+  }
+  :is(.contact-scene, .not-found) > h1 { margin-block: .15rem .25rem; }
+  .contact-identity > p { margin-block: .2rem 0; }
+  .contact-email { justify-self: start; font-size: var(--type-lead); text-underline-offset: .2em; }
+  .contact-email::before { display: none; }
+  .contact-actions, .not-found > div { flex-wrap: wrap; }
+  :is(.contact-scene > .contact-actions, .not-found > div) { margin-block-start: .38rem; }
+}
+
+@media (max-width: 56.25rem) {
+  .home-profile-heading, .home-profile-copy { grid-column: 1 / -1; }
+  .home-profile-copy { padding-top: .45rem; }
+  .home-profile > .section-glyph { display: none; }
+}
+
+@media (max-width: 48rem) {
+  .translation-feature {
+    grid-template-columns: minmax(0, min(29%, 11rem)) minmax(0, 1fr);
+    grid-template-areas: "title title" "cover details";
+  }
+}
+
+@media (max-width: 36rem) {
+  .translation-feature {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "title" "cover" "details";
+    row-gap: .9rem;
+  }
+  .translation-feature > figure { max-inline-size: min(55%, 11rem, 224px); }
+  .translation-feature > .section-glyph { display: none; }
+}
+
+@media (max-width: 47.5rem) {
+  .about-opening {
+    grid-template-columns: clamp(5rem, 27vw, 9rem) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(.7rem, 3.6vw, 1.45rem);
+    padding-block-start: 1.2rem;
+  }
+  .about-opening > figure { grid-area: 1 / 1; min-inline-size: 0; }
+  .about-opening > div { grid-area: 1 / 2; min-inline-size: 0; padding: 0; }
+  .about-opening h1 { margin-block: .3rem .5rem; }
+  .about-opening .name-glyph-sequence--about { width: min(7rem, 100%); margin-block: .65rem .8rem; }
+  .about-opening .role-en { max-inline-size: 100%; overflow-wrap: anywhere; }
+}
