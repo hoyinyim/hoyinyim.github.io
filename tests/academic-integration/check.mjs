@@ -13,6 +13,8 @@ const route = (leaf) => new URL(leaf, `${base.origin}/`).href;
 const affected = ['index.html', 'about.html', 'research.html', 'teaching.html', 'journal-papers.html'];
 const routes = JSON.parse(await readFile(new URL('../../src/data/routes.json', import.meta.url), 'utf8'))
   .map(({ href }) => href);
+const research = JSON.parse(await readFile(new URL('../../src/data/research.json', import.meta.url), 'utf8'));
+const retiredResearchFragment = /^#research-materials?(?:-|$)/;
 const chrome = process.env.CHROME_PATH || (process.platform === 'win32'
   ? 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
   : '/usr/bin/google-chrome');
@@ -69,6 +71,8 @@ await exercise('正式網頁內部連結及錨點均有效，沒有連往原型'
       if (url.hostname === 'hoyinyim.github.io' && url.origin !== base.origin) url = new URL(url.pathname + url.search + url.hash, base);
       if (!/^https?:$/.test(url.protocol) || url.origin !== base.origin) continue;
       assert.ok(!/^\/prototypes(?:\/|$)/.test(url.pathname), `${leaf} 不得導向原型：${href}`);
+      assert.ok(url.pathname !== '/research.html' || !retiredResearchFragment.test(decodeURIComponent(url.hash)),
+        `${leaf} 不得導向已移除的研究資料：${href}`);
       links.push([leaf, url]);
     }
   }
@@ -171,20 +175,26 @@ const assertAnnotation = async (page) => {
   await summary.press('Enter');
   assert.equal(await item.evaluate((el) => el.open), initial, '可以回到原本狀態');
 };
-const material = (page) => page.locator('#research-materials');
-const choice = (page, n) => material(page).locator('[data-material-choice]').nth(n);
-const expectSelection = async (page, n) => {
-  const target = await choice(page, n).getAttribute('href');
-  const slide = material(page).locator(`[id="${target.slice(1)}"]`);
-  const ch = await slide.getAttribute('data-material-character');
-  assert.ok(ch, '選項應指向帶標題的原始字形');
-  const database = await slide.locator('[data-material-database]').getAttribute('href');
-  await page.waitForFunction(({ ch, database }) => {
-    const status = document.querySelector('[data-material-status]');
-    const source = document.querySelector('[data-material-current-source]');
-    return status?.textContent.includes(ch) && source?.getAttribute('href') === database;
-  }, { ch, database });
-  assert.equal(await choice(page, n).getAttribute('aria-current'), 'true', '同一選作需對讀者標記');
+const researchChapters = ['research-focus', 'research-specialties'];
+const researchRecords = research.current.map(({ id }) => id);
+const assertResearchContent = async (page) => {
+  assert.equal(await page.locator('main h1').innerText(), '研究');
+  const index = page.locator('main [data-chapter-index]');
+  const hrefs = (links) => links.evaluateAll((items) => items.map((link) => link.getAttribute('href')));
+  assert.deepEqual(await hrefs(index.locator(':scope > ul a')), researchChapters.map((id) => `#${id}`));
+  assert.deepEqual(await hrefs(index.locator('details a')), researchRecords.map((id) => `#${id}`));
+  assert.deepEqual(await page.locator('.research-tags li').allTextContents(), research.tags);
+  for (const [section, expected] of [['#research-focus', research.current], ['#research-specialties', research.expertise]]) {
+    const actual = await page.locator(`${section} article`).evaluateAll((rows) => rows.map((row) => ({
+      id: row.id,
+      title: row.querySelector('h3')?.textContent.trim(),
+      description: row.querySelector('.focus-copy, h3 + p')?.textContent.trim(),
+    })));
+    assert.deepEqual(actual, expected.map(({ id, title, description }) => ({ id, title, description })), section);
+  }
+  assert.equal(await page.locator('#research-materials, .research-materials, [data-research-material-gallery], [data-material-track]').count(), 0);
+  assert.equal(await page.locator('link[href*="/research-materials.css"], script[src*="/research-materials.js"]').count(), 0);
+  assert.doesNotMatch(await page.locator('main').textContent(), /楚系字形資料|出土文獻／字形資料/);
 };
 
 try {
@@ -218,17 +228,18 @@ try {
   }, async (page) => {
     for (const [leaf, ids] of [
       ['about.html', ['biography', 'education']],
-      ['research.html', ['research-focus', 'research-specialties', 'research-materials']],
+      ['research.html', researchChapters],
       ['teaching.html', ['teaching-experience', 'teaching-practice']],
     ]) {
       await open(page, leaf);
       await nativeChapters(page, ids);
       if (leaf === 'about.html') await assertAnnotation(page);
       if (leaf === 'research.html') {
+        await assertResearchContent(page);
         const items = page.locator('[data-chapter-index] details.reading-subtopics');
         await items.locator('summary').press('Enter');
         assert.equal(await items.evaluate((el) => el.open), true);
-        await nativeChapters(page, ['current-01', 'current-02', 'current-03']);
+        await nativeChapters(page, researchRecords);
       }
     }
   }));
@@ -270,82 +281,31 @@ try {
     assert.match(await page.locator('#home-title').innerText(), /嚴浩然/);
   }));
 
-  await exercise('研究：前後捲圖、選作狀態與原始來源連結同步', () => usePage({
+  await exercise('研究：移除字形資料專區，原研究內容及索引保留', () => usePage({
     viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce',
   }, async (page) => {
     await open(page, 'research.html');
-    await material(page).scrollIntoViewIfNeeded();
-    const track = material(page).locator('[data-material-track]');
-    assert.equal(await track.locator('[data-material-slide]').count(), 2);
-    assert.deepEqual(await track.locator('[data-material-slide]').evaluateAll((els) =>
-      els.map((el) => el.dataset.materialCharacter)), ['學', '思']);
-    const max = await track.evaluate((el) => el.scrollWidth - el.clientWidth);
-    assert.ok(max > 12, '須有可操作的圖版捲動區域');
-    await expectSelection(page, 0);
-    await material(page).locator('[data-material-step="1"]').press('Enter');
-    await page.waitForFunction(() => document.querySelector('[data-material-track]').scrollLeft > 8);
-    await expectSelection(page, 1);
-    assert.deepEqual(await motion(track), []);
-    await choice(page, 0).press('Enter');
-    await page.waitForFunction(() => document.querySelector('[data-material-track]').scrollLeft <= 2);
-    await expectSelection(page, 0);
-    await material(page).screenshot({ path: resolve(out, 'research-materials-1440.png'), animations: 'disabled' });
+    await assertResearchContent(page);
+    await nativeChapters(page, researchChapters);
   }));
 
-  await exercise('研究手機：原生拉桿使用鍵盤放大，限制在局部圖框內', () => usePage({
-    viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, reducedMotion: 'reduce',
+  await exercise('書畫示範保留：獨立的畫卷圖版及放大範例仍可讀取', () => usePage({
+    viewport: { width: 768, height: 1024 }, reducedMotion: 'reduce',
   }, async (page) => {
-    await open(page, 'research.html');
-    await choice(page, 1).tap();
-    await expectSelection(page, 1);
-    const slide = material(page).locator('[data-material-slide]').nth(1);
-    const zoom = slide.locator('details[data-material-zoom]');
-    const picture = slide.locator('[data-material-picture]');
-    assert.equal(await zoom.evaluate((el) => el.open), false);
-    await zoom.locator('summary').press('Enter');
-    const range = zoom.locator('input[data-material-range]');
-    const value = zoom.locator('[data-material-value]');
-    await range.press('Home');
-    const geometry = () => picture.evaluate((el) => ({
-      width: el.querySelector('img').getBoundingClientRect().width,
-      overflow: Math.max(el.scrollWidth - el.clientWidth, el.scrollHeight - el.clientHeight),
-    }));
-    const pictureId = await picture.getAttribute('id');
-    const original = await geometry();
-    await range.press('End');
-    assert.equal(await range.inputValue(), '200');
-    assert.match(await value.innerText(), /200\s*%/);
-    // Input state can update before Chrome's next rendered style/geometry frame.
-    await page.waitForFunction(({ pictureId, original }) =>
-      document.getElementById(pictureId).querySelector('img').getBoundingClientRect().width >= original.width * 1.9,
-    { pictureId, original });
-    const enlarged = await geometry();
-    assert.ok(enlarged.width >= original.width * 1.9, '不是只更新比例標籤，圖版寬度也須增加');
-    assert.ok(enlarged.overflow > original.overflow + 8, '放大後能在圖框內捲動');
-    await assertResponsive(page, 390);
-    await picture.screenshot({ path: resolve(out, 'research-zoom-390.png'), animations: 'disabled' });
-    await range.press('Home');
-    assert.equal(await range.inputValue(), '100');
-    await page.waitForFunction(({ pictureId, original }) =>
-      document.getElementById(pictureId).querySelector('img').getBoundingClientRect().width === original.width,
-    { pictureId, original });
-    assert.deepEqual(await geometry(), original);
+    await open(page, 'prototypes/ink-study/index.html');
+    assert.equal(await page.locator('main h1').innerText(), '嚴浩然');
+    const images = page.locator('#exhibit-painting img');
+    assert.equal(await images.count(), 3);
+    await images.first().scrollIntoViewIfNeeded();
+    await images.first().evaluate((image) => image.decode());
+    await open(page, 'prototypes/ink-study/components.html');
+    assert.ok(await page.locator('#scroll-painting [data-painting-track]').isVisible());
+    assert.ok(await page.locator('#artwork-zoom [data-zoom]').isVisible());
   }));
 
-  await exercise('研究無 JS：圖版錨點、兩圖及原圖連結保留；首頁內容不缺席', () => usePage({
+  await exercise('首頁無 JS：姓名和墨圖仍可閱讀', () => usePage({
     viewport: { width: 390, height: 844 }, javaScriptEnabled: false, reducedMotion: 'reduce',
   }, async (page) => {
-    await open(page, 'research.html');
-    assert.equal(await material(page).locator('[data-material-step]:visible').count(), 0);
-    assert.equal(await material(page).locator('[data-material-range]:visible').count(), 0);
-    const link = choice(page, 1);
-    const href = await link.getAttribute('href');
-    await link.press('Enter');
-    await page.waitForURL((url) => url.hash === href);
-    const slide = material(page).locator(`[id="${href.slice(1)}"]`);
-    assert.ok((await slide.innerText()).includes('思'));
-    await slide.locator('img').evaluate(async (image) => image.decode());
-    assert.ok(await slide.getByRole('link', { name: '開啟原始字形圖', exact: true }).isVisible());
     await open(page, 'index.html');
     assert.match(await page.locator('#home-title').innerText(), /嚴浩然/);
     assert.ok(await page.locator('[data-home-ink-art] img').isVisible());

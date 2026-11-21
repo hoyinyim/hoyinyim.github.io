@@ -92,8 +92,7 @@ export function layout({ route, routes, profile, routeGlyphMap, siteGlyphs, name
   const canonical = `${SITE_URL}/${route.href}`;
   const image = `${SITE_URL}/images/og-default.png`;
   const schemas = Array.isArray(jsonLd) ? jsonLd : (jsonLd ? [jsonLd] : []);
-  const additions = [ ...(['about', 'research', 'teaching'].includes(route.id) ? ['reading-enhancement'] : []),
-    ...(route.id === 'research' ? ['research-materials'] : []) ];
+  const additions = ['about', 'research', 'teaching'].includes(route.id) ? ['reading-enhancement'] : [];
   const routeGlyph = glyphMap(siteGlyphs)[routeGlyphMap[route.href]];
   const chapterGlyph = route.id !== 'home' && routeGlyph?.allowedRoles.includes('transition') && routeGlyph.allowedPages.includes(route.href) ? routeGlyph : undefined;
   return `<!DOCTYPE html>

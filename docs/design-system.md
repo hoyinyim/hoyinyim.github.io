@@ -34,7 +34,7 @@
 
 ## 書畫與閱讀示範規格
 
-取捨及來源見 [十五站設計研究](design-research.md)。以下是 `prototypes/ink-study/` 的獨立示範規格，與正式首頁、導覽和學術書目分開運作。正式站的 [期刊主題字形](journal-topic-glyphs.md) 與圖版展讀由正式頁自身的程式處理。
+取捨及來源見 [十五站設計研究](design-research.md)。以下是 `prototypes/ink-study/` 的獨立示範規格，與正式首頁、導覽和學術書目分開運作。正式站仍保留 [期刊主題字形](journal-topic-glyphs.md)；研究頁不顯示獨立的「楚系字形資料」圖版。
 
 | 層級 | 淺色／深色 | 用途 |
 | --- | --- | --- |

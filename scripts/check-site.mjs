@@ -63,7 +63,7 @@ const validator = new HtmlValidate({ extends: ['html-validate:recommended'], rul
 for (const required of [
   'robots.txt', 'sitemap.xml', 'rss.xml', 'assets/site.css', 'assets/fonts.css', 'assets/effects.css', 'assets/editorial.css', 'assets/journal.css', 'assets/webfonts.css',
   'assets/site.js', 'assets/search-index.json',
-  'assets/reading-enhancement.css', 'assets/reading-enhancement.js', 'assets/research-materials.css', 'assets/research-materials.js',
+  'assets/reading-enhancement.css', 'assets/reading-enhancement.js',
   'images/identity/name-01-yan.png', 'images/identity/name-02-hao.png', 'images/identity/name-03-ran.png',
   'assets/fonts/genwan-min-tc-400.woff2', 'assets/fonts/noto-serif-tc-400.woff2', 'assets/fonts/noto-sans-tc-400.woff2',
   'assets/fonts/lxgw-wenkai-tc-400.woff2', 'assets/fonts/cormorant-garamond-400.woff2', 'assets/fonts/inter-400.woff2'
@@ -106,12 +106,13 @@ for (const file of htmlFiles) {
   check($('link[rel="stylesheet"]').filter((_, node) => /^assets\/site\.css\?v=/.test($(node).attr('href') || '')).length === 1 && $('script').filter((_, node) => /^assets\/site\.js\?v=/.test($(node).attr('src') || '')).length === 1, `${file} 共用資產引用錯誤`);
   for (const [feature, applicable] of [
     ['reading-enhancement', ['about.html', 'research.html', 'teaching.html']],
-    ['research-materials', ['research.html']]
+    ['research-materials', []]
   ]) {
     const count = Number(applicable.includes(file));
     check($(`link[href^="assets/${feature}.css?v="]`).length === count && $(`script[src^="assets/${feature}.js?v="]`).length === count, `${file} ${feature} 專頁資產引用錯誤`);
   }
   check(!$('a[href*="prototypes/ink-study"]').length, `${file} 正式頁不應新增示範入口`);
+  if (file === 'research.html') check(!$('#research-materials, a[href="#research-materials"]').length, '研究頁不應顯示已撤下的獨立字形資料');
   check($('style').length === 0 && $('[style]').length === 0, `${file} 仍有內嵌 CSS`);
   check($('script:not([src]):not([type="application/ld+json"])').length === 0, `${file} 仍有內嵌 JavaScript`);
   check($('a[href^="javascript:"]').length === 0, `${file} 仍有 javascript: URL`);

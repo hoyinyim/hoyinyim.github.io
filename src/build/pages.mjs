@@ -2,7 +2,6 @@ import { escapeHtml, externalAttrs, groupBy, unique } from './html.mjs';
 import { miniGlyph, pageGlyph, sectionGlyph } from './glyphs.mjs';
 import { nameGlyphSequence } from './identity.mjs';
 import { inkLeaf } from './ink-leaves.mjs';
-import { researchMaterials } from './research-materials.mjs';
 
 const tags = (items = []) => items.length ? `<ul class="status-list">${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : '';
 
@@ -105,14 +104,11 @@ const readingRecord = ({ id }) => `id="${escapeHtml(id)}" data-reading-record ta
 
 export function researchPage({ research, siteGlyphs }) {
   const focusGlyphs = ['study-oracle', 'book-oracle', 'speech-oracle'];
-  const materials = researchMaterials(siteGlyphs);
   const chapters = [{ id: 'research-focus', text: '目前研究方向' }, { id: 'research-specialties', text: '研究專長' }];
-  if (materials) chapters.push({ id: 'research-materials', text: '楚系字形資料' });
   return `<header class="research-opening scroll-opening scroll-opening--catalogue axis-grid">${inkLeaf('mountains', 'research-opening')}${pageGlyph(siteGlyphs, 'study-oracle', 'research')}<p class="overline">研究／中國思想</p><h1>研究</h1><div><strong>${research.current.length} 項研究重點</strong><ul class="research-tags">${research.tags.map((tag) => `<li>${escapeHtml(tag)}</li>`).join('')}</ul></div></header>
   ${chapterIndex(chapters, research.current.map(({ id, title }) => ({ id, text: title })))}
   <section class="research-focus-list" id="research-focus" data-reading-section tabindex="-1" aria-labelledby="research-focus-title"><h2 id="research-focus-title" class="visually-hidden">目前研究方向</h2>${research.current.map((item, index) => `<article class="focus-${index + 1} axis-grid" data-glyph-focus ${readingRecord(item)}>${sectionGlyph(siteGlyphs, focusGlyphs[index], `research-focus-${index + 1}`)}<p class="focus-number">0${index + 1}</p><p class="overline">目前研究重點</p><h3 data-reading-reveal>${escapeHtml(item.title)}</h3><p class="focus-copy">${escapeHtml(item.description)}</p></article>`).join('')}</section>
-  <section class="research-matrix-section" id="research-specialties" data-reading-section tabindex="-1" aria-labelledby="research-matrix-title">${sectionGlyph(siteGlyphs, 'study-oracle', 'research-matrix')}<header class="section-index"><p>研究領域</p><h2 id="research-matrix-title" data-reading-reveal>研究專長</h2></header><div class="expertise-matrix">${research.expertise.map((item) => `<article ${readingRecord(item)}><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p></article>`).join('')}</div></section>
-  ${materials}`;
+  <section class="research-matrix-section" id="research-specialties" data-reading-section tabindex="-1" aria-labelledby="research-matrix-title">${sectionGlyph(siteGlyphs, 'study-oracle', 'research-matrix')}<header class="section-index"><p>研究領域</p><h2 id="research-matrix-title" data-reading-reveal>研究專長</h2></header><div class="expertise-matrix">${research.expertise.map((item) => `<article ${readingRecord(item)}><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p></article>`).join('')}</div></section>`;
 }
 
 export function publicationsPage({ publications, conferences, translations, siteGlyphs }) {

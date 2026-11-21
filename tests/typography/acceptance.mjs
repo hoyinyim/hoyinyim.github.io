@@ -44,13 +44,13 @@ const roleTargets = {
   h1: { selector: 'main h1:not(#home-title)', ranges: [[32, 34], [40, 42]], line: [1.18, 1.26] },
   h2: { selector: 'main h2', excludeNumeric: true, ranges: [[24, 25], [28, 30]], line: [1.30, 1.40] },
   entry: { selector: '.home-publications h3,.publication-entry h3,.conference-published h3,.conference-year h4,.credential-ledger h3,.award-timeline h3,.cv-list h3', ranges: [[19, 20], [21, 23]], line: [1.40, 1.55] },
-  prose: { selector: '.home-profile-copy > p,.about-biography > div > p,.about-biography .reading-prose p,.translation-feature-details > p,.research-materials-intro', ranges: [[16, 17], [17, 18]], line: [1.70, 1.82] },
+  prose: { selector: '.home-profile-copy > p,.about-biography > div > p,.about-biography .reading-prose p,.translation-feature-details > p,.research-focus-list .focus-copy', ranges: [[16, 17], [17, 18]], line: [1.70, 1.82] },
   nav: { selector: '[data-header] .primary-nav a,[data-header] .header-control', ranges: [[14, 15], [14, 15]], line: [1.40, 1.55] },
-  meta: { selector: '.publication-meta,.publication-venue,.writing-meta,.translation-feature-heading .original-title,.home-publications li time,.conference-year time,.research-material-provenance :is(dt,dd)', ranges: [[14, 15], [14, 15]], line: [1.50, 1.65] }
+  meta: { selector: '.publication-meta,.publication-venue,.writing-meta,.translation-feature-heading .original-title,.home-publications li time,.conference-year time', ranges: [[14, 15], [14, 15]], line: [1.50, 1.65] }
 };
 const routeControls = {
   'index.html': ['.home-archive-index a[href="journal-papers.html"]', '#home-title'],
-  'research.html': ['[data-material-track]', '[data-material-choice]', '[data-material-step="1"]'],
+  'research.html': ['[data-chapter-index] a[href="#research-focus"]', '[data-chapter-index] a[href="#research-specialties"]', '#research-focus article[data-reading-record]', '#research-specialties article[data-reading-record]'],
   'journal-papers.html': ['[data-publication-filter="all"]', '[data-publication] [data-copy]', '[data-publication] details > summary'],
   'conference-papers.html': ['#conference-published article a'],
   'translations.html': ['.translation-feature .axis-link'],
