@@ -78,7 +78,9 @@ const css = compactCss(cssSource);
 await writeFile(resolve(root, 'assets/site.css'), `${css}\n`, 'utf8');
 const editorialSources = await Promise.all(['editorial.css', 'reading.css', 'mobile.css', 'ink-transition.css', 'scroll-gallery.css', 'menu-ink.css', 'ink-interactive.css', 'academic-layout.css'].map((file) => readFile(resolve(root, 'src/styles', file), 'utf8')));
 await writeFile(resolve(root, 'assets/editorial.css'), `${compactCss(editorialSources.join('\n'))}\n`, 'utf8');
-await writeFile(resolve(root, 'assets/journal.css'), `${compactCss(await readFile(resolve(root, 'src/styles/journal.css'), 'utf8'))}\n`, 'utf8');
+for (const pageStyle of ['journal', 'cv-research']) {
+  await writeFile(resolve(root, `assets/${pageStyle}.css`), `${compactCss(await readFile(resolve(root, `src/styles/${pageStyle}.css`), 'utf8'))}\n`, 'utf8');
+}
 await writeFile(resolve(root, 'assets/site.js'), await readFile(resolve(root, 'src/scripts/site.js'), 'utf8'), 'utf8');
 for (const feature of ['reading-enhancement', 'research-materials']) {
   await writeFile(resolve(root, `assets/${feature}.css`), `${compactCss(await readFile(resolve(root, `src/styles/${feature}.css`), 'utf8'))}\n`, 'utf8');

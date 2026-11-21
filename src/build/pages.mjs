@@ -192,6 +192,19 @@ export function teachingPage({ experience, siteGlyphs }) {
 }
 
 const cvList = (items, render) => `<ol class="cv-list">${items.map(render).join('')}</ol>`;
+// Use stable expertise IDs: the sixth record, not the fifth, is 魏晉思想.
+const cvResearchGlyphs = {
+  'expertise-01': ['pre-qin', 97],
+  'expertise-02': ['xunzi', 97],
+  'expertise-03': ['laozi', 97],
+  'expertise-04': ['excavated-texts', 99],
+  'expertise-06': ['wei-jin', 97]
+};
+const cvResearchEntry = (item) => {
+  const glyph = cvResearchGlyphs[item.id];
+  const artwork = glyph ? `<img class="cv-entry-glyph" src="images/cv/${glyph[0]}.png" width="${glyph[1]}" height="97" alt="" decoding="async" fetchpriority="low">` : '';
+  return `<li data-cv-expertise="${escapeHtml(item.id)}">${artwork}<div class="cv-entry-copy"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p></div></li>`;
+};
 export function cvPage({ profile, education, experience, research, publications, conferences, translations, credentials, siteGlyphs }) {
   const translationItems = [translations.translation, ...translations.publicWriting];
   const sections = [['cv-profile', '個人資料'], ['cv-education', '教育'], ['cv-experience', '職歷與教學'], ['cv-research', '研究領域'], ['cv-journal', '期刊論文'], ['cv-conference', '研討會論文'], ['cv-translations', '譯著與公共寫作'], ['cv-projects', '研究計畫'], ['cv-credentials', '證照與獎項']];
@@ -200,7 +213,7 @@ export function cvPage({ profile, education, experience, research, publications,
     <section id="cv-profile"><h2>個人資料</h2>${profile.bio.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('')}</section>
     <section id="cv-education"><h2>教育</h2>${cvList(education, (item) => `<li><time class="nowrap-token">${escapeHtml(item.period)}</time><div><h3><span class="degree-zh">${escapeHtml(item.degreeZh)}</span><span class="degree-en" lang="en">${escapeHtml(item.degreeEn)}</span></h3>${institutionPath(item)}</div></li>`)}</section>
     <section id="cv-experience"><h2>職歷與教學</h2>${cvList(experience, (item) => `<li><span></span><p>${escapeHtml(item.text)}</p></li>`)}</section>
-    <section id="cv-research"><h2>研究領域</h2>${cvList(research.expertise, (item) => `<li><span></span><div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p></div></li>`)}</section>
+    <section id="cv-research"><h2>研究領域</h2>${cvList(research.expertise, cvResearchEntry)}</section>
     <section id="cv-journal"><h2>期刊論文</h2>${cvList(publications, (item) => `<li><time>${escapeHtml(item.year)}</time><div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.venue)}　${escapeHtml(item.meta)}</p>${tags(item.tags)}</div></li>`)}</section>
     <section id="cv-conference"><h2>研討會論文</h2>${cvList([...conferences.published, ...conferences.presentations], (item) => `<li><time>${escapeHtml(item.year || '')}</time><div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.venue || '')}${item.venue ? '　' : ''}${escapeHtml(item.meta)}</p></div></li>`)}</section>
     <section id="cv-translations"><h2>譯著與公共寫作</h2>${cvList(translationItems, (item) => `<li><span></span><div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description || item.originalTitle || '')}</p><small>${escapeHtml(item.source || item.publisher || '')}</small></div></li>`)}</section>

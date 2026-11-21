@@ -126,7 +126,7 @@ export function layout({ route, routes, profile, routeGlyphMap, siteGlyphs, name
   <link rel="stylesheet" href="assets/site.css?v=${escapeHtml(buildCommit)}">
   <link rel="stylesheet" href="assets/fonts.css?v=${escapeHtml(buildCommit)}">
   <link rel="stylesheet" href="assets/effects.css?v=${escapeHtml(buildCommit)}">
-  <link rel="stylesheet" href="assets/editorial.css?v=${escapeHtml(buildCommit)}">${route.id === 'journal' ? `\n  <link rel="stylesheet" href="assets/journal.css?v=${escapeHtml(buildCommit)}">` : ''}${additions.map((asset) => `\n  <link rel="stylesheet" href="assets/${asset}.css?v=${escapeHtml(buildCommit)}">`).join('')}
+  <link rel="stylesheet" href="assets/editorial.css?v=${escapeHtml(buildCommit)}">${route.id === 'journal' ? `\n  <link rel="stylesheet" href="assets/journal.css?v=${escapeHtml(buildCommit)}">` : ''}${additions.map((asset) => `\n  <link rel="stylesheet" href="assets/${asset}.css?v=${escapeHtml(buildCommit)}">`).join('')}${route.id === 'cv' ? '\n  <link rel="stylesheet" href="assets/cv-research.css?v=20261121-01">' : ''}
   <link rel="stylesheet" href="assets/webfonts.css?v=${escapeHtml(buildCommit)}" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="assets/webfonts.css?v=${escapeHtml(buildCommit)}"></noscript>
   <script src="assets/site.js?v=${escapeHtml(buildCommit)}" defer></script>${additions.map((asset) => `\n  <script src="assets/${asset}.js?v=${escapeHtml(buildCommit)}" defer></script>`).join('')}
