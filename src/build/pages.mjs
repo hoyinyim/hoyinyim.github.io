@@ -192,12 +192,13 @@ export function teachingPage({ experience, siteGlyphs }) {
 }
 
 const cvList = (items, render) => `<ol class="cv-list">${items.map(render).join('')}</ol>`;
-// Use stable expertise IDs: the sixth record, not the fifth, is 魏晉思想.
+// Keep each supplied glyph tied to its research record, independent of list order.
 const cvResearchGlyphs = {
   'expertise-01': ['pre-qin', 97],
   'expertise-02': ['xunzi', 97],
   'expertise-03': ['laozi', 97],
   'expertise-04': ['excavated-texts', 99],
+  'expertise-05': ['ethics-politics', 97],
   'expertise-06': ['wei-jin', 97]
 };
 const cvResearchEntry = (item) => {

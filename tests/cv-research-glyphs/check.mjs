@@ -22,7 +22,7 @@ const expertise = [
   ['expertise-02', '荀子哲學', 'xunzi', '26a0e6eae0fa72cd28a7961f67ddf4a05e9c4ebde262a8dab64d36e2dc53be95'],
   ['expertise-03', '老子思想', 'laozi', 'db9dacf99116e9a16afbecf9a5b999142727fe0c7d3b15cf52dc6962b8d64c3c'],
   ['expertise-04', '出土文獻思想', 'excavated-texts', 'c236eadf374015d5ce8b92119ed963be67118d35858ed0557fa3d87c1cf9c4d3'],
-  ['expertise-05', '中國倫理與政治思想', null, null],
+  ['expertise-05', '中國倫理與政治思想', 'ethics-politics', '5d23a62742b75d9ae09becdd51400f49b8164f213c3ff49e5ff8071872472215'],
   ['expertise-06', '魏晉思想', 'wei-jin', '4a49bb481739ebaaa8904b3ac702af2bc672fcc9f7b4bf67d17f0a657a18b86e'],
 ];
 const glyphUrl = (name) => new URL(`images/cv/${name}.png`, base).href;
@@ -41,7 +41,7 @@ async function openCv(page) {
 
 async function checkEntries(page) {
   const images = await page.locator('.cv-entry-glyph').count();
-  assert.equal(images, 5, '研究圖像數量');
+  assert.equal(images, 6, '研究圖像數量');
   assert.equal(await page.locator('link[rel="stylesheet"][href^="assets/cv-research.css"]').count(), 1);
   assert.equal(await page.locator('.cv-entry-emblem, .credential-mark, #cv-experience img, #cv-projects img').count(), 0);
   assert.deepEqual(await page.locator('#cv-experience .cv-list > li').evaluateAll((rows) =>
@@ -78,7 +78,7 @@ async function checkLayout(page, label) {
     const root = document.documentElement;
     return { findings, width: root.clientWidth, scrollWidth: root.scrollWidth, fontSize: getComputedStyle(root).fontSize };
   });
-  assert.equal(geometry.findings.length, 5, label);
+  assert.equal(geometry.findings.length, 6, label);
   assert.deepEqual(geometry.findings.filter(({ loaded, declared, visible, fits, alt }) =>
     !loaded || !declared || !visible || !fits || !alt), [], label);
   assert.ok(geometry.scrollWidth <= geometry.width + 1, `${label}：頁面橫溢 ${geometry.scrollWidth}/${geometry.width}`);
@@ -139,7 +139,7 @@ try {
   await checkEntries(noJs);
   await checkLayout(noJs, 'no-js');
   await capture(noJs, 'no-js');
-  console.log('通過：停用 JavaScript、列印預覽、五張圖與舊下載 PDF 的 SHA-256');
+  console.log('通過：停用 JavaScript、列印預覽、六張圖與舊下載 PDF 的 SHA-256');
 } finally {
   await browser.close();
 }
